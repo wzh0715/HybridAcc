@@ -1,0 +1,337 @@
+set SynModuleInfo {
+  {SRCNAME top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7 MODELNAME top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7 RTLNAME top_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7
+    SUBMODULES {
+      {MODELNAME top_mul_28ns_32s_32_1_1 RTLNAME top_mul_28ns_32s_32_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_flow_control_loop_pipe_sequential_init RTLNAME top_flow_control_loop_pipe_sequential_init BINDTYPE interface TYPE internal_upc_flow_control INSTNAME top_flow_control_loop_pipe_sequential_init_U}
+    }
+  }
+  {SRCNAME top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4 MODELNAME top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4 RTLNAME top_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4
+    SUBMODULES {
+      {MODELNAME top_mul_32s_32s_32_1_1 RTLNAME top_mul_32s_32s_32_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4 MODELNAME top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4 RTLNAME top_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4}
+  {SRCNAME Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2 MODELNAME Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2 RTLNAME top_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2
+    SUBMODULES {
+      {MODELNAME top_ama_addmuladd_13ns_13ns_13s_13ns_13_4_1 RTLNAME top_ama_addmuladd_13ns_13ns_13s_13ns_13_4_1 BINDTYPE op TYPE all IMPL dsp_slice LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME top_mac_muladd_13s_13s_13ns_13_4_1 RTLNAME top_mac_muladd_13s_13s_13ns_13_4_1 BINDTYPE op TYPE all IMPL dsp_slice LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME top_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_row_buffer_RAM_AUTO_1R1W RTLNAME top_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_row_buffer_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME Sliding MODELNAME Sliding RTLNAME top_Sliding
+    SUBMODULES {
+      {MODELNAME top_mul_28ns_32ns_60_1_1 RTLNAME top_mul_28ns_32ns_60_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME top_Pipeline_VITIS_LOOP_192_1 MODELNAME top_Pipeline_VITIS_LOOP_192_1 RTLNAME top_top_Pipeline_VITIS_LOOP_192_1}
+  {SRCNAME ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_ MODELNAME ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s RTLNAME top_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s}
+  {SRCNAME ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_ MODELNAME ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s RTLNAME top_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s
+    SUBMODULES {
+      {MODELNAME top_mul_2ns_32s_32_1_1 RTLNAME top_mul_2ns_32s_32_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME ConvertWeightToStream MODELNAME ConvertWeightToStream RTLNAME top_ConvertWeightToStream
+    SUBMODULES {
+      {MODELNAME top_mul_28ns_60ns_88_1_1 RTLNAME top_mul_28ns_60ns_88_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_mul_28ns_64ns_92_1_1 RTLNAME top_mul_28ns_64ns_92_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_mul_32ns_30ns_62_1_1 RTLNAME top_mul_32ns_30ns_62_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2 MODELNAME ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2 RTLNAME top_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2}
+  {SRCNAME ConvWeightToArray MODELNAME ConvWeightToArray RTLNAME top_ConvWeightToArray}
+  {SRCNAME top_Pipeline_VITIS_LOOP_288_1 MODELNAME top_Pipeline_VITIS_LOOP_288_1 RTLNAME top_top_Pipeline_VITIS_LOOP_288_1}
+  {SRCNAME MuxWeightStream MODELNAME MuxWeightStream RTLNAME top_MuxWeightStream}
+  {SRCNAME PE_Pipeline_VITIS_LOOP_378_5 MODELNAME PE_Pipeline_VITIS_LOOP_378_5 RTLNAME top_PE_Pipeline_VITIS_LOOP_378_5
+    SUBMODULES {
+      {MODELNAME top_mul_8s_8s_16_1_1 RTLNAME top_mul_8s_8s_16_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_mac_muladd_8s_8s_32s_32_4_1 RTLNAME top_mac_muladd_8s_8s_32s_32_4_1 BINDTYPE op TYPE all IMPL dsp_slice LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME top_mac_muladd_8s_8s_16s_17_4_1 RTLNAME top_mac_muladd_8s_8s_16s_17_4_1 BINDTYPE op TYPE all IMPL dsp_slice LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME top_mac_muladd_8s_8s_17s_17_4_1 RTLNAME top_mac_muladd_8s_8s_17s_17_4_1 BINDTYPE op TYPE all IMPL dsp_slice LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME top_mac_muladd_8s_8s_17s_18_4_1 RTLNAME top_mac_muladd_8s_8s_17s_18_4_1 BINDTYPE op TYPE all IMPL dsp_slice LATENCY 3 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME PE MODELNAME PE RTLNAME top_PE}
+  {SRCNAME ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V MODELNAME ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V RTLNAME top_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V}
+  {SRCNAME ConvertToOutStream_Pipeline_VITIS_LOOP_579_1 MODELNAME ConvertToOutStream_Pipeline_VITIS_LOOP_579_1 RTLNAME top_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1}
+  {SRCNAME ConvertToOutStream MODELNAME ConvertToOutStream RTLNAME top_ConvertToOutStream
+    SUBMODULES {
+      {MODELNAME top_mul_28ns_36ns_64_1_1 RTLNAME top_mul_28ns_36ns_64_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI MODELNAME ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI RTLNAME top_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI
+    SUBMODULES {
+      {MODELNAME top_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_Vbkb RTLNAME top_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_Vbkb BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME ConvToOutStream MODELNAME ConvToOutStream RTLNAME top_ConvToOutStream
+    SUBMODULES {
+      {MODELNAME top_mul_28ns_96ns_124_1_1 RTLNAME top_mul_28ns_96ns_124_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_mul_32ns_32ns_64_1_1 RTLNAME top_mul_32ns_32ns_64_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_mul_32ns_64ns_96_1_1 RTLNAME top_mul_32ns_64ns_96_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_mul_32s_28ns_32_1_1 RTLNAME top_mul_32s_28ns_32_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME top_Pipeline_VITIS_LOOP_106_1 MODELNAME top_Pipeline_VITIS_LOOP_106_1 RTLNAME top_top_Pipeline_VITIS_LOOP_106_1}
+  {SRCNAME top_Pipeline_VITIS_LOOP_113_2 MODELNAME top_Pipeline_VITIS_LOOP_113_2 RTLNAME top_top_Pipeline_VITIS_LOOP_113_2}
+  {SRCNAME top MODELNAME top RTLNAME top IS_TOP 1
+    SUBMODULES {
+      {MODELNAME top_mul_28ns_92ns_120_1_1 RTLNAME top_mul_28ns_92ns_120_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_mul_32ns_28ns_60_1_1 RTLNAME top_mul_32ns_28ns_60_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_mul_32ns_60ns_92_1_1 RTLNAME top_mul_32ns_60ns_92_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME top_fifo_w128_d128_A RTLNAME top_fifo_w128_d128_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME conv_a_U}
+      {MODELNAME top_fifo_w128_d128_A RTLNAME top_fifo_w128_d128_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME mm_a_U}
+      {MODELNAME top_fifo_w128_d32_A RTLNAME top_fifo_w128_d32_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME conv3_samepad_U}
+      {MODELNAME top_fifo_w128_d32_A RTLNAME top_fifo_w128_d32_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME conv3_sild_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_16_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_17_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_18_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_19_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_20_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_21_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_22_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_23_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_24_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_25_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_26_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_27_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_28_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_29_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_A_30_U}
+      {MODELNAME top_fifo_w128_d128_A RTLNAME top_fifo_w128_d128_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME fifo_conv_w_U}
+      {MODELNAME top_fifo_w128_d128_A RTLNAME top_fifo_w128_d128_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME fifo_conv_w_1_U}
+      {MODELNAME top_fifo_w128_d128_A RTLNAME top_fifo_w128_d128_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME fifo_conv_w_2_U}
+      {MODELNAME top_fifo_w128_d128_A RTLNAME top_fifo_w128_d128_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME fifo_conv_w_3_U}
+      {MODELNAME top_fifo_w128_d128_A RTLNAME top_fifo_w128_d128_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME fifo_mm_w_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_1_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_2_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_3_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_4_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_5_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_6_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_7_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_8_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_9_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_10_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_11_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_12_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_13_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_14_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME Conv_SA_W_15_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_1_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_2_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_3_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_4_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_5_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_6_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_7_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_8_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_9_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_10_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_11_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_12_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_13_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_14_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_SA_W_15_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_1_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_2_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_3_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_4_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_5_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_6_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_7_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_8_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_9_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_10_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_11_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_12_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_13_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_14_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_W_15_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_1_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_2_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_3_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_4_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_5_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_6_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_7_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_8_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_9_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_10_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_11_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_12_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_13_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_14_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_15_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_16_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_17_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_18_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_19_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_20_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_21_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_22_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_23_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_24_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_25_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_26_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_27_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_28_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_29_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_30_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_31_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_32_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_33_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_34_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_35_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_36_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_37_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_38_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_39_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_40_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_41_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_42_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_43_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_44_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_45_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_46_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_47_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_48_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_49_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_50_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_51_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_52_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_53_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_54_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_55_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_56_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_57_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_58_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_59_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_60_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_61_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_62_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_SA_O_63_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_1_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_2_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_3_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_4_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_5_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_6_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_7_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_8_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_9_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_10_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_11_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_12_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_13_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_14_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME fifo_CONV3_ACC_15_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_1_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_2_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_3_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_4_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_5_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_6_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_7_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_8_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_9_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_10_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_11_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_12_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_13_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_14_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_15_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_16_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_17_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_18_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_19_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_20_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_21_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_22_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_23_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_24_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_25_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_26_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_27_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_28_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_29_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_30_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_31_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_32_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_33_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_34_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_35_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_36_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_37_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_38_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_39_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_40_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_41_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_42_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_43_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_44_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_45_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_46_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_47_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_48_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_49_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_50_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_51_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_52_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_53_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_54_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_55_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_56_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_57_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_58_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_59_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_60_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_61_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_62_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME MM_OUT_63_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_1_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_2_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_3_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_4_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_5_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_6_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_7_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_8_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_9_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_10_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_11_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_12_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_13_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_14_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_15_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_16_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_17_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_18_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_19_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_20_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_21_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_22_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_23_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_24_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_25_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_26_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_27_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_28_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_29_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_30_U}
+      {MODELNAME top_fifo_w32_d32_S RTLNAME top_fifo_w32_d32_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME CONV3_OUT_31_U}
+      {MODELNAME top_A_BUS_m_axi RTLNAME top_A_BUS_m_axi BINDTYPE interface TYPE adapter IMPL m_axi}
+      {MODELNAME top_CONV_BUS_m_axi RTLNAME top_CONV_BUS_m_axi BINDTYPE interface TYPE adapter IMPL m_axi}
+      {MODELNAME top_MM_BUS_m_axi RTLNAME top_MM_BUS_m_axi BINDTYPE interface TYPE adapter IMPL m_axi}
+      {MODELNAME top_control_s_axi RTLNAME top_control_s_axi BINDTYPE interface TYPE interface_s_axilite}
+      {MODELNAME top_control_r_s_axi RTLNAME top_control_r_s_axi BINDTYPE interface TYPE interface_s_axilite}
+    }
+  }
+}

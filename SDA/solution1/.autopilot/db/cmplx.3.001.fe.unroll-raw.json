@@ -1,0 +1,143 @@
+{
+  "0": {
+    "basicblocks": 34,
+    "calls": "12 8 3 10 4 2 6 11 1 9 7",
+    "file": "top.cpp",
+    "fileloc": 3,
+    "instructions": 237,
+    "name": "top",
+    "total_instructions": 26119
+  },
+  "1": {
+    "basicblocks": 8,
+    "calls": "5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5",
+    "file": "tools.cpp",
+    "fileloc": 558,
+    "instructions": 72,
+    "name": "Compute",
+    "total_instructions": 24216
+  },
+  "10": {
+    "basicblocks": 14,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 189,
+    "instructions": 41,
+    "name": "ConvertInputToArray",
+    "total_instructions": 41
+  },
+  "11": {
+    "basicblocks": 60,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 304,
+    "instructions": 227,
+    "name": "MuxWeightStream",
+    "total_instructions": 227
+  },
+  "12": {
+    "basicblocks": 36,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 3,
+    "instructions": 99,
+    "loads": {
+      "L": 2
+    },
+    "name": "ConvertInputToStream",
+    "total_instructions": 99
+  },
+  "2": {
+    "basicblocks": 14,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 261,
+    "instructions": 41,
+    "name": "ConvWeightToArray",
+    "total_instructions": 41
+  },
+  "3": {
+    "basicblocks": 48,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 80,
+    "instructions": 257,
+    "loads": {
+      "L": 1
+    },
+    "name": "Sliding",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 257
+  },
+  "4": {
+    "basicblocks": 34,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 215,
+    "instructions": 104,
+    "loads": {
+      "L": 2
+    },
+    "name": "ConvertWeightToStream",
+    "total_instructions": 104
+  },
+  "5": {
+    "basicblocks": 419,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 326,
+    "instructions": 1509,
+    "loads": {
+      "L": 131
+    },
+    "name": "PE",
+    "stores": {
+      "L": 223
+    },
+    "total_instructions": 1509
+  },
+  "6": {
+    "basicblocks": 15,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 283,
+    "instructions": 63,
+    "name": "MMWeightToArray",
+    "total_instructions": 63
+  },
+  "7": {
+    "basicblocks": 103,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 626,
+    "instructions": 466,
+    "loads": {
+      "L": 32
+    },
+    "name": "ConvToOutStream",
+    "stores": {
+      "L": 32
+    },
+    "total_instructions": 466
+  },
+  "8": {
+    "basicblocks": 28,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 48,
+    "instructions": 68,
+    "name": "SamePadding",
+    "total_instructions": 68
+  },
+  "9": {
+    "basicblocks": 49,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 572,
+    "instructions": 300,
+    "name": "ConvertToOutStream",
+    "total_instructions": 300
+  }
+}

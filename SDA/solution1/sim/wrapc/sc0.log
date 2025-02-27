@@ -1,0 +1,7 @@
+   Build using "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/win64/msys64/mingw64/bin/g++"
+   Compiling test.cpp_pre.cpp.tb.cpp
+   Compiling tools.cpp_pre.cpp.tb.cpp
+   Compiling apatb_top.cpp
+   Compiling top.cpp_pre.cpp.tb.cpp
+   Compiling apatb_top_ir.ll
+   Generating cosim.tv.exe

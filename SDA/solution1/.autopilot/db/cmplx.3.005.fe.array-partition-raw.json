@@ -1,0 +1,98 @@
+{
+  "0": {
+    "basicblocks": 285,
+    "calls": "2 6 4 5 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 3 1",
+    "file": "top.cpp",
+    "fileloc": 3,
+    "instructions": 2280,
+    "loads": {
+      "T": 2
+    },
+    "name": "top",
+    "total_instructions": 16757
+  },
+  "1": {
+    "basicblocks": 143,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 626,
+    "instructions": 1304,
+    "loads": {
+      "L": 32
+    },
+    "name": "ConvToOutStream",
+    "stores": {
+      "L": 32
+    },
+    "total_instructions": 1304
+  },
+  "2": {
+    "basicblocks": 23,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 80,
+    "instructions": 176,
+    "loads": {
+      "L": 1
+    },
+    "name": "Sliding",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 176
+  },
+  "3": {
+    "basicblocks": 191,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 572,
+    "instructions": 565,
+    "name": "ConvertToOutStream",
+    "total_instructions": 565
+  },
+  "4": {
+    "basicblocks": 40,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 261,
+    "instructions": 100,
+    "name": "ConvWeightToArray",
+    "total_instructions": 100
+  },
+  "5": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 304,
+    "instructions": 124,
+    "name": "MuxWeightStream",
+    "total_instructions": 124
+  },
+  "6": {
+    "basicblocks": 29,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 215,
+    "instructions": 96,
+    "loads": {
+      "L": 2
+    },
+    "name": "ConvertWeightToStream",
+    "total_instructions": 96
+  },
+  "7": {
+    "basicblocks": 58,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 326,
+    "instructions": 757,
+    "loads": {
+      "L": 28
+    },
+    "name": "PE",
+    "stores": {
+      "L": 48
+    },
+    "total_instructions": 757
+  }
+}

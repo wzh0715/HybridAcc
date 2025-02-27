@@ -1,0 +1,348 @@
+
+
+================================================================
+== Vitis HLS Report for 'ConvToOutStream'
+================================================================
+* Date:           Tue Feb 25 14:23:57 2025
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        SDA
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplusHBM
+* Target device:  xcvu35p_CIV-fsvh2892-3-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.650 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    | min |  max |   Type  |
+    +---------+---------+-----------+-----------+-----+------+---------+
+    |        1|     9221|  10.000 ns|  92.210 us|    1|  9221|       no|
+    +---------+---------+-----------+-----------+-----+------+---------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |                                                                                             |                                                                                  |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+        |                                           Instance                                          |                                      Module                                      |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+        +---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168  |ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI  |     9218|     9218|  92.180 us|  92.180 us|  9218|  9218|       no|
+        +---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+---------+-----------+-----------+------+------+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+--------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
++---------------------+---------+------+---------+--------+-----+
+|DSP                  |        -|     -|        -|       -|    -|
+|Expression           |        -|     -|        0|      41|    -|
+|FIFO                 |        -|     -|        -|       -|    -|
+|Instance             |        0|    30|     2997|    4891|    0|
+|Memory               |        -|     -|        -|       -|    -|
+|Multiplexer          |        -|     -|        -|     458|    -|
+|Register             |        -|     -|      381|       -|    -|
++---------------------+---------+------+---------+--------+-----+
+|Total                |        0|    30|     3378|    5390|    0|
++---------------------+---------+------+---------+--------+-----+
+|Available SLR        |     1344|  2976|   871680|  435840|  320|
++---------------------+---------+------+---------+--------+-----+
+|Utilization SLR (%)  |        0|     1|       ~0|       1|    0|
++---------------------+---------+------+---------+--------+-----+
+|Available            |     2688|  5952|  1743360|  871680|  640|
++---------------------+---------+------+---------+--------+-----+
+|Utilization (%)      |        0|    ~0|       ~0|      ~0|    0|
++---------------------+---------+------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+----+------+------+-----+
+    |                                           Instance                                          |                                      Module                                      | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+----+------+------+-----+
+    |grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168  |ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI  |        0|   0|  2997|  4629|    0|
+    |mul_28ns_96ns_124_1_1_U714                                                                   |mul_28ns_96ns_124_1_1                                                             |        0|  12|     0|   157|    0|
+    |mul_32ns_32ns_64_1_1_U715                                                                    |mul_32ns_32ns_64_1_1                                                              |        0|   4|     0|    20|    0|
+    |mul_32ns_64ns_96_1_1_U716                                                                    |mul_32ns_64ns_96_1_1                                                              |        0|   8|     0|    45|    0|
+    |mul_32s_28ns_32_1_1_U717                                                                     |mul_32s_28ns_32_1_1                                                               |        0|   3|     0|    20|    0|
+    |mul_32s_32s_32_1_1_U718                                                                      |mul_32s_32s_32_1_1                                                                |        0|   3|     0|    20|    0|
+    +---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+----+------+------+-----+
+    |Total                                                                                        |                                                                                  |        0|  30|  2997|  4891|    0|
+    +---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |          Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |sub_fu_339_p2                    |         +|   0|  0|  39|          32|           2|
+    |ap_block_state4_on_subcall_done  |       and|   0|  0|   2|           1|           1|
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |Total                            |          |   0|  0|  41|          33|           3|
+    +---------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------+----+-----------+-----+-----------+
+    |          Name          | LUT| Input Size| Bits| Total Bits|
+    +------------------------+----+-----------+-----+-----------+
+    |CONV3_OUT_0_write       |   9|          2|    1|          2|
+    |CONV3_OUT_10_write      |   9|          2|    1|          2|
+    |CONV3_OUT_11_write      |   9|          2|    1|          2|
+    |CONV3_OUT_12_write      |   9|          2|    1|          2|
+    |CONV3_OUT_13_write      |   9|          2|    1|          2|
+    |CONV3_OUT_14_write      |   9|          2|    1|          2|
+    |CONV3_OUT_15_write      |   9|          2|    1|          2|
+    |CONV3_OUT_16_write      |   9|          2|    1|          2|
+    |CONV3_OUT_17_write      |   9|          2|    1|          2|
+    |CONV3_OUT_18_write      |   9|          2|    1|          2|
+    |CONV3_OUT_19_write      |   9|          2|    1|          2|
+    |CONV3_OUT_1_write       |   9|          2|    1|          2|
+    |CONV3_OUT_20_write      |   9|          2|    1|          2|
+    |CONV3_OUT_21_write      |   9|          2|    1|          2|
+    |CONV3_OUT_22_write      |   9|          2|    1|          2|
+    |CONV3_OUT_23_write      |   9|          2|    1|          2|
+    |CONV3_OUT_24_write      |   9|          2|    1|          2|
+    |CONV3_OUT_25_write      |   9|          2|    1|          2|
+    |CONV3_OUT_26_write      |   9|          2|    1|          2|
+    |CONV3_OUT_27_write      |   9|          2|    1|          2|
+    |CONV3_OUT_28_write      |   9|          2|    1|          2|
+    |CONV3_OUT_29_write      |   9|          2|    1|          2|
+    |CONV3_OUT_2_write       |   9|          2|    1|          2|
+    |CONV3_OUT_30_write      |   9|          2|    1|          2|
+    |CONV3_OUT_31_write      |   9|          2|    1|          2|
+    |CONV3_OUT_3_write       |   9|          2|    1|          2|
+    |CONV3_OUT_4_write       |   9|          2|    1|          2|
+    |CONV3_OUT_5_write       |   9|          2|    1|          2|
+    |CONV3_OUT_6_write       |   9|          2|    1|          2|
+    |CONV3_OUT_7_write       |   9|          2|    1|          2|
+    |CONV3_OUT_8_write       |   9|          2|    1|          2|
+    |CONV3_OUT_9_write       |   9|          2|    1|          2|
+    |ap_NS_fsm               |  26|          5|    1|          5|
+    |fifo_CONV3_ACC_0_read   |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_10_read  |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_11_read  |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_12_read  |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_13_read  |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_14_read  |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_15_read  |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_1_read   |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_2_read   |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_3_read   |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_4_read   |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_5_read   |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_6_read   |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_7_read   |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_8_read   |   9|          2|    1|          2|
+    |fifo_CONV3_ACC_9_read   |   9|          2|    1|          2|
+    +------------------------+----+-----------+-----+-----------+
+    |Total                   | 458|        101|   49|        101|
+    +------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------------------------------------------------------------------------------+-----+----+-----+-----------+
+    |                                                   Name                                                   |  FF | LUT| Bits| Const Bits|
+    +----------------------------------------------------------------------------------------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                                                                                                 |    4|   0|    4|          0|
+    |grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_ap_start_reg  |    1|   0|    1|          0|
+    |mul8_reg_368                                                                                              |   32|   0|   32|          0|
+    |mul_ln630_1_reg_384                                                                                       |   96|   0|   96|          0|
+    |mul_ln630_2_reg_395                                                                                       |  124|   0|  124|          0|
+    |mul_ln630_reg_379                                                                                         |   64|   0|   64|          0|
+    |sub_reg_390                                                                                               |   32|   0|   32|          0|
+    |trunc_ln633_1_reg_374                                                                                     |   28|   0|   28|          0|
+    +----------------------------------------------------------------------------------------------------------+-----+----+-----+-----------+
+    |Total                                                                                                     |  381|   0|  381|          0|
+    +----------------------------------------------------------------------------------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+-------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++---------------------------+-----+-----+------------+-------------------+--------------+
+|ap_clk                     |   in|    1|  ap_ctrl_hs|    ConvToOutStream|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|    ConvToOutStream|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|    ConvToOutStream|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|    ConvToOutStream|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|    ConvToOutStream|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|    ConvToOutStream|  return value|
+|fifo_CONV3_ACC_0_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_0|       pointer|
+|fifo_CONV3_ACC_0_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_0|       pointer|
+|fifo_CONV3_ACC_0_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_0|       pointer|
+|fifo_CONV3_ACC_1_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_1|       pointer|
+|fifo_CONV3_ACC_1_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_1|       pointer|
+|fifo_CONV3_ACC_1_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_1|       pointer|
+|fifo_CONV3_ACC_2_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_2|       pointer|
+|fifo_CONV3_ACC_2_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_2|       pointer|
+|fifo_CONV3_ACC_2_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_2|       pointer|
+|fifo_CONV3_ACC_3_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_3|       pointer|
+|fifo_CONV3_ACC_3_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_3|       pointer|
+|fifo_CONV3_ACC_3_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_3|       pointer|
+|fifo_CONV3_ACC_4_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_4|       pointer|
+|fifo_CONV3_ACC_4_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_4|       pointer|
+|fifo_CONV3_ACC_4_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_4|       pointer|
+|fifo_CONV3_ACC_5_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_5|       pointer|
+|fifo_CONV3_ACC_5_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_5|       pointer|
+|fifo_CONV3_ACC_5_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_5|       pointer|
+|fifo_CONV3_ACC_6_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_6|       pointer|
+|fifo_CONV3_ACC_6_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_6|       pointer|
+|fifo_CONV3_ACC_6_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_6|       pointer|
+|fifo_CONV3_ACC_7_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_7|       pointer|
+|fifo_CONV3_ACC_7_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_7|       pointer|
+|fifo_CONV3_ACC_7_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_7|       pointer|
+|fifo_CONV3_ACC_8_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_8|       pointer|
+|fifo_CONV3_ACC_8_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_8|       pointer|
+|fifo_CONV3_ACC_8_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_8|       pointer|
+|fifo_CONV3_ACC_9_dout      |   in|   32|     ap_fifo|   fifo_CONV3_ACC_9|       pointer|
+|fifo_CONV3_ACC_9_empty_n   |   in|    1|     ap_fifo|   fifo_CONV3_ACC_9|       pointer|
+|fifo_CONV3_ACC_9_read      |  out|    1|     ap_fifo|   fifo_CONV3_ACC_9|       pointer|
+|fifo_CONV3_ACC_10_dout     |   in|   32|     ap_fifo|  fifo_CONV3_ACC_10|       pointer|
+|fifo_CONV3_ACC_10_empty_n  |   in|    1|     ap_fifo|  fifo_CONV3_ACC_10|       pointer|
+|fifo_CONV3_ACC_10_read     |  out|    1|     ap_fifo|  fifo_CONV3_ACC_10|       pointer|
+|fifo_CONV3_ACC_11_dout     |   in|   32|     ap_fifo|  fifo_CONV3_ACC_11|       pointer|
+|fifo_CONV3_ACC_11_empty_n  |   in|    1|     ap_fifo|  fifo_CONV3_ACC_11|       pointer|
+|fifo_CONV3_ACC_11_read     |  out|    1|     ap_fifo|  fifo_CONV3_ACC_11|       pointer|
+|fifo_CONV3_ACC_12_dout     |   in|   32|     ap_fifo|  fifo_CONV3_ACC_12|       pointer|
+|fifo_CONV3_ACC_12_empty_n  |   in|    1|     ap_fifo|  fifo_CONV3_ACC_12|       pointer|
+|fifo_CONV3_ACC_12_read     |  out|    1|     ap_fifo|  fifo_CONV3_ACC_12|       pointer|
+|fifo_CONV3_ACC_13_dout     |   in|   32|     ap_fifo|  fifo_CONV3_ACC_13|       pointer|
+|fifo_CONV3_ACC_13_empty_n  |   in|    1|     ap_fifo|  fifo_CONV3_ACC_13|       pointer|
+|fifo_CONV3_ACC_13_read     |  out|    1|     ap_fifo|  fifo_CONV3_ACC_13|       pointer|
+|fifo_CONV3_ACC_14_dout     |   in|   32|     ap_fifo|  fifo_CONV3_ACC_14|       pointer|
+|fifo_CONV3_ACC_14_empty_n  |   in|    1|     ap_fifo|  fifo_CONV3_ACC_14|       pointer|
+|fifo_CONV3_ACC_14_read     |  out|    1|     ap_fifo|  fifo_CONV3_ACC_14|       pointer|
+|fifo_CONV3_ACC_15_dout     |   in|   32|     ap_fifo|  fifo_CONV3_ACC_15|       pointer|
+|fifo_CONV3_ACC_15_empty_n  |   in|    1|     ap_fifo|  fifo_CONV3_ACC_15|       pointer|
+|fifo_CONV3_ACC_15_read     |  out|    1|     ap_fifo|  fifo_CONV3_ACC_15|       pointer|
+|CONV3_OUT_0_din            |  out|   32|     ap_fifo|        CONV3_OUT_0|       pointer|
+|CONV3_OUT_0_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_0|       pointer|
+|CONV3_OUT_0_write          |  out|    1|     ap_fifo|        CONV3_OUT_0|       pointer|
+|CONV3_OUT_1_din            |  out|   32|     ap_fifo|        CONV3_OUT_1|       pointer|
+|CONV3_OUT_1_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_1|       pointer|
+|CONV3_OUT_1_write          |  out|    1|     ap_fifo|        CONV3_OUT_1|       pointer|
+|CONV3_OUT_2_din            |  out|   32|     ap_fifo|        CONV3_OUT_2|       pointer|
+|CONV3_OUT_2_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_2|       pointer|
+|CONV3_OUT_2_write          |  out|    1|     ap_fifo|        CONV3_OUT_2|       pointer|
+|CONV3_OUT_3_din            |  out|   32|     ap_fifo|        CONV3_OUT_3|       pointer|
+|CONV3_OUT_3_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_3|       pointer|
+|CONV3_OUT_3_write          |  out|    1|     ap_fifo|        CONV3_OUT_3|       pointer|
+|CONV3_OUT_4_din            |  out|   32|     ap_fifo|        CONV3_OUT_4|       pointer|
+|CONV3_OUT_4_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_4|       pointer|
+|CONV3_OUT_4_write          |  out|    1|     ap_fifo|        CONV3_OUT_4|       pointer|
+|CONV3_OUT_5_din            |  out|   32|     ap_fifo|        CONV3_OUT_5|       pointer|
+|CONV3_OUT_5_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_5|       pointer|
+|CONV3_OUT_5_write          |  out|    1|     ap_fifo|        CONV3_OUT_5|       pointer|
+|CONV3_OUT_6_din            |  out|   32|     ap_fifo|        CONV3_OUT_6|       pointer|
+|CONV3_OUT_6_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_6|       pointer|
+|CONV3_OUT_6_write          |  out|    1|     ap_fifo|        CONV3_OUT_6|       pointer|
+|CONV3_OUT_7_din            |  out|   32|     ap_fifo|        CONV3_OUT_7|       pointer|
+|CONV3_OUT_7_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_7|       pointer|
+|CONV3_OUT_7_write          |  out|    1|     ap_fifo|        CONV3_OUT_7|       pointer|
+|CONV3_OUT_8_din            |  out|   32|     ap_fifo|        CONV3_OUT_8|       pointer|
+|CONV3_OUT_8_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_8|       pointer|
+|CONV3_OUT_8_write          |  out|    1|     ap_fifo|        CONV3_OUT_8|       pointer|
+|CONV3_OUT_9_din            |  out|   32|     ap_fifo|        CONV3_OUT_9|       pointer|
+|CONV3_OUT_9_full_n         |   in|    1|     ap_fifo|        CONV3_OUT_9|       pointer|
+|CONV3_OUT_9_write          |  out|    1|     ap_fifo|        CONV3_OUT_9|       pointer|
+|CONV3_OUT_10_din           |  out|   32|     ap_fifo|       CONV3_OUT_10|       pointer|
+|CONV3_OUT_10_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_10|       pointer|
+|CONV3_OUT_10_write         |  out|    1|     ap_fifo|       CONV3_OUT_10|       pointer|
+|CONV3_OUT_11_din           |  out|   32|     ap_fifo|       CONV3_OUT_11|       pointer|
+|CONV3_OUT_11_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_11|       pointer|
+|CONV3_OUT_11_write         |  out|    1|     ap_fifo|       CONV3_OUT_11|       pointer|
+|CONV3_OUT_12_din           |  out|   32|     ap_fifo|       CONV3_OUT_12|       pointer|
+|CONV3_OUT_12_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_12|       pointer|
+|CONV3_OUT_12_write         |  out|    1|     ap_fifo|       CONV3_OUT_12|       pointer|
+|CONV3_OUT_13_din           |  out|   32|     ap_fifo|       CONV3_OUT_13|       pointer|
+|CONV3_OUT_13_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_13|       pointer|
+|CONV3_OUT_13_write         |  out|    1|     ap_fifo|       CONV3_OUT_13|       pointer|
+|CONV3_OUT_14_din           |  out|   32|     ap_fifo|       CONV3_OUT_14|       pointer|
+|CONV3_OUT_14_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_14|       pointer|
+|CONV3_OUT_14_write         |  out|    1|     ap_fifo|       CONV3_OUT_14|       pointer|
+|CONV3_OUT_15_din           |  out|   32|     ap_fifo|       CONV3_OUT_15|       pointer|
+|CONV3_OUT_15_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_15|       pointer|
+|CONV3_OUT_15_write         |  out|    1|     ap_fifo|       CONV3_OUT_15|       pointer|
+|CONV3_OUT_16_din           |  out|   32|     ap_fifo|       CONV3_OUT_16|       pointer|
+|CONV3_OUT_16_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_16|       pointer|
+|CONV3_OUT_16_write         |  out|    1|     ap_fifo|       CONV3_OUT_16|       pointer|
+|CONV3_OUT_17_din           |  out|   32|     ap_fifo|       CONV3_OUT_17|       pointer|
+|CONV3_OUT_17_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_17|       pointer|
+|CONV3_OUT_17_write         |  out|    1|     ap_fifo|       CONV3_OUT_17|       pointer|
+|CONV3_OUT_18_din           |  out|   32|     ap_fifo|       CONV3_OUT_18|       pointer|
+|CONV3_OUT_18_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_18|       pointer|
+|CONV3_OUT_18_write         |  out|    1|     ap_fifo|       CONV3_OUT_18|       pointer|
+|CONV3_OUT_19_din           |  out|   32|     ap_fifo|       CONV3_OUT_19|       pointer|
+|CONV3_OUT_19_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_19|       pointer|
+|CONV3_OUT_19_write         |  out|    1|     ap_fifo|       CONV3_OUT_19|       pointer|
+|CONV3_OUT_20_din           |  out|   32|     ap_fifo|       CONV3_OUT_20|       pointer|
+|CONV3_OUT_20_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_20|       pointer|
+|CONV3_OUT_20_write         |  out|    1|     ap_fifo|       CONV3_OUT_20|       pointer|
+|CONV3_OUT_21_din           |  out|   32|     ap_fifo|       CONV3_OUT_21|       pointer|
+|CONV3_OUT_21_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_21|       pointer|
+|CONV3_OUT_21_write         |  out|    1|     ap_fifo|       CONV3_OUT_21|       pointer|
+|CONV3_OUT_22_din           |  out|   32|     ap_fifo|       CONV3_OUT_22|       pointer|
+|CONV3_OUT_22_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_22|       pointer|
+|CONV3_OUT_22_write         |  out|    1|     ap_fifo|       CONV3_OUT_22|       pointer|
+|CONV3_OUT_23_din           |  out|   32|     ap_fifo|       CONV3_OUT_23|       pointer|
+|CONV3_OUT_23_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_23|       pointer|
+|CONV3_OUT_23_write         |  out|    1|     ap_fifo|       CONV3_OUT_23|       pointer|
+|CONV3_OUT_24_din           |  out|   32|     ap_fifo|       CONV3_OUT_24|       pointer|
+|CONV3_OUT_24_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_24|       pointer|
+|CONV3_OUT_24_write         |  out|    1|     ap_fifo|       CONV3_OUT_24|       pointer|
+|CONV3_OUT_25_din           |  out|   32|     ap_fifo|       CONV3_OUT_25|       pointer|
+|CONV3_OUT_25_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_25|       pointer|
+|CONV3_OUT_25_write         |  out|    1|     ap_fifo|       CONV3_OUT_25|       pointer|
+|CONV3_OUT_26_din           |  out|   32|     ap_fifo|       CONV3_OUT_26|       pointer|
+|CONV3_OUT_26_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_26|       pointer|
+|CONV3_OUT_26_write         |  out|    1|     ap_fifo|       CONV3_OUT_26|       pointer|
+|CONV3_OUT_27_din           |  out|   32|     ap_fifo|       CONV3_OUT_27|       pointer|
+|CONV3_OUT_27_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_27|       pointer|
+|CONV3_OUT_27_write         |  out|    1|     ap_fifo|       CONV3_OUT_27|       pointer|
+|CONV3_OUT_28_din           |  out|   32|     ap_fifo|       CONV3_OUT_28|       pointer|
+|CONV3_OUT_28_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_28|       pointer|
+|CONV3_OUT_28_write         |  out|    1|     ap_fifo|       CONV3_OUT_28|       pointer|
+|CONV3_OUT_29_din           |  out|   32|     ap_fifo|       CONV3_OUT_29|       pointer|
+|CONV3_OUT_29_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_29|       pointer|
+|CONV3_OUT_29_write         |  out|    1|     ap_fifo|       CONV3_OUT_29|       pointer|
+|CONV3_OUT_30_din           |  out|   32|     ap_fifo|       CONV3_OUT_30|       pointer|
+|CONV3_OUT_30_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_30|       pointer|
+|CONV3_OUT_30_write         |  out|    1|     ap_fifo|       CONV3_OUT_30|       pointer|
+|CONV3_OUT_31_din           |  out|   32|     ap_fifo|       CONV3_OUT_31|       pointer|
+|CONV3_OUT_31_full_n        |   in|    1|     ap_fifo|       CONV3_OUT_31|       pointer|
+|CONV3_OUT_31_write         |  out|    1|     ap_fifo|       CONV3_OUT_31|       pointer|
+|R                          |   in|   32|     ap_none|                  R|        scalar|
+|C                          |   in|   32|     ap_none|                  C|        scalar|
+|N                          |   in|   32|     ap_none|                  N|        scalar|
+|M                          |   in|   32|     ap_none|                  M|        scalar|
+|K                          |   in|   32|     ap_none|                  K|        scalar|
+|mode                       |   in|    1|     ap_none|               mode|        scalar|
++---------------------------+-----+-----+------------+-------------------+--------------+
+

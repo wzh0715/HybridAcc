@@ -1,0 +1,62 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Total Instructions per Compilation Phase
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Phase         | Step                        | Instructions | Description                                                                            |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Compile/Link  |                             |  4,488       | After all functions are compiled and linked into a single design                       |
+|               |                             |              |                                                                                        |
+| Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
+|               | (1) unroll                  | 26,119       | user unroll pragmas are applied                                                        |
+|               | (2) simplification          | 18,970       | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  | 17,800       | user inline pragmas are applied                                                        |
+|               | (4) simplification          | 17,408       | simplification of applied user inline pragmas                                          |
+|               |                             |              |                                                                                        |
+| Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
+|               | (1) array partition         | 16,757       | user array partition pragmas are applied                                               |
+|               | (2) simplification          | 14,266       | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  | 14,266       | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           | 14,180       | apply array reshape pragmas                                                            |
+|               | (5) access patterns         | 14,235       | array access pattern optmizations                                                      |
+|               |                             |              |                                                                                        |
+| Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
+|               | (1) loop simplification     | 14,198       | loop and instruction simplification                                                    |
+|               | (2) parallelization         | 14,096       | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         | 14,096       | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          | 14,087       | simplification of design after performance transformations                             |
+|               |                             |              |                                                                                        |
+| HW Transforms |                             |              | After hardware transfomations                                                          |
+|               | (1) lowering                | 14,379       | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           | 14,830       | high level synthesis optimizations                                                     |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++--------------------------+---------------+--------------+-------------------+-------------------+-------------------+-------------------+
+| Function                 | Location      | Compile/Link | Unroll/Inline     | Array/Struct      | Performance       | HW Transforms     |
++--------------------------+---------------+--------------+-------------------+-------------------+-------------------+-------------------+
+| + top                    | top.cpp:3     | 4,488        | 17,408            | 14,235            | 14,087            | 14,830            |
+|    ConvertInputToStream  | tools.cpp:3   |  105         |                   |                   |                   |                   |
+|    SamePadding           | tools.cpp:48  |  107         |                   |                   |                   |                   |
+|    Sliding               | tools.cpp:80  |  769         |   178             |   189             |   176             |   171             |
+|    ConvertInputToArray   | tools.cpp:189 |  229         |                   |                   |                   |                   |
+|    ConvertWeightToStream | tools.cpp:215 |  122         |    92             |    97             |    95             |   123             |
+|    ConvWeightToArray     | tools.cpp:261 |  132         |    36             |    85             |    58             |   104             |
+|    MMWeightToArray       | tools.cpp:283 |  123         |                   |                   |                   |                   |
+|    MuxWeightStream       | tools.cpp:304 |   83         |   218             |   125             |   124             |   174             |
+|  + Compute               | tools.cpp:558 | 1,812        |                   |                   |                   |                   |
+|     PE                   | tools.cpp:326 | 1,779        |                   |                   |                   |                   |
+|    ConvertToOutStream    | tools.cpp:572 |  322         |   266             |   466             |   463             |   896             |
+|    ConvToOutStream       | tools.cpp:626 |  303         |   401             |   558             |   524             |   609             |
+|    PE                    | tools.cpp:326 |              | 15,760 (16 calls) | 10,448 (16 calls) | 10,432 (16 calls) | 10,816 (16 calls) |
++--------------------------+---------------+--------------+-------------------+-------------------+-------------------+-------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

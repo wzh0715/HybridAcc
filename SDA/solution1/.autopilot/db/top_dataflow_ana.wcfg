@@ -1,0 +1,2146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top.wdb" id="1">
+         <top_modules>
+            <top_module name="apa_top_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0ns"></ZoomStartTime>
+      <ZoomEndTime time="2000ns"></ZoomEndTime>
+      <Cursor1Time time="0ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="257"></NameColumnWidth>
+      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="2" />
+   <wvobject type="group" fp_name="HLS Process Summary Group">
+      <obj_property name="label">HLS Process Summary</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top//AESL_inst_top_activity">
+         <obj_property name="label">AESL_inst_top_activity</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="UseFullPath">true</obj_property>
+         <obj_property name="ElementShortName">AESL_inst_top_activity</obj_property>
+         <obj_property name="ObjectShortName">AESL_inst_top_activity</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">turquoise</obj_property>
+         <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+         <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top//AESL_inst_top_activity.dataflowTxWaveData.Cycles</obj_property>
+         <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top//AESL_inst_top_activity.dataflowTxWaveData.OutStanding</obj_property>
+         <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top//AESL_inst_top_activity.dataflowTxTooltipData</obj_property>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity">
+            <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity">
+            <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity">
+            <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_fu_1764_activity">
+            <obj_property name="label">grp_Sliding_fu_1764_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_Sliding_fu_1764_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_Sliding_fu_1764_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_fu_1764_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_fu_1764_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_fu_1764_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity">
+               <obj_property name="label">grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity">
+            <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_fu_1800_activity">
+            <obj_property name="label">grp_ConvertWeightToStream_fu_1800_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_ConvertWeightToStream_fu_1800_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvertWeightToStream_fu_1800_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_fu_1800_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_fu_1800_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_fu_1800_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity">
+               <obj_property name="label">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity">
+               <obj_property name="label">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_fu_1820_activity">
+            <obj_property name="label">grp_ConvWeightToArray_fu_1820_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_ConvWeightToArray_fu_1820_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvWeightToArray_fu_1820_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_fu_1820_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_fu_1820_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_fu_1820_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity">
+               <obj_property name="label">grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity">
+            <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_MuxWeightStream_fu_1870/grp_MuxWeightStream_fu_1870_activity">
+            <obj_property name="label">grp_MuxWeightStream_fu_1870_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_MuxWeightStream_fu_1870_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_MuxWeightStream_fu_1870_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_MuxWeightStream_fu_1870/grp_MuxWeightStream_fu_1870_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_MuxWeightStream_fu_1870/grp_MuxWeightStream_fu_1870_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_MuxWeightStream_fu_1870/grp_MuxWeightStream_fu_1870_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_fu_1925_activity">
+            <obj_property name="label">grp_PE_fu_1925_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_1925_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_1925_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_fu_1925_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_fu_1925_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_fu_1925_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_fu_1940_activity">
+            <obj_property name="label">grp_PE_fu_1940_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_1940_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_1940_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_fu_1940_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_fu_1940_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_fu_1940_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_fu_1955_activity">
+            <obj_property name="label">grp_PE_fu_1955_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_1955_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_1955_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_fu_1955_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_fu_1955_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_fu_1955_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_fu_1970_activity">
+            <obj_property name="label">grp_PE_fu_1970_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_1970_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_1970_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_fu_1970_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_fu_1970_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_fu_1970_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_fu_1985_activity">
+            <obj_property name="label">grp_PE_fu_1985_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_1985_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_1985_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_fu_1985_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_fu_1985_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_fu_1985_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_fu_2000_activity">
+            <obj_property name="label">grp_PE_fu_2000_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2000_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2000_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_fu_2000_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_fu_2000_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_fu_2000_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_fu_2015_activity">
+            <obj_property name="label">grp_PE_fu_2015_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2015_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2015_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_fu_2015_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_fu_2015_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_fu_2015_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_fu_2030_activity">
+            <obj_property name="label">grp_PE_fu_2030_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2030_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2030_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_fu_2030_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_fu_2030_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_fu_2030_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_fu_2045_activity">
+            <obj_property name="label">grp_PE_fu_2045_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2045_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2045_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_fu_2045_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_fu_2045_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_fu_2045_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_fu_2060_activity">
+            <obj_property name="label">grp_PE_fu_2060_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2060_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2060_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_fu_2060_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_fu_2060_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_fu_2060_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_fu_2075_activity">
+            <obj_property name="label">grp_PE_fu_2075_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2075_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2075_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_fu_2075_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_fu_2075_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_fu_2075_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_fu_2090_activity">
+            <obj_property name="label">grp_PE_fu_2090_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2090_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2090_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_fu_2090_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_fu_2090_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_fu_2090_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_fu_2105_activity">
+            <obj_property name="label">grp_PE_fu_2105_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2105_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2105_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_fu_2105_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_fu_2105_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_fu_2105_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_fu_2120_activity">
+            <obj_property name="label">grp_PE_fu_2120_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2120_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2120_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_fu_2120_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_fu_2120_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_fu_2120_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_fu_2135_activity">
+            <obj_property name="label">grp_PE_fu_2135_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2135_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2135_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_fu_2135_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_fu_2135_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_fu_2135_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_fu_2150_activity">
+            <obj_property name="label">grp_PE_fu_2150_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_PE_fu_2150_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_fu_2150_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_fu_2150_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_fu_2150_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_fu_2150_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+               <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_fu_2165_activity">
+            <obj_property name="label">grp_ConvertToOutStream_fu_2165_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_ConvertToOutStream_fu_2165_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvertToOutStream_fu_2165_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_fu_2165_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_fu_2165_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_fu_2165_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity">
+               <obj_property name="label">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity">
+               <obj_property name="label">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_fu_2318_activity">
+            <obj_property name="label">grp_ConvToOutStream_fu_2318_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_ConvToOutStream_fu_2318_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvToOutStream_fu_2318_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_fu_2318_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_fu_2318_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_fu_2318_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity">
+               <obj_property name="label">grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity">
+            <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity">
+            <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top//AESL_inst_top_activity">
+      <obj_property name="ElementShortName">AESL_inst_top_activity</obj_property>
+      <obj_property name="ObjectShortName">AESL_inst_top_activity</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="AESL_inst_top_group">
+      <obj_property name="label">AESL_inst_top</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity">
+         <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity">
+         <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity">
+         <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_fu_1764_activity">
+         <obj_property name="ElementShortName">grp_Sliding_fu_1764_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_Sliding_fu_1764_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity">
+         <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_fu_1800_activity">
+         <obj_property name="ElementShortName">grp_ConvertWeightToStream_fu_1800_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_ConvertWeightToStream_fu_1800_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_fu_1820_activity">
+         <obj_property name="ElementShortName">grp_ConvWeightToArray_fu_1820_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_ConvWeightToArray_fu_1820_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity">
+         <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_MuxWeightStream_fu_1870/grp_MuxWeightStream_fu_1870_activity">
+         <obj_property name="ElementShortName">grp_MuxWeightStream_fu_1870_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_MuxWeightStream_fu_1870_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_fu_1925_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_1925_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_1925_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_fu_1940_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_1940_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_1940_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_fu_1955_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_1955_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_1955_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_fu_1970_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_1970_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_1970_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_fu_1985_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_1985_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_1985_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_fu_2000_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2000_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2000_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_fu_2015_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2015_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2015_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_fu_2030_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2030_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2030_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_fu_2045_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2045_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2045_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_fu_2060_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2060_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2060_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_fu_2075_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2075_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2075_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_fu_2090_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2090_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2090_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_fu_2105_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2105_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2105_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_fu_2120_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2120_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2120_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_fu_2135_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2135_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2135_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_fu_2150_activity">
+         <obj_property name="ElementShortName">grp_PE_fu_2150_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_PE_fu_2150_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_fu_2165_activity">
+         <obj_property name="ElementShortName">grp_ConvertToOutStream_fu_2165_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_ConvertToOutStream_fu_2165_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_fu_2318_activity">
+         <obj_property name="ElementShortName">grp_ConvToOutStream_fu_2318_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_ConvToOutStream_fu_2318_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity">
+         <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity">
+         <obj_property name="ElementShortName">grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_activity</obj_property>
+      </wvobject>
+      <wvobject type="group" fp_name="AESL_inst_top_Handshake_group">
+         <obj_property name="label">Block-level handshake</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/ap_start">
+            <obj_property name="ElementShortName">ap_start</obj_property>
+            <obj_property name="ObjectShortName">ap_start</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/ap_ready">
+            <obj_property name="ElementShortName">ap_ready</obj_property>
+            <obj_property name="ObjectShortName">ap_ready</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/ap_done">
+            <obj_property name="ElementShortName">ap_done</obj_property>
+            <obj_property name="ObjectShortName">ap_done</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_group">
+         <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_group">
+         <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_group">
+         <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_Sliding_fu_1764_group">
+         <obj_property name="label">grp_Sliding_fu_1764</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity">
+            <obj_property name="ElementShortName">grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_Sliding_fu_1764_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_group">
+            <obj_property name="label">grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_Sliding_fu_1764/grp_Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2_fu_76/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_group">
+         <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_ConvertWeightToStream_fu_1800_group">
+         <obj_property name="label">grp_ConvertWeightToStream_fu_1800</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity">
+            <obj_property name="ElementShortName">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_activity</obj_property>
+         </wvobject>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity">
+            <obj_property name="ElementShortName">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvertWeightToStream_fu_1800_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_group">
+            <obj_property name="label">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_group">
+            <obj_property name="label">grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertWeightToStream_fu_1800/grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_ConvWeightToArray_fu_1820_group">
+         <obj_property name="label">grp_ConvWeightToArray_fu_1820</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity">
+            <obj_property name="ElementShortName">grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvWeightToArray_fu_1820_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_group">
+            <obj_property name="label">grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvWeightToArray_fu_1820/grp_ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2_fu_78/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_group">
+         <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_MuxWeightStream_fu_1870_group">
+         <obj_property name="label">grp_MuxWeightStream_fu_1870</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="grp_MuxWeightStream_fu_1870_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_MuxWeightStream_fu_1870/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_MuxWeightStream_fu_1870/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_MuxWeightStream_fu_1870/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_1925_group">
+         <obj_property name="label">grp_PE_fu_1925</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_1925_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1925/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_1940_group">
+         <obj_property name="label">grp_PE_fu_1940</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_1940_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1940/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_1955_group">
+         <obj_property name="label">grp_PE_fu_1955</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_1955_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1955/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_1970_group">
+         <obj_property name="label">grp_PE_fu_1970</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_1970_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1970/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_1985_group">
+         <obj_property name="label">grp_PE_fu_1985</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_1985_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_1985/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2000_group">
+         <obj_property name="label">grp_PE_fu_2000</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2000_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2000/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2015_group">
+         <obj_property name="label">grp_PE_fu_2015</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2015_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2015/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2030_group">
+         <obj_property name="label">grp_PE_fu_2030</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2030_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2030/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2045_group">
+         <obj_property name="label">grp_PE_fu_2045</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2045_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2045/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2060_group">
+         <obj_property name="label">grp_PE_fu_2060</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2060_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2060/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2075_group">
+         <obj_property name="label">grp_PE_fu_2075</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2075_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2075/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2090_group">
+         <obj_property name="label">grp_PE_fu_2090</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2090_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2090/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2105_group">
+         <obj_property name="label">grp_PE_fu_2105</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2105_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2105/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2120_group">
+         <obj_property name="label">grp_PE_fu_2120</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2120_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2120/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2135_group">
+         <obj_property name="label">grp_PE_fu_2135</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2135_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2135/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_PE_fu_2150_group">
+         <obj_property name="label">grp_PE_fu_2150</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity">
+            <obj_property name="ElementShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_fu_2150_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_group">
+            <obj_property name="label">grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_PE_fu_2150/grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_ConvertToOutStream_fu_2165_group">
+         <obj_property name="label">grp_ConvertToOutStream_fu_2165</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity">
+            <obj_property name="ElementShortName">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_activity</obj_property>
+         </wvobject>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity">
+            <obj_property name="ElementShortName">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvertToOutStream_fu_2165_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_group">
+            <obj_property name="label">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_group">
+            <obj_property name="label">grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvertToOutStream_fu_2165/grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_ConvToOutStream_fu_2318_group">
+         <obj_property name="label">grp_ConvToOutStream_fu_2318</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity">
+            <obj_property name="ElementShortName">grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvToOutStream_fu_2318_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_group">
+            <obj_property name="label">grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_ConvToOutStream_fu_2318/grp_ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI_fu_168/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_group">
+         <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_group">
+         <obj_property name="label">grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_top_top/AESL_inst_top/grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,61 @@
+
+主机名:             WZH
+OS 名称:            Microsoft Windows 11 专业版
+OS 版本:            10.0.26100 暂缺 Build 26100
+OS 制造商:          Microsoft Corporation
+OS 配置:            独立工作站
+OS 构建类型:        Multiprocessor Free
+注册的所有人:       3428866199@qq.com
+注册的组织:         暂缺
+产品 ID:            00331-10000-00001-AA047
+初始安装日期:       2024/5/23, 12:55:58
+系统启动时间:       2025/2/27, 9:44:24
+系统制造商:         LENOVO
+系统型号:           82JW
+系统类型:           x64-based PC
+处理器:             安装了 1 个处理器。
+                    [01]: AMD64 Family 25 Model 80 Stepping 0 AuthenticAMD ~3201 Mhz
+BIOS 版本:          LENOVO HHCN37WW, 2024/1/17
+Windows 目录:       C:\WINDOWS
+系统目录:           C:\WINDOWS\system32
+启动设备:           \Device\HarddiskVolume1
+系统区域设置:       zh-cn;中文(中国)
+输入法区域设置:     zh-cn;中文(中国)
+时区:               (UTC+08:00) 北京，重庆，香港特别行政区，乌鲁木齐
+物理内存总量:       32,620 MB
+可用的物理内存:     23,083 MB
+虚拟内存: 最大值:   34,668 MB
+虚拟内存: 可用:     23,409 MB
+虚拟内存: 使用中:   11,259 MB
+页面文件位置:       C:\pagefile.sys
+域:                 WORKGROUP
+登录服务器:         \\WZH
+修补程序:           安装了 3 个修补程序。
+                    [01]: KB5050577
+                    [02]: KB5052093
+                    [03]: KB5052915
+网卡:               安装了 4 个 NIC。
+                    [01]: Realtek PCIe GbE Family Controller
+                        连接名:      以太网
+                        启用 DHCP:   是
+                        DHCP 服务器: 172.18.99.1
+                        IP 地址
+                          [01]: 172.17.176.13
+                          [02]: fe80::38b0:eb8d:14a:b03c
+                    [02]: Realtek RTL8852AE WiFi 6 802.11ax PCIe Adapter
+                        连接名:      WLAN
+                        状态:        媒体连接已中断
+                    [03]: Bluetooth Device (Personal Area Network)
+                        连接名:      蓝牙网络连接
+                        状态:        媒体连接已中断
+                    [04]: Sangfor SSL VPN CS Support System VNIC
+                        连接名:      以太网 3
+                        状态:        媒体连接已中断
+基于虚拟化的安全性: 状态： 未启用
+                    App Control for Business policy: 强制
+                    App Control for Business user mode policy: 关
+                    已启用安全功能:
+Hyper-V 要求:       虚拟机监视器模式扩展: 是
+                    固件中已启用虚拟化: 是
+                    二级地址转换: 是
+                    数据执行保护可用: 是

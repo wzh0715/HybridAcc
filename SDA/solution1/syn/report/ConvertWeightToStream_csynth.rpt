@@ -1,0 +1,283 @@
+
+
+================================================================
+== Vitis HLS Report for 'ConvertWeightToStream'
+================================================================
+* Date:           Tue Feb 25 14:23:54 2025
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        SDA
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplusHBM
+* Target device:  xcvu35p_CIV-fsvh2892-3-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+    +---------+---------+-----------+-----------+------+------+---------+
+    |     1038|     9230|  10.380 us|  92.300 us|  1038|  9230|       no|
+    +---------+---------+-----------+-----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |                                                                                              |                                                                                   |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+        |                                           Instance                                           |                                       Module                                      |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+        +----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120  |ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s  |     1035|     1035|  10.350 us|  10.350 us|  1035|  1035|       no|
+        |grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132  |ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s  |     9227|     9227|  92.270 us|  92.270 us|  9227|  9227|       no|
+        +----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+---------+---------+-----------+-----------+------+------+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+--------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
++---------------------+---------+------+---------+--------+-----+
+|DSP                  |        -|     -|        -|       -|    -|
+|Expression           |        -|     -|        0|      67|    -|
+|FIFO                 |        -|     -|        -|       -|    -|
+|Instance             |        -|    34|     1138|    2269|    -|
+|Memory               |        -|     -|        -|       -|    -|
+|Multiplexer          |        -|     -|        -|     118|    -|
+|Register             |        -|     -|      517|       -|    -|
++---------------------+---------+------+---------+--------+-----+
+|Total                |        0|    34|     1655|    2454|    0|
++---------------------+---------+------+---------+--------+-----+
+|Available SLR        |     1344|  2976|   871680|  435840|  320|
++---------------------+---------+------+---------+--------+-----+
+|Utilization SLR (%)  |        0|     1|       ~0|      ~0|    0|
++---------------------+---------+------+---------+--------+-----+
+|Available            |     2688|  5952|  1743360|  871680|  640|
++---------------------+---------+------+---------+--------+-----+
+|Utilization (%)      |        0|    ~0|       ~0|      ~0|    0|
++---------------------+---------+------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+---------+----+-----+------+-----+
+    |                                           Instance                                           |                                       Module                                      | BRAM_18K| DSP|  FF |  LUT | URAM|
+    +----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+---------+----+-----+------+-----+
+    |grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132  |ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s  |        0|   3|  653|  1243|    0|
+    |grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120  |ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s  |        0|   3|  485|   864|    0|
+    |mul_28ns_32ns_60_1_1_U105                                                                     |mul_28ns_32ns_60_1_1                                                               |        0|   4|    0|    20|    0|
+    |mul_28ns_60ns_88_1_1_U106                                                                     |mul_28ns_60ns_88_1_1                                                               |        0|   6|    0|    37|    0|
+    |mul_28ns_64ns_92_1_1_U107                                                                     |mul_28ns_64ns_92_1_1                                                               |        0|   8|    0|    45|    0|
+    |mul_32ns_30ns_62_1_1_U108                                                                     |mul_32ns_30ns_62_1_1                                                               |        0|   4|    0|    20|    0|
+    |mul_32s_32s_32_1_1_U109                                                                       |mul_32s_32s_32_1_1                                                                 |        0|   3|    0|    20|    0|
+    |mul_32s_32s_32_1_1_U110                                                                       |mul_32s_32s_32_1_1                                                                 |        0|   3|    0|    20|    0|
+    +----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+---------+----+-----+------+-----+
+    |Total                                                                                         |                                                                                   |        0|  34| 1138|  2269|    0|
+    +----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+---------+----+-----+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |          Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |ap_block_state6_on_subcall_done  |       and|   0|  0|   2|           1|           1|
+    |icmp_fu_231_p2                   |      icmp|   0|  0|  35|          28|           1|
+    |empty_fu_269_p3                  |    select|   0|  0|  30|           1|          30|
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |Total                            |          |   0|  0|  67|          30|          32|
+    +---------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------+----+-----------+-----+-----------+
+    |          Name          | LUT| Input Size| Bits| Total Bits|
+    +------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm               |  37|          7|    1|          7|
+    |fifo_conv_w_0_write     |   9|          2|    1|          2|
+    |fifo_conv_w_1_write     |   9|          2|    1|          2|
+    |fifo_conv_w_2_write     |   9|          2|    1|          2|
+    |fifo_conv_w_3_write     |   9|          2|    1|          2|
+    |fifo_mm_w_write         |   9|          2|    1|          2|
+    |m_axi_CONV_BUS_ARVALID  |   9|          2|    1|          2|
+    |m_axi_CONV_BUS_RREADY   |   9|          2|    1|          2|
+    |m_axi_MM_BUS_ARVALID    |   9|          2|    1|          2|
+    |m_axi_MM_BUS_RREADY     |   9|          2|    1|          2|
+    +------------------------+----+-----------+-----+-----------+
+    |Total                   | 118|         25|   10|         25|
+    +------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------------------------------------------------------------------+----+----+-----+-----------+
+    |                                                    Name                                                   | FF | LUT| Bits| Const Bits|
+    +-----------------------------------------------------------------------------------------------------------+----+----+-----+-----------+
+    |and_ln_reg_331                                                                                             |  28|   0|   30|          2|
+    |ap_CS_fsm                                                                                                  |   6|   0|    6|          0|
+    |bound17_reg_347                                                                                            |  92|   0|   92|          0|
+    |bound39_reg_305                                                                                            |  60|   0|   60|          0|
+    |bound46_reg_310                                                                                            |  88|   0|   88|          0|
+    |bound_reg_337                                                                                              |  62|   0|   62|          0|
+    |empty_reg_352                                                                                              |  28|   0|   30|          2|
+    |grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132_ap_start_reg  |   1|   0|    1|          0|
+    |grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120_ap_start_reg  |   1|   0|    1|          0|
+    |icmp_reg_326                                                                                               |   1|   0|    1|          0|
+    |mul11_reg_315                                                                                              |  32|   0|   32|          0|
+    |tmp_25_reg_320                                                                                             |  28|   0|   28|          0|
+    |tmp_s_reg_342                                                                                              |  62|   0|   64|          2|
+    |trunc_ln_reg_300                                                                                           |  28|   0|   28|          0|
+    +-----------------------------------------------------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                                                                      | 517|   0|  523|          6|
+    +-----------------------------------------------------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------+-----+-----+------------+-----------------------+--------------+
+|        RTL Ports        | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++-------------------------+-----+-----+------------+-----------------------+--------------+
+|ap_clk                   |   in|    1|  ap_ctrl_hs|  ConvertWeightToStream|  return value|
+|ap_rst                   |   in|    1|  ap_ctrl_hs|  ConvertWeightToStream|  return value|
+|ap_start                 |   in|    1|  ap_ctrl_hs|  ConvertWeightToStream|  return value|
+|ap_done                  |  out|    1|  ap_ctrl_hs|  ConvertWeightToStream|  return value|
+|ap_idle                  |  out|    1|  ap_ctrl_hs|  ConvertWeightToStream|  return value|
+|ap_ready                 |  out|    1|  ap_ctrl_hs|  ConvertWeightToStream|  return value|
+|m_axi_CONV_BUS_AWVALID   |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWREADY   |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWADDR    |  out|   64|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWID      |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWLEN     |  out|   32|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWSIZE    |  out|    3|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWBURST   |  out|    2|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWLOCK    |  out|    2|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWCACHE   |  out|    4|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWPROT    |  out|    3|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWQOS     |  out|    4|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWREGION  |  out|    4|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_AWUSER    |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_WVALID    |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_WREADY    |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_WDATA     |  out|  128|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_WSTRB     |  out|   16|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_WLAST     |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_WID       |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_WUSER     |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARVALID   |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARREADY   |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARADDR    |  out|   64|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARID      |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARLEN     |  out|   32|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARSIZE    |  out|    3|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARBURST   |  out|    2|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARLOCK    |  out|    2|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARCACHE   |  out|    4|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARPROT    |  out|    3|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARQOS     |  out|    4|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARREGION  |  out|    4|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_ARUSER    |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_RVALID    |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_RREADY    |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_RDATA     |   in|  128|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_RLAST     |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_RID       |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_RFIFONUM  |   in|    9|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_RUSER     |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_RRESP     |   in|    2|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_BVALID    |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_BREADY    |  out|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_BRESP     |   in|    2|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_BID       |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|m_axi_CONV_BUS_BUSER     |   in|    1|       m_axi|               CONV_BUS|       pointer|
+|Conv_Weight              |   in|   64|     ap_none|            Conv_Weight|        scalar|
+|m_axi_MM_BUS_AWVALID     |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWREADY     |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWADDR      |  out|   64|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWID        |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWLEN       |  out|   32|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWSIZE      |  out|    3|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWBURST     |  out|    2|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWLOCK      |  out|    2|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWCACHE     |  out|    4|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWPROT      |  out|    3|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWQOS       |  out|    4|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWREGION    |  out|    4|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_AWUSER      |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_WVALID      |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_WREADY      |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_WDATA       |  out|  128|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_WSTRB       |  out|   16|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_WLAST       |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_WID         |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_WUSER       |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARVALID     |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARREADY     |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARADDR      |  out|   64|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARID        |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARLEN       |  out|   32|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARSIZE      |  out|    3|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARBURST     |  out|    2|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARLOCK      |  out|    2|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARCACHE     |  out|    4|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARPROT      |  out|    3|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARQOS       |  out|    4|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARREGION    |  out|    4|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_ARUSER      |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_RVALID      |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_RREADY      |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_RDATA       |   in|  128|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_RLAST       |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_RID         |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_RFIFONUM    |   in|    9|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_RUSER       |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_RRESP       |   in|    2|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_BVALID      |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_BREADY      |  out|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_BRESP       |   in|    2|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_BID         |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|m_axi_MM_BUS_BUSER       |   in|    1|       m_axi|                 MM_BUS|       pointer|
+|MM_Weight                |   in|   64|     ap_none|              MM_Weight|        scalar|
+|fifo_conv_w_0_din        |  out|  128|     ap_fifo|          fifo_conv_w_0|       pointer|
+|fifo_conv_w_0_full_n     |   in|    1|     ap_fifo|          fifo_conv_w_0|       pointer|
+|fifo_conv_w_0_write      |  out|    1|     ap_fifo|          fifo_conv_w_0|       pointer|
+|fifo_conv_w_1_din        |  out|  128|     ap_fifo|          fifo_conv_w_1|       pointer|
+|fifo_conv_w_1_full_n     |   in|    1|     ap_fifo|          fifo_conv_w_1|       pointer|
+|fifo_conv_w_1_write      |  out|    1|     ap_fifo|          fifo_conv_w_1|       pointer|
+|fifo_conv_w_2_din        |  out|  128|     ap_fifo|          fifo_conv_w_2|       pointer|
+|fifo_conv_w_2_full_n     |   in|    1|     ap_fifo|          fifo_conv_w_2|       pointer|
+|fifo_conv_w_2_write      |  out|    1|     ap_fifo|          fifo_conv_w_2|       pointer|
+|fifo_conv_w_3_din        |  out|  128|     ap_fifo|          fifo_conv_w_3|       pointer|
+|fifo_conv_w_3_full_n     |   in|    1|     ap_fifo|          fifo_conv_w_3|       pointer|
+|fifo_conv_w_3_write      |  out|    1|     ap_fifo|          fifo_conv_w_3|       pointer|
+|fifo_mm_w_din            |  out|  128|     ap_fifo|              fifo_mm_w|       pointer|
+|fifo_mm_w_full_n         |   in|    1|     ap_fifo|              fifo_mm_w|       pointer|
+|fifo_mm_w_write          |  out|    1|     ap_fifo|              fifo_mm_w|       pointer|
+|R                        |   in|   32|     ap_none|                      R|        scalar|
+|N                        |   in|   32|     ap_none|                      N|        scalar|
+|K                        |   in|   32|     ap_none|                      K|        scalar|
+|M                        |   in|   32|     ap_none|                      M|        scalar|
+|mode                     |   in|    1|     ap_none|                   mode|        scalar|
++-------------------------+-----+-----+------------+-----------------------+--------------+
+
