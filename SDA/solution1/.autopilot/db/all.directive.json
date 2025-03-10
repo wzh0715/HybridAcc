@@ -16,7 +16,7 @@
       ]
     },
     "slx": false,
-    "sourceFile": "D:/FPGA/SDA/SDA/solution1/directives.tcl",
+    "sourceFile": "D:/Download/SDA/SDA/solution1/directives.tcl",
     "sourceLine": 7,
     "success": true
   },
@@ -37,7 +37,7 @@
       ]
     },
     "slx": false,
-    "sourceFile": "D:/FPGA/SDA/SDA/solution1/csynth.tcl",
+    "sourceFile": "D:/Download/SDA/SDA/solution1/csynth.tcl",
     "sourceLine": 22,
     "success": true
   }

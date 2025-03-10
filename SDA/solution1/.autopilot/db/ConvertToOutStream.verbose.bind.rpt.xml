@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'ConvertToOutStream'" level="0">
-<item name = "Date">Tue Feb 25 14:23:50 2025
+<item name = "Date">Mon Mar 10 15:35:55 2025
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">SDA</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 4.393 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 6.047 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,15 +24,15 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">4099, 9219, 40.990 us, 92.190 us, 4099, 9219, no</column>
+<column name="">259, 2316, 2.590 us, 23.160 us, 259, 2316, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V_fu_358">ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V, 4098, 4098, 40.980 us, 40.980 us, 4098, 4098, no</column>
-<column name="grp_ConvertToOutStream_Pipeline_VITIS_LOOP_579_1_fu_620">ConvertToOutStream_Pipeline_VITIS_LOOP_579_1, 9218, 9218, 92.180 us, 92.180 us, 9218, 9218, no</column>
+<column name="grp_ConvertToOutStream_Pipeline_VITIS_LOOP_592_5_VITIS_LOOP_595_6_VITIS_LOOP_598_7_V_fu_298">ConvertToOutStream_Pipeline_VITIS_LOOP_592_5_VITIS_LOOP_595_6_VITIS_LOOP_598_7_V, 258, 258, 2.580 us, 2.580 us, 258, 258, no</column>
+<column name="grp_ConvertToOutStream_Pipeline_VITIS_LOOP_570_1_fu_464">ConvertToOutStream_Pipeline_VITIS_LOOP_570_1, 2315, 2315, 23.150 us, 23.150 us, 2315, 2315, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

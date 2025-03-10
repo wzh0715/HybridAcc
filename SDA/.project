@@ -29,67 +29,67 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>D:/FPGA/SDA/SDA/.apc/.src</location>
+			<location>D:/Download/SDA/SDA/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>D:/FPGA/SDA/SDA/.apc/.tb</location>
+			<location>D:/Download/SDA/SDA/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>D:/FPGA/SDA/SDA/solution1/.tcls</location>
+			<location>D:/Download/SDA/SDA/solution1/.tcls</location>
 		</link>
 		<link>
 			<name>source/config.h</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/config.h</location>
+			<location>D:/Download/SDA/config.h</location>
 		</link>
 		<link>
 			<name>source/tools.cpp</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/tools.cpp</location>
+			<location>D:/Download/SDA/tools.cpp</location>
 		</link>
 		<link>
 			<name>source/tools.h</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/tools.h</location>
+			<location>D:/Download/SDA/tools.h</location>
 		</link>
 		<link>
 			<name>source/top.cpp</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/top.cpp</location>
+			<location>D:/Download/SDA/top.cpp</location>
 		</link>
 		<link>
 			<name>source/top.h</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/top.h</location>
+			<location>D:/Download/SDA/top.h</location>
 		</link>
 		<link>
 			<name>testbench/test.cpp</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/test.cpp</location>
+			<location>D:/Download/SDA/test.cpp</location>
 		</link>
 		<link>
 			<name>testbench/test.h</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/test.h</location>
+			<location>D:/Download/SDA/test.h</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/SDA/solution1/solution1.directive</location>
+			<location>D:/Download/SDA/SDA/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/SDA/solution1/directives.tcl</location>
+			<location>D:/Download/SDA/SDA/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>D:/FPGA/SDA/SDA/solution1/script.tcl</location>
+			<location>D:/Download/SDA/SDA/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

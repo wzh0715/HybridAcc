@@ -1,18 +1,18 @@
 {
   "0": {
-    "basicblocks": 65,
-    "calls": "3 2 8 4 11 9 1 12 10 7 5",
+    "basicblocks": 61,
+    "calls": "15 14 16 12 2 5 3 1 8 11 9 4 13 6 7",
     "file": "top.cpp",
     "fileloc": 3,
-    "instructions": 347,
+    "instructions": 467,
     "name": "top",
-    "total_instructions": 4488
+    "total_instructions": 3872
   },
   "1": {
     "basicblocks": 22,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 283,
+    "fileloc": 290,
     "instructions": 70,
     "loads": {
       "L": 1
@@ -24,79 +24,94 @@
     "total_instructions": 123
   },
   "10": {
-    "basicblocks": 13,
-    "calls": "6",
+    "basicblocks": 142,
+    "calls": "",
     "file": "tools.cpp",
-    "fileloc": 558,
-    "instructions": 33,
-    "name": "Compute",
-    "total_instructions": 1812
+    "fileloc": 333,
+    "instructions": 577,
+    "loads": {
+      "L": 23
+    },
+    "name": "PE",
+    "stores": {
+      "L": 31
+    },
+    "total_instructions": 868
   },
   "11": {
-    "basicblocks": 46,
-    "calls": "",
+    "basicblocks": 13,
+    "calls": "10",
     "file": "tools.cpp",
-    "fileloc": 215,
-    "instructions": 114,
-    "loads": {
-      "L": 2
-    },
-    "name": "ConvertWeightToStream",
-    "stores": {
-      "L": 2
-    },
-    "total_instructions": 122
+    "fileloc": 551,
+    "instructions": 33,
+    "name": "Compute",
+    "total_instructions": 901
   },
   "12": {
-    "basicblocks": 22,
+    "basicblocks": 54,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 304,
-    "instructions": 67,
+    "fileloc": 89,
+    "instructions": 332,
     "loads": {
-      "L": 2
+      "L": 6
     },
-    "name": "MuxWeightStream",
+    "name": "Sliding",
     "stores": {
-      "L": 2
+      "L": 6
     },
-    "total_instructions": 83
+    "total_instructions": 832
   },
-  "2": {
-    "basicblocks": 34,
+  "13": {
+    "basicblocks": 30,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 48,
-    "instructions": 80,
-    "loads": {
-      "L": 2
-    },
-    "name": "SamePadding",
+    "fileloc": 658,
+    "instructions": 81,
+    "name": "ConvBias",
     "stores": {
-      "L": 2
+      "L": 1
     },
-    "total_instructions": 107
+    "total_instructions": 109
   },
-  "3": {
+  "14": {
     "basicblocks": 46,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 15,
+    "instructions": 88,
+    "name": "ConvertInputToStream",
+    "total_instructions": 96
+  },
+  "15": {
+    "basicblocks": 9,
     "calls": "",
     "file": "tools.cpp",
     "fileloc": 3,
-    "instructions": 97,
+    "instructions": 24,
+    "name": "ConvertBias_BN",
+    "total_instructions": 32
+  },
+  "16": {
+    "basicblocks": 34,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 57,
+    "instructions": 82,
     "loads": {
       "L": 2
     },
-    "name": "ConvertInputToStream",
+    "name": "Padding",
     "stores": {
       "L": 2
     },
-    "total_instructions": 105
+    "total_instructions": 109
   },
-  "4": {
+  "2": {
     "basicblocks": 22,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 189,
+    "fileloc": 198,
     "instructions": 98,
     "loads": {
       "L": 3
@@ -107,71 +122,11 @@
     },
     "total_instructions": 229
   },
-  "5": {
-    "basicblocks": 39,
-    "calls": "",
-    "file": "tools.cpp",
-    "fileloc": 626,
-    "instructions": 133,
-    "loads": {
-      "L": 2
-    },
-    "name": "ConvToOutStream",
-    "stores": {
-      "L": 2
-    },
-    "total_instructions": 303
-  },
-  "6": {
-    "basicblocks": 142,
-    "calls": "",
-    "file": "tools.cpp",
-    "fileloc": 326,
-    "instructions": 749,
-    "loads": {
-      "L": 34
-    },
-    "name": "PE",
-    "stores": {
-      "L": 34
-    },
-    "total_instructions": 1779
-  },
-  "7": {
-    "basicblocks": 64,
-    "calls": "",
-    "file": "tools.cpp",
-    "fileloc": 572,
-    "instructions": 177,
-    "loads": {
-      "L": 4
-    },
-    "name": "ConvertToOutStream",
-    "stores": {
-      "L": 4
-    },
-    "total_instructions": 322
-  },
-  "8": {
-    "basicblocks": 50,
-    "calls": "",
-    "file": "tools.cpp",
-    "fileloc": 80,
-    "instructions": 313,
-    "loads": {
-      "L": 6
-    },
-    "name": "Sliding",
-    "stores": {
-      "L": 6
-    },
-    "total_instructions": 769
-  },
-  "9": {
+  "3": {
     "basicblocks": 22,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 261,
+    "fileloc": 269,
     "instructions": 79,
     "loads": {
       "L": 2
@@ -181,5 +136,92 @@
       "L": 2
     },
     "total_instructions": 132
+  },
+  "4": {
+    "basicblocks": 39,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 616,
+    "instructions": 107,
+    "loads": {
+      "L": 2
+    },
+    "name": "ConvToOutStream",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 135
+  },
+  "5": {
+    "basicblocks": 46,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 224,
+    "instructions": 119,
+    "loads": {
+      "L": 2
+    },
+    "name": "ConvertWeightToStream",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 127
+  },
+  "6": {
+    "basicblocks": 24,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 681,
+    "instructions": 106,
+    "loads": {
+      "L": 5
+    },
+    "name": "ConvBN",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 166
+  },
+  "7": {
+    "basicblocks": 46,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 714,
+    "instructions": 112,
+    "name": "ResOutput",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 136
+  },
+  "8": {
+    "basicblocks": 22,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 311,
+    "instructions": 67,
+    "loads": {
+      "L": 2
+    },
+    "name": "MuxWeightStream",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 83
+  },
+  "9": {
+    "basicblocks": 68,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 565,
+    "instructions": 145,
+    "loads": {
+      "L": 1
+    },
+    "name": "ConvertToOutStream",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 177
   }
 }

@@ -1,152 +1,8 @@
 {
     "1": {
-        "name": "Sliding",
-        "file": "tools.cpp",
-        "fileloc": "80",
-        "instructions": "38",
-        "total_instructions": "253",
-        "calls": "3",
-        "basicblocks": "3"
-    },
-    "2": {
-        "name": "PE",
-        "file": "tools.cpp",
-        "fileloc": "326",
-        "instructions": "21",
-        "total_instructions": "737",
-        "calls": "21",
-        "basicblocks": "1"
-    },
-    "3": {
-        "name": "Sliding_Pipeline_VITIS_LOOP_107_1_VITIS_LOOP_110_2",
-        "file": "tools.cpp",
-        "fileloc": "84",
-        "instructions": "215",
-        "total_instructions": "215",
-        "calls": "",
-        "basicblocks": "25",
-        "loads": {
-            "L": "29"
-        },
-        "stores": {
-            "L": "47"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "0": {
-        "name": "top",
+        "name": "ConvWeightToArray_Pipeline_VITIS_LOOP_275_1_VITIS_LOOP_278_2",
         "file": "top.cpp",
-        "fileloc": "3",
-        "instructions": "955",
-        "total_instructions": "15989",
-        "calls": "11 13 6 1 15 16 8 20 12 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 14 19 7 17",
-        "basicblocks": "8"
-    },
-    "4": {
-        "name": "ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_",
-        "file": "tools.cpp",
-        "fileloc": "221",
-        "instructions": "103",
-        "total_instructions": "103",
-        "calls": "",
-        "basicblocks": "11",
-        "loads": {
-            "L": "6"
-        },
-        "stores": {
-            "L": "12"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "5": {
-        "name": "ConvToOutStream_Pipeline_VITIS_LOOP_633_1_VITIS_LOOP_636_2_VITIS_LOOP_639_3_VITI",
-        "file": "tools.cpp",
-        "fileloc": "630",
-        "instructions": "530",
-        "total_instructions": "530",
-        "calls": "",
-        "basicblocks": "116",
-        "loads": {
-            "L": "54"
-        },
-        "stores": {
-            "L": "92"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "6": {
-        "name": "top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4",
-        "file": "top.cpp",
-        "fileloc": "46",
-        "instructions": "78",
-        "total_instructions": "78",
-        "calls": "",
-        "basicblocks": "6",
-        "loads": {
-            "L": "6"
-        },
-        "stores": {
-            "L": "12"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "7": {
-        "name": "top_Pipeline_VITIS_LOOP_106_1",
-        "file": "top.cpp",
-        "fileloc": "106",
-        "instructions": "178",
-        "total_instructions": "178",
-        "calls": "",
-        "basicblocks": "71",
-        "loads": {
-            "L": "1"
-        },
-        "stores": {
-            "L": "2"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "8": {
-        "name": "ConvWeightToArray",
-        "file": "tools.cpp",
-        "fileloc": "261",
-        "instructions": "28",
-        "total_instructions": "111",
-        "calls": "10",
-        "basicblocks": "3"
-    },
-    "9": {
-        "name": "ConvertToOutStream_Pipeline_VITIS_LOOP_601_5_VITIS_LOOP_604_6_VITIS_LOOP_607_7_V",
-        "file": "tools.cpp",
-        "fileloc": "601",
-        "instructions": "572",
-        "total_instructions": "572",
-        "calls": "",
-        "basicblocks": "154",
-        "loads": {
-            "L": "9"
-        },
-        "stores": {
-            "L": "18"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "10": {
-        "name": "ConvWeightToArray_Pipeline_VITIS_LOOP_268_1_VITIS_LOOP_271_2",
-        "file": "tools.cpp",
-        "fileloc": "261",
+        "fileloc": "78",
         "instructions": "83",
         "total_instructions": "83",
         "calls": "",
@@ -161,12 +17,174 @@
             "L": "1"
         }
     },
-    "11": {
-        "name": "top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4",
+    "2": {
+        "name": "ConvBN",
         "file": "top.cpp",
-        "fileloc": "42",
-        "instructions": "91",
-        "total_instructions": "91",
+        "fileloc": "112",
+        "instructions": "405",
+        "total_instructions": "2762",
+        "calls": "21",
+        "basicblocks": "3"
+    },
+    "3": {
+        "name": "ResOutput_Pipeline_VITIS_LOOP_734_4_VITIS_LOOP_737_5_VITIS_LOOP_740_6_VITIS_LOOP",
+        "file": "tools.cpp",
+        "fileloc": "734",
+        "instructions": "136",
+        "total_instructions": "136",
+        "calls": "",
+        "basicblocks": "21",
+        "loads": {
+            "L": "7"
+        },
+        "stores": {
+            "L": "14"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "4": {
+        "name": "MuxWeightStream",
+        "file": "top.cpp",
+        "fileloc": "88",
+        "instructions": "55",
+        "total_instructions": "185",
+        "calls": "20",
+        "basicblocks": "1"
+    },
+    "5": {
+        "name": "ConvWeightToArray",
+        "file": "top.cpp",
+        "fileloc": "78",
+        "instructions": "33",
+        "total_instructions": "116",
+        "calls": "1",
+        "basicblocks": "3"
+    },
+    "6": {
+        "name": "ConvertBias_BN",
+        "file": "tools.cpp",
+        "fileloc": "3",
+        "instructions": "265",
+        "total_instructions": "923",
+        "calls": "11",
+        "basicblocks": "3"
+    },
+    "0": {
+        "name": "top",
+        "file": "top.cpp",
+        "fileloc": "3",
+        "instructions": "2645",
+        "total_instructions": "25652",
+        "calls": "10 37 6 18 30 33 25 32 5 29 4 22 8 16 17 2 19",
+        "basicblocks": "1"
+    },
+    "7": {
+        "name": "PE_Pipeline_VITIS_LOOP_385_5",
+        "file": "tools.cpp",
+        "fileloc": "345",
+        "instructions": "650",
+        "total_instructions": "650",
+        "calls": "",
+        "basicblocks": "35",
+        "loads": {
+            "L": "58"
+        },
+        "stores": {
+            "L": "186"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "8": {
+        "name": "ConvertToOutStream",
+        "file": "top.cpp",
+        "fileloc": "100",
+        "instructions": "124",
+        "total_instructions": "798",
+        "calls": "15 13",
+        "basicblocks": "4"
+    },
+    "9": {
+        "name": "ConvertWeightToStream_Pipeline_VITIS_LOOP_229_1_VITIS_LOOP_232_2_VITIS_LOOP_234_",
+        "file": "tools.cpp",
+        "fileloc": "229",
+        "instructions": "103",
+        "total_instructions": "103",
+        "calls": "",
+        "basicblocks": "11",
+        "loads": {
+            "L": "6"
+        },
+        "stores": {
+            "L": "12"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "10": {
+        "name": "entry_proc",
+        "file": "top.cpp",
+        "fileloc": "0",
+        "instructions": "13",
+        "total_instructions": "13",
+        "calls": "",
+        "basicblocks": "1"
+    },
+    "11": {
+        "name": "ConvertBias_BN_Pipeline_VITIS_LOOP_7_1",
+        "file": "tools.cpp",
+        "fileloc": "3",
+        "instructions": "658",
+        "total_instructions": "658",
+        "calls": "",
+        "basicblocks": "133",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "12": {
+        "name": "PE",
+        "file": "tools.cpp",
+        "fileloc": "333",
+        "instructions": "18",
+        "total_instructions": "668",
+        "calls": "7",
+        "basicblocks": "1"
+    },
+    "13": {
+        "name": "ConvertToOutStream_Pipeline_VITIS_LOOP_592_5_VITIS_LOOP_595_6_VITIS_LOOP_598_7_V",
+        "file": "top.cpp",
+        "fileloc": "100",
+        "instructions": "356",
+        "total_instructions": "356",
+        "calls": "",
+        "basicblocks": "106",
+        "loads": {
+            "L": "8"
+        },
+        "stores": {
+            "L": "16"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "14": {
+        "name": "ConvertInputToStream_Pipeline_VITIS_LOOP_19_1_VITIS_LOOP_22_2_VITIS_LOOP_25_3_VI",
+        "file": "tools.cpp",
+        "fileloc": "19",
+        "instructions": "90",
+        "total_instructions": "90",
         "calls": "",
         "basicblocks": "6",
         "loads": {
@@ -179,10 +197,64 @@
             "L": "1"
         }
     },
-    "12": {
-        "name": "MuxWeightStream",
+    "15": {
+        "name": "ConvertToOutStream_Pipeline_VITIS_LOOP_570_1",
+        "file": "top.cpp",
+        "fileloc": "100",
+        "instructions": "318",
+        "total_instructions": "318",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "16": {
+        "name": "ConvToOutStream",
+        "file": "top.cpp",
+        "fileloc": "104",
+        "instructions": "185",
+        "total_instructions": "3913",
+        "calls": "27",
+        "basicblocks": "3"
+    },
+    "17": {
+        "name": "ConvBias",
+        "file": "top.cpp",
+        "fileloc": "108",
+        "instructions": "413",
+        "total_instructions": "1658",
+        "calls": "34",
+        "basicblocks": "3"
+    },
+    "18": {
+        "name": "ConvertInputToStream",
         "file": "tools.cpp",
-        "fileloc": "304",
+        "fileloc": "15",
+        "instructions": "45",
+        "total_instructions": "193",
+        "calls": "14 26",
+        "basicblocks": "4"
+    },
+    "19": {
+        "name": "ResOutput",
+        "file": "tools.cpp",
+        "fileloc": "714",
+        "instructions": "189",
+        "total_instructions": "774",
+        "calls": "36 3",
+        "basicblocks": "4"
+    },
+    "20": {
+        "name": "MuxWeightStream_Pipeline_VITIS_LOOP_314_1",
+        "file": "top.cpp",
+        "fileloc": "88",
         "instructions": "130",
         "total_instructions": "130",
         "calls": "",
@@ -197,12 +269,84 @@
             "L": "1"
         }
     },
-    "13": {
-        "name": "top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7",
+    "21": {
+        "name": "ConvBN_Pipeline_VITIS_LOOP_688_1_VITIS_LOOP_691_2",
         "file": "top.cpp",
-        "fileloc": "42",
-        "instructions": "59",
-        "total_instructions": "59",
+        "fileloc": "112",
+        "instructions": "2357",
+        "total_instructions": "2357",
+        "calls": "",
+        "basicblocks": "264",
+        "loads": {
+            "L": "515"
+        },
+        "stores": {
+            "L": "10"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "22": {
+        "name": "Compute",
+        "file": "top.cpp",
+        "fileloc": "94",
+        "instructions": "124",
+        "total_instructions": "10812",
+        "calls": "12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12",
+        "basicblocks": "1"
+    },
+    "23": {
+        "name": "Padding_Pipeline_VITIS_LOOP_62_1_VITIS_LOOP_65_2_VITIS_LOOP_68_3_VITIS_LOOP_71_4",
+        "file": "tools.cpp",
+        "fileloc": "57",
+        "instructions": "79",
+        "total_instructions": "79",
+        "calls": "",
+        "basicblocks": "6",
+        "loads": {
+            "L": "6"
+        },
+        "stores": {
+            "L": "12"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "24": {
+        "name": "Sliding_Pipeline_VITIS_LOOP_114_1_VITIS_LOOP_117_2",
+        "file": "tools.cpp",
+        "fileloc": "93",
+        "instructions": "228",
+        "total_instructions": "228",
+        "calls": "",
+        "basicblocks": "27",
+        "loads": {
+            "L": "29"
+        },
+        "stores": {
+            "L": "51"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "25": {
+        "name": "ConvertInputToArray",
+        "file": "top.cpp",
+        "fileloc": "67",
+        "instructions": "28",
+        "total_instructions": "87",
+        "calls": "35",
+        "basicblocks": "1"
+    },
+    "26": {
+        "name": "ConvertInputToStream_Pipeline_VITIS_LOOP_40_5_VITIS_LOOP_43_6_VITIS_LOOP_46_7",
+        "file": "tools.cpp",
+        "fileloc": "15",
+        "instructions": "58",
+        "total_instructions": "58",
         "calls": "",
         "basicblocks": "6",
         "loads": {
@@ -215,91 +359,28 @@
             "L": "1"
         }
     },
-    "14": {
-        "name": "ConvertToOutStream",
-        "file": "tools.cpp",
-        "fileloc": "572",
-        "instructions": "226",
-        "total_instructions": "1084",
-        "calls": "22 9",
-        "basicblocks": "4"
-    },
-    "15": {
-        "name": "top_Pipeline_VITIS_LOOP_192_1",
+    "27": {
+        "name": "ConvToOutStream_Pipeline_VITIS_LOOP_624_1_VITIS_LOOP_627_2_VITIS_LOOP_630_3_VITI",
         "file": "top.cpp",
-        "fileloc": "56",
-        "instructions": "59",
-        "total_instructions": "59",
+        "fileloc": "104",
+        "instructions": "3728",
+        "total_instructions": "3728",
         "calls": "",
-        "basicblocks": "7",
+        "basicblocks": "1252",
         "loads": {
-            "L": "1"
+            "L": "518"
         },
         "stores": {
-            "L": "2"
+            "L": "1036"
         },
         "loops": {
             "L": "1"
         }
     },
-    "16": {
-        "name": "ConvertWeightToStream",
-        "file": "tools.cpp",
-        "fileloc": "215",
-        "instructions": "43",
-        "total_instructions": "205",
-        "calls": "4 18",
-        "basicblocks": "4"
-    },
-    "17": {
-        "name": "top_Pipeline_VITIS_LOOP_113_2",
+    "28": {
+        "name": "MMWeightToArray_Pipeline_VITIS_LOOP_295_1",
         "file": "top.cpp",
-        "fileloc": "113",
-        "instructions": "338",
-        "total_instructions": "338",
-        "calls": "",
-        "basicblocks": "135",
-        "loads": {
-            "L": "1"
-        },
-        "stores": {
-            "L": "2"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "18": {
-        "name": "ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_",
-        "file": "tools.cpp",
-        "fileloc": "215",
-        "instructions": "59",
-        "total_instructions": "59",
-        "calls": "",
-        "basicblocks": "6",
-        "loads": {
-            "L": "4"
-        },
-        "stores": {
-            "L": "8"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "19": {
-        "name": "ConvToOutStream",
-        "file": "tools.cpp",
-        "fileloc": "626",
-        "instructions": "74",
-        "total_instructions": "604",
-        "calls": "5",
-        "basicblocks": "3"
-    },
-    "20": {
-        "name": "top_Pipeline_VITIS_LOOP_288_1",
-        "file": "top.cpp",
-        "fileloc": "75",
+        "fileloc": "83",
         "instructions": "52",
         "total_instructions": "52",
         "calls": "",
@@ -314,32 +395,86 @@
             "L": "1"
         }
     },
-    "21": {
-        "name": "PE_Pipeline_VITIS_LOOP_378_5",
+    "29": {
+        "name": "MMWeightToArray",
+        "file": "top.cpp",
+        "fileloc": "83",
+        "instructions": "25",
+        "total_instructions": "77",
+        "calls": "28",
+        "basicblocks": "3"
+    },
+    "30": {
+        "name": "Padding",
         "file": "tools.cpp",
-        "fileloc": "338",
-        "instructions": "716",
-        "total_instructions": "716",
+        "fileloc": "57",
+        "instructions": "47",
+        "total_instructions": "126",
+        "calls": "23",
+        "basicblocks": "3"
+    },
+    "31": {
+        "name": "ConvertWeightToStream_Pipeline_VITIS_LOOP_251_5_VITIS_LOOP_254_6_VITIS_LOOP_257_",
+        "file": "tools.cpp",
+        "fileloc": "224",
+        "instructions": "59",
+        "total_instructions": "59",
         "calls": "",
-        "basicblocks": "34",
+        "basicblocks": "6",
         "loads": {
-            "L": "73"
+            "L": "4"
         },
         "stores": {
-            "L": "145"
+            "L": "8"
         },
         "loops": {
             "L": "1"
         }
     },
-    "22": {
-        "name": "ConvertToOutStream_Pipeline_VITIS_LOOP_579_1",
+    "32": {
+        "name": "ConvertWeightToStream",
         "file": "tools.cpp",
-        "fileloc": "572",
-        "instructions": "286",
-        "total_instructions": "286",
+        "fileloc": "224",
+        "instructions": "54",
+        "total_instructions": "216",
+        "calls": "9 31",
+        "basicblocks": "4"
+    },
+    "33": {
+        "name": "Sliding",
+        "file": "tools.cpp",
+        "fileloc": "89",
+        "instructions": "75",
+        "total_instructions": "303",
+        "calls": "24",
+        "basicblocks": "3"
+    },
+    "34": {
+        "name": "ConvBias_Pipeline_VITIS_LOOP_663_1_VITIS_LOOP_666_2_VITIS_LOOP_668_3_VITIS_LOOP_",
+        "file": "top.cpp",
+        "fileloc": "108",
+        "instructions": "1245",
+        "total_instructions": "1245",
         "calls": "",
-        "basicblocks": "4",
+        "basicblocks": "393",
+        "loads": {
+            "L": "8"
+        },
+        "stores": {
+            "L": "15"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "35": {
+        "name": "ConvertInputToArray_Pipeline_VITIS_LOOP_201_1",
+        "file": "top.cpp",
+        "fileloc": "67",
+        "instructions": "59",
+        "total_instructions": "59",
+        "calls": "",
+        "basicblocks": "7",
         "loads": {
             "L": "1"
         },
@@ -349,5 +484,32 @@
         "loops": {
             "L": "1"
         }
+    },
+    "36": {
+        "name": "ResOutput_Pipeline_VITIS_LOOP_718_1_VITIS_LOOP_721_2_VITIS_LOOP_724_3",
+        "file": "tools.cpp",
+        "fileloc": "714",
+        "instructions": "449",
+        "total_instructions": "449",
+        "calls": "",
+        "basicblocks": "133",
+        "loads": {
+            "L": "5"
+        },
+        "stores": {
+            "L": "10"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "37": {
+        "name": "Block_entry3_proc",
+        "file": "top.cpp",
+        "fileloc": "18",
+        "instructions": "51",
+        "total_instructions": "51",
+        "calls": "",
+        "basicblocks": "4"
     }
 }

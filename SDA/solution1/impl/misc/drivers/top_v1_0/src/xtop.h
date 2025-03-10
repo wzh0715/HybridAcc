@@ -119,6 +119,8 @@ void XTop_Set_Conv_Weight(XTop *InstancePtr, u64 Data);
 u64 XTop_Get_Conv_Weight(XTop *InstancePtr);
 void XTop_Set_MM_Weight(XTop *InstancePtr, u64 Data);
 u64 XTop_Get_MM_Weight(XTop *InstancePtr);
+void XTop_Set_Output_r(XTop *InstancePtr, u64 Data);
+u64 XTop_Get_Output_r(XTop *InstancePtr);
 
 void XTop_InterruptGlobalEnable(XTop *InstancePtr);
 void XTop_InterruptGlobalDisable(XTop *InstancePtr);

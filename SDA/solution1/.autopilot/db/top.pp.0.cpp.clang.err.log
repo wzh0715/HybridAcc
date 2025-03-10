@@ -31,130 +31,175 @@ D:/Applications/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot\ap_axi_sdata
 D:/Applications/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot\ap_axi_sdata.h:385:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=write_nb_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS inline
         ^
-D:/FPGA/SDA/SDA/solution1/csynth.tcl:22:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=name=top_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/Download/SDA/SDA/solution1/csynth.tcl:22:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=name=top_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLSDIRECTIVE TOP name=top
         ^
-D:/FPGA/SDA/SDA/solution1/directives.tcl:7:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=name=top_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/Download/SDA/SDA/solution1/directives.tcl:7:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=name=top_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLSDIRECTIVE TOP name=top
         ^
-top.cpp:6:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=m_axi depth = 5000 bundle = A_BUS port = Conv_MM_A offset = slave_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:5:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=m_axi depth = 5000 bundle = A_BUS port = Conv_MM_A offset = slave_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE m_axi depth = 5000 bundle = A_BUS port = Conv_MM_A offset = slave
         ^
-top.cpp:7:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=m_axi depth = 5000 bundle = CONV_BUS port = Conv_Weight offset = slave_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:6:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=m_axi depth = 5000 bundle = CONV_BUS port = Conv_Weight offset = slave_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE m_axi depth = 5000 bundle = CONV_BUS port = Conv_Weight offset = slave
         ^
-top.cpp:8:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=m_axi depth = 5000 bundle = MM_BUS port = MM_Weight offset = slave_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:7:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=m_axi depth = 5000 bundle = MM_BUS port = MM_Weight offset = slave_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE m_axi depth = 5000 bundle = MM_BUS port = MM_Weight offset = slave
         ^
-top.cpp:10:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = R bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:8:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=m_axi depth = 5000 bundle = OUTPUT_BUS port = Output offset = slave_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi depth = 5000 bundle = OUTPUT_BUS port = Output offset = slave
+        ^
+top.cpp:9:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = R bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port = R bundle = control
         ^
-top.cpp:11:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = C bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:10:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = C bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port = C bundle = control
         ^
-top.cpp:12:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = N bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:11:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = N bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port = N bundle = control
         ^
-top.cpp:13:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = M bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:12:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = M bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port = M bundle = control
         ^
-top.cpp:14:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = K bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:13:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = K bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port = K bundle = control
         ^
-top.cpp:15:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = mode bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:14:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = mode bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port = mode bundle = control
         ^
-top.cpp:16:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = return bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:15:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=s_axilite port = return bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port = return bundle = control
         ^
-top.cpp:39:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = conv_a depth = 128_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:17:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS DATAFLOW
+        ^
+top.cpp:45:58: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_bias depth = 1 dim = 1
+                                                         ^
+top.cpp:45:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_bias depth = 1 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_bias depth = 1 dim = 1
+        ^
+top.cpp:47:58: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_norm depth = 1 dim = 1
+                                                         ^
+top.cpp:47:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_norm depth = 1 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_norm depth = 1 dim = 1
+        ^
+top.cpp:51:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = conv_a depth = 128_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS STREAM variable = conv_a depth = 128
         ^
-top.cpp:41:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = mm_a depth = 128_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:53:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = mm_a depth = 128_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS STREAM variable = mm_a depth = 128
         ^
-top.cpp:45:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = conv3_samepad depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = conv3_samepad depth = 32
+top.cpp:57:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = conv3_samepad depth = 8_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = conv3_samepad depth = 8
         ^
-top.cpp:49:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = conv3_sild depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = conv3_sild depth = 32
+top.cpp:61:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = conv3_sild depth = 4_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = conv3_sild depth = 4
         ^
-top.cpp:53:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_A depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = fifo_SA_A depth = 32
+top.cpp:65:58: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_A depth = 4 dim = 1
+                                                         ^
+top.cpp:65:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_A depth = 4 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_A depth = 4 dim = 1
         ^
-top.cpp:54:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 2 type = complete variable = fifo_SA_A_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = fifo_SA_A
+top.cpp:66:58: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_A depth = 4 dim = 2
+                                                         ^
+top.cpp:66:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_A depth = 4 dim = 2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_A depth = 4 dim = 2
         ^
-top.cpp:55:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 1 type = complete variable = fifo_SA_A_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_SA_A
+top.cpp:70:60: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM depth = 8 variable = fifo_conv_w dim = 1
+                                                           ^
+top.cpp:70:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=depth = 8 variable = fifo_conv_w dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM depth = 8 variable = fifo_conv_w dim = 1
         ^
-top.cpp:59:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=depth = 128 variable = fifo_conv_w_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM depth = 128 variable = fifo_conv_w
-        ^
-top.cpp:60:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 1 type = complete variable = fifo_conv_w_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_conv_w
-        ^
-top.cpp:62:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=depth = 128 variable = fifo_mm_w_XLX_SEP_ [-Wdump-hls-pragmas]
+top.cpp:72:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=depth = 128 variable = fifo_mm_w_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS STREAM depth = 128 variable = fifo_mm_w
         ^
-top.cpp:66:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = Conv_SA_W depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = Conv_SA_W depth = 32
+top.cpp:76:58: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = Conv_SA_W depth = 8 dim = 1
+                                                         ^
+top.cpp:76:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = Conv_SA_W depth = 8 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = Conv_SA_W depth = 8 dim = 1
         ^
-top.cpp:67:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 2 type = complete variable = Conv_SA_W_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = Conv_SA_W
+top.cpp:77:58: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = Conv_SA_W depth = 8 dim = 2
+                                                         ^
+top.cpp:77:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = Conv_SA_W depth = 8 dim = 2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = Conv_SA_W depth = 8 dim = 2
         ^
-top.cpp:68:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 1 type = complete variable = Conv_SA_W_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = Conv_SA_W
+top.cpp:81:56: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = MM_SA_W depth = 4 dim = 1
+                                                       ^
+top.cpp:81:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = MM_SA_W depth = 4 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = MM_SA_W depth = 4 dim = 1
         ^
-top.cpp:72:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = MM_SA_W depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = MM_SA_W depth = 32
+top.cpp:82:56: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = MM_SA_W depth = 4 dim = 2
+                                                       ^
+top.cpp:82:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = MM_SA_W depth = 4 dim = 2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = MM_SA_W depth = 4 dim = 2
         ^
-top.cpp:73:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 2 type = complete variable = MM_SA_W_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = MM_SA_W
+top.cpp:86:58: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_W depth = 8 dim = 1
+                                                         ^
+top.cpp:86:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_W depth = 8 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_W depth = 8 dim = 1
         ^
-top.cpp:74:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 1 type = complete variable = MM_SA_W_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = MM_SA_W
+top.cpp:87:58: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_W depth = 8 dim = 2
+                                                         ^
+top.cpp:87:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_W depth = 8 dim = 2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_W depth = 8 dim = 2
         ^
-top.cpp:78:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_W depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = fifo_SA_W depth = 32
+top.cpp:91:59: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_O depth = 16 dim = 1
+                                                          ^
+top.cpp:91:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_O depth = 16 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_O depth = 16 dim = 1
         ^
-top.cpp:79:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 2 type = complete variable = fifo_SA_W_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = fifo_SA_W
+top.cpp:92:59: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_O depth = 16 dim = 2
+                                                          ^
+top.cpp:92:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_O depth = 16 dim = 2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_O depth = 16 dim = 2
         ^
-top.cpp:80:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 1 type = complete variable = fifo_SA_W_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_SA_W
+top.cpp:93:59: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_O depth = 16 dim = 3
+                                                          ^
+top.cpp:93:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_O depth = 16 dim = 3_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_SA_O depth = 16 dim = 3
         ^
-top.cpp:84:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_O depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = fifo_SA_O depth = 32
+top.cpp:97:63: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = fifo_CONV3_ACC depth = 8 dim = 1
+                                                              ^
+top.cpp:97:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_CONV3_ACC depth = 8 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = fifo_CONV3_ACC depth = 8 dim = 1
         ^
-top.cpp:85:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_SA_O type = fifo_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS BIND_STORAGE variable = fifo_SA_O type = fifo
+top.cpp:99:55: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = MM_OUT depth = 4 dim = 1
+                                                      ^
+top.cpp:99:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = MM_OUT depth = 4 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = MM_OUT depth = 4 dim = 1
         ^
-top.cpp:86:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 3 type = complete variable = fifo_SA_O_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 3 type = complete variable = fifo_SA_O
+top.cpp:103:55: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = MM_OUT depth = 4 dim = 1
+                                                      ^
+top.cpp:103:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = MM_OUT depth = 4 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = MM_OUT depth = 4 dim = 1
         ^
-top.cpp:87:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 2 type = complete variable = fifo_SA_O_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = fifo_SA_O
+top.cpp:107:59: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = CONV3_BIAS depth = 4 dim = 1
+                                                          ^
+top.cpp:107:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = CONV3_BIAS depth = 4 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = CONV3_BIAS depth = 4 dim = 1
         ^
-top.cpp:88:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 1 type = complete variable = fifo_SA_O_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_SA_O
+top.cpp:111:59: warning: the 'dim' option to 'Stream' pragma is not supported and will be ignored [-Winvalid-hls-pragmas]
+#pragma HLS STREAM variable = CONV3_NORM depth = 4 dim = 1
+                                                          ^
+top.cpp:111:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = CONV3_NORM depth = 4 dim = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable = CONV3_NORM depth = 4 dim = 1
         ^
-top.cpp:92:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = fifo_CONV3_ACC depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = fifo_CONV3_ACC depth = 32
-        ^
-top.cpp:93:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 1 type = complete variable = fifo_CONV3_ACC_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_CONV3_ACC
-        ^
-top.cpp:96:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = MM_OUT depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = MM_OUT depth = 32
-        ^
-top.cpp:97:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 1 type = complete variable = MM_OUT_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = MM_OUT
-        ^
-top.cpp:102:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=variable = CONV3_OUT depth = 32_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS STREAM variable = CONV3_OUT depth = 32
-        ^
-top.cpp:103:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=top_XLX_SEP_ PragmaOptions=dim = 1 type = complete variable = CONV3_OUT_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = CONV3_OUT
-        ^
-52 warnings generated.
+67 warnings generated.

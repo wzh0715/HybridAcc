@@ -1,173 +1,173 @@
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 583, Column: 20 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 574, Column: 20 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_583_2
+  - LoopName:        VITIS_LOOP_574_2
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 585, Column: 35 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 576, Column: 35 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_585_3
+  - LoopName:        VITIS_LOOP_576_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 588, Column: 39 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 578, Column: 39 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 403, Column: 27 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 410, Column: 27 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_403_6
+  - LoopName:        VITIS_LOOP_410_6
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 434, Column: 31 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 440, Column: 31 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_434_8
+  - LoopName:        VITIS_LOOP_440_8
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 423, Column: 31 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 430, Column: 31 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_423_7
+  - LoopName:        VITIS_LOOP_430_7
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 448, Column: 31 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 453, Column: 31 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_448_9
+  - LoopName:        VITIS_LOOP_453_9
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 453, Column: 32 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 458, Column: 32 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_453_10
+  - LoopName:        VITIS_LOOP_458_10
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 460, Column: 28 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 465, Column: 28 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_460_11
+  - LoopName:        VITIS_LOOP_465_11
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 463, Column: 21 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 468, Column: 21 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_463_12
+  - LoopName:        VITIS_LOOP_468_12
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 541, Column: 36 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 534, Column: 36 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_541_14
+  - LoopName:        VITIS_LOOP_534_14
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 526, Column: 32 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 520, Column: 32 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_526_13
+  - LoopName:        VITIS_LOOP_520_13
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 311, Column: 20 }
-Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi32EELi0EEES5_S5_jb
+DebugLoc:        { File: tools.cpp, Line: 318, Column: 20 }
+Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi128EELi0EEES5_S5_jb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_311_2
+  - LoopName:        VITIS_LOOP_318_2
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 313, Column: 31 }
-Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi32EELi0EEES5_S5_jb
+DebugLoc:        { File: tools.cpp, Line: 320, Column: 31 }
+Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi128EELi0EEES5_S5_jb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_313_3
+  - LoopName:        VITIS_LOOP_320_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 293, Column: 27 }
-Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi128EELi0EEEPA4_NS0_IS1_ILi32EELi0EEEjb
+DebugLoc:        { File: tools.cpp, Line: 300, Column: 27 }
+Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi512EELi0EEEPA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_293_2
+  - LoopName:        VITIS_LOOP_300_2
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 296, Column: 31 }
-Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi128EELi0EEEPA4_NS0_IS1_ILi32EELi0EEEjb
+DebugLoc:        { File: tools.cpp, Line: 303, Column: 31 }
+Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi512EELi0EEEPA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_296_3
+  - LoopName:        VITIS_LOOP_303_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 627, Column: 0 }
-Function:        _Z15ConvToOutStreamPN3hls6streamI7ap_uintILi32EELi0EEEPNS0_I6ap_intILi32EELi0EEEjjjjjb
+DebugLoc:        { File: tools.cpp, Line: 617, Column: 0 }
+Function:        _Z15ConvToOutStreamPN3hls6streamIfLi0EEES2_jjjjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_645_5
+  - LoopName:        VITIS_LOOP_636_5
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:645:20'
+  - LoopLoc:         'tools.cpp:636:20'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvToOutStream
@@ -177,13 +177,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_583_2
+  - LoopName:        VITIS_LOOP_574_2
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:583:20'
+  - LoopLoc:         'tools.cpp:574:20'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -193,13 +193,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_585_3
+  - LoopName:        VITIS_LOOP_576_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:585:35'
+  - LoopLoc:         'tools.cpp:576:35'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -209,13 +209,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -225,13 +225,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -241,13 +241,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -257,13 +257,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -273,13 +273,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_585_3
+  - LoopName:        VITIS_LOOP_576_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:585:35'
+  - LoopLoc:         'tools.cpp:576:35'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -289,13 +289,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -305,13 +305,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -321,13 +321,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -337,13 +337,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -353,13 +353,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_585_3
+  - LoopName:        VITIS_LOOP_576_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:585:35'
+  - LoopLoc:         'tools.cpp:576:35'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -369,13 +369,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -385,13 +385,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -401,13 +401,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -417,13 +417,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -433,13 +433,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_585_3
+  - LoopName:        VITIS_LOOP_576_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:585:35'
+  - LoopLoc:         'tools.cpp:576:35'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -449,13 +449,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -465,13 +465,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -481,13 +481,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -497,13 +497,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 573, Column: 0 }
-Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamI7ap_uintILi32EELi0EEEPS3_S7_jjjb
+DebugLoc:        { File: tools.cpp, Line: 566, Column: 0 }
+Function:        _Z18ConvertToOutStreamPA4_A4_N3hls6streamIfLi0EEEPS1_S5_jjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_588_4
+  - LoopName:        VITIS_LOOP_578_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:588:39'
+  - LoopLoc:         'tools.cpp:578:39'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvertToOutStream
@@ -513,13 +513,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 560, Column: 0 }
-Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi32EELi0EEES5_PA4_S4_jjb
+DebugLoc:        { File: tools.cpp, Line: 553, Column: 0 }
+Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi128EELi0EEES5_PA4_A4_NS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_561_1
+  - LoopName:        VITIS_LOOP_554_1
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:561:23'
+  - LoopLoc:         'tools.cpp:554:23'
   - String:          ') '
   - String:          'in function '''
   - String:          Compute
@@ -529,13 +529,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 560, Column: 0 }
-Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi32EELi0EEES5_PA4_S4_jjb
+DebugLoc:        { File: tools.cpp, Line: 553, Column: 0 }
+Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi128EELi0EEES5_PA4_A4_NS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_564_2
+  - LoopName:        VITIS_LOOP_557_2
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:564:20'
+  - LoopLoc:         'tools.cpp:557:20'
   - String:          ') '
   - String:          'in function '''
   - String:          Compute
@@ -545,13 +545,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 560, Column: 0 }
-Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi32EELi0EEES5_PA4_S4_jjb
+DebugLoc:        { File: tools.cpp, Line: 553, Column: 0 }
+Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi128EELi0EEES5_PA4_A4_NS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_564_2
+  - LoopName:        VITIS_LOOP_557_2
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:564:20'
+  - LoopLoc:         'tools.cpp:557:20'
   - String:          ') '
   - String:          'in function '''
   - String:          Compute
@@ -561,13 +561,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 560, Column: 0 }
-Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi32EELi0EEES5_PA4_S4_jjb
+DebugLoc:        { File: tools.cpp, Line: 553, Column: 0 }
+Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi128EELi0EEES5_PA4_A4_NS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_564_2
+  - LoopName:        VITIS_LOOP_557_2
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:564:20'
+  - LoopLoc:         'tools.cpp:557:20'
   - String:          ') '
   - String:          'in function '''
   - String:          Compute
@@ -577,13 +577,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 560, Column: 0 }
-Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi32EELi0EEES5_PA4_S4_jjb
+DebugLoc:        { File: tools.cpp, Line: 553, Column: 0 }
+Function:        _Z7ComputePA4_N3hls6streamI7ap_uintILi128EELi0EEES5_PA4_A4_NS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_564_2
+  - LoopName:        VITIS_LOOP_557_2
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:564:20'
+  - LoopLoc:         'tools.cpp:557:20'
   - String:          ') '
   - String:          'in function '''
   - String:          Compute
@@ -593,13 +593,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_403_6
+  - LoopName:        VITIS_LOOP_410_6
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:403:27'
+  - LoopLoc:         'tools.cpp:410:27'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -609,13 +609,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_434_8
+  - LoopName:        VITIS_LOOP_440_8
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:434:31'
+  - LoopLoc:         'tools.cpp:440:31'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -625,13 +625,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_423_7
+  - LoopName:        VITIS_LOOP_430_7
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:423:31'
+  - LoopLoc:         'tools.cpp:430:31'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -641,13 +641,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_448_9
+  - LoopName:        VITIS_LOOP_453_9
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:448:31'
+  - LoopLoc:         'tools.cpp:453:31'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -657,13 +657,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_453_10
+  - LoopName:        VITIS_LOOP_458_10
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:453:32'
+  - LoopLoc:         'tools.cpp:458:32'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -673,13 +673,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_460_11
+  - LoopName:        VITIS_LOOP_465_11
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:460:28'
+  - LoopLoc:         'tools.cpp:465:28'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -689,13 +689,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_463_12
+  - LoopName:        VITIS_LOOP_468_12
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:463:21'
+  - LoopLoc:         'tools.cpp:468:21'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -705,13 +705,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_463_12
+  - LoopName:        VITIS_LOOP_468_12
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:463:21'
+  - LoopLoc:         'tools.cpp:468:21'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -721,13 +721,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_463_12
+  - LoopName:        VITIS_LOOP_468_12
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:463:21'
+  - LoopLoc:         'tools.cpp:468:21'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -737,13 +737,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_463_12
+  - LoopName:        VITIS_LOOP_468_12
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:463:21'
+  - LoopLoc:         'tools.cpp:468:21'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -753,13 +753,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_541_14
+  - LoopName:        VITIS_LOOP_534_14
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:541:36'
+  - LoopLoc:         'tools.cpp:534:36'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -769,13 +769,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_526_13
+  - LoopName:        VITIS_LOOP_520_13
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:526:32'
+  - LoopLoc:         'tools.cpp:520:32'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -785,13 +785,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_366_3
+  - LoopName:        VITIS_LOOP_373_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:366:23'
+  - LoopLoc:         'tools.cpp:373:23'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -801,13 +801,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_369_4
+  - LoopName:        VITIS_LOOP_376_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:369:20'
+  - LoopLoc:         'tools.cpp:376:20'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -817,13 +817,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_369_4
+  - LoopName:        VITIS_LOOP_376_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:369:20'
+  - LoopLoc:         'tools.cpp:376:20'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -833,13 +833,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_369_4
+  - LoopName:        VITIS_LOOP_376_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:369:20'
+  - LoopLoc:         'tools.cpp:376:20'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -849,13 +849,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_369_4
+  - LoopName:        VITIS_LOOP_376_4
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:369:20'
+  - LoopLoc:         'tools.cpp:376:20'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -865,13 +865,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_361_2
+  - LoopName:        VITIS_LOOP_368_2
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:361:23'
+  - LoopLoc:         'tools.cpp:368:23'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -881,13 +881,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 327, Column: 0 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 334, Column: 0 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_356_1
+  - LoopName:        VITIS_LOOP_363_1
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:356:23'
+  - LoopLoc:         'tools.cpp:363:23'
   - String:          ') '
   - String:          'in function '''
   - String:          PE
@@ -897,13 +897,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 306, Column: 0 }
-Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi32EELi0EEES5_S5_jb
+DebugLoc:        { File: tools.cpp, Line: 313, Column: 0 }
+Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi128EELi0EEES5_S5_jb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_311_2
+  - LoopName:        VITIS_LOOP_318_2
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:311:20'
+  - LoopLoc:         'tools.cpp:318:20'
   - String:          ') '
   - String:          'in function '''
   - String:          MuxWeightStream
@@ -913,13 +913,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 306, Column: 0 }
-Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi32EELi0EEES5_S5_jb
+DebugLoc:        { File: tools.cpp, Line: 313, Column: 0 }
+Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi128EELi0EEES5_S5_jb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_313_3
+  - LoopName:        VITIS_LOOP_320_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:313:31'
+  - LoopLoc:         'tools.cpp:320:31'
   - String:          ') '
   - String:          'in function '''
   - String:          MuxWeightStream
@@ -929,13 +929,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 306, Column: 0 }
-Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi32EELi0EEES5_S5_jb
+DebugLoc:        { File: tools.cpp, Line: 313, Column: 0 }
+Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi128EELi0EEES5_S5_jb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_313_3
+  - LoopName:        VITIS_LOOP_320_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:313:31'
+  - LoopLoc:         'tools.cpp:320:31'
   - String:          ') '
   - String:          'in function '''
   - String:          MuxWeightStream
@@ -945,13 +945,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 306, Column: 0 }
-Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi32EELi0EEES5_S5_jb
+DebugLoc:        { File: tools.cpp, Line: 313, Column: 0 }
+Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi128EELi0EEES5_S5_jb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_313_3
+  - LoopName:        VITIS_LOOP_320_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:313:31'
+  - LoopLoc:         'tools.cpp:320:31'
   - String:          ') '
   - String:          'in function '''
   - String:          MuxWeightStream
@@ -961,13 +961,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 306, Column: 0 }
-Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi32EELi0EEES5_S5_jb
+DebugLoc:        { File: tools.cpp, Line: 313, Column: 0 }
+Function:        _Z15MuxWeightStreamPA4_N3hls6streamI7ap_uintILi128EELi0EEES5_S5_jb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_313_3
+  - LoopName:        VITIS_LOOP_320_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:313:31'
+  - LoopLoc:         'tools.cpp:320:31'
   - String:          ') '
   - String:          'in function '''
   - String:          MuxWeightStream
@@ -977,13 +977,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 284, Column: 0 }
-Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi128EELi0EEEPA4_NS0_IS1_ILi32EELi0EEEjb
+DebugLoc:        { File: tools.cpp, Line: 291, Column: 0 }
+Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi512EELi0EEEPA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_293_2
+  - LoopName:        VITIS_LOOP_300_2
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:293:27'
+  - LoopLoc:         'tools.cpp:300:27'
   - String:          ') '
   - String:          'in function '''
   - String:          MMWeightToArray
@@ -993,13 +993,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 284, Column: 0 }
-Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi128EELi0EEEPA4_NS0_IS1_ILi32EELi0EEEjb
+DebugLoc:        { File: tools.cpp, Line: 291, Column: 0 }
+Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi512EELi0EEEPA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_296_3
+  - LoopName:        VITIS_LOOP_303_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:296:31'
+  - LoopLoc:         'tools.cpp:303:31'
   - String:          ') '
   - String:          'in function '''
   - String:          MMWeightToArray
@@ -1009,13 +1009,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 284, Column: 0 }
-Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi128EELi0EEEPA4_NS0_IS1_ILi32EELi0EEEjb
+DebugLoc:        { File: tools.cpp, Line: 291, Column: 0 }
+Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi512EELi0EEEPA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_296_3
+  - LoopName:        VITIS_LOOP_303_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:296:31'
+  - LoopLoc:         'tools.cpp:303:31'
   - String:          ') '
   - String:          'in function '''
   - String:          MMWeightToArray
@@ -1025,13 +1025,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 284, Column: 0 }
-Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi128EELi0EEEPA4_NS0_IS1_ILi32EELi0EEEjb
+DebugLoc:        { File: tools.cpp, Line: 291, Column: 0 }
+Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi512EELi0EEEPA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_296_3
+  - LoopName:        VITIS_LOOP_303_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:296:31'
+  - LoopLoc:         'tools.cpp:303:31'
   - String:          ') '
   - String:          'in function '''
   - String:          MMWeightToArray
@@ -1041,13 +1041,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 284, Column: 0 }
-Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi128EELi0EEEPA4_NS0_IS1_ILi32EELi0EEEjb
+DebugLoc:        { File: tools.cpp, Line: 291, Column: 0 }
+Function:        _Z15MMWeightToArrayRN3hls6streamI7ap_uintILi512EELi0EEEPA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_296_3
+  - LoopName:        VITIS_LOOP_303_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:296:31'
+  - LoopLoc:         'tools.cpp:303:31'
   - String:          ') '
   - String:          'in function '''
   - String:          MMWeightToArray
@@ -1057,78 +1057,23 @@ Args:
 --- !Passed
 Pass:            reflow-inliner
 Name:            Inline
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 682, Column: 0 }
+Function:        _Z6ConvBNPN3hls6streamIfLi0EEES2_PNS0_I7ap_uintILi128EELi0EEEjjjb
 Args:            
   - String:          'Inlining function '''
-  - Callee:          'ConvertInputToStream(ap_uint<128>*, hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<128>, 0>&, bool, unsigned int, unsigned int, unsigned int, unsigned int)'
-    DebugLoc:        { File: tools.cpp, Line: 4, Column: 0 }
+  - Callee:          'std::sqrt(float)'
+    DebugLoc:        { File: 'D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\lib\gcc\x86_64-w64-mingw32\8.3.0\include\c++\cmath', 
+                       Line: 464, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            Inline
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'SamePadding(hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<128>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 49, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            Inline
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'ConvertInputToArray(hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<32>, 0> (*) [4], unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 190, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            Inline
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'MMWeightToArray(hls::stream<ap_uint<128>, 0>&, hls::stream<ap_uint<32>, 0> (*) [4], unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 284, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            Inline
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'Compute(hls::stream<ap_uint<32>, 0> (*) [4], hls::stream<ap_uint<32>, 0> (*) [4], hls::stream<ap_uint<32>, 0> (*) [4][4], unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 560, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
+  - Caller:          'ConvBN(hls::stream<float, 0>*, hls::stream<float, 0>*, hls::stream<ap_uint<128>, 0>*, unsigned int, unsigned int, unsigned int, bool)'
+    DebugLoc:        { File: tools.cpp, Line: 682, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: tools.cpp, Line: 338, Column: 12 }
-Function:        _Z2PERN3hls6streamI7ap_uintILi32EELi0EEES4_PS3_jjb
+DebugLoc:        { File: tools.cpp, Line: 345, Column: 8 }
+Function:        _Z2PERN3hls6streamI7ap_uintILi128EELi0EEES4_PNS0_IfLi0EEEjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1151,8 +1096,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: tools.cpp, Line: 630, Column: 16 }
-Function:        _Z15ConvToOutStreamPN3hls6streamI7ap_uintILi32EELi0EEEPNS0_I6ap_intILi32EELi0EEEjjjjjb
+DebugLoc:        { File: tools.cpp, Line: 620, Column: 11 }
+Function:        _Z15ConvToOutStreamPN3hls6streamIfLi0EEES2_jjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1163,14 +1108,56 @@ Args:
   - Mode:            Complete
   - String:          ' partitioning'
   - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
   - Dim:             '2'
   - String:          .
 ...
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: top.cpp, Line: 52, Column: 25 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: top.cpp, Line: 44, Column: 16 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          fifo_bias
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: top.cpp, Line: 46, Column: 28 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          fifo_norm
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: top.cpp, Line: 64, Column: 26 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1193,8 +1180,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: top.cpp, Line: 58, Column: 26 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: top.cpp, Line: 69, Column: 27 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1211,8 +1198,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: top.cpp, Line: 65, Column: 25 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: top.cpp, Line: 75, Column: 26 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1235,8 +1222,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: top.cpp, Line: 71, Column: 25 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: top.cpp, Line: 80, Column: 26 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1259,8 +1246,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: top.cpp, Line: 77, Column: 25 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: top.cpp, Line: 85, Column: 26 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1283,8 +1270,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: top.cpp, Line: 83, Column: 22 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: top.cpp, Line: 90, Column: 16 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1313,8 +1300,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: top.cpp, Line: 91, Column: 22 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: top.cpp, Line: 96, Column: 16 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1331,8 +1318,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: top.cpp, Line: 95, Column: 22 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: top.cpp, Line: 98, Column: 16 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1349,8 +1336,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: top.cpp, Line: 101, Column: 21 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: top.cpp, Line: 102, Column: 16 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -1365,10 +1352,46 @@ Args:
   - String:          .
 ...
 --- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: top.cpp, Line: 106, Column: 16 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          CONV3_BIAS
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: top.cpp, Line: 110, Column: 16 }
+Function:        _Z3topP7ap_uintILi512EES1_S1_PfPS_ILi128EES2_jjjjjjjb
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          CONV3_NORM
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: tools.cpp, Line: 17, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 28, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj
 Args:            
   - String:          'Sequential '
   - Direction:       read
@@ -1378,28 +1401,28 @@ Args:
   - String:          ' has been inferred'
   - String:          ' _XLX_SEP_ '
   - AccessID:        scevgepseq
-  - ArrayName:       Conv_MM_A
+  - ArrayName:       A
   - String:          ' '
   - BundleName:      A_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_17_4
+  - LoopName:        VITIS_LOOP_28_4
   - String:          ' '
-  - LoopLoc:         'tools.cpp:17:19'
+  - LoopLoc:         'tools.cpp:28:19'
   - String:          ' '
-  - Function:        'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
+  - Function:        'ConvertInputToStream(ap_uint<512>*, hls::stream<ap_uint<512>, 0>&, hls::stream<ap_uint<512>, 0>&, bool, unsigned int, unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: tools.cpp, Line: 16, Column: 0 }
   - String:          ' '
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      load
-    DebugLoc:        { File: tools.cpp, Line: 21, Column: 7 }
+    DebugLoc:        { File: tools.cpp, Line: 32, Column: 9 }
   - OrigDirection:   read
-  - OrigID:          for.inc.i.load.5
+  - OrigID:          for.inc.load.5
 ...
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: tools.cpp, Line: 36, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 46, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj
 Args:            
   - String:          'Sequential '
   - Direction:       read
@@ -1408,77 +1431,77 @@ Args:
   - String:          ' length'
   - String:          ' has been inferred'
   - String:          ' _XLX_SEP_ '
-  - AccessID:        scevgep259seq
-  - ArrayName:       Conv_MM_A
+  - AccessID:        scevgep3seq
+  - ArrayName:       A
   - String:          ' '
   - BundleName:      A_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_36_7
+  - LoopName:        VITIS_LOOP_46_7
   - String:          ' '
-  - LoopLoc:         'tools.cpp:36:19'
+  - LoopLoc:         'tools.cpp:46:19'
   - String:          ' '
-  - Function:        'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
+  - Function:        'ConvertInputToStream(ap_uint<512>*, hls::stream<ap_uint<512>, 0>&, hls::stream<ap_uint<512>, 0>&, bool, unsigned int, unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: tools.cpp, Line: 16, Column: 0 }
   - String:          ' '
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      load
-    DebugLoc:        { File: tools.cpp, Line: 40, Column: 7 }
+    DebugLoc:        { File: tools.cpp, Line: 50, Column: 7 }
   - OrigDirection:   read
-  - OrigID:          for.inc49.i.load.7
+  - OrigID:          for.inc49.load.7
 ...
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            CouldNotAnalyzePattern
-DebugLoc:        { File: tools.cpp, Line: 17, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 28, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj
 Args:            
   - String:          Could not analyze pattern
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: tools.cpp, Line: 17, Column: 19 }
+    DebugLoc:        { File: tools.cpp, Line: 28, Column: 19 }
   - OrigDirection:   read
   - OrigID:          scevgepseq
-  - ArrayName:       Conv_MM_A
+  - ArrayName:       A
   - String:          ' '
   - BundleName:      A_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_14_3
+  - LoopName:        VITIS_LOOP_25_3
   - String:          ' '
-  - LoopLoc:         'tools.cpp:14:19'
+  - LoopLoc:         'tools.cpp:25:19'
   - String:          ' '
-  - Function:        'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
+  - Function:        'ConvertInputToStream(ap_uint<512>*, hls::stream<ap_uint<512>, 0>&, hls::stream<ap_uint<512>, 0>&, bool, unsigned int, unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: tools.cpp, Line: 16, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            CouldNotAnalyzePattern
-DebugLoc:        { File: tools.cpp, Line: 36, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 46, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj
 Args:            
   - String:          Could not analyze pattern
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: tools.cpp, Line: 36, Column: 19 }
+    DebugLoc:        { File: tools.cpp, Line: 46, Column: 19 }
   - OrigDirection:   read
-  - OrigID:          scevgep259seq
-  - ArrayName:       Conv_MM_A
+  - OrigID:          scevgep3seq
+  - ArrayName:       A
   - String:          ' '
   - BundleName:      A_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_33_6
+  - LoopName:        VITIS_LOOP_43_6
   - String:          ' '
-  - LoopLoc:         'tools.cpp:33:19'
+  - LoopLoc:         'tools.cpp:43:19'
   - String:          ' '
-  - Function:        'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
+  - Function:        'ConvertInputToStream(ap_uint<512>*, hls::stream<ap_uint<512>, 0>&, hls::stream<ap_uint<512>, 0>&, bool, unsigned int, unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: tools.cpp, Line: 16, Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: tools.cpp, Line: 229, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb
+DebugLoc:        { File: tools.cpp, Line: 237, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb
 Args:            
   - String:          'Sequential '
   - Direction:       read
@@ -1492,24 +1515,24 @@ Args:
   - String:          ' '
   - BundleName:      CONV_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_229_4
+  - LoopName:        VITIS_LOOP_237_4
   - String:          ' '
-  - LoopLoc:         'tools.cpp:229:20'
+  - LoopLoc:         'tools.cpp:237:20'
   - String:          ' '
-  - Function:        'ConvertWeightToStream(ap_uint<128>*, ap_uint<128>*, hls::stream<ap_uint<128>, 0>*, hls::stream<ap_uint<128>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 216, Column: 0 }
+  - Function:        'ConvertWeightToStream(ap_uint<512>*, ap_uint<512>*, hls::stream<ap_uint<512>, 0>*, hls::stream<ap_uint<512>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
+    DebugLoc:        { File: tools.cpp, Line: 225, Column: 0 }
   - String:          ' '
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      load
-    DebugLoc:        { File: tools.cpp, Line: 233, Column: 7 }
+    DebugLoc:        { File: tools.cpp, Line: 241, Column: 7 }
   - OrigDirection:   read
   - OrigID:          for.inc.load.7
 ...
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: tools.cpp, Line: 249, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb
+DebugLoc:        { File: tools.cpp, Line: 257, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb
 Args:            
   - String:          'Sequential '
   - Direction:       read
@@ -1523,183 +1546,221 @@ Args:
   - String:          ' '
   - BundleName:      MM_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_249_7
+  - LoopName:        VITIS_LOOP_257_7
   - String:          ' '
-  - LoopLoc:         'tools.cpp:249:20'
+  - LoopLoc:         'tools.cpp:257:20'
   - String:          ' '
-  - Function:        'ConvertWeightToStream(ap_uint<128>*, ap_uint<128>*, hls::stream<ap_uint<128>, 0>*, hls::stream<ap_uint<128>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 216, Column: 0 }
+  - Function:        'ConvertWeightToStream(ap_uint<512>*, ap_uint<512>*, hls::stream<ap_uint<512>, 0>*, hls::stream<ap_uint<512>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
+    DebugLoc:        { File: tools.cpp, Line: 225, Column: 0 }
   - String:          ' '
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      load
-    DebugLoc:        { File: tools.cpp, Line: 253, Column: 7 }
+    DebugLoc:        { File: tools.cpp, Line: 261, Column: 7 }
   - OrigDirection:   read
-  - OrigID:          for.inc61.load.7
+  - OrigID:          for.inc65.load.7
 ...
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            CouldNotAnalyzePattern
-DebugLoc:        { File: tools.cpp, Line: 229, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb
+DebugLoc:        { File: tools.cpp, Line: 237, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb
 Args:            
   - String:          Could not analyze pattern
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: tools.cpp, Line: 229, Column: 20 }
+    DebugLoc:        { File: tools.cpp, Line: 237, Column: 20 }
   - OrigDirection:   read
   - OrigID:          scevgepseq
   - ArrayName:       Conv_Weight
   - String:          ' '
   - BundleName:      CONV_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_226_3
+  - LoopName:        VITIS_LOOP_234_3
   - String:          ' '
-  - LoopLoc:         'tools.cpp:226:35'
+  - LoopLoc:         'tools.cpp:234:35'
   - String:          ' '
-  - Function:        'ConvertWeightToStream(ap_uint<128>*, ap_uint<128>*, hls::stream<ap_uint<128>, 0>*, hls::stream<ap_uint<128>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 216, Column: 0 }
+  - Function:        'ConvertWeightToStream(ap_uint<512>*, ap_uint<512>*, hls::stream<ap_uint<512>, 0>*, hls::stream<ap_uint<512>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
+    DebugLoc:        { File: tools.cpp, Line: 225, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            IncompatibleStride
-DebugLoc:        { File: tools.cpp, Line: 249, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb
+DebugLoc:        { File: tools.cpp, Line: 257, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb
 Args:            
   - String:          Stride is incompatible
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: tools.cpp, Line: 249, Column: 20 }
+    DebugLoc:        { File: tools.cpp, Line: 257, Column: 20 }
   - OrigDirection:   read
   - OrigID:          scevgep1seq
   - ArrayName:       MM_Weight
   - String:          ' '
   - BundleName:      MM_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_246_6
+  - LoopName:        VITIS_LOOP_254_6
   - String:          ' '
-  - LoopLoc:         'tools.cpp:246:20'
+  - LoopLoc:         'tools.cpp:254:20'
   - String:          ' '
-  - Function:        'ConvertWeightToStream(ap_uint<128>*, ap_uint<128>*, hls::stream<ap_uint<128>, 0>*, hls::stream<ap_uint<128>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 216, Column: 0 }
+  - Function:        'ConvertWeightToStream(ap_uint<512>*, ap_uint<512>*, hls::stream<ap_uint<512>, 0>*, hls::stream<ap_uint<512>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
+    DebugLoc:        { File: tools.cpp, Line: 225, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            IncompatibleStride
+DebugLoc:        { File: tools.cpp, Line: 727, Column: 56 }
+Function:        _Z9ResOutputPN3hls6streamIfLi0EEES2_Pfjjjjjjb
+Args:            
+  - String:          Stride is incompatible
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+    DebugLoc:        { File: tools.cpp, Line: 727, Column: 56 }
+  - OrigDirection:   write
+  - OrigID:          V.i.i43.exit.store.7
+  - ArrayName:       output
+  - String:          ' '
+  - BundleName:      OUTPUT_BUS
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_724_3
+  - String:          ' '
+  - LoopLoc:         'tools.cpp:724:20'
+  - String:          ' '
+  - Function:        'ResOutput(hls::stream<float, 0>*, hls::stream<float, 0>*, float*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
+    DebugLoc:        { File: tools.cpp, Line: 715, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            IncompatibleStride
+DebugLoc:        { File: tools.cpp, Line: 744, Column: 60 }
+Function:        _Z9ResOutputPN3hls6streamIfLi0EEES2_Pfjjjjjjb
+Args:            
+  - String:          Stride is incompatible
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+    DebugLoc:        { File: tools.cpp, Line: 744, Column: 60 }
+  - OrigDirection:   write
+  - OrigID:          V.i.i231.exit.store.6
+  - ArrayName:       output
+  - String:          ' '
+  - BundleName:      OUTPUT_BUS
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_742_7
+  - String:          ' '
+  - LoopLoc:         'tools.cpp:742:39'
+  - String:          ' '
+  - Function:        'ResOutput(hls::stream<float, 0>*, hls::stream<float, 0>*, float*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
+    DebugLoc:        { File: tools.cpp, Line: 715, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: tools.cpp, Line: 17, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 28, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj
 Args:            
   - String:          'Could not widen since type '
-  - Type:            i128
+  - Type:            i512
   - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
   - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: tools.cpp, Line: 17, Column: 19 }
+    DebugLoc:        { File: tools.cpp, Line: 28, Column: 19 }
   - OrigDirection:   read
   - OrigID:          scevgepseq
-  - ArrayName:       Conv_MM_A
+  - ArrayName:       A
   - String:          ' '
   - BundleName:      A_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_17_4
+  - LoopName:        VITIS_LOOP_28_4
   - String:          ' '
-  - LoopLoc:         'tools.cpp:17:19'
+  - LoopLoc:         'tools.cpp:28:19'
   - String:          ' '
-  - Function:        'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
+  - Function:        'ConvertInputToStream(ap_uint<512>*, hls::stream<ap_uint<512>, 0>&, hls::stream<ap_uint<512>, 0>&, bool, unsigned int, unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: tools.cpp, Line: 16, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: tools.cpp, Line: 36, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 46, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj
 Args:            
   - String:          'Could not widen since type '
-  - Type:            i128
+  - Type:            i512
   - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
   - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: tools.cpp, Line: 36, Column: 19 }
+    DebugLoc:        { File: tools.cpp, Line: 46, Column: 19 }
   - OrigDirection:   read
-  - OrigID:          scevgep259seq
-  - ArrayName:       Conv_MM_A
+  - OrigID:          scevgep3seq
+  - ArrayName:       A
   - String:          ' '
   - BundleName:      A_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_36_7
+  - LoopName:        VITIS_LOOP_46_7
   - String:          ' '
-  - LoopLoc:         'tools.cpp:36:19'
+  - LoopLoc:         'tools.cpp:46:19'
   - String:          ' '
-  - Function:        'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
+  - Function:        'ConvertInputToStream(ap_uint<512>*, hls::stream<ap_uint<512>, 0>&, hls::stream<ap_uint<512>, 0>&, bool, unsigned int, unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: tools.cpp, Line: 16, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: tools.cpp, Line: 229, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb
+DebugLoc:        { File: tools.cpp, Line: 237, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb
 Args:            
   - String:          'Could not widen since type '
-  - Type:            i128
+  - Type:            i512
   - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
   - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: tools.cpp, Line: 229, Column: 20 }
+    DebugLoc:        { File: tools.cpp, Line: 237, Column: 20 }
   - OrigDirection:   read
   - OrigID:          scevgepseq
   - ArrayName:       Conv_Weight
   - String:          ' '
   - BundleName:      CONV_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_229_4
+  - LoopName:        VITIS_LOOP_237_4
   - String:          ' '
-  - LoopLoc:         'tools.cpp:229:20'
+  - LoopLoc:         'tools.cpp:237:20'
   - String:          ' '
-  - Function:        'ConvertWeightToStream(ap_uint<128>*, ap_uint<128>*, hls::stream<ap_uint<128>, 0>*, hls::stream<ap_uint<128>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 216, Column: 0 }
+  - Function:        'ConvertWeightToStream(ap_uint<512>*, ap_uint<512>*, hls::stream<ap_uint<512>, 0>*, hls::stream<ap_uint<512>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
+    DebugLoc:        { File: tools.cpp, Line: 225, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: tools.cpp, Line: 249, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb
+DebugLoc:        { File: tools.cpp, Line: 257, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb
 Args:            
   - String:          'Could not widen since type '
-  - Type:            i128
+  - Type:            i512
   - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
   - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: tools.cpp, Line: 249, Column: 20 }
+    DebugLoc:        { File: tools.cpp, Line: 257, Column: 20 }
   - OrigDirection:   read
   - OrigID:          scevgep1seq
   - ArrayName:       MM_Weight
   - String:          ' '
   - BundleName:      MM_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_249_7
+  - LoopName:        VITIS_LOOP_257_7
   - String:          ' '
-  - LoopLoc:         'tools.cpp:249:20'
+  - LoopLoc:         'tools.cpp:257:20'
   - String:          ' '
-  - Function:        'ConvertWeightToStream(ap_uint<128>*, ap_uint<128>*, hls::stream<ap_uint<128>, 0>*, hls::stream<ap_uint<128>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: tools.cpp, Line: 216, Column: 0 }
-  - String:          ' '
-...
---- !HLSReportInfo
-Pass:            auto-loop-pipeline
-Name:            AutoLoopPipeline
-Args:            
-  - String:          'automatically set the pipeline for Loop< '
-  - LoopName:        VITIS_LOOP_642_4
-  - String:          '> at '
-  - LoopLoc:         'tools.cpp:642:20'
+  - Function:        'ConvertWeightToStream(ap_uint<512>*, ap_uint<512>*, hls::stream<ap_uint<512>, 0>*, hls::stream<ap_uint<512>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
+    DebugLoc:        { File: tools.cpp, Line: 225, Column: 0 }
   - String:          ' '
 ...
 --- !HLSReportInfo
@@ -1707,9 +1768,9 @@ Pass:            auto-loop-pipeline
 Name:            AutoLoopPipeline
 Args:            
   - String:          'automatically set the pipeline for Loop< '
-  - LoopName:        VITIS_LOOP_613_10
+  - LoopName:        VITIS_LOOP_742_7
   - String:          '> at '
-  - LoopLoc:         'tools.cpp:613:48'
+  - LoopLoc:         'tools.cpp:742:39'
   - String:          ' '
 ...
 --- !HLSReportInfo
@@ -1717,9 +1778,9 @@ Pass:            auto-loop-pipeline
 Name:            AutoLoopPipeline
 Args:            
   - String:          'automatically set the pipeline for Loop< '
-  - LoopName:        VITIS_LOOP_271_2
+  - LoopName:        VITIS_LOOP_724_3
   - String:          '> at '
-  - LoopLoc:         'tools.cpp:271:20'
+  - LoopLoc:         'tools.cpp:724:20'
   - String:          ' '
 ...
 --- !HLSReportInfo
@@ -1727,9 +1788,9 @@ Pass:            auto-loop-pipeline
 Name:            AutoLoopPipeline
 Args:            
   - String:          'automatically set the pipeline for Loop< '
-  - LoopName:        VITIS_LOOP_62_4
+  - LoopName:        VITIS_LOOP_691_2
   - String:          '> at '
-  - LoopLoc:         'tools.cpp:62:19'
+  - LoopLoc:         'tools.cpp:691:20'
   - String:          ' '
 ...
 --- !HLSReportInfo
@@ -1737,9 +1798,9 @@ Pass:            auto-loop-pipeline
 Name:            AutoLoopPipeline
 Args:            
   - String:          'automatically set the pipeline for Loop< '
-  - LoopName:        VITIS_LOOP_192_1
+  - LoopName:        VITIS_LOOP_670_4
   - String:          '> at '
-  - LoopLoc:         'tools.cpp:192:23'
+  - LoopLoc:         'tools.cpp:670:35'
   - String:          ' '
 ...
 --- !HLSReportInfo
@@ -1747,9 +1808,9 @@ Pass:            auto-loop-pipeline
 Name:            AutoLoopPipeline
 Args:            
   - String:          'automatically set the pipeline for Loop< '
-  - LoopName:        VITIS_LOOP_106_1
+  - LoopName:        VITIS_LOOP_633_4
   - String:          '> at '
-  - LoopLoc:         'top.cpp:106:20'
+  - LoopLoc:         'tools.cpp:633:20'
   - String:          ' '
 ...
 --- !HLSReportInfo
@@ -1757,131 +1818,117 @@ Pass:            auto-loop-pipeline
 Name:            AutoLoopPipeline
 Args:            
   - String:          'automatically set the pipeline for Loop< '
-  - LoopName:        VITIS_LOOP_113_2
+  - LoopName:        VITIS_LOOP_604_10
   - String:          '> at '
-  - LoopLoc:         'top.cpp:113:20'
+  - LoopLoc:         'tools.cpp:604:48'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_278_2
+  - String:          '> at '
+  - LoopLoc:         'tools.cpp:278:20'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_201_1
+  - String:          '> at '
+  - LoopLoc:         'tools.cpp:201:23'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_71_4
+  - String:          '> at '
+  - LoopLoc:         'tools.cpp:71:19'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_7_1
+  - String:          '> at '
+  - LoopLoc:         'tools.cpp:7:21'
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 204, Column: 27 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 697, Column: 35 }
+Function:        _Z6ConvBNPN3hls6streamIfLi0EEES2_PNS0_I7ap_uintILi128EELi0EEEjjjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_204_2
+  - LoopName:        VITIS_LOOP_697_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 207, Column: 31 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 281, Column: 31 }
+Function:        _Z17ConvWeightToArrayPN3hls6streamI7ap_uintILi512EELi0EEEPA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_207_3
+  - LoopName:        VITIS_LOOP_281_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: tools.cpp, Line: 274, Column: 31 }
-Function:        _Z17ConvWeightToArrayPN3hls6streamI7ap_uintILi128EELi0EEEPA4_NS0_IS1_ILi32EELi0EEEjb
+DebugLoc:        { File: tools.cpp, Line: 213, Column: 27 }
+Function:        _Z19ConvertInputToArrayRN3hls6streamI7ap_uintILi512EELi0EEES4_PA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_274_3
+  - LoopName:        VITIS_LOOP_213_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: tools.cpp, Line: 216, Column: 31 }
+Function:        _Z19ConvertInputToArrayRN3hls6streamI7ap_uintILi512EELi0EEES4_PA4_NS0_IS1_ILi128EELi0EEEjb
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_216_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 682, Column: 0 }
+Function:        _Z6ConvBNPN3hls6streamIfLi0EEES2_PNS0_I7ap_uintILi128EELi0EEEjjjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_204_2
+  - LoopName:        VITIS_LOOP_697_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:204:27'
+  - LoopLoc:         'tools.cpp:697:35'
   - String:          ') '
   - String:          'in function '''
-  - String:          top
+  - String:          ConvBN
   - String:          ''' completely with a factor of '
   - Factor:          '4'
 ...
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 270, Column: 0 }
+Function:        _Z17ConvWeightToArrayPN3hls6streamI7ap_uintILi512EELi0EEEPA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_207_3
+  - LoopName:        VITIS_LOOP_281_3
   - String:          ''' ('
-  - LoopLoc:         'tools.cpp:207:31'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          top
-  - String:          ''' completely with a factor of '
-  - Factor:          '4'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_207_3
-  - String:          ''' ('
-  - LoopLoc:         'tools.cpp:207:31'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          top
-  - String:          ''' completely with a factor of '
-  - Factor:          '4'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_207_3
-  - String:          ''' ('
-  - LoopLoc:         'tools.cpp:207:31'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          top
-  - String:          ''' completely with a factor of '
-  - Factor:          '4'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_207_3
-  - String:          ''' ('
-  - LoopLoc:         'tools.cpp:207:31'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          top
-  - String:          ''' completely with a factor of '
-  - Factor:          '4'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: tools.cpp, Line: 262, Column: 0 }
-Function:        _Z17ConvWeightToArrayPN3hls6streamI7ap_uintILi128EELi0EEEPA4_NS0_IS1_ILi32EELi0EEEjb
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_274_3
-  - String:          ''' ('
-  - LoopLoc:         'tools.cpp:274:31'
+  - LoopLoc:         'tools.cpp:281:31'
   - String:          ') '
   - String:          'in function '''
   - String:          ConvWeightToArray
@@ -1889,117 +1936,97 @@ Args:
   - Factor:          '4'
 ...
 --- !Passed
-Pass:            reflow-burst-summary
-Name:            BurstInferredVerboseSummary
-DebugLoc:        { File: tools.cpp, Line: 229, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb.1
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: tools.cpp, Line: 199, Column: 0 }
+Function:        _Z19ConvertInputToArrayRN3hls6streamI7ap_uintILi512EELi0EEES4_PA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
-  - String:          'Multiple burst '
-  - Direction:       reads
-  - String:          ' of '
-  - Length:          variable
-  - String:          ' length and bit width '
-  - Width:           '128'
-  - String:          ' has been inferred.'
-  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        seq1
-  - ArrayName:       ''
-  - String:          ' '
-  - BundleName:      CONV_BUS
-  - String:          ' '
-  - LoopName:        VITIS_LOOP_229_4
-  - String:          ' '
-  - LoopLoc:         'tools.cpp:229:20'
-  - String:          ' '
-  - Function:        'ConvertWeightToStream(ap_uint<128>*, ap_uint<128>*, hls::stream<ap_uint<128>, 0>*, hls::stream<ap_uint<128>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, bool) (.1)'
-    DebugLoc:        { File: tools.cpp, Line: 216, Column: 0 }
-  - String:          ' '
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_213_2
+  - String:          ''' ('
+  - LoopLoc:         'tools.cpp:213:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          ConvertInputToArray
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
 ...
 --- !Passed
-Pass:            reflow-burst-summary
-Name:            BurstInferredSummary
-DebugLoc:        { File: tools.cpp, Line: 229, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb.1
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: tools.cpp, Line: 199, Column: 0 }
+Function:        _Z19ConvertInputToArrayRN3hls6streamI7ap_uintILi512EELi0EEES4_PA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
-  - String:          'Multiple burst '
-  - Direction:       reads
-  - String:          ' of '
-  - Length:          variable
-  - String:          ' length and bit width '
-  - Width:           '128'
-  - String:          ' in loop '''
-  - LoopName:        VITIS_LOOP_229_4
-  - String:          '''('
-  - LoopLoc:         'tools.cpp:229:20'
-  - String:          ')'
-  - String:          ' has been inferred on bundle '''
-  - BundleName:      CONV_BUS
-  - String:          '''.'
-  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_216_3
+  - String:          ''' ('
+  - LoopLoc:         'tools.cpp:216:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          ConvertInputToArray
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
 ...
 --- !Passed
-Pass:            reflow-burst-summary
-Name:            BurstInferredVerboseSummary
-DebugLoc:        { File: tools.cpp, Line: 249, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb.1
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: tools.cpp, Line: 199, Column: 0 }
+Function:        _Z19ConvertInputToArrayRN3hls6streamI7ap_uintILi512EELi0EEES4_PA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
-  - String:          'Multiple burst '
-  - Direction:       reads
-  - String:          ' of '
-  - Length:          variable
-  - String:          ' length and bit width '
-  - Width:           '128'
-  - String:          ' has been inferred.'
-  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        seq
-  - ArrayName:       ''
-  - String:          ' '
-  - BundleName:      MM_BUS
-  - String:          ' '
-  - LoopName:        VITIS_LOOP_249_7
-  - String:          ' '
-  - LoopLoc:         'tools.cpp:249:20'
-  - String:          ' '
-  - Function:        'ConvertWeightToStream(ap_uint<128>*, ap_uint<128>*, hls::stream<ap_uint<128>, 0>*, hls::stream<ap_uint<128>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, bool) (.1)'
-    DebugLoc:        { File: tools.cpp, Line: 216, Column: 0 }
-  - String:          ' '
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_216_3
+  - String:          ''' ('
+  - LoopLoc:         'tools.cpp:216:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          ConvertInputToArray
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
 ...
 --- !Passed
-Pass:            reflow-burst-summary
-Name:            BurstInferredSummary
-DebugLoc:        { File: tools.cpp, Line: 249, Column: 20 }
-Function:        _Z21ConvertWeightToStreamP7ap_uintILi128EES1_PN3hls6streamIS0_Li0EEERS4_jjjjb.1
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: tools.cpp, Line: 199, Column: 0 }
+Function:        _Z19ConvertInputToArrayRN3hls6streamI7ap_uintILi512EELi0EEES4_PA4_NS0_IS1_ILi128EELi0EEEjb
 Args:            
-  - String:          'Multiple burst '
-  - Direction:       reads
-  - String:          ' of '
-  - Length:          variable
-  - String:          ' length and bit width '
-  - Width:           '128'
-  - String:          ' in loop '''
-  - LoopName:        VITIS_LOOP_249_7
-  - String:          '''('
-  - LoopLoc:         'tools.cpp:249:20'
-  - String:          ')'
-  - String:          ' has been inferred on bundle '''
-  - BundleName:      MM_BUS
-  - String:          '''.'
-  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_216_3
+  - String:          ''' ('
+  - LoopLoc:         'tools.cpp:216:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          ConvertInputToArray
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: tools.cpp, Line: 199, Column: 0 }
+Function:        _Z19ConvertInputToArrayRN3hls6streamI7ap_uintILi512EELi0EEES4_PA4_NS0_IS1_ILi128EELi0EEEjb
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_216_3
+  - String:          ''' ('
+  - LoopLoc:         'tools.cpp:216:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          ConvertInputToArray
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
-DebugLoc:        { File: tools.cpp, Line: 17, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 28, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
   - String:          ' of '
   - Length:          variable
   - String:          ' length and bit width '
-  - Width:           '128'
+  - Width:           '512'
   - String:          ' has been inferred.'
   - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
   - String:          ' _XLX_SEP_ '
@@ -2008,30 +2035,30 @@ Args:
   - String:          ' '
   - BundleName:      A_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_17_4
+  - LoopName:        VITIS_LOOP_28_4
   - String:          ' '
-  - LoopLoc:         'tools.cpp:17:19'
+  - LoopLoc:         'tools.cpp:28:19'
   - String:          ' '
-  - Function:        'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
+  - Function:        'ConvertInputToStream(ap_uint<512>*, hls::stream<ap_uint<512>, 0>&, hls::stream<ap_uint<512>, 0>&, bool, unsigned int, unsigned int, unsigned int, unsigned int) (.1)'
+    DebugLoc:        { File: tools.cpp, Line: 16, Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
-DebugLoc:        { File: tools.cpp, Line: 17, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 28, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
   - String:          ' of '
   - Length:          variable
   - String:          ' length and bit width '
-  - Width:           '128'
+  - Width:           '512'
   - String:          ' in loop '''
-  - LoopName:        VITIS_LOOP_17_4
+  - LoopName:        VITIS_LOOP_28_4
   - String:          '''('
-  - LoopLoc:         'tools.cpp:17:19'
+  - LoopLoc:         'tools.cpp:28:19'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
   - BundleName:      A_BUS
@@ -2041,15 +2068,15 @@ Args:
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
-DebugLoc:        { File: tools.cpp, Line: 36, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 46, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
   - String:          ' of '
   - Length:          variable
   - String:          ' length and bit width '
-  - Width:           '128'
+  - Width:           '512'
   - String:          ' has been inferred.'
   - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
   - String:          ' _XLX_SEP_ '
@@ -2058,33 +2085,133 @@ Args:
   - String:          ' '
   - BundleName:      A_BUS
   - String:          ' '
-  - LoopName:        VITIS_LOOP_36_7
+  - LoopName:        VITIS_LOOP_46_7
   - String:          ' '
-  - LoopLoc:         'tools.cpp:36:19'
+  - LoopLoc:         'tools.cpp:46:19'
   - String:          ' '
-  - Function:        'top(ap_uint<128>*, ap_uint<128>*, ap_uint<128>*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool)'
-    DebugLoc:        { File: top.cpp, Line: 5, Column: 0 }
+  - Function:        'ConvertInputToStream(ap_uint<512>*, hls::stream<ap_uint<512>, 0>&, hls::stream<ap_uint<512>, 0>&, bool, unsigned int, unsigned int, unsigned int, unsigned int) (.1)'
+    DebugLoc:        { File: tools.cpp, Line: 16, Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
-DebugLoc:        { File: tools.cpp, Line: 36, Column: 19 }
-Function:        _Z3topP7ap_uintILi128EES1_S1_jjjjjb
+DebugLoc:        { File: tools.cpp, Line: 46, Column: 19 }
+Function:        _Z20ConvertInputToStreamP7ap_uintILi512EERN3hls6streamIS0_Li0EEES5_bjjjj.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
   - String:          ' of '
   - Length:          variable
   - String:          ' length and bit width '
-  - Width:           '128'
+  - Width:           '512'
   - String:          ' in loop '''
-  - LoopName:        VITIS_LOOP_36_7
+  - LoopName:        VITIS_LOOP_46_7
   - String:          '''('
-  - LoopLoc:         'tools.cpp:36:19'
+  - LoopLoc:         'tools.cpp:46:19'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
   - BundleName:      A_BUS
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: tools.cpp, Line: 237, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq1
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      CONV_BUS
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_237_4
+  - String:          ' '
+  - LoopLoc:         'tools.cpp:237:20'
+  - String:          ' '
+  - Function:        'ConvertWeightToStream(ap_uint<512>*, ap_uint<512>*, hls::stream<ap_uint<512>, 0>*, hls::stream<ap_uint<512>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool) (.1)'
+    DebugLoc:        { File: tools.cpp, Line: 225, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: tools.cpp, Line: 237, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '512'
+  - String:          ' in loop '''
+  - LoopName:        VITIS_LOOP_237_4
+  - String:          '''('
+  - LoopLoc:         'tools.cpp:237:20'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      CONV_BUS
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: tools.cpp, Line: 257, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      MM_BUS
+  - String:          ' '
+  - LoopName:        VITIS_LOOP_257_7
+  - String:          ' '
+  - LoopLoc:         'tools.cpp:257:20'
+  - String:          ' '
+  - Function:        'ConvertWeightToStream(ap_uint<512>*, ap_uint<512>*, hls::stream<ap_uint<512>, 0>*, hls::stream<ap_uint<512>, 0>&, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool) (.1)'
+    DebugLoc:        { File: tools.cpp, Line: 225, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: tools.cpp, Line: 257, Column: 20 }
+Function:        _Z21ConvertWeightToStreamP7ap_uintILi512EES1_PN3hls6streamIS0_Li0EEERS4_jjjjjjb.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '512'
+  - String:          ' in loop '''
+  - LoopName:        VITIS_LOOP_257_7
+  - String:          '''('
+  - LoopLoc:         'tools.cpp:257:20'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      MM_BUS
   - String:          '''.'
   - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
 ...

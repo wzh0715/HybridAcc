@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'Sliding'" level="0">
-<item name = "Date">Tue Feb 25 14:23:47 2025
+<item name = "Date">Mon Mar 10 15:35:50 2025
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">SDA</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">1, 9440, 10.000 ns, 94.400 us, 1, 9440, no</column>
+<column name="">1, 2405, 10.000 ns, 24.050 us, 1, 2405, no</column>
 </table>
 </item>
 <item name = "Detail">

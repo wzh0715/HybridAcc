@@ -65,15 +65,15 @@ module AESL_axi_master_MM_BUS (
 `define TV_OUT_MM_BUS "../tv/rtldatafile/rtl.top.autotvout_MM_BUS.dat"
  parameter MM_BUS_ADDR_BITWIDTH = 32'd 64;
  parameter MM_BUS_AWUSER_BITWIDTH = 32'd 1;
- parameter MM_BUS_DATA_BITWIDTH = 32'd 128;
+ parameter MM_BUS_DATA_BITWIDTH = 32'd 512;
  parameter MM_BUS_WUSER_BITWIDTH = 32'd 1;
  parameter MM_BUS_ID_BITWIDTH = 32'd 1;
  parameter MM_BUS_RUSER_BITWIDTH = 32'd 1;
  parameter MM_BUS_BUSER_BITWIDTH = 32'd 1;
  parameter   FIFO_DEPTH            =   1 + 1;
- parameter   mem_page_num            =   32'd 3;
+ parameter   mem_page_num            =   32'd 4;
  parameter   FIFO_DEPTH_ADDR_WIDTH   =    32'd 32;
-parameter MM_BUS_C_DATA_BITWIDTH = 32'd 128;
+parameter MM_BUS_C_DATA_BITWIDTH = 32'd 512;
 parameter MM_BUS_transaction_depth = 32'd 5000;
 parameter MM_BUS_mem_depth = 32'd 5000;
 parameter ReadReqLatency = 32'd 1;
@@ -204,6 +204,7 @@ reg [MM_BUS_ID_BITWIDTH - 1 : 0] RID_tmp = 0;
 reg [MM_BUS_DATA_BITWIDTH - 1 : 0] MM_BUS_mem_0 [0: MM_BUS_mem_depth - 1] = '{default : 'h0}; 
 reg [MM_BUS_DATA_BITWIDTH - 1 : 0] MM_BUS_mem_1 [0: MM_BUS_mem_depth - 1] = '{default : 'h0}; 
 reg [MM_BUS_DATA_BITWIDTH - 1 : 0] MM_BUS_mem_2 [0: MM_BUS_mem_depth - 1] = '{default : 'h0}; 
+reg [MM_BUS_DATA_BITWIDTH - 1 : 0] MM_BUS_mem_3 [0: MM_BUS_mem_depth - 1] = '{default : 'h0}; 
 reg [31 : 0] clk_counter ;
 reg [31 : 0] current_AW_req_transaction = 0 ;
 reg [31 : 0] current_AR_req_transaction = -1 ;
@@ -502,7 +503,7 @@ initial begin : AW_request_proc
             end
             
             if (FIFO_AW_req_ADDR_tmp/data_byte_size > MM_BUS_mem_depth) begin
-                $display ("D:/FPGA/SDA/SDA/solution1/sim/verilog/AESL_axi_master_MM_BUS.v: Write request address %d exceed AXI master MM_BUS array depth: %d",FIFO_AW_req_ADDR_tmp/data_byte_size, MM_BUS_mem_depth); 
+                $display ("D:/Download/SDA/SDA/solution1/sim/verilog/AESL_axi_master_MM_BUS.v: Write request address %d exceed AXI master MM_BUS array depth: %d",FIFO_AW_req_ADDR_tmp/data_byte_size, MM_BUS_mem_depth); 
                 $finish;
             end
             
@@ -529,6 +530,7 @@ initial begin : AW_request_proc
                                         0 : WDATA_tmp[j] = MM_BUS_mem_0[FIFO_AW_req_ADDR_tmp / data_byte_size + counter][j];
                                         1 : WDATA_tmp[j] = MM_BUS_mem_1[FIFO_AW_req_ADDR_tmp / data_byte_size + counter][j];
                                         2 : WDATA_tmp[j] = MM_BUS_mem_2[FIFO_AW_req_ADDR_tmp / data_byte_size + counter][j];
+                                        3 : WDATA_tmp[j] = MM_BUS_mem_3[FIFO_AW_req_ADDR_tmp / data_byte_size + counter][j];
                                         default: $display("The page_num of AXI write is not valid!");
                                     endcase
                                 end
@@ -542,6 +544,7 @@ initial begin : AW_request_proc
                             0 : MM_BUS_mem_0[FIFO_AW_req_ADDR_tmp / data_byte_size + counter] <= WDATA_tmp;
                             1 : MM_BUS_mem_1[FIFO_AW_req_ADDR_tmp / data_byte_size + counter] <= WDATA_tmp;
                             2 : MM_BUS_mem_2[FIFO_AW_req_ADDR_tmp / data_byte_size + counter] <= WDATA_tmp;
+                            3 : MM_BUS_mem_3[FIFO_AW_req_ADDR_tmp / data_byte_size + counter] <= WDATA_tmp;
                             default: $display("The page_num of AXI write is not valid!");
                         endcase
                         if (counter === output_length && FIFO_WDATA_size_empty != 1 ) begin
@@ -589,6 +592,7 @@ initial begin : AW_request_proc
                                         0 : WDATA_tmp[j] = MM_BUS_mem_0[FIFO_AW_req_ADDR_tmp / data_byte_size][j];
                                         1 : WDATA_tmp[j] = MM_BUS_mem_1[FIFO_AW_req_ADDR_tmp / data_byte_size][j];
                                         2 : WDATA_tmp[j] = MM_BUS_mem_2[FIFO_AW_req_ADDR_tmp / data_byte_size][j];
+                                        3 : WDATA_tmp[j] = MM_BUS_mem_3[FIFO_AW_req_ADDR_tmp / data_byte_size][j];
                                         default: $display("The page_num of AXI write is not valid!");
                                     endcase
                                 end
@@ -602,6 +606,7 @@ initial begin : AW_request_proc
                             0 : MM_BUS_mem_0[FIFO_AW_req_ADDR_tmp / data_byte_size] <= WDATA_tmp;
                             1 : MM_BUS_mem_1[FIFO_AW_req_ADDR_tmp / data_byte_size] <= WDATA_tmp;
                             2 : MM_BUS_mem_2[FIFO_AW_req_ADDR_tmp / data_byte_size] <= WDATA_tmp;
+                            3 : MM_BUS_mem_3[FIFO_AW_req_ADDR_tmp / data_byte_size] <= WDATA_tmp;
                             default: $display("The page_num of AXI write is not valid!");
                         endcase
                         if (FIFO_WDATA_size_empty != 1 ) begin
@@ -685,7 +690,7 @@ initial begin : AR_request_proc
             end
 
             if (FIFO_AR_req_ADDR_tmp/data_byte_size > MM_BUS_mem_depth) begin
-                $display ("D:/FPGA/SDA/SDA/solution1/sim/verilog/AESL_axi_master_MM_BUS.v: Read request address %d exceed AXI master MM_BUS array depth: %d",FIFO_AR_req_ADDR_tmp/data_byte_size, MM_BUS_mem_depth); 
+                $display ("D:/Download/SDA/SDA/solution1/sim/verilog/AESL_axi_master_MM_BUS.v: Read request address %d exceed AXI master MM_BUS array depth: %d",FIFO_AR_req_ADDR_tmp/data_byte_size, MM_BUS_mem_depth); 
                 $finish;
             end
 
@@ -703,6 +708,7 @@ initial begin : AR_request_proc
                             0 : RDATA_tmp <= MM_BUS_mem_0[FIFO_AR_req_ADDR_tmp / data_byte_size +   counter] ;
                             1 : RDATA_tmp <= MM_BUS_mem_1[FIFO_AR_req_ADDR_tmp / data_byte_size +   counter] ;
                             2 : RDATA_tmp <= MM_BUS_mem_2[FIFO_AR_req_ADDR_tmp / data_byte_size +   counter] ;
+                            3 : RDATA_tmp <= MM_BUS_mem_3[FIFO_AR_req_ADDR_tmp / data_byte_size +   counter] ;
                             default: $display("The page_num of AXI read is not valid!");
                         endcase
                     RVALID_tmp <= 1;
@@ -735,6 +741,7 @@ initial begin : AR_request_proc
                             0 : RDATA_tmp <= MM_BUS_mem_0[FIFO_AR_req_ADDR_tmp / data_byte_size ] ;
                             1 : RDATA_tmp <= MM_BUS_mem_1[FIFO_AR_req_ADDR_tmp / data_byte_size ] ;
                             2 : RDATA_tmp <= MM_BUS_mem_2[FIFO_AR_req_ADDR_tmp / data_byte_size ] ;
+                            3 : RDATA_tmp <= MM_BUS_mem_3[FIFO_AR_req_ADDR_tmp / data_byte_size ] ;
                             default: $display("The page_num of AXI read is not valid!");
                         endcase
                     RVALID_tmp <= 1;
@@ -763,7 +770,7 @@ end
      end
  endfunction
 
-    function [279:0] read_token(input integer fp);
+    function [1047:0] read_token(input integer fp);
         integer ret;
         begin
             read_token = "";
@@ -772,8 +779,8 @@ end
         end
     endfunction
 
- function [279:0] rm_0x(input [279:0] token);
-     reg [279:0] token_tmp;
+ function [1047:0] rm_0x(input [1047:0] token);
+     reg [1047:0] token_tmp;
      integer i;
      begin
          token_tmp = "";
@@ -787,10 +794,10 @@ end
 
 task write_binary;
     input integer fp;
-    input reg[128-1:0] in;
+    input reg[512-1:0] in;
     input integer in_bw;
     reg [63:0] tmp_long;
-    reg[128-1:0] local_in;
+    reg[512-1:0] local_in;
     integer char_num;
     integer long_num;
     integer i;
@@ -835,7 +842,7 @@ initial begin : read_file_process
   integer ret; 
   integer transaction_num; 
   integer mem_page; 
-  reg [128 - 1 : 0] token_tmp; 
+  reg [512 - 1 : 0] token_tmp; 
   reg [MM_BUS_DATA_BITWIDTH - 1 : 0] mem_tmp; 
   integer i; 
   transaction_num = 0;
@@ -857,13 +864,14 @@ initial begin : read_file_process
       for(i = 0; i < MM_BUS_transaction_depth; i = i + 1) begin 
           ret = $fread(token_tmp,fp);
           if (i%1 == 0) begin
-              mem_tmp[127 : 0] = token_tmp;
+              mem_tmp[511 : 0] = token_tmp;
           end
           if (i%1 == 0) begin
               case(mem_page)
                   0 : MM_BUS_mem_0[i/1] = mem_tmp;
                   1 : MM_BUS_mem_1[i/1] = mem_tmp;
                   2 : MM_BUS_mem_2[i/1] = mem_tmp;
+                  3 : MM_BUS_mem_3[i/1] = mem_tmp;
                   default: $display("The page_num of read file is not valid!");
               endcase
               mem_tmp[MM_BUS_DATA_BITWIDTH - 1 : 0] = 0;

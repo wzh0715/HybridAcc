@@ -1,51 +1,132 @@
 {
   "0": {
-    "basicblocks": 256,
-    "calls": "7 2 6 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 4",
+    "basicblocks": 4,
+    "calls": "11 3 16 14 6 9 7 5 2 12 13 8 1 15 10",
     "file": "top.cpp",
     "fileloc": 3,
-    "instructions": 1937,
-    "loads": {
-      "L": 4
-    },
+    "instructions": 3891,
     "name": "top",
-    "stores": {
-      "L": 35
-    },
-    "total_instructions": 14830
+    "total_instructions": 23771
   },
   "1": {
-    "basicblocks": 41,
+    "basicblocks": 404,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 326,
-    "instructions": 676,
+    "fileloc": 658,
+    "instructions": 1861,
+    "loads": {
+      "L": 256
+    },
+    "name": "ConvBias",
+    "stores": {
+      "L": 128
+    },
+    "total_instructions": 1861
+  },
+  "10": {
+    "basicblocks": 171,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 714,
+    "instructions": 686,
+    "loads": {
+      "L": 144
+    },
+    "name": "ResOutput",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 686
+  },
+  "11": {
+    "basicblocks": 135,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 3,
+    "instructions": 914,
+    "loads": {
+      "L": 2
+    },
+    "name": "ConvertBias_BN",
+    "stores": {
+      "L": 256
+    },
+    "total_instructions": 914
+  },
+  "12": {
+    "basicblocks": 1,
+    "calls": "4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4",
+    "file": "tools.cpp",
+    "fileloc": 551,
+    "instructions": 17,
+    "name": "Compute",
+    "total_instructions": 8065
+  },
+  "13": {
+    "basicblocks": 127,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 565,
+    "instructions": 798,
+    "loads": {
+      "L": 128
+    },
+    "name": "ConvertToOutStream",
+    "stores": {
+      "L": 32
+    },
+    "total_instructions": 798
+  },
+  "14": {
+    "basicblocks": 24,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 89,
+    "instructions": 194,
     "loads": {
       "L": 3
     },
-    "name": "PE",
+    "name": "Sliding",
     "stores": {
-      "L": 8
+      "L": 3
     },
-    "total_instructions": 676
+    "total_instructions": 194
   },
-  "2": {
-    "basicblocks": 30,
+  "15": {
+    "basicblocks": 269,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 215,
-    "instructions": 123,
-    "name": "ConvertWeightToStream",
-    "stores": {
-      "L": 5
+    "fileloc": 681,
+    "instructions": 2240,
+    "loads": {
+      "L": 256
     },
-    "total_instructions": 123
+    "name": "ConvBN",
+    "stores": {
+      "L": 128
+    },
+    "total_instructions": 2240
   },
-  "3": {
+  "16": {
+    "basicblocks": 17,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 57,
+    "instructions": 60,
+    "loads": {
+      "L": 1
+    },
+    "name": "Padding",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 60
+  },
+  "2": {
     "basicblocks": 7,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 304,
+    "fileloc": 311,
     "instructions": 174,
     "loads": {
       "L": 32
@@ -56,42 +137,69 @@
     },
     "total_instructions": 174
   },
-  "4": {
-    "basicblocks": 143,
+  "3": {
+    "basicblocks": 25,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 626,
-    "instructions": 609,
-    "loads": {
-      "L": 64
-    },
-    "name": "ConvToOutStream",
+    "fileloc": 15,
+    "instructions": 100,
+    "name": "ConvertInputToStream",
     "stores": {
-      "L": 64
+      "L": 2
     },
-    "total_instructions": 609
+    "total_instructions": 100
+  },
+  "4": {
+    "basicblocks": 41,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 333,
+    "instructions": 503,
+    "loads": {
+      "L": 3
+    },
+    "name": "PE",
+    "stores": {
+      "L": 8
+    },
+    "total_instructions": 503
   },
   "5": {
-    "basicblocks": 175,
+    "basicblocks": 6,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 572,
-    "instructions": 896,
+    "fileloc": 290,
+    "instructions": 68,
     "loads": {
-      "L": 128
+      "L": 1
     },
-    "name": "ConvertToOutStream",
+    "name": "MMWeightToArray",
     "stores": {
-      "L": 80
+      "L": 16
     },
-    "total_instructions": 896
+    "total_instructions": 68
   },
   "6": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 198,
+    "instructions": 73,
+    "loads": {
+      "L": 2
+    },
+    "name": "ConvertInputToArray",
+    "stores": {
+      "L": 16
+    },
+    "total_instructions": 73
+  },
+  "7": {
     "basicblocks": 14,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 261,
-    "instructions": 104,
+    "fileloc": 269,
+    "instructions": 103,
     "loads": {
       "L": 4
     },
@@ -99,21 +207,33 @@
     "stores": {
       "L": 16
     },
-    "total_instructions": 104
+    "total_instructions": 103
   },
-  "7": {
-    "basicblocks": 23,
+  "8": {
+    "basicblocks": 1231,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 80,
-    "instructions": 171,
+    "fileloc": 616,
+    "instructions": 4417,
     "loads": {
-      "L": 3
+      "L": 32
     },
-    "name": "Sliding",
+    "name": "ConvToOutStream",
     "stores": {
-      "L": 3
+      "L": 128
     },
-    "total_instructions": 171
+    "total_instructions": 4417
+  },
+  "9": {
+    "basicblocks": 30,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 224,
+    "instructions": 127,
+    "name": "ConvertWeightToStream",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 127
   }
 }

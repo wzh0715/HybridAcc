@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'ConvertWeightToStream'" level="0">
-<item name = "Date">Tue Feb 25 14:23:48 2025
+<item name = "Date">Mon Mar 10 15:35:51 2025
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">SDA</item>
@@ -24,15 +24,15 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">1038, 9230, 10.380 us, 92.300 us, 1038, 9230, no</column>
+<column name="">30, 2353, 0.300 us, 23.530 us, 30, 2353, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s_fu_120">ConvertWeightToStream_Pipeline_VITIS_LOOP_243_5_VITIS_LOOP_246_6_VITIS_LOOP_249_s, 1035, 1035, 10.350 us, 10.350 us, 1035, 1035, no</column>
-<column name="grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s_fu_132">ConvertWeightToStream_Pipeline_VITIS_LOOP_221_1_VITIS_LOOP_224_2_VITIS_LOOP_226_s, 9227, 9227, 92.270 us, 92.270 us, 9227, 9227, no</column>
+<column name="grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_251_5_VITIS_LOOP_254_6_VITIS_LOOP_257_s_fu_168">ConvertWeightToStream_Pipeline_VITIS_LOOP_251_5_VITIS_LOOP_254_6_VITIS_LOOP_257_s, 27, 27, 0.270 us, 0.270 us, 27, 27, no</column>
+<column name="grp_ConvertWeightToStream_Pipeline_VITIS_LOOP_229_1_VITIS_LOOP_232_2_VITIS_LOOP_234_s_fu_180">ConvertWeightToStream_Pipeline_VITIS_LOOP_229_1_VITIS_LOOP_232_2_VITIS_LOOP_234_s, 2315, 2315, 23.150 us, 23.150 us, 2315, 2315, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

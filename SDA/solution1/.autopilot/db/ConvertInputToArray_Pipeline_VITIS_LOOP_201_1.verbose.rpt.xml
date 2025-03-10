@@ -1,0 +1,236 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'ConvertInputToArray_Pipeline_VITIS_LOOP_201_1'" level="0">
+<item name = "Date">Mon Mar 10 15:36:51 2025
+</item>
+<item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
+<item name = "Project">SDA</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">virtexuplusHBM</item>
+<item name = "Target device">xcvu35p_CIV-fsvh2892-3-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 3.348 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">2306, 2306, 23.060 us, 23.060 us, 2306, 2306, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_201_1">2304, 2304, 2, 1, 1, 2304, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 88, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, -, -, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 212, -</column>
+<column name="Register">-, -, 36, -, -</column>
+<specialColumn name="Available SLR">1344, 2976, 871680, 435840, 320</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Available">2688, 5952, 1743360, 871680, 640</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="rep_7_fu_249_p2">+, 0, 0, 39, 32, 1</column>
+<column name="ap_block_pp0_stage0_01001">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op37_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op39_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln201_fu_243_p2">icmp, 0, 0, 39, 32, 32</column>
+<column name="ap_block_state2_pp0_stage0_iter1">or, 0, 0, 2, 1, 1</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_done_int">9, 2, 1, 2</column>
+<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
+<column name="ap_phi_mux_temp_2_phi_fu_227_p4">14, 3, 512, 1536</column>
+<column name="ap_sig_allocacmp_rep_6">9, 2, 32, 64</column>
+<column name="conv3_sild_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_10_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_11_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_12_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_13_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_14_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_15_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_1_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_2_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_3_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_4_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_5_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_6_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_7_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_8_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_9_blk_n">9, 2, 1, 2</column>
+<column name="fifo_SA_A_blk_n">9, 2, 1, 2</column>
+<column name="mm_a_blk_n">9, 2, 1, 2</column>
+<column name="rep_fu_84">9, 2, 32, 64</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">1, 0, 1, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="icmp_ln201_reg_321">1, 0, 1, 0</column>
+<column name="rep_fu_84">32, 0, 32, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, ConvertInputToArray_Pipeline_VITIS_LOOP_201_1, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, ConvertInputToArray_Pipeline_VITIS_LOOP_201_1, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, ConvertInputToArray_Pipeline_VITIS_LOOP_201_1, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, ConvertInputToArray_Pipeline_VITIS_LOOP_201_1, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, ConvertInputToArray_Pipeline_VITIS_LOOP_201_1, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, ConvertInputToArray_Pipeline_VITIS_LOOP_201_1, return value</column>
+<column name="mm_a_dout">in, 512, ap_fifo, mm_a, pointer</column>
+<column name="mm_a_num_data_valid">in, 8, ap_fifo, mm_a, pointer</column>
+<column name="mm_a_fifo_cap">in, 8, ap_fifo, mm_a, pointer</column>
+<column name="mm_a_empty_n">in, 1, ap_fifo, mm_a, pointer</column>
+<column name="mm_a_read">out, 1, ap_fifo, mm_a, pointer</column>
+<column name="conv3_sild_dout">in, 512, ap_fifo, conv3_sild, pointer</column>
+<column name="conv3_sild_num_data_valid">in, 3, ap_fifo, conv3_sild, pointer</column>
+<column name="conv3_sild_fifo_cap">in, 3, ap_fifo, conv3_sild, pointer</column>
+<column name="conv3_sild_empty_n">in, 1, ap_fifo, conv3_sild, pointer</column>
+<column name="conv3_sild_read">out, 1, ap_fifo, conv3_sild, pointer</column>
+<column name="fifo_SA_A_din">out, 128, ap_fifo, fifo_SA_A, pointer</column>
+<column name="fifo_SA_A_num_data_valid">in, 3, ap_fifo, fifo_SA_A, pointer</column>
+<column name="fifo_SA_A_fifo_cap">in, 3, ap_fifo, fifo_SA_A, pointer</column>
+<column name="fifo_SA_A_full_n">in, 1, ap_fifo, fifo_SA_A, pointer</column>
+<column name="fifo_SA_A_write">out, 1, ap_fifo, fifo_SA_A, pointer</column>
+<column name="fifo_SA_A_1_din">out, 128, ap_fifo, fifo_SA_A_1, pointer</column>
+<column name="fifo_SA_A_1_num_data_valid">in, 3, ap_fifo, fifo_SA_A_1, pointer</column>
+<column name="fifo_SA_A_1_fifo_cap">in, 3, ap_fifo, fifo_SA_A_1, pointer</column>
+<column name="fifo_SA_A_1_full_n">in, 1, ap_fifo, fifo_SA_A_1, pointer</column>
+<column name="fifo_SA_A_1_write">out, 1, ap_fifo, fifo_SA_A_1, pointer</column>
+<column name="fifo_SA_A_2_din">out, 128, ap_fifo, fifo_SA_A_2, pointer</column>
+<column name="fifo_SA_A_2_num_data_valid">in, 3, ap_fifo, fifo_SA_A_2, pointer</column>
+<column name="fifo_SA_A_2_fifo_cap">in, 3, ap_fifo, fifo_SA_A_2, pointer</column>
+<column name="fifo_SA_A_2_full_n">in, 1, ap_fifo, fifo_SA_A_2, pointer</column>
+<column name="fifo_SA_A_2_write">out, 1, ap_fifo, fifo_SA_A_2, pointer</column>
+<column name="fifo_SA_A_3_din">out, 128, ap_fifo, fifo_SA_A_3, pointer</column>
+<column name="fifo_SA_A_3_num_data_valid">in, 3, ap_fifo, fifo_SA_A_3, pointer</column>
+<column name="fifo_SA_A_3_fifo_cap">in, 3, ap_fifo, fifo_SA_A_3, pointer</column>
+<column name="fifo_SA_A_3_full_n">in, 1, ap_fifo, fifo_SA_A_3, pointer</column>
+<column name="fifo_SA_A_3_write">out, 1, ap_fifo, fifo_SA_A_3, pointer</column>
+<column name="fifo_SA_A_4_din">out, 128, ap_fifo, fifo_SA_A_4, pointer</column>
+<column name="fifo_SA_A_4_num_data_valid">in, 3, ap_fifo, fifo_SA_A_4, pointer</column>
+<column name="fifo_SA_A_4_fifo_cap">in, 3, ap_fifo, fifo_SA_A_4, pointer</column>
+<column name="fifo_SA_A_4_full_n">in, 1, ap_fifo, fifo_SA_A_4, pointer</column>
+<column name="fifo_SA_A_4_write">out, 1, ap_fifo, fifo_SA_A_4, pointer</column>
+<column name="fifo_SA_A_5_din">out, 128, ap_fifo, fifo_SA_A_5, pointer</column>
+<column name="fifo_SA_A_5_num_data_valid">in, 3, ap_fifo, fifo_SA_A_5, pointer</column>
+<column name="fifo_SA_A_5_fifo_cap">in, 3, ap_fifo, fifo_SA_A_5, pointer</column>
+<column name="fifo_SA_A_5_full_n">in, 1, ap_fifo, fifo_SA_A_5, pointer</column>
+<column name="fifo_SA_A_5_write">out, 1, ap_fifo, fifo_SA_A_5, pointer</column>
+<column name="fifo_SA_A_6_din">out, 128, ap_fifo, fifo_SA_A_6, pointer</column>
+<column name="fifo_SA_A_6_num_data_valid">in, 3, ap_fifo, fifo_SA_A_6, pointer</column>
+<column name="fifo_SA_A_6_fifo_cap">in, 3, ap_fifo, fifo_SA_A_6, pointer</column>
+<column name="fifo_SA_A_6_full_n">in, 1, ap_fifo, fifo_SA_A_6, pointer</column>
+<column name="fifo_SA_A_6_write">out, 1, ap_fifo, fifo_SA_A_6, pointer</column>
+<column name="fifo_SA_A_7_din">out, 128, ap_fifo, fifo_SA_A_7, pointer</column>
+<column name="fifo_SA_A_7_num_data_valid">in, 3, ap_fifo, fifo_SA_A_7, pointer</column>
+<column name="fifo_SA_A_7_fifo_cap">in, 3, ap_fifo, fifo_SA_A_7, pointer</column>
+<column name="fifo_SA_A_7_full_n">in, 1, ap_fifo, fifo_SA_A_7, pointer</column>
+<column name="fifo_SA_A_7_write">out, 1, ap_fifo, fifo_SA_A_7, pointer</column>
+<column name="fifo_SA_A_8_din">out, 128, ap_fifo, fifo_SA_A_8, pointer</column>
+<column name="fifo_SA_A_8_num_data_valid">in, 3, ap_fifo, fifo_SA_A_8, pointer</column>
+<column name="fifo_SA_A_8_fifo_cap">in, 3, ap_fifo, fifo_SA_A_8, pointer</column>
+<column name="fifo_SA_A_8_full_n">in, 1, ap_fifo, fifo_SA_A_8, pointer</column>
+<column name="fifo_SA_A_8_write">out, 1, ap_fifo, fifo_SA_A_8, pointer</column>
+<column name="fifo_SA_A_9_din">out, 128, ap_fifo, fifo_SA_A_9, pointer</column>
+<column name="fifo_SA_A_9_num_data_valid">in, 3, ap_fifo, fifo_SA_A_9, pointer</column>
+<column name="fifo_SA_A_9_fifo_cap">in, 3, ap_fifo, fifo_SA_A_9, pointer</column>
+<column name="fifo_SA_A_9_full_n">in, 1, ap_fifo, fifo_SA_A_9, pointer</column>
+<column name="fifo_SA_A_9_write">out, 1, ap_fifo, fifo_SA_A_9, pointer</column>
+<column name="fifo_SA_A_10_din">out, 128, ap_fifo, fifo_SA_A_10, pointer</column>
+<column name="fifo_SA_A_10_num_data_valid">in, 3, ap_fifo, fifo_SA_A_10, pointer</column>
+<column name="fifo_SA_A_10_fifo_cap">in, 3, ap_fifo, fifo_SA_A_10, pointer</column>
+<column name="fifo_SA_A_10_full_n">in, 1, ap_fifo, fifo_SA_A_10, pointer</column>
+<column name="fifo_SA_A_10_write">out, 1, ap_fifo, fifo_SA_A_10, pointer</column>
+<column name="fifo_SA_A_11_din">out, 128, ap_fifo, fifo_SA_A_11, pointer</column>
+<column name="fifo_SA_A_11_num_data_valid">in, 3, ap_fifo, fifo_SA_A_11, pointer</column>
+<column name="fifo_SA_A_11_fifo_cap">in, 3, ap_fifo, fifo_SA_A_11, pointer</column>
+<column name="fifo_SA_A_11_full_n">in, 1, ap_fifo, fifo_SA_A_11, pointer</column>
+<column name="fifo_SA_A_11_write">out, 1, ap_fifo, fifo_SA_A_11, pointer</column>
+<column name="fifo_SA_A_12_din">out, 128, ap_fifo, fifo_SA_A_12, pointer</column>
+<column name="fifo_SA_A_12_num_data_valid">in, 3, ap_fifo, fifo_SA_A_12, pointer</column>
+<column name="fifo_SA_A_12_fifo_cap">in, 3, ap_fifo, fifo_SA_A_12, pointer</column>
+<column name="fifo_SA_A_12_full_n">in, 1, ap_fifo, fifo_SA_A_12, pointer</column>
+<column name="fifo_SA_A_12_write">out, 1, ap_fifo, fifo_SA_A_12, pointer</column>
+<column name="fifo_SA_A_13_din">out, 128, ap_fifo, fifo_SA_A_13, pointer</column>
+<column name="fifo_SA_A_13_num_data_valid">in, 3, ap_fifo, fifo_SA_A_13, pointer</column>
+<column name="fifo_SA_A_13_fifo_cap">in, 3, ap_fifo, fifo_SA_A_13, pointer</column>
+<column name="fifo_SA_A_13_full_n">in, 1, ap_fifo, fifo_SA_A_13, pointer</column>
+<column name="fifo_SA_A_13_write">out, 1, ap_fifo, fifo_SA_A_13, pointer</column>
+<column name="fifo_SA_A_14_din">out, 128, ap_fifo, fifo_SA_A_14, pointer</column>
+<column name="fifo_SA_A_14_num_data_valid">in, 3, ap_fifo, fifo_SA_A_14, pointer</column>
+<column name="fifo_SA_A_14_fifo_cap">in, 3, ap_fifo, fifo_SA_A_14, pointer</column>
+<column name="fifo_SA_A_14_full_n">in, 1, ap_fifo, fifo_SA_A_14, pointer</column>
+<column name="fifo_SA_A_14_write">out, 1, ap_fifo, fifo_SA_A_14, pointer</column>
+<column name="fifo_SA_A_15_din">out, 128, ap_fifo, fifo_SA_A_15, pointer</column>
+<column name="fifo_SA_A_15_num_data_valid">in, 3, ap_fifo, fifo_SA_A_15, pointer</column>
+<column name="fifo_SA_A_15_fifo_cap">in, 3, ap_fifo, fifo_SA_A_15, pointer</column>
+<column name="fifo_SA_A_15_full_n">in, 1, ap_fifo, fifo_SA_A_15, pointer</column>
+<column name="fifo_SA_A_15_write">out, 1, ap_fifo, fifo_SA_A_15, pointer</column>
+<column name="p_read">in, 32, ap_none, p_read, scalar</column>
+<column name="mode_7">in, 1, ap_none, mode_7, scalar</column>
+</table>
+</item>
+</section>
+</profile>

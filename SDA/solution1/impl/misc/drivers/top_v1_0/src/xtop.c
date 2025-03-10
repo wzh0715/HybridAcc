@@ -236,6 +236,25 @@ u64 XTop_Get_MM_Weight(XTop *InstancePtr) {
     return Data;
 }
 
+void XTop_Set_Output_r(XTop *InstancePtr, u64 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XTop_WriteReg(InstancePtr->Control_r_BaseAddress, XTOP_CONTROL_R_ADDR_OUTPUT_R_DATA, (u32)(Data));
+    XTop_WriteReg(InstancePtr->Control_r_BaseAddress, XTOP_CONTROL_R_ADDR_OUTPUT_R_DATA + 4, (u32)(Data >> 32));
+}
+
+u64 XTop_Get_Output_r(XTop *InstancePtr) {
+    u64 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XTop_ReadReg(InstancePtr->Control_r_BaseAddress, XTOP_CONTROL_R_ADDR_OUTPUT_R_DATA);
+    Data += (u64)XTop_ReadReg(InstancePtr->Control_r_BaseAddress, XTOP_CONTROL_R_ADDR_OUTPUT_R_DATA + 4) << 32;
+    return Data;
+}
+
 void XTop_InterruptGlobalEnable(XTop *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);

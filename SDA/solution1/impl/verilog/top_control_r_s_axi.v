@@ -33,7 +33,8 @@ module top_control_r_s_axi
     input  wire                          RREADY,
     output wire [63:0]                   Conv_MM_A,
     output wire [63:0]                   Conv_Weight,
-    output wire [63:0]                   MM_Weight
+    output wire [63:0]                   MM_Weight,
+    output wire [63:0]                   Output_r
 );
 //------------------------Address Info-------------------
 // Protocol Used: ap_ctrl_none
@@ -57,6 +58,11 @@ module top_control_r_s_axi
 // 0x2c : Data signal of MM_Weight
 //        bit 31~0 - MM_Weight[63:32] (Read/Write)
 // 0x30 : reserved
+// 0x34 : Data signal of Output_r
+//        bit 31~0 - Output_r[31:0] (Read/Write)
+// 0x38 : Data signal of Output_r
+//        bit 31~0 - Output_r[63:32] (Read/Write)
+// 0x3c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
@@ -70,6 +76,9 @@ localparam
     ADDR_MM_WEIGHT_DATA_0   = 6'h28,
     ADDR_MM_WEIGHT_DATA_1   = 6'h2c,
     ADDR_MM_WEIGHT_CTRL     = 6'h30,
+    ADDR_OUTPUT_R_DATA_0    = 6'h34,
+    ADDR_OUTPUT_R_DATA_1    = 6'h38,
+    ADDR_OUTPUT_R_CTRL      = 6'h3c,
     WRIDLE                  = 2'd0,
     WRDATA                  = 2'd1,
     WRRESP                  = 2'd2,
@@ -95,6 +104,7 @@ localparam
     reg  [63:0]                   int_Conv_MM_A = 'b0;
     reg  [63:0]                   int_Conv_Weight = 'b0;
     reg  [63:0]                   int_MM_Weight = 'b0;
+    reg  [63:0]                   int_Output_r = 'b0;
 
 //------------------------Instantiation------------------
 
@@ -205,6 +215,12 @@ always @(posedge ACLK) begin
                 ADDR_MM_WEIGHT_DATA_1: begin
                     rdata <= int_MM_Weight[63:32];
                 end
+                ADDR_OUTPUT_R_DATA_0: begin
+                    rdata <= int_Output_r[31:0];
+                end
+                ADDR_OUTPUT_R_DATA_1: begin
+                    rdata <= int_Output_r[63:32];
+                end
             endcase
         end
     end
@@ -215,6 +231,7 @@ end
 assign Conv_MM_A   = int_Conv_MM_A;
 assign Conv_Weight = int_Conv_Weight;
 assign MM_Weight   = int_MM_Weight;
+assign Output_r    = int_Output_r;
 // int_Conv_MM_A[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
@@ -272,6 +289,26 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_MM_WEIGHT_DATA_1)
             int_MM_Weight[63:32] <= (WDATA[31:0] & wmask) | (int_MM_Weight[63:32] & ~wmask);
+    end
+end
+
+// int_Output_r[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_Output_r[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_OUTPUT_R_DATA_0)
+            int_Output_r[31:0] <= (WDATA[31:0] & wmask) | (int_Output_r[31:0] & ~wmask);
+    end
+end
+
+// int_Output_r[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_Output_r[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_OUTPUT_R_DATA_1)
+            int_Output_r[63:32] <= (WDATA[31:0] & wmask) | (int_Output_r[63:32] & ~wmask);
     end
 end
 

@@ -1,0 +1,218 @@
+
+
+================================================================
+== Vitis HLS Report for 'ConvWeightToArray_Pipeline_VITIS_LOOP_275_1_VITIS_LOOP_278_2'
+================================================================
+* Date:           Mon Mar 10 15:35:52 2025
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        SDA
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplusHBM
+* Target device:  xcvu35p_CIV-fsvh2892-3-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  2.862 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+    +---------+---------+-----------+-----------+------+------+---------+
+    |     2306|     2306|  23.060 us|  23.060 us|  2306|  2306|       no|
+    +---------+---------+-----------+-----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |              Loop Name              |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_275_1_VITIS_LOOP_278_2  |     2304|     2304|         2|          1|          1|  2304|       yes|
+        +-------------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.36>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%c = alloca i32 1" [tools.cpp:278->top.cpp:78]   --->   Operation 5 'alloca' 'c' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%indvar_flatten = alloca i32 1"   --->   Operation 6 'alloca' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %fifo_conv_w, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 7 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %fifo_conv_w_1, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 8 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %fifo_conv_w_2, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %fifo_conv_w_3, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 11 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_1, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_2, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_3, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_4, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 15 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_5, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_6, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_7, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 18 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_8, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_9, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 20 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_10, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 21 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_11, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 22 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_12, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 23 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_13, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 24 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_14, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 25 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %Conv_SA_W_15, void @empty_24, i32 0, i32 0, void @empty_14, i32 0, i32 0, void @empty_14, void @empty_14, void @empty_14, i32 0, i32 0, i32 0, i32 0, void @empty_14, void @empty_14, i32 4294967295, i32 0"   --->   Operation 26 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%zext_ln275_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %zext_ln275" [tools.cpp:269->top.cpp:78]   --->   Operation 27 'read' 'zext_ln275_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.36ns)   --->   "%store_ln0 = store i32 0, i32 %indvar_flatten"   --->   Operation 28 'store' 'store_ln0' <Predicate = true> <Delay = 0.36>
+ST_1 : Operation 29 [1/1] (0.36ns)   --->   "%store_ln278 = store i3 0, i3 %c" [tools.cpp:278->top.cpp:78]   --->   Operation 29 'store' 'store_ln278' <Predicate = true> <Delay = 0.36>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%br_ln0 = br void %VITIS_LOOP_281_3.i"   --->   Operation 30 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.66>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%indvar_flatten_load = load i32 %indvar_flatten" [tools.cpp:275->top.cpp:78]   --->   Operation 31 'load' 'indvar_flatten_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.79ns)   --->   "%icmp_ln275 = icmp_eq  i32 %indvar_flatten_load, i32 %zext_ln275_read" [tools.cpp:275->top.cpp:78]   --->   Operation 32 'icmp' 'icmp_ln275' <Predicate = true> <Delay = 0.79> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 33 [1/1] (0.79ns)   --->   "%add_ln275 = add i32 %indvar_flatten_load, i32 1" [tools.cpp:275->top.cpp:78]   --->   Operation 33 'add' 'add_ln275' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%br_ln275 = br i1 %icmp_ln275, void %for.inc22.i, void %ConvWeightToArray.exit.loopexit.exitStub" [tools.cpp:275->top.cpp:78]   --->   Operation 34 'br' 'br_ln275' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%c_load = load i3 %c" [tools.cpp:278->top.cpp:78]   --->   Operation 35 'load' 'c_load' <Predicate = (!icmp_ln275)> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @VITIS_LOOP_275_1_VITIS_LOOP_278_2_str"   --->   Operation 36 'specloopname' 'specloopname_ln0' <Predicate = (!icmp_ln275)> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 2304, i64 2304, i64 2304"   --->   Operation 37 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = (!icmp_ln275)> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.52ns)   --->   "%icmp_ln278 = icmp_eq  i3 %c_load, i3 4" [tools.cpp:278->top.cpp:78]   --->   Operation 38 'icmp' 'icmp_ln278' <Predicate = (!icmp_ln275)> <Delay = 0.52> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 39 [1/1] (0.25ns)   --->   "%select_ln275 = select i1 %icmp_ln278, i3 0, i3 %c_load" [tools.cpp:275->top.cpp:78]   --->   Operation 39 'select' 'select_ln275' <Predicate = (!icmp_ln275)> <Delay = 0.25> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.25> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%specpipeline_ln278 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_14" [tools.cpp:278->top.cpp:78]   --->   Operation 40 'specpipeline' 'specpipeline_ln278' <Predicate = (!icmp_ln275)> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%trunc_ln278 = trunc i3 %select_ln275" [tools.cpp:278->top.cpp:78]   --->   Operation 41 'trunc' 'trunc_ln278' <Predicate = (!icmp_ln275)> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.66ns)   --->   "%switch_ln280 = switch i2 %trunc_ln278, void %V.i82.case.324.3.i, i2 0, void %V.i82.case.021.3.i, i2 1, void %V.i82.case.122.3.i, i2 2, void %V.i82.case.223.3.i" [tools.cpp:280->top.cpp:78]   --->   Operation 42 'switch' 'switch_ln280' <Predicate = (!icmp_ln275)> <Delay = 0.66>
+ST_2 : Operation 43 [1/1] (0.52ns)   --->   "%add_ln278 = add i3 %select_ln275, i3 1" [tools.cpp:278->top.cpp:78]   --->   Operation 43 'add' 'add_ln278' <Predicate = (!icmp_ln275)> <Delay = 0.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 44 [1/1] (0.36ns)   --->   "%store_ln275 = store i32 %add_ln275, i32 %indvar_flatten" [tools.cpp:275->top.cpp:78]   --->   Operation 44 'store' 'store_ln275' <Predicate = (!icmp_ln275)> <Delay = 0.36>
+ST_2 : Operation 45 [1/1] (0.36ns)   --->   "%store_ln278 = store i3 %add_ln278, i3 %c" [tools.cpp:278->top.cpp:78]   --->   Operation 45 'store' 'store_ln278' <Predicate = (!icmp_ln275)> <Delay = 0.36>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%br_ln278 = br void %VITIS_LOOP_281_3.i" [tools.cpp:278->top.cpp:78]   --->   Operation 46 'br' 'br_ln278' <Predicate = (!icmp_ln275)> <Delay = 0.00>
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 87 'ret' 'ret_ln0' <Predicate = (icmp_ln275)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.86>
+ST_3 : Operation 47 [1/1] (1.36ns)   --->   "%w = read i512 @_ssdm_op_Read.ap_fifo.volatile.i512P0A, i512 %fifo_conv_w_2" [tools.cpp:280->top.cpp:78]   --->   Operation 47 'read' 'w' <Predicate = (trunc_ln278 == 2)> <Delay = 1.36> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 512> <Depth = 8> <FIFO>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%trunc_ln283_3 = trunc i512 %w" [tools.cpp:283->top.cpp:78]   --->   Operation 48 'trunc' 'trunc_ln283_3' <Predicate = (trunc_ln278 == 2)> <Delay = 0.00>
+ST_3 : Operation 49 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_2, i128 %trunc_ln283_3" [tools.cpp:284->top.cpp:78]   --->   Operation 49 'write' 'write_ln284' <Predicate = (trunc_ln278 == 2)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%p_10 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %w, i32 128, i32 255" [tools.cpp:283->top.cpp:78]   --->   Operation 50 'partselect' 'p_10' <Predicate = (trunc_ln278 == 2)> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_6, i128 %p_10" [tools.cpp:284->top.cpp:78]   --->   Operation 51 'write' 'write_ln284' <Predicate = (trunc_ln278 == 2)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%p_11 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %w, i32 256, i32 383" [tools.cpp:283->top.cpp:78]   --->   Operation 52 'partselect' 'p_11' <Predicate = (trunc_ln278 == 2)> <Delay = 0.00>
+ST_3 : Operation 53 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_10, i128 %p_11" [tools.cpp:284->top.cpp:78]   --->   Operation 53 'write' 'write_ln284' <Predicate = (trunc_ln278 == 2)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "%p_12 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %w, i32 384, i32 511" [tools.cpp:283->top.cpp:78]   --->   Operation 54 'partselect' 'p_12' <Predicate = (trunc_ln278 == 2)> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_14, i128 %p_12" [tools.cpp:284->top.cpp:78]   --->   Operation 55 'write' 'write_ln284' <Predicate = (trunc_ln278 == 2)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "%br_ln284 = br void %V.i82.exit.3.i" [tools.cpp:284->top.cpp:78]   --->   Operation 56 'br' 'br_ln284' <Predicate = (trunc_ln278 == 2)> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (1.36ns)   --->   "%fifo_conv_w_1_read = read i512 @_ssdm_op_Read.ap_fifo.volatile.i512P0A, i512 %fifo_conv_w_1" [tools.cpp:280->top.cpp:78]   --->   Operation 57 'read' 'fifo_conv_w_1_read' <Predicate = (trunc_ln278 == 1)> <Delay = 1.36> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 512> <Depth = 8> <FIFO>
+ST_3 : Operation 58 [1/1] (0.00ns)   --->   "%trunc_ln283_2 = trunc i512 %fifo_conv_w_1_read" [tools.cpp:283->top.cpp:78]   --->   Operation 58 'trunc' 'trunc_ln283_2' <Predicate = (trunc_ln278 == 1)> <Delay = 0.00>
+ST_3 : Operation 59 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_1, i128 %trunc_ln283_2" [tools.cpp:284->top.cpp:78]   --->   Operation 59 'write' 'write_ln284' <Predicate = (trunc_ln278 == 1)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%p_7 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %fifo_conv_w_1_read, i32 128, i32 255" [tools.cpp:283->top.cpp:78]   --->   Operation 60 'partselect' 'p_7' <Predicate = (trunc_ln278 == 1)> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_5, i128 %p_7" [tools.cpp:284->top.cpp:78]   --->   Operation 61 'write' 'write_ln284' <Predicate = (trunc_ln278 == 1)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "%p_8 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %fifo_conv_w_1_read, i32 256, i32 383" [tools.cpp:283->top.cpp:78]   --->   Operation 62 'partselect' 'p_8' <Predicate = (trunc_ln278 == 1)> <Delay = 0.00>
+ST_3 : Operation 63 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_9, i128 %p_8" [tools.cpp:284->top.cpp:78]   --->   Operation 63 'write' 'write_ln284' <Predicate = (trunc_ln278 == 1)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 64 [1/1] (0.00ns)   --->   "%p_9 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %fifo_conv_w_1_read, i32 384, i32 511" [tools.cpp:283->top.cpp:78]   --->   Operation 64 'partselect' 'p_9' <Predicate = (trunc_ln278 == 1)> <Delay = 0.00>
+ST_3 : Operation 65 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_13, i128 %p_9" [tools.cpp:284->top.cpp:78]   --->   Operation 65 'write' 'write_ln284' <Predicate = (trunc_ln278 == 1)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 66 [1/1] (0.00ns)   --->   "%br_ln284 = br void %V.i82.exit.3.i" [tools.cpp:284->top.cpp:78]   --->   Operation 66 'br' 'br_ln284' <Predicate = (trunc_ln278 == 1)> <Delay = 0.00>
+ST_3 : Operation 67 [1/1] (1.36ns)   --->   "%fifo_conv_w_read = read i512 @_ssdm_op_Read.ap_fifo.volatile.i512P0A, i512 %fifo_conv_w" [tools.cpp:280->top.cpp:78]   --->   Operation 67 'read' 'fifo_conv_w_read' <Predicate = (trunc_ln278 == 0)> <Delay = 1.36> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 512> <Depth = 8> <FIFO>
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "%trunc_ln283_1 = trunc i512 %fifo_conv_w_read" [tools.cpp:283->top.cpp:78]   --->   Operation 68 'trunc' 'trunc_ln283_1' <Predicate = (trunc_ln278 == 0)> <Delay = 0.00>
+ST_3 : Operation 69 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W, i128 %trunc_ln283_1" [tools.cpp:284->top.cpp:78]   --->   Operation 69 'write' 'write_ln284' <Predicate = (trunc_ln278 == 0)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%p_4 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %fifo_conv_w_read, i32 128, i32 255" [tools.cpp:283->top.cpp:78]   --->   Operation 70 'partselect' 'p_4' <Predicate = (trunc_ln278 == 0)> <Delay = 0.00>
+ST_3 : Operation 71 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_4, i128 %p_4" [tools.cpp:284->top.cpp:78]   --->   Operation 71 'write' 'write_ln284' <Predicate = (trunc_ln278 == 0)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%p_5 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %fifo_conv_w_read, i32 256, i32 383" [tools.cpp:283->top.cpp:78]   --->   Operation 72 'partselect' 'p_5' <Predicate = (trunc_ln278 == 0)> <Delay = 0.00>
+ST_3 : Operation 73 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_8, i128 %p_5" [tools.cpp:284->top.cpp:78]   --->   Operation 73 'write' 'write_ln284' <Predicate = (trunc_ln278 == 0)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "%p_6 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %fifo_conv_w_read, i32 384, i32 511" [tools.cpp:283->top.cpp:78]   --->   Operation 74 'partselect' 'p_6' <Predicate = (trunc_ln278 == 0)> <Delay = 0.00>
+ST_3 : Operation 75 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_12, i128 %p_6" [tools.cpp:284->top.cpp:78]   --->   Operation 75 'write' 'write_ln284' <Predicate = (trunc_ln278 == 0)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%br_ln284 = br void %V.i82.exit.3.i" [tools.cpp:284->top.cpp:78]   --->   Operation 76 'br' 'br_ln284' <Predicate = (trunc_ln278 == 0)> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (1.36ns)   --->   "%fifo_conv_w_3_read = read i512 @_ssdm_op_Read.ap_fifo.volatile.i512P0A, i512 %fifo_conv_w_3" [tools.cpp:280->top.cpp:78]   --->   Operation 77 'read' 'fifo_conv_w_3_read' <Predicate = (trunc_ln278 == 3)> <Delay = 1.36> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.36> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 512> <Depth = 8> <FIFO>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%trunc_ln283 = trunc i512 %fifo_conv_w_3_read" [tools.cpp:283->top.cpp:78]   --->   Operation 78 'trunc' 'trunc_ln283' <Predicate = (trunc_ln278 == 3)> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_3, i128 %trunc_ln283" [tools.cpp:284->top.cpp:78]   --->   Operation 79 'write' 'write_ln284' <Predicate = (trunc_ln278 == 3)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%p_s = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %fifo_conv_w_3_read, i32 128, i32 255" [tools.cpp:283->top.cpp:78]   --->   Operation 80 'partselect' 'p_s' <Predicate = (trunc_ln278 == 3)> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_7, i128 %p_s" [tools.cpp:284->top.cpp:78]   --->   Operation 81 'write' 'write_ln284' <Predicate = (trunc_ln278 == 3)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 82 [1/1] (0.00ns)   --->   "%p_3 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %fifo_conv_w_3_read, i32 256, i32 383" [tools.cpp:283->top.cpp:78]   --->   Operation 82 'partselect' 'p_3' <Predicate = (trunc_ln278 == 3)> <Delay = 0.00>
+ST_3 : Operation 83 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_11, i128 %p_3" [tools.cpp:284->top.cpp:78]   --->   Operation 83 'write' 'write_ln284' <Predicate = (trunc_ln278 == 3)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 84 [1/1] (0.00ns)   --->   "%p_0 = partselect i128 @_ssdm_op_PartSelect.i128.i512.i32.i32, i512 %fifo_conv_w_3_read, i32 384, i32 511" [tools.cpp:283->top.cpp:78]   --->   Operation 84 'partselect' 'p_0' <Predicate = (trunc_ln278 == 3)> <Delay = 0.00>
+ST_3 : Operation 85 [1/1] (1.49ns)   --->   "%write_ln284 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %Conv_SA_W_15, i128 %p_0" [tools.cpp:284->top.cpp:78]   --->   Operation 85 'write' 'write_ln284' <Predicate = (trunc_ln278 == 3)> <Delay = 1.49> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.49> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 8> <FIFO>
+ST_3 : Operation 86 [1/1] (0.00ns)   --->   "%br_ln284 = br void %V.i82.exit.3.i" [tools.cpp:284->top.cpp:78]   --->   Operation 86 'br' 'br_ln284' <Predicate = (trunc_ln278 == 3)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 0.362ns
+The critical path consists of the following:
+	'alloca' operation 32 bit ('indvar_flatten') [23]  (0.000 ns)
+	'store' operation 0 bit ('store_ln0') of constant 0 on local variable 'indvar_flatten' [45]  (0.362 ns)
+
+ <State 2>: 1.666ns
+The critical path consists of the following:
+	'load' operation 3 bit ('c_load', tools.cpp:278->top.cpp:78) on local variable 'c', tools.cpp:278->top.cpp:78 [54]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln278', tools.cpp:278->top.cpp:78) [57]  (0.524 ns)
+	'select' operation 3 bit ('select_ln275', tools.cpp:275->top.cpp:78) [58]  (0.255 ns)
+	'add' operation 3 bit ('add_ln278', tools.cpp:278->top.cpp:78) [107]  (0.524 ns)
+	'store' operation 0 bit ('store_ln278', tools.cpp:278->top.cpp:78) of variable 'add_ln278', tools.cpp:278->top.cpp:78 on local variable 'c', tools.cpp:278->top.cpp:78 [109]  (0.362 ns)
+
+ <State 3>: 2.862ns
+The critical path consists of the following:
+	fifo read operation ('fifo_conv_w_3_read', tools.cpp:280->top.cpp:78) on port 'fifo_conv_w_3' (tools.cpp:280->top.cpp:78) [96]  (1.367 ns)
+	fifo write operation ('write_ln284', tools.cpp:284->top.cpp:78) on port 'Conv_SA_W_3' (tools.cpp:284->top.cpp:78) [98]  (1.495 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

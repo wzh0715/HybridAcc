@@ -1,19 +1,46 @@
 {
   "0": {
-    "basicblocks": 256,
-    "calls": "1 7 4 5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 6",
+    "basicblocks": 4,
+    "calls": "9 10 13 12 11 2 15 3 6 8 4 16 7 14 5",
     "file": "top.cpp",
     "fileloc": 3,
-    "instructions": 2485,
+    "instructions": 6315,
     "name": "top",
-    "total_instructions": 14379
+    "total_instructions": 24138
   },
   "1": {
-    "basicblocks": 23,
+    "basicblocks": 41,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 80,
-    "instructions": 176,
+    "fileloc": 333,
+    "instructions": 479,
+    "name": "PE",
+    "total_instructions": 479
+  },
+  "10": {
+    "basicblocks": 27,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 15,
+    "instructions": 87,
+    "name": "ConvertInputToStream",
+    "total_instructions": 87
+  },
+  "11": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 198,
+    "instructions": 35,
+    "name": "ConvertInputToArray",
+    "total_instructions": 35
+  },
+  "12": {
+    "basicblocks": 24,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 89,
+    "instructions": 199,
     "loads": {
       "L": 1
     },
@@ -21,66 +48,117 @@
     "stores": {
       "L": 2
     },
-    "total_instructions": 176
+    "total_instructions": 199
   },
-  "2": {
-    "basicblocks": 41,
+  "13": {
+    "basicblocks": 17,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 326,
-    "instructions": 652,
-    "name": "PE",
-    "total_instructions": 652
+    "fileloc": 57,
+    "instructions": 53,
+    "name": "Padding",
+    "total_instructions": 53
   },
-  "3": {
-    "basicblocks": 171,
+  "14": {
+    "basicblocks": 269,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 572,
-    "instructions": 463,
-    "name": "ConvertToOutStream",
-    "total_instructions": 463
+    "fileloc": 681,
+    "instructions": 1473,
+    "name": "ConvBN",
+    "total_instructions": 1473
   },
-  "4": {
+  "15": {
     "basicblocks": 13,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 261,
+    "fileloc": 269,
     "instructions": 58,
     "name": "ConvWeightToArray",
     "total_instructions": 58
   },
+  "16": {
+    "basicblocks": 1231,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 616,
+    "instructions": 5628,
+    "name": "ConvToOutStream",
+    "total_instructions": 5628
+  },
+  "2": {
+    "basicblocks": 31,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 224,
+    "instructions": 106,
+    "name": "ConvertWeightToStream",
+    "total_instructions": 106
+  },
+  "3": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 290,
+    "instructions": 32,
+    "name": "MMWeightToArray",
+    "total_instructions": 32
+  },
+  "4": {
+    "basicblocks": 123,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 565,
+    "instructions": 461,
+    "name": "ConvertToOutStream",
+    "total_instructions": 461
+  },
   "5": {
+    "basicblocks": 169,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 714,
+    "instructions": 385,
+    "name": "ResOutput",
+    "total_instructions": 385
+  },
+  "6": {
     "basicblocks": 7,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 304,
+    "fileloc": 311,
     "instructions": 140,
     "name": "MuxWeightStream",
     "total_instructions": 140
   },
-  "6": {
-    "basicblocks": 143,
-    "calls": "",
-    "file": "tools.cpp",
-    "fileloc": 626,
-    "instructions": 524,
-    "loads": {
-      "L": 32
-    },
-    "name": "ConvToOutStream",
-    "stores": {
-      "L": 32
-    },
-    "total_instructions": 524
-  },
   "7": {
-    "basicblocks": 31,
+    "basicblocks": 402,
     "calls": "",
     "file": "tools.cpp",
-    "fileloc": 215,
-    "instructions": 101,
-    "name": "ConvertWeightToStream",
-    "total_instructions": 101
+    "fileloc": 658,
+    "instructions": 1085,
+    "name": "ConvBias",
+    "total_instructions": 1085
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1",
+    "file": "tools.cpp",
+    "fileloc": 551,
+    "instructions": 17,
+    "name": "Compute",
+    "total_instructions": 7681
+  },
+  "9": {
+    "basicblocks": 135,
+    "calls": "",
+    "file": "tools.cpp",
+    "fileloc": 3,
+    "instructions": 400,
+    "loads": {
+      "L": 2
+    },
+    "name": "ConvertBias_BN",
+    "total_instructions": 400
   }
 }

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'top'" level="0">
-<item name = "Date">Tue Feb 25 14:23:52 2025
+<item name = "Date">Mon Mar 10 15:36:47 2025
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">SDA</item>
@@ -24,42 +24,30 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">27055, 70572, 0.271 ms, 0.706 ms, 27056, 70573, no</column>
+<column name="">2374, 4204, 23.740 us, 42.040 us, 2327, 4144, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7_fu_1726">top_Pipeline_VITIS_LOOP_30_5_VITIS_LOOP_33_6_VITIS_LOOP_36_7, 1035, 1035, 10.350 us, 10.350 us, 1035, 1035, no</column>
-<column name="grp_top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4_fu_1737">top_Pipeline_VITIS_LOOP_8_1_VITIS_LOOP_11_2_VITIS_LOOP_14_3_VITIS_LOOP_17_4, 1036, 1036, 10.360 us, 10.360 us, 1036, 1036, no</column>
-<column name="grp_top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4_fu_1752">top_Pipeline_VITIS_LOOP_53_1_VITIS_LOOP_56_2_VITIS_LOOP_59_3_VITIS_LOOP_62_4, 1298, 1298, 12.980 us, 12.980 us, 1298, 1298, no</column>
-<column name="grp_Sliding_fu_1764">Sliding, 1, 9440, 10.000 ns, 94.400 us, 1, 9440, no</column>
-<column name="grp_top_Pipeline_VITIS_LOOP_192_1_fu_1775">top_Pipeline_VITIS_LOOP_192_1, 9218, 9218, 92.180 us, 92.180 us, 9218, 9218, no</column>
-<column name="grp_ConvertWeightToStream_fu_1800">ConvertWeightToStream, 1038, 9230, 10.380 us, 92.300 us, 1038, 9230, no</column>
-<column name="grp_ConvWeightToArray_fu_1820">ConvWeightToArray, 1, 9219, 10.000 ns, 92.190 us, 1, 9219, no</column>
-<column name="grp_top_Pipeline_VITIS_LOOP_288_1_fu_1847">top_Pipeline_VITIS_LOOP_288_1, 1026, 1026, 10.260 us, 10.260 us, 1026, 1026, no</column>
-<column name="grp_MuxWeightStream_fu_1870">MuxWeightStream, 2306, 2306, 23.060 us, 23.060 us, 2306, 2306, no</column>
-<column name="grp_PE_fu_1925">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_1940">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_1955">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_1970">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_1985">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2000">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2015">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2030">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2045">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2060">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2075">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2090">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2105">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2120">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2135">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_PE_fu_2150">PE, 9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
-<column name="grp_ConvertToOutStream_fu_2165">ConvertToOutStream, 4099, 9219, 40.990 us, 92.190 us, 4099, 9219, no</column>
-<column name="grp_ConvToOutStream_fu_2318">ConvToOutStream, 1, 9221, 10.000 ns, 92.210 us, 1, 9221, no</column>
-<column name="grp_top_Pipeline_VITIS_LOOP_106_1_fu_2376">top_Pipeline_VITIS_LOOP_106_1, 34, 34, 0.340 us, 0.340 us, 34, 34, no</column>
-<column name="grp_top_Pipeline_VITIS_LOOP_113_2_fu_2412">top_Pipeline_VITIS_LOOP_113_2, 66, 66, 0.660 us, 0.660 us, 66, 66, no</column>
+<column name="call_ln17_entry_proc_fu_5364">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="grp_Block_entry3_proc_fu_5380">Block_entry3_proc, 36, 36, 0.360 us, 0.360 us, 36, 36, no</column>
+<column name="grp_ConvertBias_BN_fu_5400">ConvertBias_BN, 1, 20, 10.000 ns, 0.200 us, 1, 20, no</column>
+<column name="grp_ConvertInputToStream_fu_5668">ConvertInputToStream, 30, 271, 0.300 us, 2.710 us, 30, 271, no</column>
+<column name="grp_ConvertWeightToStream_fu_5693">ConvertWeightToStream, 30, 2353, 0.300 us, 23.530 us, 30, 2353, no</column>
+<column name="grp_Padding_fu_5726">Padding, 1, 329, 10.000 ns, 3.290 us, 1, 329, no</column>
+<column name="grp_ConvWeightToArray_fu_5744">ConvWeightToArray, 1, 2307, 10.000 ns, 23.070 us, 1, 2307, no</column>
+<column name="grp_MMWeightToArray_fu_5772">MMWeightToArray, 1, 19, 10.000 ns, 0.190 us, 1, 19, no</column>
+<column name="grp_Sliding_fu_5795">Sliding, 1, 2405, 10.000 ns, 24.050 us, 1, 2405, no</column>
+<column name="grp_MuxWeightStream_fu_5817">MuxWeightStream, 580, 580, 5.800 us, 5.800 us, 580, 580, no</column>
+<column name="grp_ConvertInputToArray_fu_5871">ConvertInputToArray, 2308, 2308, 23.080 us, 23.080 us, 2308, 2308, no</column>
+<column name="grp_Compute_fu_5897">Compute, 2326, 2326, 23.260 us, 23.260 us, 2326, 2326, no</column>
+<column name="grp_ConvertToOutStream_fu_6003">ConvertToOutStream, 259, 2316, 2.590 us, 23.160 us, 259, 2316, no</column>
+<column name="grp_ConvToOutStream_fu_6110">ConvToOutStream, 1, 2312, 10.000 ns, 23.120 us, 1, 2312, no</column>
+<column name="grp_ConvBias_fu_6269">ConvBias, 1, 4103, 10.000 ns, 41.030 us, 1, 4103, no</column>
+<column name="grp_ConvBN_fu_6665">ConvBN, 1, 4116, 10.000 ns, 41.160 us, 1, 4116, no</column>
+<column name="grp_ResOutput_fu_7059">ResOutput, 267, 4143, 2.670 us, 41.430 us, 267, 4143, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

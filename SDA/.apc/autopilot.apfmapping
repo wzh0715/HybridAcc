@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="config.h" path="D:\FPGA\SDA\config.h"/>
-    <originFiles name="tools.cpp" path="D:\FPGA\SDA\tools.cpp"/>
-    <originFiles name="tools.h" path="D:\FPGA\SDA\tools.h"/>
-    <originFiles name="top.cpp" path="D:\FPGA\SDA\top.cpp"/>
-    <originFiles name="top.h" path="D:\FPGA\SDA\top.h"/>
+    <originFiles name="config.h" path="D:\Download\SDA\config.h"/>
+    <originFiles name="tools.cpp" path="D:\Download\SDA\tools.cpp"/>
+    <originFiles name="tools.h" path="D:\Download\SDA\tools.h"/>
+    <originFiles name="top.cpp" path="D:\Download\SDA\top.cpp"/>
+    <originFiles name="top.h" path="D:\Download\SDA\top.h"/>
   </source>
   <testbench>
-    <originFiles name="test.cpp" path="D:\FPGA\SDA\test.cpp"/>
-    <originFiles name="test.h" path="D:\FPGA\SDA\test.h"/>
+    <originFiles name="test.cpp" path="D:\Download\SDA\test.cpp"/>
+    <originFiles name="test.h" path="D:\Download\SDA\test.h"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

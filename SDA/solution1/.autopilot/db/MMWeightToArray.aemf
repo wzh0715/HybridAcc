@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1741592212854">
+  <ports id="1" name="fifo_mm_w" type="PortType" originalName="in" coreId="1702129263" bitwidth="512" iftype="IfTypeRom">
+    <dataOutputObjs>call</dataOutputObjs>
+  </ports>
+  <ports id="2" name="MM_SA_W" type="PortType" originalName="out" coreId="1867529248" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="3" name="MM_SA_W_1" type="PortType" originalName="out" coreId="1702129263" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="4" name="MM_SA_W_2" type="PortType" originalName="out" coreId="895439701" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="5" name="MM_SA_W_3" type="PortType" originalName="out" coreId="1635147636" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="6" name="MM_SA_W_4" type="PortType" originalName="out" coreId="1024081487" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="7" name="MM_SA_W_5" type="PortType" originalName="out" coreId="1025538401" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="8" name="MM_SA_W_6" type="PortType" originalName="out" coreId="540946464" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="9" name="MM_SA_W_7" type="PortType" originalName="out" coreId="1702129263" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="10" name="MM_SA_W_8" type="PortType" originalName="out" coreId="1348432737" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="11" name="MM_SA_W_9" type="PortType" originalName="out" coreId="1025538401" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="12" name="MM_SA_W_10" type="PortType" originalName="out" coreId="1025538401" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="13" name="MM_SA_W_11" type="PortType" originalName="out" coreId="1702129263" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="14" name="MM_SA_W_12" type="PortType" originalName="out" coreId="540946464" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="15" name="MM_SA_W_13" type="PortType" originalName="out" coreId="540946464" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="16" name="MM_SA_W_14" type="PortType" originalName="out" coreId="1702129263" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="17" name="MM_SA_W_15" type="PortType" originalName="out" coreId="540946464" bitwidth="128" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="18" name="p_read" type="PortType" originalName="num_w_in" coreId="1043341373" bitwidth="30">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="19" name="mode" type="PortType" coreName="FIFO_SRL" coreId="1919897660" bitwidth="1" iftype="IfTypeRom">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <edges id="50" source_obj="//@ports.17" sink_obj="//@blocks.0/@node_objs.0"/>
+  <edges id="53" source_obj="//@ports.18" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="54" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="55" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="56" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="61" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="62" source_obj="//@ports.0" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="63" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.1"/>
+  <edges id="64" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.5"/>
+  <edges id="65" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.9"/>
+  <edges id="66" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.13"/>
+  <edges id="67" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.2"/>
+  <edges id="68" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.6"/>
+  <edges id="69" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.10"/>
+  <edges id="70" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.14"/>
+  <edges id="71" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.3"/>
+  <edges id="72" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.7"/>
+  <edges id="73" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.11"/>
+  <edges id="74" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.15"/>
+  <edges id="75" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.4"/>
+  <edges id="76" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.8"/>
+  <edges id="77" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.12"/>
+  <edges id="78" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.16"/>
+  <edges id="79" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="432" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.2"/>
+  <edges id="433" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="434" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.2"/>
+  <edges id="435" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.1"/>
+  <blocks id="41" name="entry" type="BlockType">
+    <controlOutputObjs>MMWeightToArray.exit</controlOutputObjs>
+    <controlOutputObjs>VITIS_LOOP_300_2.i.preheader</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="21" name="p_read_2" lineNumber="290" fileName="tools.cpp" fileDirectory="../." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="MMWeightToArray" bitwidth="30" opcode="read" m_display="0" m_delay="1.52" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="tools.cpp" linenumber="290" fileDirectory="D:\Download\SDA" functionName="MMWeightToArray"/>
+      <inlineStackInfo fileName="top.cpp" linenumber="83" fileDirectory="D:\Download\SDA" functionName="top"/>
+      <dataInputObjs>p_read</dataInputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="22" name="mode_5" lineNumber="290" originalName="mode" fileName="tools.cpp" fileDirectory="../." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="MMWeightToArray" bitwidth="1" opcode="read" m_display="0" m_delay="1.52" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="tools.cpp" linenumber="290" fileDirectory="D:\Download\SDA" functionName="MMWeightToArray"/>
+      <inlineStackInfo fileName="top.cpp" linenumber="83" fileDirectory="D:\Download\SDA" functionName="top"/>
+      <dataInputObjs>mode</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="br_ln292" lineNumber="292" fileName="tools.cpp" fileDirectory="../." coreId="0" contextFuncName="MMWeightToArray" opcode="br" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="tools.cpp" linenumber="292" fileDirectory="D:\Download\SDA" functionName="MMWeightToArray"/>
+      <inlineStackInfo fileName="top.cpp" linenumber="83" fileDirectory="D:\Download\SDA" functionName="top"/>
+      <dataInputObjs>read</dataInputObjs>
+      <controlInputObjs>VITIS_LOOP_300_2.i.preheader</controlInputObjs>
+      <controlInputObjs>MMWeightToArray.exit</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="top.cpp">
+      <validLinenumbers>83</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="tools.cpp">
+      <validLinenumbers>290</validLinenumbers>
+      <validLinenumbers>292</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="45" name="VITIS_LOOP_300_2.i.preheader" type="BlockType">
+    <controlInputObjs>entry</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>MMWeightToArray.exit</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="42" name="empty" coreId="0" bitwidth="32" opcode="wait" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="43" name="_ln290" lineNumber="290" fileName="tools.cpp" fileDirectory="../." rtlName="grp_MMWeightToArray_Pipeline_VITIS_LOOP_295_1_fu_78" coreId="0" contextFuncName="MMWeightToArray" opcode="call" nodeLatency="1" m_display="0" m_delay="1.14" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="tools.cpp" linenumber="290" fileDirectory="D:\Download\SDA" functionName="MMWeightToArray"/>
+      <inlineStackInfo fileName="top.cpp" linenumber="83" fileDirectory="D:\Download\SDA" functionName="top"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>fifo_mm_w</dataInputObjs>
+      <dataOutputObjs>MM_SA_W</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_4</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_8</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_12</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_1</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_5</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_9</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_13</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_2</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_6</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_10</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_14</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_3</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_7</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_11</dataOutputObjs>
+      <dataOutputObjs>MM_SA_W_15</dataOutputObjs>
+      <constName>MMWeightToArray_Pipeline_VITIS_LOOP_295_1</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="br_ln0" coreId="1380927064" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <controlInputObjs>MMWeightToArray.exit</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="top.cpp">
+      <validLinenumbers>83</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="tools.cpp">
+      <validLinenumbers>290</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="47" name="MMWeightToArray.exit" type="BlockType">
+    <controlInputObjs>entry</controlInputObjs>
+    <controlInputObjs>VITIS_LOOP_300_2.i.preheader</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="_ln83" lineNumber="83" fileName="top.cpp" fileDirectory="../." coreId="1330405203" contextFuncName="top" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.cpp" linenumber="83" fileDirectory="D:\Download\SDA" functionName="top"/>
+    </node_objs>
+    <fileValidLineNumbers fileName="top.cpp">
+      <validLinenumbers>83</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <regnodes realName="mode_5_reg_123">
+    <nodeIds>22</nodeIds>
+  </regnodes>
+  <regnodes realName="p_read_2_reg_118">
+    <nodeIds>21</nodeIds>
+  </regnodes>
+  <moduleNodes realName="grp_MMWeightToArray_Pipeline_VITIS_LOOP_295_1_fu_78">
+    <nodeIds>43</nodeIds>
+  </moduleNodes>
+  <ioNodes realName="p_read_2_read_fu_66">
+    <nodeIds>21</nodeIds>
+  </ioNodes>
+  <ioNodes realName="mode_5_read_fu_72">
+    <nodeIds>22</nodeIds>
+  </ioNodes>
+  <ioPorts name="MM_SA_W">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_1">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_10">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_11">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_12">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_13">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_14">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_15">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_2">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_3">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_4">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_5">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_6">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_7">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_8">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="MM_SA_W_9">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="fifo_mm_w">
+    <contents name="call">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="mode">
+    <contents name="read">
+      <nodeIds>22</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="p_read">
+    <contents name="read">
+      <nodeIds>21</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="24" stage="1" latency="1"/>
+      <operations id="25" stage="1" latency="1"/>
+      <operations id="26" stage="1" latency="1"/>
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="28" stage="1" latency="1"/>
+      <operations id="29" stage="1" latency="1"/>
+      <operations id="30" stage="1" latency="1"/>
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="32" stage="1" latency="1"/>
+      <operations id="33" stage="1" latency="1"/>
+      <operations id="34" stage="1" latency="1"/>
+      <operations id="35" stage="1" latency="1"/>
+      <operations id="36" stage="1" latency="1"/>
+      <operations id="37" stage="1" latency="1"/>
+      <operations id="38" stage="1" latency="1"/>
+      <operations id="39" stage="1" latency="1"/>
+      <operations id="40" stage="1" latency="1"/>
+      <operations id="42" stage="1" latency="1"/>
+      <operations id="43" stage="2" latency="2"/>
+    </states>
+    <states id="2">
+      <operations id="43" stage="1" latency="2"/>
+      <operations id="44" stage="1" latency="1"/>
+      <operations id="46" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="MMWeightToArray" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="1" mMaxLatency="19">
+      <basicBlocks>41</basicBlocks>
+      <basicBlocks>45</basicBlocks>
+      <basicBlocks>47</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

@@ -85,6 +85,14 @@ MM_Weight {
 	offset 40
 	offset_end 51
 }
+Output_r { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 52
+	offset_end 63
+}
 }
 dict set axilite_register_dict control_r $port_control_r
 

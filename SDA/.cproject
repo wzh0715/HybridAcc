@@ -59,6 +59,8 @@
                                     									
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/win64/tools/systemc/include"/>
                                     									
+                                    <listOptionValue builtIn="false" value="D:/Download/SDA"/>
+                                    									
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/include"/>
                                     								
                                 </option>
@@ -92,6 +94,8 @@
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/win64/tools/auto_cc/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/win64/tools/systemc/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="D:/Download/SDA"/>
                                     									
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/include"/>
                                     								
@@ -173,7 +177,7 @@
                                 								
                                 <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/win64/tools/systemc/include"/>
                                 								
-                                <listOptionValue builtIn="false" value="D:/FPGA/SDA"/>
+                                <listOptionValue builtIn="false" value="D:/Download/SDA"/>
                                 								
                                 <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/include"/>
                                 							
@@ -259,6 +263,8 @@
                                     									
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/win64/tools/systemc/include"/>
                                     									
+                                    <listOptionValue builtIn="false" value="D:/Download/SDA"/>
+                                    									
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/include"/>
                                     								
                                 </option>
@@ -282,6 +288,8 @@
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/win64/tools/auto_cc/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/win64/tools/systemc/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="D:/Download/SDA"/>
                                     									
                                     <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/include"/>
                                     								
@@ -353,7 +361,7 @@
                                 								
                                 <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/win64/tools/systemc/include"/>
                                 								
-                                <listOptionValue builtIn="false" value="D:/FPGA/SDA"/>
+                                <listOptionValue builtIn="false" value="D:/Download/SDA"/>
                                 								
                                 <listOptionValue builtIn="false" value="D:/Applications/Xilinx/Vitis_HLS/2023.2/include"/>
                                 							

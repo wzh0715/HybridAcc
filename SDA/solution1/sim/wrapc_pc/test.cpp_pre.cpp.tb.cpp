@@ -5,15 +5,15 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // 
 // ==============================================================
-# 1 "D:/FPGA/SDA/test.cpp"
+# 1 "D:/Download/SDA/test.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "D:/FPGA/SDA/test.cpp"
-# 1 "D:/FPGA/SDA/test.h" 1
-# 1 "D:/FPGA/SDA/top.h" 1
+# 1 "D:/Download/SDA/test.cpp"
+# 1 "D:/Download/SDA/test.h" 1
+# 1 "D:/Download/SDA/top.h" 1
        
 
-# 1 "D:/FPGA/SDA/tools.h" 1
+# 1 "D:/Download/SDA/tools.h" 1
        
 
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/hls_stream.h" 1
@@ -53871,7 +53871,7 @@ public:
 };
 
 }
-# 4 "D:/FPGA/SDA/tools.h" 2
+# 4 "D:/Download/SDA/tools.h" 2
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
 # 10 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h"
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/etc/ap_common.h" 1
@@ -78162,7 +78162,7 @@ inline bool operator!=(
 }
 # 366 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_fixed.h" 2
 # 361 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 2
-# 5 "D:/FPGA/SDA/tools.h" 2
+# 5 "D:/Download/SDA/tools.h" 2
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_axi_sdata.h" 1
 # 15 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_axi_sdata.h"
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
@@ -78341,125 +78341,67 @@ template <std::size_t WData, std::size_t WUser, std::size_t WId,
           std::size_t WDest>
 using qdma_axis = hls::axis<ap_uint<WData>, WUser, WId, WDest,
                             0b01111111 ^ 0b00100000, false>;
-# 6 "D:/FPGA/SDA/tools.h" 2
+# 6 "D:/Download/SDA/tools.h" 2
+# 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/win64/msys64/mingw64/include/c++/6.2.0/math.h" 1 3
+# 7 "D:/Download/SDA/tools.h" 2
 
-# 1 "D:/FPGA/SDA/config.h" 1
+# 1 "D:/Download/SDA/config.h" 1
        
-# 8 "D:/FPGA/SDA/tools.h" 2
+# 9 "D:/Download/SDA/tools.h" 2
 
 using namespace hls;
 using namespace std;
 
-void ConvertInputToStream(ap_uint<16 * 8> *A, stream<ap_uint<16 * 8>> &conv_a, stream<ap_uint<16 * 8>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M);
+void ConvertBias_BN(ap_uint<(4 * 32)> *norm, float *bias, stream<ap_uint<(4 * 32)>> fifo_norm[128], stream<float> fifo_bias[128], unsigned M, bool mode);
 
-void SamePadding(stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode);
+void ConvertInputToStream(ap_uint<16 * 32> *A, stream<ap_uint<16 * 32>> &conv_a, stream<ap_uint<16 * 32>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M);
 
-void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode);
+void Padding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned P, bool mode);
 
-void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Weight, stream<ap_uint<16 * 8>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 8>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, bool mode);
+void Sliding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
 
-void ConvWeightToArray(stream<ap_uint<16 * 8>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 8>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
+void ConvertWeightToStream(ap_uint<16 * 32> *Conv_Weight, ap_uint<16 * 32> *MM_Weight, stream<ap_uint<16 * 32>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 32>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode);
 
-void MMWeightToArray(stream<ap_uint<16 * 8>> &in, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
+void ConvWeightToArray(stream<ap_uint<16 * 32>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 32>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
 
-void MuxWeightStream(stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> MM_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode);
+void MMWeightToArray(stream<ap_uint<16 * 32>> &in, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
 
-void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 * 8>>& mm_a, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode);
+void MuxWeightStream(stream<ap_uint<4 * 32>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> MM_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode);
 
-void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, stream<ap_uint<32>> fifo_C_out[4], unsigned C, unsigned num_a_sa, bool mode);
+void ConvertInputToArray(stream<ap_uint<16 * 32>> &conv3_sild, stream<ap_uint<16 * 32>>& mm_a, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode);
 
-void Compute(stream<ap_uint<4 * 8>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode);
+void PE(stream<ap_uint<4 * 32>> &fifo_A_in, stream<ap_uint<4 * 32>> &fifo_W_in, stream<float> fifo_C_out[4], unsigned C, unsigned num_a_sa, bool mode);
 
-void ConvertToOutStream(stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<ap_uint<32>> fifo_C_out[16], stream<ap_uint<32>> mm_out[64], unsigned numlines, unsigned R, unsigned M, bool mode);
+void Compute(stream<ap_uint<4 * 32>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode);
 
-void ConvToOutStream(stream<ap_uint<32>> fifo_CONV3_ACC[16], stream<ap_int<32>> CONV3_OUT[32], unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, bool mode);
+void ConvertToOutStream(stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<float> fifo_C_out[16], stream<float> mm_out[16], unsigned numlines, unsigned R, unsigned M, bool mode);
 
-void ResOutput(stream<ap_int<32>> CONV_OUT[32], stream<ap_uint<32>> MM_OUT[64], ap_uint<32> *output, unsigned R, unsigned C, unsigned M, bool mode);
-# 4 "D:/FPGA/SDA/top.h" 2
+void ConvToOutStream(stream<float> fifo_CONV3_ACC[16], stream<float> CONV3_OUT[128], unsigned OUT_R, unsigned OUT_C, unsigned N, unsigned M, unsigned K, bool mode);
+
+void ConvBias(stream<float> CONV3_OUT[128], stream<float> fifo_bias[128], stream<float> CONV3_Bias[128], unsigned out_r, unsigned out_c, unsigned M, bool mode);
+
+void ConvBN(stream<float> CONV3_Trans[128], stream<float> CONV3_Norm[128], stream<ap_uint<(4 * 32)>> fifo_norm[128], unsigned out_r, unsigned out_c, unsigned M, bool mode);
+
+void ResOutput(stream<float> CONV_RES[128], stream<float> MM_RES[16], float *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
+# 4 "D:/Download/SDA/top.h" 2
 
 
 #ifndef HLS_FASTSIM
 #ifdef __cplusplus
 extern "C"
 #endif
-void apatb_top_sw(ap_uint<128> *, ap_uint<128> *, ap_uint<128> *, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool);
+void apatb_top_sw(ap_uint<512> *, ap_uint<512> *, ap_uint<512> *, float *, ap_uint<128> *, float *, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool);
 #endif
-# 5 "D:/FPGA/SDA/top.h"
-void top(ap_uint<16 * 8> *Conv_MM_A, ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Weight,
-    unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, bool mode);
-# 2 "D:/FPGA/SDA/test.h" 2
+# 5 "D:/Download/SDA/top.h"
+void top(ap_uint<16 * 32> *Conv_MM_A, ap_uint<16 * 32> *Conv_Weight, ap_uint<16 * 32> *MM_Weight, float *Bias, ap_uint<(4 * 32)> *Norm, float *Output, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
+# 2 "D:/Download/SDA/test.h" 2
 
-void GenConv(ap_int<8>* conv3_A, ap_int<8>* conv3_weight)
+void ReorgConvWeight(float *conv3_weight, ap_uint<16 * 32> *conv3_weight_re)
 {
-    unsigned seed = 0;
-    srand(seed);
-    for(int i = 0; i < 16 * 16 * 32; i ++)
-    {
-        conv3_A[i] = (ap_int<8>)rand() - (ap_int<8>)rand();
-    }
-    for(int i = 0; i < 3 * 3 * 32 * 32; i ++)
-    {
-        conv3_weight[i] = (ap_int<8>)rand() - (ap_int<8>)rand();
-    }
-}
+    ap_uint<16 * 32> tmp;
+    ap_uint<16 * 32> conv3_tmp[16][3 * 3 * 16 / 16 * 16 / 16];
 
-void Padding(ap_int<8>* A, ap_int<8>* res)
-{
-    int pad_h = 16 + 2;
-    int pad_w = 16 + 2;
-
-    for (int i = 0; i < pad_h; i++)
-    {
-        for (int j = 0; j < pad_w; j++)
-        {
-            for (int k = 0; k < 32; k++)
-            {
-                res[i * pad_w * 32 + j * 32 + k] = 0;
-            }
-        }
-    }
-    for (int i = 0; i < 16; i++)
-    {
-        for (int j = 0; j < 16; j++)
-        {
-            for (int k = 0; k < 32; k++)
-            {
-                res[(i + 1) * pad_w * 32 + (j + 1) * 32 + k] = A[i * 16 * 32 + j * 32 + k];
-            }
-        }
-    }
-}
-
-void GenConvOutput(ap_int<8>* A, ap_int<8>* W, ap_int<32>* res)
-{
-    for (int m = 0; m < 32; m++)
-    {
-        for (int i = 0; i < 16; i++)
-        {
-            for (int j = 0; j < 16; j++)
-            {
-                ap_int<32> acc = 0;
-                for (int n = 0; n < 32; n++)
-                {
-                    for (int kr = 0; kr < 3; kr++)
-                    {
-                        for (int kc = 0; kc < 3; kc++)
-                        {
-                            acc += A[(i + kr) * (16 + 2) * 32 + (j + kc) * 32 + n] * W[kr * 3 * 32 * 32 + kc * 32 * 32 + n * 32 + m];
-                        }
-                    }
-                }
-                res[i * 16 * 32 + j * 32 + m] = acc;
-            }
-        }
-    }
-}
-
-void ReorgConvWeight(ap_int<8> *conv3_weight, ap_uint<16 * 8>* conv3_tmp, ap_uint<16 * 8> *conv3_weight_re)
-{
-    ap_uint<16 * 8> tmp;
-
-    for (int m = 0; m < 32 / 16; m++)
+    for (int m = 0; m < 16 / 16; m++)
     {
         for (int y = 0; y < 16; y++)
         {
@@ -78467,109 +78409,236 @@ void ReorgConvWeight(ap_int<8> *conv3_weight, ap_uint<16 * 8>* conv3_tmp, ap_uin
             {
                 for (int kc = 0; kc < 3; kc++)
                 {
-                    for (int n = 0; n < 32 / 16; n++)
+                    for (int n = 0; n < 16 / 16; n++)
                     {
                         for (int x = 0; x < 16; x++)
                         {
-                            tmp = tmp >> 8;
-                            tmp(16 * 8 - 1, (16 - 1) * 8) = conv3_weight[kr * 3 * 32 * 32 + kc * 32 * 32 + (n * 16 + x) * 32 + m * 16 + y];
+                            tmp = tmp >> 32;
+                            tmp(16 * 32 - 1, (16 - 1) * 32) = reinterpret_cast<uint32_t&>(conv3_weight[kr * 3 * 16 * 16 + kc * 16 * 16 + (n * 16 + x) * 16 + m * 16 + y]);
                         }
-                        conv3_tmp[y * 3 * 3 * 32 / 16 * 32 / 16 + m * 3 * 3 * (32 / 16) + kr * 3 * (32 / 16) + kc * (32 / 16) + n] = tmp;
+                        conv3_tmp[y][ m * 3 * 3 * (16 / 16) + kr * 3 * (16 / 16) + kc * (16 / 16) + n] = tmp;
                     }
                 }
             }
         }
     }
-    for (int m = 0; m < 3 * 3 * 32 / 16 * 32 / 16; m++)
+    for (int m = 0; m < 3 * 3 * 16 / 16 * 16 / 16; m++)
     {
         for (int y = 0; y < 16 / (16 / 4); y++)
         {
             for (int s = 0; s < (16 / 4); s++)
             {
-                tmp = conv3_tmp[(s * (16 / (16 / 4)) + y) * 3 * 3 * 32 / 16 * 32 / 16 + m];
-                conv3_weight_re[s * (3 * 3 * 32 / 16 * 32 / (16 / 4)) + m * (16 / (16 / 4)) + y] = tmp;
+                conv3_weight_re[s * (3 * 3 * 16 / 16 * 16 / (16 / 4)) + m * (16 / (16 / 4)) + y] = conv3_tmp[s * (16 / (16 / 4)) + y][m];
             }
         }
     }
 }
 
-void GenMM(ap_int<8> A[64 * 64], ap_int<8> W[64 * 64])
+void GenMM(float A[16 * 16], float W[16 * 16])
 {
-
     unsigned seed = 0;
     srand(seed);
-    for (int r = 0; r < 64; r++)
+    for (int r = 0; r < 16; r++)
     {
-        for (int n = 0; n < 64; n++)
+        for (int n = 0; n < 16; n++)
         {
-            A[r * 64 + n] = (ap_int<8>)rand() - (ap_int<8>)rand();
+            A[r * 16 + n] = 2.0f * ((float)rand() / 
+# 49 "D:/Download/SDA/test.h" 3
+                                                          0x7fff 
+# 49 "D:/Download/SDA/test.h"
+                                                                   - 0.5f);
         }
     }
-    for (int n = 0; n < 64; n++)
+    for (int n = 0; n < 16; n++)
     {
-        for (int m = 0; m < 64; m++)
+        for (int m = 0; m < 16; m++)
         {
-            W[n * 64 + m] = (ap_int<8>)rand() - (ap_int<8>)rand();
+            W[n * 16 + m] = 2.0f * ((float)rand() / 
+# 56 "D:/Download/SDA/test.h" 3
+                                                          0x7fff 
+# 56 "D:/Download/SDA/test.h"
+                                                                   - 0.5f);
         }
     }
 }
 
-void GenMMOutput(ap_int<8> A[64 * 64], ap_int<8> W[64 * 64], ap_int<32> O_golden[64][64])
+void GenMMOutput(float A[16 * 16], float W[16 * 16], float O_golden[16][16])
 {
 
-    for (int r = 0; r < 64; r++)
+    for (int r = 0; r < 16; r++)
     {
-        for (int m = 0; m < 64; m++)
+        for (int m = 0; m < 16; m++)
         {
             O_golden[r][m] = 0;
-            for (int n = 0; n < 64; n++)
+            for (int n = 0; n < 16; n++)
             {
-                O_golden[r][m] = O_golden[r][m] + A[r * 64 + n] * W[n * 64 + m];
+                O_golden[r][m] = O_golden[r][m] + A[r * 16 + n] * W[n * 16 + m];
             }
         }
     }
 }
-# 2 "D:/FPGA/SDA/test.cpp" 2
-# 67 "D:/FPGA/SDA/test.cpp"
+
+
+void GenConv(float conv3_A[16][16][16], float conv3_weight[3][3][16][16], float bias[16], float norm[4][16])
+{
+    unsigned seed = 0;
+    srand(seed);
+
+    for (int r = 0; r < 16; r++)
+    {
+        for (int c = 0; c < 16; c++)
+        {
+            for (int n = 0; n < 16; n++)
+            {
+                conv3_A[r][c][n] = 2.0f * ((float)rand() / 
+# 89 "D:/Download/SDA/test.h" 3
+                                                          0x7fff 
+# 89 "D:/Download/SDA/test.h"
+                                                                   - 0.5f);
+            }
+        }
+    }
+    for (int kr = 0; kr < 3; kr++)
+    {
+        for (int kc = 0; kc < 3; kc++)
+        {
+            for (int n = 0; n < 16; n++)
+            {
+                for (int m = 0; m < 16; m++)
+                {
+                    conv3_weight[kr][kc][n][m] = 2.0f * ((float)rand() / 
+# 101 "D:/Download/SDA/test.h" 3
+                                                                        0x7fff 
+# 101 "D:/Download/SDA/test.h"
+                                                                                 - 0.5f);
+                }
+            }
+        }
+    }
+    for (int m = 0; m < 16; m++)
+    {
+        bias[m] = 2.0f * ((float)rand() / 
+# 108 "D:/Download/SDA/test.h" 3
+                                         0x7fff 
+# 108 "D:/Download/SDA/test.h"
+                                                  - 0.5f);
+    }
+    for(int i = 0; i < 4; i ++)
+    {
+        for(int m = 0; m < 16; m ++)
+        {
+            norm[i][m] = 2.0f * ((float)rand() / 
+# 114 "D:/Download/SDA/test.h" 3
+                                                0x7fff 
+# 114 "D:/Download/SDA/test.h"
+                                                         - 0.5f);
+        }
+    }
+}
+
+void Padding(float A[16][16][16], float res[16 + 2 * 1][16 + 2 * 1 ][16], unsigned padding)
+{
+    int pad_h = 16 + 2 * padding;
+    int pad_w = 16 + 2 * padding;
+
+    for (int i = 0; i < pad_h; i++)
+    {
+        for (int j = 0; j < pad_w; j++)
+        {
+            for (int k = 0; k < 16; k++)
+            {
+                res[i][j][k] = 0;
+            }
+        }
+    }
+    for (int i = 0; i < 16; i++)
+    {
+        for (int j = 0; j < 16; j++)
+        {
+            for (int k = 0; k < 16; k++)
+            {
+                res[i + padding][j + padding][k] = A[i][j][k];
+            }
+        }
+    }
+}
+
+void GenConvOutput(float A[16 + 2 * 1][16 + 2 * 1][16],
+                   float W[3][3][16][16],
+                   float res[((16 + 2 * 1 - 3) / 1 + 1)][((16 + 2 * 1 - 3) / 1 + 1)][16], float bias[16], float norm[4][16])
+{
+    const float EPSILON = 1e-5;
+    for (int m = 0; m < 16; m++)
+    {
+        for (int i = 0; i < ((16 + 2 * 1 - 3) / 1 + 1); i++)
+        {
+            for (int j = 0; j < ((16 + 2 * 1 - 3) / 1 + 1); j++)
+            {
+                float acc = 0;
+                for (int n = 0; n < 16; n++)
+                {
+                    for (int kr = 0; kr < 3; kr++)
+                    {
+                        for (int kc = 0; kc < 3; kc++)
+                        {
+                            acc += A[i * 1 + kr][j * 1 + kc][n] * W[kr][kc][n][m];
+                        }
+                    }
+                }
+                acc += bias[m];
+                float mean = norm[0][m];
+                float variance = norm[1][m];
+                float gamma = norm[2][m];
+                float beta = norm[3][m];
+                float stddev = sqrt(variance + EPSILON);
+                float normalized = (acc - mean) / stddev;
+                float final_output = gamma * normalized + beta;
+                res[i][j][m] = final_output;
+            }
+        }
+    }
+}
+# 2 "D:/Download/SDA/test.cpp" 2
+
 void MMTest()
 {
-    ap_int<8> A[64 * 64];
-    ap_int<8> W[64 * 64];
-    ap_uint<16 * 8> A_pack[64 / 16 * 64];
-    ap_uint<16 * 8> W_pack[64 * 64 / 16];
-    ap_uint<32> O[64 * 64];
-    ap_uint<16 * 8> conv3_weight[3 * 3 * 32 * 32 / 16];
-    ap_int<32> O_golden[64][64];
+    float A[16 * 16];
+    float W[16 * 16];
+    ap_uint<16 * 32> A_pack[16 / 16 * 16];
+    ap_uint<16 * 32> W_pack[16 * 16 / 16];
+    ap_uint<16 * 32> conv3_weight[3 * 3 * 16 * 16 / 16];
+    float O[16 * 16];
+    float O_golden[16][16];
+    float bias[16];
+    ap_uint<(4 * 32)> norm_pack[16];
 
     GenMM(A, W);
 
-    for (int r = 0; r < 64 / 16; r++)
+    for (int r = 0; r < 16 / 16; r++)
     {
-        for (unsigned i = 0; i < 64; i++)
+        for (unsigned i = 0; i < 16; i++)
         {
-            ap_uint<16 * 8> temp;
+            ap_uint<16 * 32> temp;
             for (int x = 0; x < 16; x++)
             {
-                ap_int<8> data = A[(r * 16 + x) * 64 + i];
-                temp = (temp >> 8);
-                temp(16 * 8 - 1, (16 - 1) * 8) = data;
+                temp = (temp >> 32);
+                temp(16 * 32 - 1, (16 - 1) * 32) = reinterpret_cast<uint32_t&>(A[(r * 16 + x) * 16 + i]);
             }
-            A_pack[r * 64 + i] = temp;
+            A_pack[r * 16 + i] = temp;
         }
     }
 
-    for (int m = 0; m < 64 / 16; m++)
+    for (int m = 0; m < 16 / 16; m++)
     {
-        for (int n = 0; n < 64; n++)
+        for (int n = 0; n < 16; n++)
         {
-            ap_uint<16 * 8> temp;
+            ap_uint<16 * 32> temp;
             for (int y = 0; y < 16; y++)
             {
-                ap_int<8> data = W[n * 64 + m * 16 + y];
-                temp = (temp >> 8);
-                temp(16 * 8 - 1, (16 - 1) * 8) = data;
+                temp = (temp >> 32);
+                temp(16 * 32 - 1, (16 - 1) * 32) = reinterpret_cast<uint32_t&>( W[n * 16 + m * 16 + y]);
             }
-            W_pack[m * 64 + n] = temp;
+            W_pack[m * 16 + n] = temp;
         }
     }
 
@@ -78577,25 +78646,128 @@ void MMTest()
 #ifndef HLS_FASTSIM
 #define top apatb_top_sw
 #endif
-# 109 "D:/FPGA/SDA/test.cpp"
-top((ap_uint<16 * 8> *)A_pack, (ap_uint<16 * 8> *)conv3_weight, (ap_uint<16 * 8> *)W_pack, 64, 0, 64, 64, 0, false);
+# 45 "D:/Download/SDA/test.cpp"
+top((ap_uint<16 * 32> *)A_pack, (ap_uint<16 * 32> *)conv3_weight, (ap_uint<16 * 32> *)W_pack, (float *)bias, (ap_uint<(4 * 32)> *)norm_pack, (float *)O, 16, 0, 16, 16, 0, 0, 0, false);
 #undef top
-# 109 "D:/FPGA/SDA/test.cpp"
+# 45 "D:/Download/SDA/test.cpp"
 
 
     GenMMOutput(A, W, O_golden);
-# 123 "D:/FPGA/SDA/test.cpp"
+
+    for (int i = 0; i < 16; i++)
+    {
+        for (int j = 0; j < 16; j++)
+        {
+            if (O[i * 16 + j] != O_golden[i][j])
+            {
+                std::cout << "[r][m]: " << i << " " << j << " " << "\t" << "out : " << O[i * 16 + j] << "\t\t" << "ref : " << O_golden[i][j] << std::endl;
+            }
+        }
+    }
+}
+
+void ConvTest()
+{
+    float conv3_A[16][16][16];
+    float conv3_weight[3][3][16][16];
+    float bias[16];
+    float norm[4][16];
+    float conv_weight[3 * 3 * 16 * 16];
+    GenConv(conv3_A, conv3_weight, bias, norm);
+
+    ap_uint<16 * 32> conv_A[16 * 16 * 16 / 16];
+    ap_uint<16 * 32> in_temp;
+    ap_uint<16 * 32> w_temp;
+    ap_uint<(4 * 32)> norm_pack[16];
+
+    for (int r = 0; r < 16; r++)
+    {
+        for (int c = 0; c < 16; c++)
+        {
+            for (int n = 0; n < 16 / 16; n++)
+            {
+                for (int x = 0; x < 16; x++)
+                {
+                    in_temp = in_temp >> 32;
+                    in_temp(16 * 32 - 1, (16 - 1) * 32) = reinterpret_cast<uint32_t&>(conv3_A[r][c][n * 16 + x]);
+                }
+                conv_A[r * 16 * 16 / 16 + c * 16 / 16 + n] = in_temp;
+            }
+        }
+    }
+
+    for (int kr = 0; kr < 3; kr++)
+    {
+        for (int kc = 0; kc < 3; kc++)
+        {
+            for (int n = 0; n < 16; n++)
+            {
+                for (int m = 0; m < 16; m++)
+                {
+                    conv_weight[kr * 3 * 16 * 16 + kc * 16 * 16 + n * 16 + m] = conv3_weight[kr][kc][n][m];
+                }
+            }
+        }
+    }
+
+    for(int m = 0; m < 16; m ++)
+    {
+        ap_uint<(4 * 32)> temp;
+        for(int i = 0; i < 4; i ++)
+        {
+            temp(32 * (i + 1) - 1, 32 * i) = reinterpret_cast<uint32_t&>(norm[i][m]);
+        }
+        norm_pack[m] = temp;
+    }
+
+    ap_uint<16 * 32> conv3_weight_re[3 * 3 * 16 / 16 * 16];
+    ReorgConvWeight(conv_weight, conv3_weight_re);
+
+    float conv3_res[((16 + 2 * 1 - 3) / 1 + 1) * ((16 + 2 * 1 - 3) / 1 + 1) * 16];
+    ap_uint<16 * 32> W_pack[1];
+    
+#ifndef HLS_FASTSIM
+#define top apatb_top_sw
+#endif
+# 120 "D:/Download/SDA/test.cpp"
+top((ap_uint<16 * 32> *)conv_A, (ap_uint<16 * 32> *)conv3_weight_re, (ap_uint<16 * 32> *)W_pack, (float *)bias, (ap_uint<(4 * 32)> *)norm_pack, (float *)conv3_res, 16, 16, 16, 16, 3, 1, 1, true);
+#undef top
+# 120 "D:/Download/SDA/test.cpp"
+
+
+    float conv_padding[16 + 2 * 1][16 + 2 * 1][16];
+    Padding(conv3_A, conv_padding, 1);
+
+    float conv_gloden[((16 + 2 * 1 - 3) / 1 + 1)][((16 + 2 * 1 - 3) / 1 + 1)][16];
+    GenConvOutput(conv_padding, conv3_weight, conv_gloden, bias, norm);
+
+    const float EPSILON = 1e-4;
+
+    for (int k = 0; k < 16; k++)
+    {
+        for (int i = 0; i < ((16 + 2 * 1 - 3) / 1 + 1); i++)
+        {
+            for (int j = 0; j < ((16 + 2 * 1 - 3) / 1 + 1); j++)
+            {
+                if(std::abs(conv3_res[i * ((16 + 2 * 1 - 3) / 1 + 1) * 16 + j * 16 + k] - conv_gloden[i][j][k]) > EPSILON)
+                {
+                    std::cout << std::scientific << std::setprecision(std::numeric_limits<float>::max_digits10);
+                    std::cout << "[r][c][m]: " << i << " " << j << " " << k << "\t" << "out : " << conv3_res[i * ((16 + 2 * 1 - 3) / 1 + 1) * 16 + j * 16 + k] << "\t\t" << "ref : " << conv_gloden[i][j][k] << std::endl;
+                }
+            }
+        }
+    }
 }
 
 
 #ifndef HLS_FASTSIM
-# 125 "D:/FPGA/SDA/test.cpp"
+# 146 "D:/Download/SDA/test.cpp"
 int main()
 {
+    ConvTest();
 
-    MMTest();
     return 0;
 }
 #endif
-# 130 "D:/FPGA/SDA/test.cpp"
+# 151 "D:/Download/SDA/test.cpp"
 

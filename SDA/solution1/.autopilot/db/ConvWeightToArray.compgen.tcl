@@ -10,22 +10,22 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 149 \
-    name fifo_conv_w_0 \
+    id 787 \
+    name fifo_conv_w \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_fifo_conv_w_0 \
+    corename dc_fifo_conv_w \
     op interface \
-    ports { fifo_conv_w_0_dout { I 128 vector } fifo_conv_w_0_empty_n { I 1 bit } fifo_conv_w_0_read { O 1 bit } } \
+    ports { fifo_conv_w_dout { I 512 vector } fifo_conv_w_num_data_valid { I 4 vector } fifo_conv_w_fifo_cap { I 4 vector } fifo_conv_w_empty_n { I 1 bit } fifo_conv_w_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 150 \
+    id 788 \
     name fifo_conv_w_1 \
     type fifo \
     dir I \
@@ -33,14 +33,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_fifo_conv_w_1 \
     op interface \
-    ports { fifo_conv_w_1_dout { I 128 vector } fifo_conv_w_1_empty_n { I 1 bit } fifo_conv_w_1_read { O 1 bit } } \
+    ports { fifo_conv_w_1_dout { I 512 vector } fifo_conv_w_1_num_data_valid { I 4 vector } fifo_conv_w_1_fifo_cap { I 4 vector } fifo_conv_w_1_empty_n { I 1 bit } fifo_conv_w_1_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 151 \
+    id 789 \
     name fifo_conv_w_2 \
     type fifo \
     dir I \
@@ -48,14 +48,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_fifo_conv_w_2 \
     op interface \
-    ports { fifo_conv_w_2_dout { I 128 vector } fifo_conv_w_2_empty_n { I 1 bit } fifo_conv_w_2_read { O 1 bit } } \
+    ports { fifo_conv_w_2_dout { I 512 vector } fifo_conv_w_2_num_data_valid { I 4 vector } fifo_conv_w_2_fifo_cap { I 4 vector } fifo_conv_w_2_empty_n { I 1 bit } fifo_conv_w_2_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 152 \
+    id 790 \
     name fifo_conv_w_3 \
     type fifo \
     dir I \
@@ -63,277 +63,307 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_fifo_conv_w_3 \
     op interface \
-    ports { fifo_conv_w_3_dout { I 128 vector } fifo_conv_w_3_empty_n { I 1 bit } fifo_conv_w_3_read { O 1 bit } } \
+    ports { fifo_conv_w_3_dout { I 512 vector } fifo_conv_w_3_num_data_valid { I 4 vector } fifo_conv_w_3_fifo_cap { I 4 vector } fifo_conv_w_3_empty_n { I 1 bit } fifo_conv_w_3_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 153 \
-    name Conv_SA_W_0_0 \
+    id 791 \
+    name Conv_SA_W \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_0_0 \
+    corename dc_Conv_SA_W \
     op interface \
-    ports { Conv_SA_W_0_0_din { O 32 vector } Conv_SA_W_0_0_full_n { I 1 bit } Conv_SA_W_0_0_write { O 1 bit } } \
+    ports { Conv_SA_W_din { O 128 vector } Conv_SA_W_num_data_valid { I 4 vector } Conv_SA_W_fifo_cap { I 4 vector } Conv_SA_W_full_n { I 1 bit } Conv_SA_W_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 154 \
-    name Conv_SA_W_0_1 \
+    id 792 \
+    name Conv_SA_W_1 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_0_1 \
+    corename dc_Conv_SA_W_1 \
     op interface \
-    ports { Conv_SA_W_0_1_din { O 32 vector } Conv_SA_W_0_1_full_n { I 1 bit } Conv_SA_W_0_1_write { O 1 bit } } \
+    ports { Conv_SA_W_1_din { O 128 vector } Conv_SA_W_1_num_data_valid { I 4 vector } Conv_SA_W_1_fifo_cap { I 4 vector } Conv_SA_W_1_full_n { I 1 bit } Conv_SA_W_1_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 155 \
-    name Conv_SA_W_0_2 \
+    id 793 \
+    name Conv_SA_W_2 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_0_2 \
+    corename dc_Conv_SA_W_2 \
     op interface \
-    ports { Conv_SA_W_0_2_din { O 32 vector } Conv_SA_W_0_2_full_n { I 1 bit } Conv_SA_W_0_2_write { O 1 bit } } \
+    ports { Conv_SA_W_2_din { O 128 vector } Conv_SA_W_2_num_data_valid { I 4 vector } Conv_SA_W_2_fifo_cap { I 4 vector } Conv_SA_W_2_full_n { I 1 bit } Conv_SA_W_2_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 156 \
-    name Conv_SA_W_0_3 \
+    id 794 \
+    name Conv_SA_W_3 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_0_3 \
+    corename dc_Conv_SA_W_3 \
     op interface \
-    ports { Conv_SA_W_0_3_din { O 32 vector } Conv_SA_W_0_3_full_n { I 1 bit } Conv_SA_W_0_3_write { O 1 bit } } \
+    ports { Conv_SA_W_3_din { O 128 vector } Conv_SA_W_3_num_data_valid { I 4 vector } Conv_SA_W_3_fifo_cap { I 4 vector } Conv_SA_W_3_full_n { I 1 bit } Conv_SA_W_3_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 157 \
-    name Conv_SA_W_1_0 \
+    id 795 \
+    name Conv_SA_W_4 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_1_0 \
+    corename dc_Conv_SA_W_4 \
     op interface \
-    ports { Conv_SA_W_1_0_din { O 32 vector } Conv_SA_W_1_0_full_n { I 1 bit } Conv_SA_W_1_0_write { O 1 bit } } \
+    ports { Conv_SA_W_4_din { O 128 vector } Conv_SA_W_4_num_data_valid { I 4 vector } Conv_SA_W_4_fifo_cap { I 4 vector } Conv_SA_W_4_full_n { I 1 bit } Conv_SA_W_4_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 158 \
-    name Conv_SA_W_1_1 \
+    id 796 \
+    name Conv_SA_W_5 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_1_1 \
+    corename dc_Conv_SA_W_5 \
     op interface \
-    ports { Conv_SA_W_1_1_din { O 32 vector } Conv_SA_W_1_1_full_n { I 1 bit } Conv_SA_W_1_1_write { O 1 bit } } \
+    ports { Conv_SA_W_5_din { O 128 vector } Conv_SA_W_5_num_data_valid { I 4 vector } Conv_SA_W_5_fifo_cap { I 4 vector } Conv_SA_W_5_full_n { I 1 bit } Conv_SA_W_5_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 159 \
-    name Conv_SA_W_1_2 \
+    id 797 \
+    name Conv_SA_W_6 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_1_2 \
+    corename dc_Conv_SA_W_6 \
     op interface \
-    ports { Conv_SA_W_1_2_din { O 32 vector } Conv_SA_W_1_2_full_n { I 1 bit } Conv_SA_W_1_2_write { O 1 bit } } \
+    ports { Conv_SA_W_6_din { O 128 vector } Conv_SA_W_6_num_data_valid { I 4 vector } Conv_SA_W_6_fifo_cap { I 4 vector } Conv_SA_W_6_full_n { I 1 bit } Conv_SA_W_6_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 160 \
-    name Conv_SA_W_1_3 \
+    id 798 \
+    name Conv_SA_W_7 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_1_3 \
+    corename dc_Conv_SA_W_7 \
     op interface \
-    ports { Conv_SA_W_1_3_din { O 32 vector } Conv_SA_W_1_3_full_n { I 1 bit } Conv_SA_W_1_3_write { O 1 bit } } \
+    ports { Conv_SA_W_7_din { O 128 vector } Conv_SA_W_7_num_data_valid { I 4 vector } Conv_SA_W_7_fifo_cap { I 4 vector } Conv_SA_W_7_full_n { I 1 bit } Conv_SA_W_7_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 161 \
-    name Conv_SA_W_2_0 \
+    id 799 \
+    name Conv_SA_W_8 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_2_0 \
+    corename dc_Conv_SA_W_8 \
     op interface \
-    ports { Conv_SA_W_2_0_din { O 32 vector } Conv_SA_W_2_0_full_n { I 1 bit } Conv_SA_W_2_0_write { O 1 bit } } \
+    ports { Conv_SA_W_8_din { O 128 vector } Conv_SA_W_8_num_data_valid { I 4 vector } Conv_SA_W_8_fifo_cap { I 4 vector } Conv_SA_W_8_full_n { I 1 bit } Conv_SA_W_8_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 162 \
-    name Conv_SA_W_2_1 \
+    id 800 \
+    name Conv_SA_W_9 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_2_1 \
+    corename dc_Conv_SA_W_9 \
     op interface \
-    ports { Conv_SA_W_2_1_din { O 32 vector } Conv_SA_W_2_1_full_n { I 1 bit } Conv_SA_W_2_1_write { O 1 bit } } \
+    ports { Conv_SA_W_9_din { O 128 vector } Conv_SA_W_9_num_data_valid { I 4 vector } Conv_SA_W_9_fifo_cap { I 4 vector } Conv_SA_W_9_full_n { I 1 bit } Conv_SA_W_9_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 163 \
-    name Conv_SA_W_2_2 \
+    id 801 \
+    name Conv_SA_W_10 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_2_2 \
+    corename dc_Conv_SA_W_10 \
     op interface \
-    ports { Conv_SA_W_2_2_din { O 32 vector } Conv_SA_W_2_2_full_n { I 1 bit } Conv_SA_W_2_2_write { O 1 bit } } \
+    ports { Conv_SA_W_10_din { O 128 vector } Conv_SA_W_10_num_data_valid { I 4 vector } Conv_SA_W_10_fifo_cap { I 4 vector } Conv_SA_W_10_full_n { I 1 bit } Conv_SA_W_10_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 164 \
-    name Conv_SA_W_2_3 \
+    id 802 \
+    name Conv_SA_W_11 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_2_3 \
+    corename dc_Conv_SA_W_11 \
     op interface \
-    ports { Conv_SA_W_2_3_din { O 32 vector } Conv_SA_W_2_3_full_n { I 1 bit } Conv_SA_W_2_3_write { O 1 bit } } \
+    ports { Conv_SA_W_11_din { O 128 vector } Conv_SA_W_11_num_data_valid { I 4 vector } Conv_SA_W_11_fifo_cap { I 4 vector } Conv_SA_W_11_full_n { I 1 bit } Conv_SA_W_11_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 165 \
-    name Conv_SA_W_3_0 \
+    id 803 \
+    name Conv_SA_W_12 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_3_0 \
+    corename dc_Conv_SA_W_12 \
     op interface \
-    ports { Conv_SA_W_3_0_din { O 32 vector } Conv_SA_W_3_0_full_n { I 1 bit } Conv_SA_W_3_0_write { O 1 bit } } \
+    ports { Conv_SA_W_12_din { O 128 vector } Conv_SA_W_12_num_data_valid { I 4 vector } Conv_SA_W_12_fifo_cap { I 4 vector } Conv_SA_W_12_full_n { I 1 bit } Conv_SA_W_12_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 166 \
-    name Conv_SA_W_3_1 \
+    id 804 \
+    name Conv_SA_W_13 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_3_1 \
+    corename dc_Conv_SA_W_13 \
     op interface \
-    ports { Conv_SA_W_3_1_din { O 32 vector } Conv_SA_W_3_1_full_n { I 1 bit } Conv_SA_W_3_1_write { O 1 bit } } \
+    ports { Conv_SA_W_13_din { O 128 vector } Conv_SA_W_13_num_data_valid { I 4 vector } Conv_SA_W_13_fifo_cap { I 4 vector } Conv_SA_W_13_full_n { I 1 bit } Conv_SA_W_13_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 167 \
-    name Conv_SA_W_3_2 \
+    id 805 \
+    name Conv_SA_W_14 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_3_2 \
+    corename dc_Conv_SA_W_14 \
     op interface \
-    ports { Conv_SA_W_3_2_din { O 32 vector } Conv_SA_W_3_2_full_n { I 1 bit } Conv_SA_W_3_2_write { O 1 bit } } \
+    ports { Conv_SA_W_14_din { O 128 vector } Conv_SA_W_14_num_data_valid { I 4 vector } Conv_SA_W_14_fifo_cap { I 4 vector } Conv_SA_W_14_full_n { I 1 bit } Conv_SA_W_14_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 168 \
-    name Conv_SA_W_3_3 \
+    id 806 \
+    name Conv_SA_W_15 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_Conv_SA_W_3_3 \
+    corename dc_Conv_SA_W_15 \
     op interface \
-    ports { Conv_SA_W_3_3_din { O 32 vector } Conv_SA_W_3_3_full_n { I 1 bit } Conv_SA_W_3_3_write { O 1 bit } } \
+    ports { Conv_SA_W_15_din { O 128 vector } Conv_SA_W_15_num_data_valid { I 4 vector } Conv_SA_W_15_fifo_cap { I 4 vector } Conv_SA_W_15_full_n { I 1 bit } Conv_SA_W_15_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 169 \
-    name num_w_in \
+    id 807 \
+    name p_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_num_w_in \
+    corename dc_p_read \
     op interface \
-    ports { num_w_in { I 30 vector } } \
+    ports { p_read { I 30 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 170 \
+    id 808 \
     name mode \
-    type other \
+    type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
     corename dc_mode \
     op interface \
-    ports { mode { I 1 vector } } \
+    ports { mode_dout { I 1 vector } mode_num_data_valid { I 3 vector } mode_fifo_cap { I 3 vector } mode_empty_n { I 1 bit } mode_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 809 \
+    name num_w_sa_loc_c \
+    type fifo \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_num_w_sa_loc_c \
+    op interface \
+    ports { num_w_sa_loc_c_din { O 30 vector } num_w_sa_loc_c_num_data_valid { I 3 vector } num_w_sa_loc_c_fifo_cap { I 3 vector } num_w_sa_loc_c_full_n { I 1 bit } num_w_sa_loc_c_write { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 810 \
+    name mode_c67 \
+    type fifo \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_mode_c67 \
+    op interface \
+    ports { mode_c67_din { O 1 vector } mode_c67_num_data_valid { I 3 vector } mode_c67_fifo_cap { I 3 vector } mode_c67_full_n { I 1 bit } mode_c67_write { O 1 bit } } \
 } "
 }
 
@@ -347,7 +377,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename ap_ctrl \
     op interface \
-    ports { ap_start { I 1 bit } ap_ready { O 1 bit } ap_done { O 1 bit } ap_idle { O 1 bit } } \
+    ports { ap_start { I 1 bit } ap_ready { O 1 bit } ap_done { O 1 bit } ap_idle { O 1 bit } ap_continue { I 1 bit } } \
 } "
 }
 

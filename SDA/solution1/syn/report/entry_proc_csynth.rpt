@@ -1,0 +1,161 @@
+
+
+================================================================
+== Vitis HLS Report for 'entry_proc'
+================================================================
+* Date:           Mon Mar 10 15:36:48 2025
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        SDA
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplusHBM
+* Target device:  xcvu35p_CIV-fsvh2892-3-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  1.520 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|      0 ns|      0 ns|    0|    0|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+--------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
++---------------------+---------+------+---------+--------+-----+
+|DSP                  |        -|     -|        -|       -|    -|
+|Expression           |        -|     -|        0|       2|    -|
+|FIFO                 |        -|     -|        -|       -|    -|
+|Instance             |        -|     -|        -|       -|    -|
+|Memory               |        -|     -|        -|       -|    -|
+|Multiplexer          |        -|     -|        -|      54|    -|
+|Register             |        -|     -|        3|       -|    -|
++---------------------+---------+------+---------+--------+-----+
+|Total                |        0|     0|        3|      56|    0|
++---------------------+---------+------+---------+--------+-----+
+|Available SLR        |     1344|  2976|   871680|  435840|  320|
++---------------------+---------+------+---------+--------+-----+
+|Utilization SLR (%)  |        0|     0|       ~0|      ~0|    0|
++---------------------+---------+------+---------+--------+-----+
+|Available            |     2688|  5952|  1743360|  871680|  640|
++---------------------+---------+------+---------+--------+-----+
+|Utilization (%)      |        0|     0|       ~0|      ~0|    0|
++---------------------+---------+------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state1  |        or|   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------+----+-----------+-----+-----------+
+    |       Name       | LUT| Input Size| Bits| Total Bits|
+    +------------------+----+-----------+-----+-----------+
+    |K_c58_blk_n       |   9|          2|    1|          2|
+    |Output_r_c_blk_n  |   9|          2|    1|          2|
+    |P_c60_blk_n       |   9|          2|    1|          2|
+    |S_c61_blk_n       |   9|          2|    1|          2|
+    |ap_done           |   9|          2|    1|          2|
+    |real_start        |   9|          2|    1|          2|
+    +------------------+----+-----------+-----+-----------+
+    |Total             |  54|         12|    6|         12|
+    +------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------+---+----+-----+-----------+
+    |      Name      | FF| LUT| Bits| Const Bits|
+    +----------------+---+----+-----+-----------+
+    |ap_CS_fsm       |  1|   0|    1|          0|
+    |ap_done_reg     |  1|   0|    1|          0|
+    |start_once_reg  |  1|   0|    1|          0|
+    +----------------+---+----+-----+-----------+
+    |Total           |  3|   0|    3|          0|
+    +----------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+--------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  | Source Object|    C Type    |
++---------------------------+-----+-----+------------+--------------+--------------+
+|ap_clk                     |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|start_full_n               |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_continue                |   in|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|start_out                  |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|start_write                |  out|    1|  ap_ctrl_hs|    entry_proc|  return value|
+|Output_r                   |   in|   64|     ap_none|      Output_r|        scalar|
+|Output_r_c_din             |  out|   64|     ap_fifo|    Output_r_c|       pointer|
+|Output_r_c_num_data_valid  |   in|    5|     ap_fifo|    Output_r_c|       pointer|
+|Output_r_c_fifo_cap        |   in|    5|     ap_fifo|    Output_r_c|       pointer|
+|Output_r_c_full_n          |   in|    1|     ap_fifo|    Output_r_c|       pointer|
+|Output_r_c_write           |  out|    1|     ap_fifo|    Output_r_c|       pointer|
+|K                          |   in|   32|     ap_none|             K|        scalar|
+|K_c58_din                  |  out|   32|     ap_fifo|         K_c58|       pointer|
+|K_c58_num_data_valid       |   in|    3|     ap_fifo|         K_c58|       pointer|
+|K_c58_fifo_cap             |   in|    3|     ap_fifo|         K_c58|       pointer|
+|K_c58_full_n               |   in|    1|     ap_fifo|         K_c58|       pointer|
+|K_c58_write                |  out|    1|     ap_fifo|         K_c58|       pointer|
+|P                          |   in|   32|     ap_none|             P|        scalar|
+|P_c60_din                  |  out|   32|     ap_fifo|         P_c60|       pointer|
+|P_c60_num_data_valid       |   in|    3|     ap_fifo|         P_c60|       pointer|
+|P_c60_fifo_cap             |   in|    3|     ap_fifo|         P_c60|       pointer|
+|P_c60_full_n               |   in|    1|     ap_fifo|         P_c60|       pointer|
+|P_c60_write                |  out|    1|     ap_fifo|         P_c60|       pointer|
+|S                          |   in|   32|     ap_none|             S|        scalar|
+|S_c61_din                  |  out|   32|     ap_fifo|         S_c61|       pointer|
+|S_c61_num_data_valid       |   in|    3|     ap_fifo|         S_c61|       pointer|
+|S_c61_fifo_cap             |   in|    3|     ap_fifo|         S_c61|       pointer|
+|S_c61_full_n               |   in|    1|     ap_fifo|         S_c61|       pointer|
+|S_c61_write                |  out|    1|     ap_fifo|         S_c61|       pointer|
++---------------------------+-----+-----+------------+--------------+--------------+
+

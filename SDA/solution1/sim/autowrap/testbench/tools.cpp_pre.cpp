@@ -1,8 +1,8 @@
-# 1 "D:/FPGA/SDA/tools.cpp"
+# 1 "D:/Download/SDA/tools.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "D:/FPGA/SDA/tools.cpp"
-# 1 "D:/FPGA/SDA/tools.h" 1
+# 1 "D:/Download/SDA/tools.cpp"
+# 1 "D:/Download/SDA/tools.h" 1
        
 
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/hls_stream.h" 1
@@ -53860,7 +53860,7 @@ public:
 };
 
 }
-# 4 "D:/FPGA/SDA/tools.h" 2
+# 4 "D:/Download/SDA/tools.h" 2
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
 # 10 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h"
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/etc/ap_common.h" 1
@@ -78151,7 +78151,7 @@ inline bool operator!=(
 }
 # 366 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_fixed.h" 2
 # 361 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 2
-# 5 "D:/FPGA/SDA/tools.h" 2
+# 5 "D:/Download/SDA/tools.h" 2
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_axi_sdata.h" 1
 # 15 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_axi_sdata.h"
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
@@ -78330,45 +78330,64 @@ template <std::size_t WData, std::size_t WUser, std::size_t WId,
           std::size_t WDest>
 using qdma_axis = hls::axis<ap_uint<WData>, WUser, WId, WDest,
                             0b01111111 ^ 0b00100000, false>;
-# 6 "D:/FPGA/SDA/tools.h" 2
+# 6 "D:/Download/SDA/tools.h" 2
+# 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/win64/msys64/mingw64/include/c++/6.2.0/math.h" 1 3
+# 7 "D:/Download/SDA/tools.h" 2
 
-# 1 "D:/FPGA/SDA/config.h" 1
+# 1 "D:/Download/SDA/config.h" 1
        
-# 8 "D:/FPGA/SDA/tools.h" 2
+# 9 "D:/Download/SDA/tools.h" 2
 
 using namespace hls;
 using namespace std;
 
-void ConvertInputToStream(ap_uint<16 * 8> *A, stream<ap_uint<16 * 8>> &conv_a, stream<ap_uint<16 * 8>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M);
+void ConvertBias_BN(ap_uint<(4 * 32)> *norm, float *bias, stream<ap_uint<(4 * 32)>> fifo_norm[128], stream<float> fifo_bias[128], unsigned M, bool mode);
 
-void SamePadding(stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode);
+void ConvertInputToStream(ap_uint<16 * 32> *A, stream<ap_uint<16 * 32>> &conv_a, stream<ap_uint<16 * 32>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M);
 
-void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode);
+void Padding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned P, bool mode);
 
-void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Weight, stream<ap_uint<16 * 8>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 8>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, bool mode);
+void Sliding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
 
-void ConvWeightToArray(stream<ap_uint<16 * 8>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 8>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
+void ConvertWeightToStream(ap_uint<16 * 32> *Conv_Weight, ap_uint<16 * 32> *MM_Weight, stream<ap_uint<16 * 32>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 32>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode);
 
-void MMWeightToArray(stream<ap_uint<16 * 8>> &in, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
+void ConvWeightToArray(stream<ap_uint<16 * 32>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 32>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
 
-void MuxWeightStream(stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> MM_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode);
+void MMWeightToArray(stream<ap_uint<16 * 32>> &in, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
 
-void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 * 8>>& mm_a, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode);
+void MuxWeightStream(stream<ap_uint<4 * 32>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> MM_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode);
 
-void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, stream<ap_uint<32>> fifo_C_out[4], unsigned C, unsigned num_a_sa, bool mode);
+void ConvertInputToArray(stream<ap_uint<16 * 32>> &conv3_sild, stream<ap_uint<16 * 32>>& mm_a, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode);
 
-void Compute(stream<ap_uint<4 * 8>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode);
+void PE(stream<ap_uint<4 * 32>> &fifo_A_in, stream<ap_uint<4 * 32>> &fifo_W_in, stream<float> fifo_C_out[4], unsigned C, unsigned num_a_sa, bool mode);
 
-void ConvertToOutStream(stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<ap_uint<32>> fifo_C_out[16], stream<ap_uint<32>> mm_out[64], unsigned numlines, unsigned R, unsigned M, bool mode);
+void Compute(stream<ap_uint<4 * 32>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode);
 
-void ConvToOutStream(stream<ap_uint<32>> fifo_CONV3_ACC[16], stream<ap_int<32>> CONV3_OUT[32], unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, bool mode);
+void ConvertToOutStream(stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<float> fifo_C_out[16], stream<float> mm_out[16], unsigned numlines, unsigned R, unsigned M, bool mode);
 
-void ResOutput(stream<ap_int<32>> CONV_OUT[32], stream<ap_uint<32>> MM_OUT[64], ap_uint<32> *output, unsigned R, unsigned C, unsigned M, bool mode);
-# 2 "D:/FPGA/SDA/tools.cpp" 2
+void ConvToOutStream(stream<float> fifo_CONV3_ACC[16], stream<float> CONV3_OUT[128], unsigned OUT_R, unsigned OUT_C, unsigned N, unsigned M, unsigned K, bool mode);
 
-void ConvertInputToStream(ap_uint<16 * 8> *A, stream<ap_uint<16 * 8>> &conv_a, stream<ap_uint<16 * 8>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M)
+void ConvBias(stream<float> CONV3_OUT[128], stream<float> fifo_bias[128], stream<float> CONV3_Bias[128], unsigned out_r, unsigned out_c, unsigned M, bool mode);
+
+void ConvBN(stream<float> CONV3_Trans[128], stream<float> CONV3_Norm[128], stream<ap_uint<(4 * 32)>> fifo_norm[128], unsigned out_r, unsigned out_c, unsigned M, bool mode);
+
+void ResOutput(stream<float> CONV_RES[128], stream<float> MM_RES[16], float *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
+# 2 "D:/Download/SDA/tools.cpp" 2
+
+void ConvertBias_BN(ap_uint<(4 * 32)> *norm, float *bias, stream<ap_uint<(4 * 32)>> fifo_norm[128], stream<float> fifo_bias[128], unsigned M, bool mode)
 {
-    ap_uint<16 * 8> temp;
+    if(mode == false)
+        return ;
+    for (unsigned i = 0; i < M; i++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M min = CONV_TEST_M
+        fifo_norm[i].write(norm[i]);
+        fifo_bias[i].write(bias[i]);
+    }
+}
+
+void ConvertInputToStream(ap_uint<16 * 32> *A, stream<ap_uint<16 * 32>> &conv_a, stream<ap_uint<16 * 32>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M)
+{
     if (mode == true)
     {
         for (int g = 0; g < M / 16; g++)
@@ -78384,8 +78403,7 @@ void ConvertInputToStream(ap_uint<16 * 8> *A, stream<ap_uint<16 * 8>> &conv_a, s
                     {
 #pragma HLS PIPELINE II = 1
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_N / MAX_INP min = CONV_TEST_N / MAX_INP
-                        temp = A[r * C * N / 16 + c * N / 16 + n];
-                        conv_a.write(temp);
+                        conv_a.write(A[r * C * N / 16 + c * N / 16 + n]);
                     }
                 }
             }
@@ -78403,32 +78421,31 @@ void ConvertInputToStream(ap_uint<16 * 8> *A, stream<ap_uint<16 * 8>> &conv_a, s
                 {
 #pragma HLS PIPELINE II = 1
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_N min = MM_TEST_N
-                    temp = A[r * N + n];
-                    mm_a.write(temp);
+                    mm_a.write(A[r * N + n]);
                 }
             }
         }
     }
 }
 
-void SamePadding(stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode)
+void Padding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned P, bool mode)
 {
     if (mode == false)
         return;
-    ap_uint<16 * 8> outData;
+    ap_uint<16 * 32> outData;
     for (int g = 0; g < M / 16; g++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M / MAX_OUP min = CONV_TEST_M / MAX_OUP
-        for (unsigned int y = 0; y < (R + 2); y++)
+        for (unsigned y = 0; y < (R + 2 * P); y++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_R + 2) min = (CONV_TEST_R + 2)
-            for (unsigned int x = 0; x < (C + 2); x++)
+#pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_R + 2 * CONV_TEST_P) min = (CONV_TEST_R + 2 * CONV_TEST_P)
+            for (unsigned x = 0; x < (C + 2 * P); x++)
             {
-#pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_C + 2) min = (CONV_TEST_C + 2)
-                for (unsigned int k = 0; k < N / 16; k++)
+#pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_C + 2 * CONV_TEST_P) min = (CONV_TEST_C + 2 * CONV_TEST_P)
+                for (unsigned k = 0; k < N / 16; k++)
                 {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_N / MAX_INP min = CONV_TEST_N / MAX_INP
-                    if (x < 1 || x >= (C + 1) || y < 1 || y >= R + 1)
+                    if (x < P || x >= (C + P) || y < P || y >= R + P)
                     {
                         outData = 0;
                     }
@@ -78443,49 +78460,46 @@ void SamePadding(stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsi
     }
 }
 
-void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode)
+void Sliding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
 {
     if (mode == false)
         return;
-    ap_int<16 * 8> row_buffer[4][1536];
+    ap_uint<16 * 32> row_buffer[10][((32 + 2 * 1) * 128 / 16)];
 
-    unsigned int cycles_write_block = K * K * N / 16 * C;
-    unsigned int cycles_read_block = (C + 2) * N / 16;
-    unsigned int max_cycles = (((cycles_write_block) > (cycles_read_block)) ? (cycles_write_block) : (cycles_read_block));
-    unsigned int baseIter = (C + 2) * K * N / 16 + R * (((cycles_write_block) > (cycles_read_block)) ? (cycles_write_block) : (cycles_read_block));
+    unsigned cycles_write_block = K * K * N / 16 * ((C + 2 * P - K) / S + 1);
+    unsigned cycles_read_block = (C + 2 * P) * N / 16 * S;
+    unsigned max_cycles = (((cycles_write_block) > (cycles_read_block)) ? (cycles_write_block) : (cycles_read_block));
+    unsigned baseIter = (C + 2 * P) * K * N / 16 + ((R + 2 * P - K) / S + 1) * (((cycles_write_block) > (cycles_read_block)) ? (cycles_write_block) : (cycles_read_block));
 
-    unsigned int inp = 0, ofm_y = 0, ofm_x = 0, k_y = 0, k_x = 0, wMat = 0, count_simd = 0;
-    unsigned int counter_internal_block = 0;
+    unsigned inp = 0, ofm_y = 0, ofm_x = 0, k_y = 0, k_x = 0, wMat = 0, count_simd = 0;
+    unsigned counter_internal_block = 0;
 
-    ap_uint<2> current_block_write = 0;
-    ap_uint<2> current_block_read = 0;
-    ap_uint<2> block_read_K;
+    ap_uint<4> current_block_write = 0;
+    ap_uint<4> current_block_read = 0;
+    ap_uint<4> block_read_K;
 
-    unsigned int current_line = 0;
-    unsigned int current_line_w = 0;
-    unsigned int current_line_simd = 0;
-    unsigned int read_block = 0;
-    unsigned int current_line_in_block;
-    unsigned int cnt = 0;
+    unsigned current_line = 0;
+    unsigned current_line_w = 0;
+    unsigned current_line_simd = 0;
+    unsigned read_block = 0;
+    unsigned current_line_in_block;
+    unsigned cnt = 0;
 
-    ap_int<16 * 8> inElem;
-    ap_int<16 * 8> data;
     for (int g = 0; g < M / 16; g++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M / MAX_OUP min = CONV_TEST_M / MAX_OUP
         for (unsigned rep = 0; rep < baseIter; rep++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_R * CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_C + (CONV_TEST_C + 2) * CONV_TEST_K * CONV_TEST_N / MAX_INP) min = (CONV_TEST_R * CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_C + (CONV_TEST_C + 2) * CONV_TEST_K * CONV_TEST_N / MAX_INP)
+#pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_R * CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_C + (CONV_TEST_C + 2 * CONV_TEST_P) * CONV_TEST_K * CONV_TEST_N / MAX_INP) min = (CONV_TEST_R * CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_C + (CONV_TEST_C + 2 * CONV_TEST_P) * CONV_TEST_K * CONV_TEST_N / MAX_INP)
 #pragma HLS PIPELINE II = 1
-            if (inp < (C + 2) * K * N / 16)
+            if (inp < (C + 2 * P) * K * N / 16)
             {
-                inElem = in.read();
-                row_buffer[current_block_write][current_line_w * (N / 16) + current_line_simd] = inElem;
+                row_buffer[current_block_write][current_line_w * (N / 16) + current_line_simd] = in.read();
                 inp++;
                 if (++current_line_simd == N / 16)
                 {
                     current_line_simd = 0;
-                    if (++current_line_w == (C + 2))
+                    if (++current_line_w == (C + 2 * P))
                     {
                         current_line_w = 0;
                         read_block++;
@@ -78498,11 +78512,10 @@ void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &o
                 if (counter_internal_block < cycles_write_block)
                 {
                     block_read_K = current_block_read + k_y;
+                    block_read_K = block_read_K % (K + S);
                     current_line_in_block = ofm_x * (N / 16) + count_simd;
-
-                    data = row_buffer[block_read_K][current_line_in_block + cnt * (N / 16)];
-                    out.write(data);
-                    if (++cnt == C)
+                    out.write(row_buffer[block_read_K][current_line_in_block + cnt * S * (N / 16)]);
+                    if (++cnt == ((C + 2 * P - K) / S + 1))
                     {
                         cnt = 0;
                         if (++count_simd == N / 16)
@@ -78514,25 +78527,29 @@ void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &o
                                 if (++k_y == K)
                                 {
                                     k_y = 0;
-                                    current_block_read++;
+                                    current_block_read += S;
+                                    if (current_block_read >= K + S)
+                                        current_block_read -= (K + S);
                                 }
                             }
                         }
                     }
                 }
-                if ((counter_internal_block < cycles_read_block) && (read_block < (R + 2)))
+                if ((counter_internal_block < cycles_read_block) && (read_block < (R + 2 * P)))
                 {
-                    inElem = in.read();
-                    row_buffer[current_block_write][current_line_w * (N / 16) + current_line_simd] = inElem;
+                    row_buffer[current_block_write][current_line_w * (N / 16) + current_line_simd] = in.read();
 
                     if (++current_line_simd == N / 16)
                     {
                         current_line_simd = 0;
-                        if (++current_line_w == C + 2)
+                        if (++current_line_w == C + 2 * P)
                         {
                             current_line_w = 0;
                             read_block++;
+
                             current_block_write++;
+                            if (current_block_write >= K + S)
+                                current_block_write -= (K + S);
                         }
                     }
                 }
@@ -78552,13 +78569,13 @@ void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &o
     }
 }
 
-void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 * 8>> &mm_a, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode)
+void ConvertInputToArray(stream<ap_uint<16 * 32>> &conv3_sild, stream<ap_uint<16 * 32>> &mm_a, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode)
 {
-    ap_uint<4 * 8> temp_row;
-    for (unsigned long long rep = 0; rep < num_a_sa; rep++)
+    ap_uint<4 * 32> temp_row;
+    for (unsigned long rep = 0; rep < num_a_sa; rep++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_M / MAX_OUP) * (CONV_TEST_N / MAX_INP) *CONV_TEST_R *CONV_TEST_C *CONV_TEST_K *CONV_TEST_K min = (CONV_TEST_M / MAX_OUP) * (CONV_TEST_N / MAX_INP) * CONV_TEST_R * CONV_TEST_C * CONV_TEST_K * CONV_TEST_K
-        ap_int<16 * 8> temp;
+        ap_int<16 * 32> temp;
         if (mode == true)
         {
             temp = conv3_sild.read();
@@ -78567,10 +78584,10 @@ void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 
         {
             temp = mm_a.read();
         }
-        for (unsigned int r = 0; r < (16 / 4); r++)
+        for (unsigned r = 0; r < (16 / 4); r++)
         {
-            temp_row = temp((r + 1) * 4 * 8 - 1, r * 4 * 8);
-            for (unsigned int c = 0; c < (16 / 4); c++)
+            temp_row = temp((r + 1) * 4 * 32 - 1, r * 4 * 32);
+            for (unsigned c = 0; c < (16 / 4); c++)
             {
                 out[r][c].write(temp_row);
             }
@@ -78578,18 +78595,17 @@ void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 
     }
 }
 
-void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Weight, stream<ap_uint<16 * 8>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 8>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, bool mode)
+void ConvertWeightToStream(ap_uint<16 * 32> *Conv_Weight, ap_uint<16 * 32> *MM_Weight, stream<ap_uint<16 * 32>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 32>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode)
 {
-#pragma HLS INLINE OFF
     if (mode == true)
     {
-        ap_uint<16 * 8> temp;
+        ap_uint<16 * 32> temp;
         for (int m = 0; m < M / 16; m++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M / MAX_OUP min = CONV_TEST_M / MAX_OUP
             for (int i = 0; i < (16 / 4); i++)
             {
-                for (unsigned r = 0; r < R; r++)
+                for (unsigned r = 0; r < (R + 2 * P - K) / S + 1; r++)
                 {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_R min = CONV_TEST_R
                     for (int j = 0; j < K * K * N / 16 * 16 / (16 / 4); j++)
@@ -78605,7 +78621,7 @@ void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Wei
     }
     else
     {
-        ap_uint<16 * 8> temp;
+        ap_uint<16 * 32> temp;
         for (unsigned rep = 0; rep < R / 16; rep++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP min = MM_TEST_R / MAX_INP
@@ -78624,42 +78640,42 @@ void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Wei
     }
 }
 
-void ConvWeightToArray(stream<ap_uint<16 * 8>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 8>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode)
+void ConvWeightToArray(stream<ap_uint<16 * 32>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 32>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode)
 {
-#pragma HLS INLINE OFF
     if (mode == false)
         return;
-    ap_uint<16 * 8> w;
-    ap_uint<4 * 8> temp;
-    for (unsigned int g = 0; g < num_w_in; g++)
+    ap_uint<16 * 32> w;
+    ap_uint<4 * 32> temp;
+    for (unsigned g = 0; g < num_w_in; g++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_R *CONV_TEST_K *CONV_TEST_K *CONV_TEST_N / MAX_INP *CONV_TEST_M / MAX_A_COL min = CONV_TEST_R * CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_M / MAX_A_COL
-        for (unsigned int c = 0; c < (16 / 4); c++)
+        for (unsigned c = 0; c < (16 / 4); c++)
         {
             w = fifo_W_in[c].read();
-            for (unsigned int r = 0; r < (16 / 4); r++)
+            for (unsigned r = 0; r < (16 / 4); r++)
             {
-                temp = w((r + 1) * 4 * 8 - 1, r * 4 * 8);
+#pragma HLS PIPELINE II = 1
+                temp = w((r + 1) * 4 * 32 - 1, r * 4 * 32);
                 fifo_W_local_out[r][c].write(temp);
             }
         }
     }
 }
 
-void MMWeightToArray(stream<ap_uint<16 * 8>> &in, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode)
+void MMWeightToArray(stream<ap_uint<16 * 32>> &in, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode)
 {
     if (mode == true)
         return;
-    ap_uint<4 * 8> temp_row;
+    ap_uint<4 * 32> temp_row;
     for (unsigned long long rep = 0; rep < num_w_in; rep++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R * MM_TEST_M * MM_TEST_N / (MAX_INP * MAX_OUP) min = MM_TEST_R * MM_TEST_M * MM_TEST_N / (MAX_INP * MAX_OUP)
 #pragma HLS PIPELINE II = 1
-        ap_uint<16 * 8> temp = in.read();
-        for (unsigned int c = 0; c < (16 / 4); c++)
+        ap_uint<16 * 32> temp = in.read();
+        for (unsigned c = 0; c < (16 / 4); c++)
         {
-            temp_row = temp((c + 1) * 4 * 8 - 1, c * (4 * 8));
-            for (unsigned int r = 0; r < (16 / 4); r++)
+            temp_row = temp((c + 1) * 4 * 32 - 1, c * (4 * 32));
+            for (unsigned r = 0; r < (16 / 4); r++)
             {
                 out[r][c].write(temp_row);
             }
@@ -78667,8 +78683,8 @@ void MMWeightToArray(stream<ap_uint<16 * 8>> &in, stream<ap_uint<4 * 8>> out[(16
     }
 }
 
-void MuxWeightStream(stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> MM_SA_W[(16 / 4)][(16 / 4)],
-                     stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode)
+void MuxWeightStream(stream<ap_uint<4 * 32>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> MM_SA_W[(16 / 4)][(16 / 4)],
+                     stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode)
 {
     for (unsigned i = 0; i < num_w_sa; i++)
     {
@@ -78678,7 +78694,7 @@ void MuxWeightStream(stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)], strea
         {
             for (unsigned y = 0; y < (16 / 4); y++)
             {
-                ap_uint<4 * 8> temp;
+                ap_uint<4 * 32> temp;
                 if (mode == false)
                     temp = MM_SA_W[x][y].read();
                 else
@@ -78689,35 +78705,35 @@ void MuxWeightStream(stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)], strea
     }
 }
 
-void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, stream<ap_uint<32>> fifo_C_out[4], unsigned num, unsigned num_a_sa, bool mode)
+void PE(stream<ap_uint<4 * 32>> &fifo_A_in, stream<ap_uint<4 * 32>> &fifo_W_in, stream<float> fifo_C_out[4], unsigned num, unsigned num_a_sa, bool mode)
 {
-    ap_int<4 * 8> A_reg[4];
+    ap_uint<4 * 32> A_reg[4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = A_reg
 
-    ap_int<4 * 8> W_reg[4];
+    ap_uint<4 * 32> W_reg[4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = W_reg
 
-    ap_int<8> data_A_reg[4][4];
+    float data_A_reg[4][4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = data_A_reg
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = data_A_reg
 
-    ap_int<8> data_W_reg[4][4];
+    float data_W_reg[4][4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = data_W_reg
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = data_W_reg
 
-    ap_int<32> data_C_reg[4][4];
+    float data_C_reg[4][4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = data_C_reg
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = data_C_reg
 
-    ap_int<32> acc_tmp[4][4];
+    float acc_tmp[4][4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = acc_tmp
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = acc_tmp
 
-    ap_int<32> res_C_reg[4];
+    float res_C_reg[4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = res_C_reg
 
-    int flag = 0;
-    int out = 0;
+    unsigned flag = 0;
+    unsigned out = 0;
 
     for (unsigned i = 0; i < 4; i++)
     {
@@ -78769,17 +78785,17 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
         for (unsigned i = 0; i < 4; i++)
         {
 #pragma HLS UNROLL
-            ap_uint<8> temp_a;
+            uint32_t temp_a;
             if (mode == true)
             {
-                temp_a = A_reg[0](8 * (i + 1) - 1, 8 * i);
-                data_A_reg[i][0] = temp_a;
+                temp_a = A_reg[0](32 * (i + 1) - 1, 32 * i);
+                data_A_reg[i][0] = reinterpret_cast<float &>(temp_a);
             }
             else
             {
-                temp_a = A_reg[i](8 - 1, 0);
-                data_A_reg[i][0] = temp_a;
-                A_reg[i] = A_reg[i] >> (8);
+                temp_a = A_reg[i](32 - 1, 0);
+                data_A_reg[i][0] = reinterpret_cast<float &>(temp_a);
+                A_reg[i] = A_reg[i] >> (32);
             }
         }
 
@@ -78789,10 +78805,9 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
             for (unsigned k = 0; k < 4; k++)
             {
 #pragma HLS UNROLL
-                ap_uint<8> temp_w;
-                temp_w = W_reg[k];
-                data_W_reg[0][k] = temp_w;
-                W_reg[k] = W_reg[k] >> (8);
+                uint32_t temp_w = W_reg[k];
+                data_W_reg[0][k] = reinterpret_cast<float &>(temp_w);
+                W_reg[k] = W_reg[k] >> (32);
             }
         }
         else
@@ -78802,9 +78817,8 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
 #pragma HLS UNROLL
                 if (flag < 4)
                 {
-                    ap_uint<8> temp_w;
-                    temp_w = W_reg[0](8 * (i + 1) - 1, 8 * i);
-                    data_W_reg[i][flag] = temp_w;
+                    uint32_t temp_w = W_reg[0](32 * (i + 1) - 1, 32 * i);
+                    data_W_reg[i][flag] = reinterpret_cast<float &>(temp_w);
                 }
             }
         }
@@ -78829,14 +78843,6 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
             for (int i = 4 - 1; i >= 0; i--)
             {
 #pragma HLS UNROLL
-                ap_int<8> data_A_tmp;
-                data_A_tmp = data_A_reg[i][j];
-
-                ap_int<8> data_W_tmp;
-                data_W_tmp = data_W_reg[i][j];
-
-                ap_int<32> data_C_tmp;
-
                 if (mode == true)
                 {
                     if (i == 4 - 1)
@@ -78859,23 +78865,20 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
                         acc_tmp[i][j] = data_C_reg[i][j];
                     }
                 }
-                ap_int<32> tmp = data_A_tmp * data_W_tmp;
-                data_C_reg[i][j] = acc_tmp[i][j] + tmp;
-
+                data_C_reg[i][j] = acc_tmp[i][j] + data_A_reg[i][j] * data_W_reg[i][j];
                 if (j < 4 - 1)
                 {
-                    data_A_reg[i][j + 1] = data_A_tmp;
+                    data_A_reg[i][j + 1] = data_A_reg[i][j];
                 }
                 if (mode == false)
                 {
                     if (i < 4 - 1)
                     {
-                        data_W_reg[i + 1][j] = data_W_tmp;
+                        data_W_reg[i + 1][j] = data_W_reg[i][j];
                     }
                     if ((flag == num - 1) || (i + j == out))
                     {
-                        ap_uint<32> out_tmp = data_C_reg[i][j];
-                        res_C_reg[j] = out_tmp;
+                        res_C_reg[j] = data_C_reg[i][j];
                     }
                 }
             }
@@ -78894,9 +78897,8 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
 #pragma HLS UNROLL
                 if (((rep >= i) && (rep < num_a_sa)) || ((rep >= num_a_sa) && (rep < num_a_sa + i)))
                 {
-                    ap_int<32> out_tmp = data_C_reg[0][i];
                     data_C_reg[4 - 1][i] = 0;
-                    fifo_C_out[i].write(out_tmp);
+                    fifo_C_out[i].write(data_C_reg[0][i]);
                 }
             }
         }
@@ -78921,13 +78923,13 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
     }
 }
 
-void Compute(stream<ap_uint<4 * 8>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)],
-             stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode)
+void Compute(stream<ap_uint<4 * 32>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)],
+             stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode)
 {
-    for (unsigned int r = 0; r < (16 / 4); r++)
+    for (unsigned r = 0; r < (16 / 4); r++)
     {
 #pragma HLS UNROLL
-        for (unsigned int c = 0; c < (16 / 4); c++)
+        for (unsigned c = 0; c < (16 / 4); c++)
         {
 #pragma HLS UNROLL
             PE(fifo_SA_A[r][c], fifo_SA_W[r][c], fifo_SA_O[r][c], num, num_a_sa, mode);
@@ -78935,51 +78937,48 @@ void Compute(stream<ap_uint<4 * 8>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uin
     }
 }
 
-void ConvertToOutStream(stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<ap_uint<32>> fifo_C_out[16], stream<ap_uint<32>> mm_out[64], unsigned numlines, unsigned R, unsigned M, bool mode)
+void ConvertToOutStream(stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<float> fifo_C_out[16], stream<float> mm_out[16], unsigned numlines, unsigned R, unsigned M, bool mode)
 {
     if (mode == true)
     {
-        ap_uint<32> psum;
-        ap_uint<32> tmp;
-
-        for (unsigned int h = 0; h < numlines; h++)
+        float psum;
+        for (unsigned h = 0; h < numlines; h++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_M / MAX_OUP) * (CONV_TEST_N / MAX_INP) *CONV_TEST_R *CONV_TEST_C *CONV_TEST_K *CONV_TEST_K min = (CONV_TEST_M / MAX_OUP) * (CONV_TEST_N / MAX_INP) * CONV_TEST_R * CONV_TEST_C * CONV_TEST_K * CONV_TEST_K
 #pragma HLS PIPELINE II = 1
-            for (unsigned int c = 0; c < (16 / 4); c++)
+            for (unsigned c = 0; c < (16 / 4); c++)
             {
-                for (unsigned int m = 0; m < 4; m++)
+                for (unsigned m = 0; m < 4; m++)
                 {
-                    psum = 0;
-                    for (unsigned int r = 0; r < (16 / 4); r++)
+                    for (unsigned r = 0; r < (16 / 4); r++)
                     {
-                        tmp = fifo_SA_O[r][c][m].read();
-                        psum = psum + tmp;
+                        if (r == 0)
+                            psum = 0;
+                        psum += fifo_SA_O[r][c][m].read();
+                        if (r == (16 / 4) - 1)
+                            fifo_C_out[c * 4 + m].write(psum);
                     }
-                    fifo_C_out[c * 4 + m].write(psum);
                 }
             }
         }
     }
     else
     {
-        ap_uint<32> tmp;
         for (unsigned l = 0; l < R / 16; l++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP min = MM_TEST_R / MAX_INP
             for (unsigned m = 0; m < M / 16; m++)
             {
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M / MAX_OUP min = MM_TEST_M / MAX_OUP
-                for (unsigned int r = 0; r < (16 / 4); r++)
+                for (unsigned r = 0; r < (16 / 4); r++)
                 {
                     for (unsigned rep = 0; rep < 4; rep++)
                     {
-                        for (unsigned int c = 0; c < (16 / 4); c++)
+                        for (unsigned c = 0; c < (16 / 4); c++)
                         {
-                            for (unsigned int y = 0; y < 4; y++)
+                            for (unsigned y = 0; y < 4; y++)
                             {
-                                tmp = fifo_SA_O[r][c][y].read();
-                                mm_out[m * 16 + c * 4 + y].write(tmp);
+                                mm_out[m * 16 + c * 4 + y].write(fifo_SA_O[r][c][y].read());
                             }
                         }
                     }
@@ -78989,23 +78988,24 @@ void ConvertToOutStream(stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], st
     }
 }
 
-void ConvToOutStream(stream<ap_uint<32>> fifo_CONV3_ACC[16], stream<ap_int<32>> CONV3_OUT[32], unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, bool mode)
+void ConvToOutStream(stream<float> fifo_CONV3_ACC[16], stream<float> CONV3_OUT[128], unsigned OUT_R, unsigned OUT_C, unsigned N, unsigned M, unsigned K, bool mode)
 {
     if (mode == false)
         return;
-    ap_int<32> psum[16][16];
+    float psum[(32 + 2 * 1 - 3) / 1 + 1][16];
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = psum
+#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = psum
 
     for (int rep = 0; rep < M / 16; rep++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M / MAX_OUP min = CONV_TEST_M / MAX_OUP
-        for (int k = 0; k < R; k++)
+        for (int r = 0; r < OUT_R; r++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_R min = CONV_TEST_R
             for (int j = 0; j < N / 16 * K * K; j++)
             {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_N / MAX_INP *CONV_TEST_K *CONV_TEST_K min = CONV_TEST_N / MAX_INP * CONV_TEST_K * CONV_TEST_K
-                for (int i = 0; i < C; i++)
+                for (int c = 0; c < OUT_C; c++)
                 {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_C min = CONV_TEST_C
                     for (int s = 0; s < 16; s++)
@@ -79013,15 +79013,15 @@ void ConvToOutStream(stream<ap_uint<32>> fifo_CONV3_ACC[16], stream<ap_int<32>> 
 #pragma HLS UNROLL
                         if (j == 0)
                         {
-                            psum[i][s] = fifo_CONV3_ACC[s].read();
+                            psum[c][s] = fifo_CONV3_ACC[s].read();
                         }
                         else
                         {
-                            psum[i][s] = psum[i][s] + fifo_CONV3_ACC[s].read();
+                            psum[c][s] += fifo_CONV3_ACC[s].read();
                         }
                         if (j == N / 16 * K * K - 1)
                         {
-                            CONV3_OUT[rep * 16 + s].write(psum[i][s]);
+                            CONV3_OUT[rep * 16 + s].write((float)psum[c][s]);
                         }
                     }
                 }
@@ -79030,56 +79030,76 @@ void ConvToOutStream(stream<ap_uint<32>> fifo_CONV3_ACC[16], stream<ap_int<32>> 
     }
 }
 
-void MMToOutStream(stream<ap_uint<32>> in[(16 / 4)][(16 / 4)][4], stream<ap_uint<32>> out[64], unsigned R, unsigned M, bool mode)
+void ConvBias(stream<float> CONV3_OUT[128], stream<float> fifo_bias[128], stream<float> CONV3_Bias[128], unsigned out_r, unsigned out_c, unsigned M, bool mode)
 {
-    if (mode == true)
+    if (mode == false)
         return;
-    ap_uint<32> tmp;
-    for (unsigned l = 0; l < R / 16; l++)
+    float bias;
+    for (unsigned i = 0; i < M / 16; i++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP min = MM_TEST_R / MAX_INP
-        for (unsigned m = 0; m < M / 16; m++)
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M / MAX_OUP min = CONV_TEST_M / MAX_OUP
+        for (int y = 0; y < 4; y++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M / MAX_OUP min = MM_TEST_M / MAX_OUP
-            for (unsigned int r = 0; r < (16 / 4); r++)
+            for (int s = 0; s < (16 / 4); s++)
             {
-                for (unsigned rep = 0; rep < 4; rep++)
+                for (unsigned j = 0; j < out_r * out_c; j++)
                 {
-                    for (unsigned int c = 0; c < (16 / 4); c++)
-                    {
-                        for (unsigned int y = 0; y < 4; y++)
-                        {
-                            tmp = in[r][c][y].read();
-                            out[m * 16 + c * 4 + y].write(tmp);
-                        }
-                    }
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R * CONV_TEST_OUT_C min = CONV_TEST_OUT_R * CONV_TEST_OUT_C
+                    if(j == 0) bias = fifo_bias[i * 16 + s * 4 + y].read();
+                    CONV3_Bias[i * 16 + s * 4 + y].write(CONV3_OUT[s * M / (16 / 4) + i * 4 + y].read() + bias);
                 }
             }
         }
     }
 }
 
-void ResOutput(stream<ap_int<32>> CONV_OUT[32], stream<ap_uint<32>> MM_OUT[64], ap_uint<32> *output, unsigned R, unsigned C, unsigned M, bool mode)
+void ConvBN(stream<float> CONV3_Trans[128], stream<float> CONV3_Norm[128], stream<ap_uint<(4 * 32)>> fifo_norm[128], unsigned out_r, unsigned out_c, unsigned M, bool mode)
+{
+    if(mode == false)
+        return ;
+    float mean, var, gamma, beta, temp, sqrt_var;
+    const float EPSILON = 1e-5;
+    uint32_t norm[4];
+    for (unsigned m = 0; m < M; m++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M min = CONV_TEST_M
+        for (unsigned i = 0; i < out_r * out_c; i++)
+        {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C min = CONV_TEST_OUT_R * CONV_TEST_OUT_C
+            if (i == 0)
+            {
+                ap_uint<(4 * 32)> norm_temp = fifo_norm[m].read();
+                for (unsigned j = 0; j < 4; j++)
+                {
+                    norm[j] = norm_temp(32 * (j + 1) - 1, 32 * j);
+                }
+                mean = reinterpret_cast<float &>(norm[0]);
+                var = reinterpret_cast<float &>(norm[1]) + EPSILON;
+                gamma = reinterpret_cast<float &>(norm[2]);
+                beta = reinterpret_cast<float &>(norm[3]);
+                sqrt_var = sqrt(var);
+            }
+            temp = CONV3_Trans[m].read();
+            temp = gamma * (temp - mean) / sqrt_var + beta;
+            CONV3_Norm[m].write(temp);
+        }
+    }
+}
+
+void ResOutput(stream<float> CONV_RES[128], stream<float> MM_RES[16], float *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
 {
     if (mode == true)
     {
-        for (unsigned i = 0; i < M / 16; i++)
+        for (unsigned m = 0; m < M; m++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M / MAX_OUP min = CONV_TEST_M / MAX_OUP
-            for (int y = 0; y < 4; y++)
-            {
-                for (int s = 0; s < (16 / 4); s++)
-                {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M min = CONV_TEST_M
-                    for (unsigned r = 0; r < R; r++)
-                    {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_R min = CONV_TEST_R
-                        for (unsigned c = 0; c < C; c++)
-                        {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_C min = CONV_TEST_C
-                            output[r * C * M + c * M + (i * 16 / 4 + s) * 4 + y] = CONV_OUT[(s * M / 16 + i) * 4 + y].read();
-                        }
-                    }
+            for (unsigned r = 0; r < (R + 2 * P - K) / S + 1; r++)
+            {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R min = CONV_TEST_OUT_R
+                for (unsigned c = 0; c < (C + 2 * P - K) / S + 1; c++)
+                {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_C min = CONV_TEST_OUT_C
+                    output[r * ((C + 2 * P - K) / S + 1) * M + c * M + m] = CONV_RES[m].read();
                 }
             }
         }
@@ -79089,10 +79109,16 @@ void ResOutput(stream<ap_int<32>> CONV_OUT[32], stream<ap_uint<32>> MM_OUT[64], 
         for (int i = 0; i < R; i++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R min = MM_TEST_R
-            for (int j = 0; j < M; j++)
+            for (int j = 0; j < M / 16; j++)
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M / MAX_OUP min = MM_TEST_M / MAX_OUP
             {
-#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M min = MM_TEST_M
-                output[i * M + j] = MM_OUT[j].read();
+                for (int y = 0; y < 4; y++)
+                {
+                    for (int s = 0; s < (16 / 4); s++)
+                    {
+                        output[i * M + j * 16 + s * 4 + y] = MM_RES[j * 16 + s * 4 + y].read();
+                    }
+                }
             }
         }
     }

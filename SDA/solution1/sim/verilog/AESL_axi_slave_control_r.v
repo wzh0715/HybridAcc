@@ -40,6 +40,7 @@ module AESL_axi_slave_control_r (
 `define TV_IN_Conv_MM_A "../tv/cdatafile/c.top.autotvin_Conv_MM_A.dat"
 `define TV_IN_Conv_Weight "../tv/cdatafile/c.top.autotvin_Conv_Weight.dat"
 `define TV_IN_MM_Weight "../tv/cdatafile/c.top.autotvin_MM_Weight.dat"
+`define TV_IN_Output_r "../tv/cdatafile/c.top.autotvin_Output_r.dat"
 parameter ADDR_WIDTH = 6;
 parameter DATA_WIDTH = 32;
 parameter Conv_MM_A_DEPTH = 1;
@@ -51,9 +52,13 @@ parameter Conv_Weight_c_bitwidth = 64;
 parameter MM_Weight_DEPTH = 1;
 reg [31 : 0] MM_Weight_OPERATE_DEPTH = 0;
 parameter MM_Weight_c_bitwidth = 64;
+parameter Output_r_DEPTH = 1;
+reg [31 : 0] Output_r_OPERATE_DEPTH = 0;
+parameter Output_r_c_bitwidth = 64;
 parameter Conv_MM_A_data_in_addr = 16;
 parameter Conv_Weight_data_in_addr = 28;
 parameter MM_Weight_data_in_addr = 40;
+parameter Output_r_data_in_addr = 52;
 
 output [ADDR_WIDTH - 1 : 0] TRAN_s_axi_control_r_AWADDR;
 output  TRAN_s_axi_control_r_AWVALID;
@@ -100,6 +105,9 @@ reg Conv_Weight_write_data_finish;
 reg [MM_Weight_c_bitwidth - 1 : 0] mem_MM_Weight [MM_Weight_DEPTH - 1 : 0] = '{default : 'h0};
 reg [DATA_WIDTH-1 : 0] image_mem_MM_Weight [ (MM_Weight_c_bitwidth+DATA_WIDTH-1)/DATA_WIDTH * MM_Weight_DEPTH -1 : 0] = '{default : 'hz};
 reg MM_Weight_write_data_finish;
+reg [Output_r_c_bitwidth - 1 : 0] mem_Output_r [Output_r_DEPTH - 1 : 0] = '{default : 'h0};
+reg [DATA_WIDTH-1 : 0] image_mem_Output_r [ (Output_r_c_bitwidth+DATA_WIDTH-1)/DATA_WIDTH * Output_r_DEPTH -1 : 0] = '{default : 'hz};
+reg Output_r_write_data_finish;
 reg AESL_ready_out_index_reg = 0;
 reg AESL_write_start_finish = 0;
 reg AESL_ready_reg;
@@ -110,6 +118,7 @@ reg AESL_auto_restart_index_reg;
 reg process_0_finish = 0;
 reg process_1_finish = 0;
 reg process_2_finish = 0;
+reg process_3_finish = 0;
 //write Conv_MM_A reg
 reg [31 : 0] write_Conv_MM_A_count = 0;
 reg [31 : 0] Conv_MM_A_diff_count = 0;
@@ -125,6 +134,11 @@ reg [31 : 0] write_MM_Weight_count = 0;
 reg [31 : 0] MM_Weight_diff_count = 0;
 reg write_MM_Weight_run_flag = 0;
 reg write_one_MM_Weight_data_done = 0;
+//write Output_r reg
+reg [31 : 0] write_Output_r_count = 0;
+reg [31 : 0] Output_r_diff_count = 0;
+reg write_Output_r_run_flag = 0;
+reg write_one_Output_r_data_done = 0;
 
 //===================process control=================
 reg [31 : 0] ongoing_process_number = 0;
@@ -141,7 +155,7 @@ assign TRAN_s_axi_control_r_ARADDR = ARADDR_reg;
 assign TRAN_s_axi_control_r_ARVALID = ARVALID_reg;
 assign TRAN_s_axi_control_r_RREADY = RREADY_reg;
 assign TRAN_s_axi_control_r_BREADY = BREADY_reg;
-assign TRAN_control_r_write_data_finish = 1 & Conv_MM_A_write_data_finish & Conv_Weight_write_data_finish & MM_Weight_write_data_finish;
+assign TRAN_control_r_write_data_finish = 1 & Conv_MM_A_write_data_finish & Conv_Weight_write_data_finish & MM_Weight_write_data_finish & Output_r_write_data_finish;
 always @(TRAN_control_r_done_in) 
 begin
     AESL_done_index_reg <= TRAN_control_r_done_in;
@@ -151,7 +165,7 @@ begin
     AESL_ready_reg <= TRAN_control_r_ready_in | ready_initial;
 end
 
-always @(reset or process_0_finish or process_1_finish or process_2_finish ) begin
+always @(reset or process_0_finish or process_1_finish or process_2_finish or process_3_finish ) begin
     if (reset == 0) begin
         ongoing_process_number <= 0;
     end
@@ -162,6 +176,9 @@ always @(reset or process_0_finish or process_1_finish or process_2_finish ) beg
             ongoing_process_number <= ongoing_process_number + 1;
     end
     else if (ongoing_process_number == 2 && process_2_finish == 1) begin
+            ongoing_process_number <= ongoing_process_number + 1;
+    end
+    else if (ongoing_process_number == 3 && process_3_finish == 1) begin
             ongoing_process_number <= 0;
     end
 end
@@ -743,6 +760,149 @@ initial begin : write_MM_Weight
     end    
 end
 
+always @(reset or posedge clk) begin
+    if (reset == 0) begin
+        write_Output_r_run_flag <= 0; 
+        count_operate_depth_by_bitwidth_and_depth (Output_r_c_bitwidth, Output_r_DEPTH, Output_r_OPERATE_DEPTH);
+    end
+    else begin
+        if (AESL_ready_reg === 1) begin
+            write_Output_r_run_flag <= 1; 
+        end
+        else if ((write_one_Output_r_data_done == 1 && write_Output_r_count == Output_r_diff_count - 1) || Output_r_diff_count == 0) begin
+            write_Output_r_run_flag <= 0; 
+        end
+    end
+end
+
+always @(reset or posedge clk) begin
+    if (reset == 0) begin
+        write_Output_r_count = 0;
+    end
+    else begin
+        if (AESL_ready_reg === 1) begin
+            write_Output_r_count = 0;
+        end
+        if (write_one_Output_r_data_done === 1) begin
+            write_Output_r_count = write_Output_r_count + 1;
+        end
+    end
+end
+
+always @(reset or posedge clk) begin
+    if (reset == 0) begin
+        Output_r_write_data_finish <= 0;
+    end
+    else begin
+        if (TRAN_control_r_start_in === 1) begin
+            Output_r_write_data_finish <= 0;
+        end
+        if (write_Output_r_run_flag == 1 && write_Output_r_count == Output_r_diff_count) begin
+            Output_r_write_data_finish <= 1;
+        end
+    end
+end
+
+initial begin : initial_diff_counter_Output_r
+    integer four_byte_num;
+    integer ceil_align_to_pow_of_two_four_byte_num;
+    integer c_bitwidth;
+    integer i;
+    integer j;
+    integer k;
+    reg [31 : 0] Output_r_data_tmp_reg;
+    wait(reset === 1);
+    @(posedge clk);
+    c_bitwidth = Output_r_c_bitwidth;
+    count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num);
+    ceil_align_to_pow_of_two_four_byte_num = ceil_align_to_pow_of_two(four_byte_num);
+    while (1) begin
+        wait (AESL_ready_reg === 1);
+        Output_r_diff_count = 0;
+
+        for (k = 0; k < Output_r_OPERATE_DEPTH; k = k + 1) begin
+            for (i = 0; i < four_byte_num; i = i + 1) begin
+                if (Output_r_c_bitwidth < 32) begin
+                    Output_r_data_tmp_reg = mem_Output_r[k];
+                end
+                else begin
+                    for (j = 0; j < 32; j = j + 1) begin
+                        if (i*32 + j < Output_r_c_bitwidth) begin
+                            Output_r_data_tmp_reg[j] = mem_Output_r[k][i*32 + j];
+                        end
+                        else begin
+                            Output_r_data_tmp_reg[j] = 0;
+                        end
+                    end
+                end
+                if(image_mem_Output_r[k * four_byte_num  + i]!==Output_r_data_tmp_reg) begin
+                Output_r_diff_count = Output_r_diff_count + 1;
+                end
+            end
+        end
+
+        @(posedge clk);
+    end
+end
+
+initial begin : write_Output_r
+    integer write_Output_r_resp;
+    integer process_num ;
+    integer get_ack;
+    integer four_byte_num;
+    integer ceil_align_to_pow_of_two_four_byte_num;
+    integer c_bitwidth;
+    integer i;
+    integer j;
+    integer check_Output_r_count;
+    reg [31 : 0] Output_r_data_tmp_reg;
+    wait(reset === 1);
+    @(posedge clk);
+    c_bitwidth = Output_r_c_bitwidth;
+    process_num = 3;
+    count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num);
+    ceil_align_to_pow_of_two_four_byte_num = ceil_align_to_pow_of_two(four_byte_num);
+    while (1) begin
+        process_3_finish <= 0;
+
+        for (check_Output_r_count = 0; check_Output_r_count < Output_r_OPERATE_DEPTH; check_Output_r_count = check_Output_r_count + 1) begin
+            if (ongoing_process_number === process_num && process_busy === 0 ) begin
+                get_ack = 1;
+                if (write_Output_r_run_flag === 1 && get_ack === 1) begin
+                    process_busy = 1;
+                    //write Output_r data 
+                    for (i = 0; i < four_byte_num; i = i + 1) begin
+                        if (Output_r_c_bitwidth < 32) begin
+                            Output_r_data_tmp_reg = mem_Output_r[check_Output_r_count];
+                        end
+                        else begin
+                            for (j = 0; j < 32; j = j + 1) begin
+                                if (i*32 + j < Output_r_c_bitwidth) begin
+                                    Output_r_data_tmp_reg[j] = mem_Output_r[check_Output_r_count][i*32 + j];
+                                end
+                                else begin
+                                    Output_r_data_tmp_reg[j] = 0;
+                                end
+                            end
+                        end
+                        if(image_mem_Output_r[check_Output_r_count * four_byte_num  + i]!==Output_r_data_tmp_reg) begin
+                        write (Output_r_data_in_addr + check_Output_r_count * ceil_align_to_pow_of_two_four_byte_num * 4 + i * 4, Output_r_data_tmp_reg, write_Output_r_resp);
+                        write_one_Output_r_data_done <= 1;
+                        @(posedge clk);
+                        write_one_Output_r_data_done <= 0;
+                        image_mem_Output_r[check_Output_r_count * four_byte_num + i]=Output_r_data_tmp_reg;
+                        end
+                    end
+                    process_busy = 0;
+                end   
+                process_3_finish <= 1;
+            end
+        end
+
+        @(posedge clk);
+    end    
+end
+
 
 //------------------------Task and function-------------- 
 task read_token; 
@@ -1118,6 +1278,139 @@ initial begin : read_MM_Weight_file_process
 end 
  
 task write_binary_MM_Weight;
+    input integer fp;
+    input reg[64-1:0] in;
+    input integer in_bw;
+    reg [63:0] tmp_long;
+    reg[64-1:0] local_in;
+    integer char_num;
+    integer long_num;
+    integer i;
+    integer j;
+    begin
+        long_num = (in_bw + 63) / 64;
+        char_num = ((in_bw - 1) % 64 + 7) / 8;
+        for(i=long_num;i>0;i=i-1) begin
+             local_in = in;
+             tmp_long = local_in >> ((i-1)*64);
+             for(j=0;j<64;j=j+1)
+                 if (tmp_long[j] === 1'bx)
+                     tmp_long[j] = 1'b0;
+             if (i == long_num) begin
+                 case(char_num)
+                     1: $fwrite(fp,"%c",tmp_long[7:0]);
+                     2: $fwrite(fp,"%c%c",tmp_long[15:8],tmp_long[7:0]);
+                     3: $fwrite(fp,"%c%c%c",tmp_long[23:16],tmp_long[15:8],tmp_long[7:0]);
+                     4: $fwrite(fp,"%c%c%c%c",tmp_long[31:24],tmp_long[23:16],tmp_long[15:8],tmp_long[7:0]);
+                     5: $fwrite(fp,"%c%c%c%c%c",tmp_long[39:32],tmp_long[31:24],tmp_long[23:16],tmp_long[15:8],tmp_long[7:0]);
+                     6: $fwrite(fp,"%c%c%c%c%c%c",tmp_long[47:40],tmp_long[39:32],tmp_long[31:24],tmp_long[23:16],tmp_long[15:8],tmp_long[7:0]);
+                     7: $fwrite(fp,"%c%c%c%c%c%c%c",tmp_long[55:48],tmp_long[47:40],tmp_long[39:32],tmp_long[31:24],tmp_long[23:16],tmp_long[15:8],tmp_long[7:0]);
+                     8: $fwrite(fp,"%c%c%c%c%c%c%c%c",tmp_long[63:56],tmp_long[55:48],tmp_long[47:40],tmp_long[39:32],tmp_long[31:24],tmp_long[23:16],tmp_long[15:8],tmp_long[7:0]);
+                     default: ;
+                 endcase
+             end
+             else begin
+                 $fwrite(fp,"%c%c%c%c%c%c%c%c",tmp_long[63:56],tmp_long[55:48],tmp_long[47:40],tmp_long[39:32],tmp_long[31:24],tmp_long[23:16],tmp_long[15:8],tmp_long[7:0]);
+             end
+        end
+    end
+endtask;
+//------------------------Read file------------------------ 
+ 
+// Read data from file 
+initial begin : read_Output_r_file_process 
+  integer fp; 
+  integer ret; 
+  integer factor; 
+  reg [151 : 0] token; 
+  reg [151 : 0] token_tmp; 
+  //reg [Output_r_c_bitwidth - 1 : 0] token_tmp; 
+  reg [DATA_WIDTH - 1 : 0] tmp_cache_mem; 
+  reg [ 8*5 : 1] str;
+    reg [63:0] trans_depth;
+  integer transaction_idx; 
+  integer i; 
+  transaction_idx = 0; 
+  tmp_cache_mem [DATA_WIDTH - 1 : 0] = 0;
+  count_seperate_factor_by_bitwidth (Output_r_c_bitwidth , factor);
+  fp = $fopen(`TV_IN_Output_r ,"r"); 
+  if(fp == 0) begin                               // Failed to open file 
+      $display("Failed to open file \"%s\"!", `TV_IN_Output_r); 
+      $finish; 
+  end 
+  read_token(fp, token); 
+  if (token != "[[[runtime]]]") begin             // Illegal format 
+      $display("ERROR: Simulation using HLS TB failed.");
+      $finish; 
+  end 
+  read_token(fp, token); 
+  while (token != "[[[/runtime]]]") begin 
+      if (token != "[[transaction]]") begin 
+          $display("ERROR: Simulation using HLS TB failed.");
+          $finish; 
+      end 
+      read_token(fp, token);                        // skip transaction number 
+      @(posedge clk);
+      # 0.2;
+      while(AESL_ready_reg !== 1) begin
+          @(posedge clk); 
+          # 0.2;
+      end
+      for(i = 0; i < Output_r_DEPTH; i = i + 1) begin 
+          read_token(fp, token); 
+          ret = $sscanf(token, "0x%x", token_tmp); 
+          if (factor == 4) begin
+              if (i%factor == 0) begin
+                  tmp_cache_mem [7 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  tmp_cache_mem [15 : 8] = token_tmp;
+              end
+              if (i%factor == 2) begin
+                  tmp_cache_mem [23 : 16] = token_tmp;
+              end
+              if (i%factor == 3) begin
+                  tmp_cache_mem [31 : 24] = token_tmp;
+                  mem_Output_r [i/factor] = tmp_cache_mem;
+                  tmp_cache_mem [DATA_WIDTH - 1 : 0] = 0;
+              end
+          end
+          if (factor == 2) begin
+              if (i%factor == 0) begin
+                  tmp_cache_mem [15 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  tmp_cache_mem [31 : 16] = token_tmp;
+                  mem_Output_r [i/factor] = tmp_cache_mem;
+                  tmp_cache_mem [DATA_WIDTH - 1: 0] = 0;
+              end
+          end
+          if (factor == 1) begin
+              mem_Output_r [i] = token_tmp;
+          end
+      end 
+      if (factor == 4) begin
+          if (i%factor != 0) begin
+              mem_Output_r [i/factor] = tmp_cache_mem;
+          end
+      end
+      if (factor == 2) begin
+          if (i%factor != 0) begin
+              mem_Output_r [i/factor] = tmp_cache_mem;
+          end
+      end 
+      read_token(fp, token); 
+      if(token != "[[/transaction]]") begin 
+          $display("ERROR: Simulation using HLS TB failed.");
+          $finish; 
+      end 
+      read_token(fp, token); 
+      transaction_idx = transaction_idx + 1; 
+  end 
+  $fclose(fp); 
+end 
+ 
+task write_binary_Output_r;
     input integer fp;
     input reg[64-1:0] in;
     input integer in_bw;

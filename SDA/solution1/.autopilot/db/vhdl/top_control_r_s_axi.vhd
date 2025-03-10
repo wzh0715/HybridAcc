@@ -36,7 +36,8 @@ port (
     RREADY                :in   STD_LOGIC;
     Conv_MM_A             :out  STD_LOGIC_VECTOR(63 downto 0);
     Conv_Weight           :out  STD_LOGIC_VECTOR(63 downto 0);
-    MM_Weight             :out  STD_LOGIC_VECTOR(63 downto 0)
+    MM_Weight             :out  STD_LOGIC_VECTOR(63 downto 0);
+    Output_r              :out  STD_LOGIC_VECTOR(63 downto 0)
 );
 end entity top_control_r_s_axi;
 
@@ -62,6 +63,11 @@ end entity top_control_r_s_axi;
 -- 0x2c : Data signal of MM_Weight
 --        bit 31~0 - MM_Weight[63:32] (Read/Write)
 -- 0x30 : reserved
+-- 0x34 : Data signal of Output_r
+--        bit 31~0 - Output_r[31:0] (Read/Write)
+-- 0x38 : Data signal of Output_r
+--        bit 31~0 - Output_r[63:32] (Read/Write)
+-- 0x3c : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of top_control_r_s_axi is
@@ -78,6 +84,9 @@ architecture behave of top_control_r_s_axi is
     constant ADDR_MM_WEIGHT_DATA_0   : INTEGER := 16#28#;
     constant ADDR_MM_WEIGHT_DATA_1   : INTEGER := 16#2c#;
     constant ADDR_MM_WEIGHT_CTRL     : INTEGER := 16#30#;
+    constant ADDR_OUTPUT_R_DATA_0    : INTEGER := 16#34#;
+    constant ADDR_OUTPUT_R_DATA_1    : INTEGER := 16#38#;
+    constant ADDR_OUTPUT_R_CTRL      : INTEGER := 16#3c#;
     constant ADDR_BITS         : INTEGER := 6;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -95,6 +104,7 @@ architecture behave of top_control_r_s_axi is
     signal int_Conv_MM_A       : UNSIGNED(63 downto 0) := (others => '0');
     signal int_Conv_Weight     : UNSIGNED(63 downto 0) := (others => '0');
     signal int_MM_Weight       : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_Output_r        : UNSIGNED(63 downto 0) := (others => '0');
 
 
 begin
@@ -222,6 +232,10 @@ begin
                         rdata_data <= RESIZE(int_MM_Weight(31 downto 0), 32);
                     when ADDR_MM_WEIGHT_DATA_1 =>
                         rdata_data <= RESIZE(int_MM_Weight(63 downto 32), 32);
+                    when ADDR_OUTPUT_R_DATA_0 =>
+                        rdata_data <= RESIZE(int_Output_r(31 downto 0), 32);
+                    when ADDR_OUTPUT_R_DATA_1 =>
+                        rdata_data <= RESIZE(int_Output_r(63 downto 32), 32);
                     when others =>
                         NULL;
                     end case;
@@ -234,6 +248,7 @@ begin
     Conv_MM_A            <= STD_LOGIC_VECTOR(int_Conv_MM_A);
     Conv_Weight          <= STD_LOGIC_VECTOR(int_Conv_Weight);
     MM_Weight            <= STD_LOGIC_VECTOR(int_MM_Weight);
+    Output_r             <= STD_LOGIC_VECTOR(int_Output_r);
 
     process (ACLK)
     begin
@@ -296,6 +311,28 @@ begin
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_MM_WEIGHT_DATA_1) then
                     int_MM_Weight(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_MM_Weight(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_OUTPUT_R_DATA_0) then
+                    int_Output_r(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_Output_r(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_OUTPUT_R_DATA_1) then
+                    int_Output_r(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_Output_r(63 downto 32));
                 end if;
             end if;
         end if;

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'PE'" level="0">
-<item name = "Date">Tue Feb 25 14:23:55 2025
+<item name = "Date">Mon Mar 10 15:36:53 2025
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">SDA</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 3.108 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 6.622 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
+<column name="">2325, 2325, 23.250 us, 23.250 us, 2325, 2325, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70">PE_Pipeline_VITIS_LOOP_378_5, 9229, 9229, 92.290 us, 92.290 us, 9229, 9229, no</column>
+<column name="grp_PE_Pipeline_VITIS_LOOP_385_5_fu_64">PE_Pipeline_VITIS_LOOP_385_5, 2323, 2323, 23.230 us, 23.230 us, 2323, 2323, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -48,23 +48,23 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 195, -</column>
+<column name="Expression">-, -, 0, 197, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, 28, 3068, 5204, -</column>
+<column name="Instance">-, 118, 16373, 16087, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 74, -</column>
-<column name="Register">-, -, 164, -, -</column>
+<column name="Register">-, -, 165, -, -</column>
 <specialColumn name="Available SLR">1344, 2976, 871680, 435840, 320</specialColumn>
-<specialColumn name="Utilization SLR (%)">0, ~0, ~0, 1, 0</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 3, 1, 3, 0</specialColumn>
 <specialColumn name="Available">2688, 5952, 1743360, 871680, 640</specialColumn>
-<specialColumn name="Utilization (%)">0, ~0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 1, ~0, 1, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70">PE_Pipeline_VITIS_LOOP_378_5, 0, 28, 3068, 5204, 0</column>
+<column name="grp_PE_Pipeline_VITIS_LOOP_385_5_fu_64">PE_Pipeline_VITIS_LOOP_385_5, 0, 118, 16373, 16087, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -81,11 +81,12 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add308_1_fu_106_p2">+, 0, 0, 39, 32, 1</column>
-<column name="add308_2_fu_112_p2">+, 0, 0, 39, 32, 2</column>
-<column name="add308_3_fu_118_p2">+, 0, 0, 39, 32, 2</column>
-<column name="sub270_fu_100_p2">+, 0, 0, 39, 32, 2</column>
-<column name="sub_fu_94_p2">+, 0, 0, 39, 32, 3</column>
+<column name="add304_1_fu_107_p2">+, 0, 0, 39, 32, 1</column>
+<column name="add304_2_fu_113_p2">+, 0, 0, 39, 32, 2</column>
+<column name="add304_3_fu_119_p2">+, 0, 0, 39, 32, 2</column>
+<column name="sub267_fu_101_p2">+, 0, 0, 39, 32, 2</column>
+<column name="sub_fu_89_p2">+, 0, 0, 39, 32, 3</column>
+<column name="cmp47_fu_95_p2">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -101,13 +102,14 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="add308_1_reg_154">32, 0, 32, 0</column>
-<column name="add308_2_reg_159">32, 0, 32, 0</column>
-<column name="add308_3_reg_164">32, 0, 32, 0</column>
+<column name="add304_1_reg_161">32, 0, 32, 0</column>
+<column name="add304_2_reg_166">32, 0, 32, 0</column>
+<column name="add304_3_reg_171">32, 0, 32, 0</column>
 <column name="ap_CS_fsm">3, 0, 3, 0</column>
-<column name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70_ap_start_reg">1, 0, 1, 0</column>
-<column name="sub270_reg_149">32, 0, 32, 0</column>
-<column name="sub_reg_144">32, 0, 32, 0</column>
+<column name="cmp47_reg_151">1, 0, 1, 0</column>
+<column name="grp_PE_Pipeline_VITIS_LOOP_385_5_fu_64_ap_start_reg">1, 0, 1, 0</column>
+<column name="sub267_reg_156">32, 0, 32, 0</column>
+<column name="sub_reg_146">32, 0, 32, 0</column>
 </table>
 </item>
 </section>
@@ -123,22 +125,34 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, PE, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, PE, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, PE, return value</column>
-<column name="fifo_SA_A_0_0_dout">in, 32, ap_fifo, fifo_SA_A_0_0, pointer</column>
+<column name="fifo_SA_A_0_0_dout">in, 128, ap_fifo, fifo_SA_A_0_0, pointer</column>
+<column name="fifo_SA_A_0_0_num_data_valid">in, 3, ap_fifo, fifo_SA_A_0_0, pointer</column>
+<column name="fifo_SA_A_0_0_fifo_cap">in, 3, ap_fifo, fifo_SA_A_0_0, pointer</column>
 <column name="fifo_SA_A_0_0_empty_n">in, 1, ap_fifo, fifo_SA_A_0_0, pointer</column>
 <column name="fifo_SA_A_0_0_read">out, 1, ap_fifo, fifo_SA_A_0_0, pointer</column>
-<column name="fifo_SA_W_0_0_dout">in, 32, ap_fifo, fifo_SA_W_0_0, pointer</column>
+<column name="fifo_SA_W_0_0_dout">in, 128, ap_fifo, fifo_SA_W_0_0, pointer</column>
+<column name="fifo_SA_W_0_0_num_data_valid">in, 4, ap_fifo, fifo_SA_W_0_0, pointer</column>
+<column name="fifo_SA_W_0_0_fifo_cap">in, 4, ap_fifo, fifo_SA_W_0_0, pointer</column>
 <column name="fifo_SA_W_0_0_empty_n">in, 1, ap_fifo, fifo_SA_W_0_0, pointer</column>
 <column name="fifo_SA_W_0_0_read">out, 1, ap_fifo, fifo_SA_W_0_0, pointer</column>
 <column name="fifo_SA_O_0_0_0_din">out, 32, ap_fifo, fifo_SA_O_0_0_0, pointer</column>
+<column name="fifo_SA_O_0_0_0_num_data_valid">in, 5, ap_fifo, fifo_SA_O_0_0_0, pointer</column>
+<column name="fifo_SA_O_0_0_0_fifo_cap">in, 5, ap_fifo, fifo_SA_O_0_0_0, pointer</column>
 <column name="fifo_SA_O_0_0_0_full_n">in, 1, ap_fifo, fifo_SA_O_0_0_0, pointer</column>
 <column name="fifo_SA_O_0_0_0_write">out, 1, ap_fifo, fifo_SA_O_0_0_0, pointer</column>
 <column name="fifo_SA_O_0_0_1_din">out, 32, ap_fifo, fifo_SA_O_0_0_1, pointer</column>
+<column name="fifo_SA_O_0_0_1_num_data_valid">in, 5, ap_fifo, fifo_SA_O_0_0_1, pointer</column>
+<column name="fifo_SA_O_0_0_1_fifo_cap">in, 5, ap_fifo, fifo_SA_O_0_0_1, pointer</column>
 <column name="fifo_SA_O_0_0_1_full_n">in, 1, ap_fifo, fifo_SA_O_0_0_1, pointer</column>
 <column name="fifo_SA_O_0_0_1_write">out, 1, ap_fifo, fifo_SA_O_0_0_1, pointer</column>
 <column name="fifo_SA_O_0_0_2_din">out, 32, ap_fifo, fifo_SA_O_0_0_2, pointer</column>
+<column name="fifo_SA_O_0_0_2_num_data_valid">in, 5, ap_fifo, fifo_SA_O_0_0_2, pointer</column>
+<column name="fifo_SA_O_0_0_2_fifo_cap">in, 5, ap_fifo, fifo_SA_O_0_0_2, pointer</column>
 <column name="fifo_SA_O_0_0_2_full_n">in, 1, ap_fifo, fifo_SA_O_0_0_2, pointer</column>
 <column name="fifo_SA_O_0_0_2_write">out, 1, ap_fifo, fifo_SA_O_0_0_2, pointer</column>
 <column name="fifo_SA_O_0_0_3_din">out, 32, ap_fifo, fifo_SA_O_0_0_3, pointer</column>
+<column name="fifo_SA_O_0_0_3_num_data_valid">in, 5, ap_fifo, fifo_SA_O_0_0_3, pointer</column>
+<column name="fifo_SA_O_0_0_3_fifo_cap">in, 5, ap_fifo, fifo_SA_O_0_0_3, pointer</column>
 <column name="fifo_SA_O_0_0_3_full_n">in, 1, ap_fifo, fifo_SA_O_0_0_3, pointer</column>
 <column name="fifo_SA_O_0_0_3_write">out, 1, ap_fifo, fifo_SA_O_0_0_3, pointer</column>
 <column name="num">in, 32, ap_none, num, scalar</column>

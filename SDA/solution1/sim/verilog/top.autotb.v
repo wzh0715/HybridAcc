@@ -20,14 +20,20 @@
 `define AESL_DEPTH_A_BUS 1
 `define AESL_DEPTH_CONV_BUS 1
 `define AESL_DEPTH_MM_BUS 1
+`define AESL_DEPTH_OUTPUT_BUS 1
 `define AESL_DEPTH_Conv_MM_A 1
 `define AESL_DEPTH_Conv_Weight 1
 `define AESL_DEPTH_MM_Weight 1
+`define AESL_DEPTH_Bias 1
+`define AESL_DEPTH_Norm 1
+`define AESL_DEPTH_Output_r 1
 `define AESL_DEPTH_R 1
 `define AESL_DEPTH_C 1
 `define AESL_DEPTH_N 1
 `define AESL_DEPTH_M 1
 `define AESL_DEPTH_K 1
+`define AESL_DEPTH_P 1
+`define AESL_DEPTH_S 1
 `define AESL_DEPTH_mode 1
 `define AUTOTB_TVIN_A_BUS  "../tv/cdatafile/c.top.autotvin_A_BUS.dat"
 `define AUTOTB_TVIN_CONV_BUS  "../tv/cdatafile/c.top.autotvin_CONV_BUS.dat"
@@ -35,11 +41,16 @@
 `define AUTOTB_TVIN_Conv_MM_A  "../tv/cdatafile/c.top.autotvin_Conv_MM_A.dat"
 `define AUTOTB_TVIN_Conv_Weight  "../tv/cdatafile/c.top.autotvin_Conv_Weight.dat"
 `define AUTOTB_TVIN_MM_Weight  "../tv/cdatafile/c.top.autotvin_MM_Weight.dat"
+`define AUTOTB_TVIN_Bias  "../tv/cdatafile/c.top.autotvin_Bias.dat"
+`define AUTOTB_TVIN_Norm  "../tv/cdatafile/c.top.autotvin_Norm.dat"
+`define AUTOTB_TVIN_Output_r  "../tv/cdatafile/c.top.autotvin_Output_r.dat"
 `define AUTOTB_TVIN_R  "../tv/cdatafile/c.top.autotvin_R.dat"
 `define AUTOTB_TVIN_C  "../tv/cdatafile/c.top.autotvin_C.dat"
 `define AUTOTB_TVIN_N  "../tv/cdatafile/c.top.autotvin_N.dat"
 `define AUTOTB_TVIN_M  "../tv/cdatafile/c.top.autotvin_M.dat"
 `define AUTOTB_TVIN_K  "../tv/cdatafile/c.top.autotvin_K.dat"
+`define AUTOTB_TVIN_P  "../tv/cdatafile/c.top.autotvin_P.dat"
+`define AUTOTB_TVIN_S  "../tv/cdatafile/c.top.autotvin_S.dat"
 `define AUTOTB_TVIN_mode  "../tv/cdatafile/c.top.autotvin_mode.dat"
 `define AUTOTB_TVIN_A_BUS_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_A_BUS.dat"
 `define AUTOTB_TVIN_CONV_BUS_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_CONV_BUS.dat"
@@ -47,18 +58,26 @@
 `define AUTOTB_TVIN_Conv_MM_A_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_Conv_MM_A.dat"
 `define AUTOTB_TVIN_Conv_Weight_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_Conv_Weight.dat"
 `define AUTOTB_TVIN_MM_Weight_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_MM_Weight.dat"
+`define AUTOTB_TVIN_Bias_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_Bias.dat"
+`define AUTOTB_TVIN_Norm_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_Norm.dat"
+`define AUTOTB_TVIN_Output_r_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_Output_r.dat"
 `define AUTOTB_TVIN_R_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_R.dat"
 `define AUTOTB_TVIN_C_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_C.dat"
 `define AUTOTB_TVIN_N_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_N.dat"
 `define AUTOTB_TVIN_M_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_M.dat"
 `define AUTOTB_TVIN_K_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_K.dat"
+`define AUTOTB_TVIN_P_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_P.dat"
+`define AUTOTB_TVIN_S_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_S.dat"
 `define AUTOTB_TVIN_mode_out_wrapc  "../tv/rtldatafile/rtl.top.autotvin_mode.dat"
+`define AUTOTB_TVOUT_OUTPUT_BUS  "../tv/cdatafile/c.top.autotvout_OUTPUT_BUS.dat"
+`define AUTOTB_TVOUT_OUTPUT_BUS_out_wrapc  "../tv/rtldatafile/rtl.top.autotvout_OUTPUT_BUS.dat"
 module `AUTOTB_TOP;
 
 parameter AUTOTB_TRANSACTION_NUM = 1;
 parameter PROGRESS_TIMEOUT = 10000000;
-parameter LATENCY_ESTIMATION = 70572;
+parameter LATENCY_ESTIMATION = 4204;
 parameter LENGTH_A_BUS = 5000;
+parameter LENGTH_Bias = 1;
 parameter LENGTH_C = 1;
 parameter LENGTH_CONV_BUS = 5000;
 parameter LENGTH_Conv_MM_A = 1;
@@ -68,12 +87,17 @@ parameter LENGTH_M = 1;
 parameter LENGTH_MM_BUS = 5000;
 parameter LENGTH_MM_Weight = 1;
 parameter LENGTH_N = 1;
+parameter LENGTH_Norm = 1;
+parameter LENGTH_OUTPUT_BUS = 5000;
+parameter LENGTH_Output_r = 1;
+parameter LENGTH_P = 1;
 parameter LENGTH_R = 1;
+parameter LENGTH_S = 1;
 parameter LENGTH_mode = 1;
 
 task read_token;
     input integer fp;
-    output reg [279 : 0] token;
+    output reg [1047 : 0] token;
     integer ret;
     begin
         token = "";
@@ -150,8 +174,8 @@ wire [3 : 0] A_BUS_AWREGION;
 wire [0 : 0] A_BUS_AWUSER;
 wire  A_BUS_WVALID;
 wire  A_BUS_WREADY;
-wire [127 : 0] A_BUS_WDATA;
-wire [15 : 0] A_BUS_WSTRB;
+wire [511 : 0] A_BUS_WDATA;
+wire [63 : 0] A_BUS_WSTRB;
 wire  A_BUS_WLAST;
 wire [0 : 0] A_BUS_WID;
 wire [0 : 0] A_BUS_WUSER;
@@ -170,7 +194,7 @@ wire [3 : 0] A_BUS_ARREGION;
 wire [0 : 0] A_BUS_ARUSER;
 wire  A_BUS_RVALID;
 wire  A_BUS_RREADY;
-wire [127 : 0] A_BUS_RDATA;
+wire [511 : 0] A_BUS_RDATA;
 wire  A_BUS_RLAST;
 wire [0 : 0] A_BUS_RID;
 wire [0 : 0] A_BUS_RUSER;
@@ -195,8 +219,8 @@ wire [3 : 0] CONV_BUS_AWREGION;
 wire [0 : 0] CONV_BUS_AWUSER;
 wire  CONV_BUS_WVALID;
 wire  CONV_BUS_WREADY;
-wire [127 : 0] CONV_BUS_WDATA;
-wire [15 : 0] CONV_BUS_WSTRB;
+wire [511 : 0] CONV_BUS_WDATA;
+wire [63 : 0] CONV_BUS_WSTRB;
 wire  CONV_BUS_WLAST;
 wire [0 : 0] CONV_BUS_WID;
 wire [0 : 0] CONV_BUS_WUSER;
@@ -215,7 +239,7 @@ wire [3 : 0] CONV_BUS_ARREGION;
 wire [0 : 0] CONV_BUS_ARUSER;
 wire  CONV_BUS_RVALID;
 wire  CONV_BUS_RREADY;
-wire [127 : 0] CONV_BUS_RDATA;
+wire [511 : 0] CONV_BUS_RDATA;
 wire  CONV_BUS_RLAST;
 wire [0 : 0] CONV_BUS_RID;
 wire [0 : 0] CONV_BUS_RUSER;
@@ -240,8 +264,8 @@ wire [3 : 0] MM_BUS_AWREGION;
 wire [0 : 0] MM_BUS_AWUSER;
 wire  MM_BUS_WVALID;
 wire  MM_BUS_WREADY;
-wire [127 : 0] MM_BUS_WDATA;
-wire [15 : 0] MM_BUS_WSTRB;
+wire [511 : 0] MM_BUS_WDATA;
+wire [63 : 0] MM_BUS_WSTRB;
 wire  MM_BUS_WLAST;
 wire [0 : 0] MM_BUS_WID;
 wire [0 : 0] MM_BUS_WUSER;
@@ -260,7 +284,7 @@ wire [3 : 0] MM_BUS_ARREGION;
 wire [0 : 0] MM_BUS_ARUSER;
 wire  MM_BUS_RVALID;
 wire  MM_BUS_RREADY;
-wire [127 : 0] MM_BUS_RDATA;
+wire [511 : 0] MM_BUS_RDATA;
 wire  MM_BUS_RLAST;
 wire [0 : 0] MM_BUS_RID;
 wire [0 : 0] MM_BUS_RUSER;
@@ -270,6 +294,55 @@ wire  MM_BUS_BREADY;
 wire [1 : 0] MM_BUS_BRESP;
 wire [0 : 0] MM_BUS_BID;
 wire [0 : 0] MM_BUS_BUSER;
+wire  OUTPUT_BUS_AWVALID;
+wire  OUTPUT_BUS_AWREADY;
+wire [63 : 0] OUTPUT_BUS_AWADDR;
+wire [0 : 0] OUTPUT_BUS_AWID;
+wire [7 : 0] OUTPUT_BUS_AWLEN;
+wire [2 : 0] OUTPUT_BUS_AWSIZE;
+wire [1 : 0] OUTPUT_BUS_AWBURST;
+wire [1 : 0] OUTPUT_BUS_AWLOCK;
+wire [3 : 0] OUTPUT_BUS_AWCACHE;
+wire [2 : 0] OUTPUT_BUS_AWPROT;
+wire [3 : 0] OUTPUT_BUS_AWQOS;
+wire [3 : 0] OUTPUT_BUS_AWREGION;
+wire [0 : 0] OUTPUT_BUS_AWUSER;
+wire  OUTPUT_BUS_WVALID;
+wire  OUTPUT_BUS_WREADY;
+wire [31 : 0] OUTPUT_BUS_WDATA;
+wire [3 : 0] OUTPUT_BUS_WSTRB;
+wire  OUTPUT_BUS_WLAST;
+wire [0 : 0] OUTPUT_BUS_WID;
+wire [0 : 0] OUTPUT_BUS_WUSER;
+wire  OUTPUT_BUS_ARVALID;
+wire  OUTPUT_BUS_ARREADY;
+wire [63 : 0] OUTPUT_BUS_ARADDR;
+wire [0 : 0] OUTPUT_BUS_ARID;
+wire [7 : 0] OUTPUT_BUS_ARLEN;
+wire [2 : 0] OUTPUT_BUS_ARSIZE;
+wire [1 : 0] OUTPUT_BUS_ARBURST;
+wire [1 : 0] OUTPUT_BUS_ARLOCK;
+wire [3 : 0] OUTPUT_BUS_ARCACHE;
+wire [2 : 0] OUTPUT_BUS_ARPROT;
+wire [3 : 0] OUTPUT_BUS_ARQOS;
+wire [3 : 0] OUTPUT_BUS_ARREGION;
+wire [0 : 0] OUTPUT_BUS_ARUSER;
+wire  OUTPUT_BUS_RVALID;
+wire  OUTPUT_BUS_RREADY;
+wire [31 : 0] OUTPUT_BUS_RDATA;
+wire  OUTPUT_BUS_RLAST;
+wire [0 : 0] OUTPUT_BUS_RID;
+wire [0 : 0] OUTPUT_BUS_RUSER;
+wire [1 : 0] OUTPUT_BUS_RRESP;
+wire  OUTPUT_BUS_BVALID;
+wire  OUTPUT_BUS_BREADY;
+wire [1 : 0] OUTPUT_BUS_BRESP;
+wire [0 : 0] OUTPUT_BUS_BID;
+wire [0 : 0] OUTPUT_BUS_BUSER;
+wire [31 : 0] Bias;
+wire [127 : 0] Norm;
+wire [31 : 0] P;
+wire [31 : 0] S;
 integer done_cnt = 0;
 integer AESL_ready_cnt = 0;
 integer ready_cnt = 0;
@@ -471,7 +544,56 @@ wire ap_rst_n_n;
     .m_axi_MM_BUS_BREADY(MM_BUS_BREADY),
     .m_axi_MM_BUS_BRESP(MM_BUS_BRESP),
     .m_axi_MM_BUS_BID(MM_BUS_BID),
-    .m_axi_MM_BUS_BUSER(MM_BUS_BUSER));
+    .m_axi_MM_BUS_BUSER(MM_BUS_BUSER),
+    .m_axi_OUTPUT_BUS_AWVALID(OUTPUT_BUS_AWVALID),
+    .m_axi_OUTPUT_BUS_AWREADY(OUTPUT_BUS_AWREADY),
+    .m_axi_OUTPUT_BUS_AWADDR(OUTPUT_BUS_AWADDR),
+    .m_axi_OUTPUT_BUS_AWID(OUTPUT_BUS_AWID),
+    .m_axi_OUTPUT_BUS_AWLEN(OUTPUT_BUS_AWLEN),
+    .m_axi_OUTPUT_BUS_AWSIZE(OUTPUT_BUS_AWSIZE),
+    .m_axi_OUTPUT_BUS_AWBURST(OUTPUT_BUS_AWBURST),
+    .m_axi_OUTPUT_BUS_AWLOCK(OUTPUT_BUS_AWLOCK),
+    .m_axi_OUTPUT_BUS_AWCACHE(OUTPUT_BUS_AWCACHE),
+    .m_axi_OUTPUT_BUS_AWPROT(OUTPUT_BUS_AWPROT),
+    .m_axi_OUTPUT_BUS_AWQOS(OUTPUT_BUS_AWQOS),
+    .m_axi_OUTPUT_BUS_AWREGION(OUTPUT_BUS_AWREGION),
+    .m_axi_OUTPUT_BUS_AWUSER(OUTPUT_BUS_AWUSER),
+    .m_axi_OUTPUT_BUS_WVALID(OUTPUT_BUS_WVALID),
+    .m_axi_OUTPUT_BUS_WREADY(OUTPUT_BUS_WREADY),
+    .m_axi_OUTPUT_BUS_WDATA(OUTPUT_BUS_WDATA),
+    .m_axi_OUTPUT_BUS_WSTRB(OUTPUT_BUS_WSTRB),
+    .m_axi_OUTPUT_BUS_WLAST(OUTPUT_BUS_WLAST),
+    .m_axi_OUTPUT_BUS_WID(OUTPUT_BUS_WID),
+    .m_axi_OUTPUT_BUS_WUSER(OUTPUT_BUS_WUSER),
+    .m_axi_OUTPUT_BUS_ARVALID(OUTPUT_BUS_ARVALID),
+    .m_axi_OUTPUT_BUS_ARREADY(OUTPUT_BUS_ARREADY),
+    .m_axi_OUTPUT_BUS_ARADDR(OUTPUT_BUS_ARADDR),
+    .m_axi_OUTPUT_BUS_ARID(OUTPUT_BUS_ARID),
+    .m_axi_OUTPUT_BUS_ARLEN(OUTPUT_BUS_ARLEN),
+    .m_axi_OUTPUT_BUS_ARSIZE(OUTPUT_BUS_ARSIZE),
+    .m_axi_OUTPUT_BUS_ARBURST(OUTPUT_BUS_ARBURST),
+    .m_axi_OUTPUT_BUS_ARLOCK(OUTPUT_BUS_ARLOCK),
+    .m_axi_OUTPUT_BUS_ARCACHE(OUTPUT_BUS_ARCACHE),
+    .m_axi_OUTPUT_BUS_ARPROT(OUTPUT_BUS_ARPROT),
+    .m_axi_OUTPUT_BUS_ARQOS(OUTPUT_BUS_ARQOS),
+    .m_axi_OUTPUT_BUS_ARREGION(OUTPUT_BUS_ARREGION),
+    .m_axi_OUTPUT_BUS_ARUSER(OUTPUT_BUS_ARUSER),
+    .m_axi_OUTPUT_BUS_RVALID(OUTPUT_BUS_RVALID),
+    .m_axi_OUTPUT_BUS_RREADY(OUTPUT_BUS_RREADY),
+    .m_axi_OUTPUT_BUS_RDATA(OUTPUT_BUS_RDATA),
+    .m_axi_OUTPUT_BUS_RLAST(OUTPUT_BUS_RLAST),
+    .m_axi_OUTPUT_BUS_RID(OUTPUT_BUS_RID),
+    .m_axi_OUTPUT_BUS_RUSER(OUTPUT_BUS_RUSER),
+    .m_axi_OUTPUT_BUS_RRESP(OUTPUT_BUS_RRESP),
+    .m_axi_OUTPUT_BUS_BVALID(OUTPUT_BUS_BVALID),
+    .m_axi_OUTPUT_BUS_BREADY(OUTPUT_BUS_BREADY),
+    .m_axi_OUTPUT_BUS_BRESP(OUTPUT_BUS_BRESP),
+    .m_axi_OUTPUT_BUS_BID(OUTPUT_BUS_BID),
+    .m_axi_OUTPUT_BUS_BUSER(OUTPUT_BUS_BUSER),
+    .Bias(Bias),
+    .Norm(Norm),
+    .P(P),
+    .S(S));
 
 // Assignment for control signal
 assign ap_clk = AESL_clock;
@@ -542,8 +664,226 @@ end
 
 
 
+// The signal of port Bias
+reg [31: 0] AESL_REG_Bias = 0;
+assign Bias = AESL_REG_Bias;
+initial begin : read_file_process_Bias
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [1047  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 1);
+    fp = $fopen(`AUTOTB_TVIN_Bias,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_Bias);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_Bias);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
 
 
+// The signal of port Norm
+reg [127: 0] AESL_REG_Norm = 0;
+assign Norm = AESL_REG_Norm;
+initial begin : read_file_process_Norm
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [1047  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 1);
+    fp = $fopen(`AUTOTB_TVIN_Norm,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_Norm);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_Norm);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+
+
+
+
+
+
+// The signal of port P
+reg [31: 0] AESL_REG_P = 0;
+assign P = AESL_REG_P;
+initial begin : read_file_process_P
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [1047  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 1);
+    fp = $fopen(`AUTOTB_TVIN_P,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_P);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_P);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port S
+reg [31: 0] AESL_REG_S = 0;
+assign S = AESL_REG_S;
+initial begin : read_file_process_S
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [1047  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 1);
+    fp = $fopen(`AUTOTB_TVIN_S,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_S);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_S);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
 
 
 
@@ -712,6 +1052,61 @@ AESL_axi_master_MM_BUS AESL_AXI_MASTER_MM_BUS(
 );
 assign    AESL_axi_master_MM_BUS_ready    =   ready;
 assign    AESL_axi_master_MM_BUS_done    =   AESL_done_delay;
+wire    AESL_axi_master_OUTPUT_BUS_ready;
+wire    AESL_axi_master_OUTPUT_BUS_done;
+AESL_axi_master_OUTPUT_BUS AESL_AXI_MASTER_OUTPUT_BUS(
+    .clk   (AESL_clock),
+    .reset (AESL_reset),
+    .TRAN_OUTPUT_BUS_AWVALID (OUTPUT_BUS_AWVALID),
+    .TRAN_OUTPUT_BUS_AWREADY (OUTPUT_BUS_AWREADY),
+    .TRAN_OUTPUT_BUS_AWADDR (OUTPUT_BUS_AWADDR),
+    .TRAN_OUTPUT_BUS_AWID (OUTPUT_BUS_AWID),
+    .TRAN_OUTPUT_BUS_AWLEN (OUTPUT_BUS_AWLEN),
+    .TRAN_OUTPUT_BUS_AWSIZE (OUTPUT_BUS_AWSIZE),
+    .TRAN_OUTPUT_BUS_AWBURST (OUTPUT_BUS_AWBURST),
+    .TRAN_OUTPUT_BUS_AWLOCK (OUTPUT_BUS_AWLOCK),
+    .TRAN_OUTPUT_BUS_AWCACHE (OUTPUT_BUS_AWCACHE),
+    .TRAN_OUTPUT_BUS_AWPROT (OUTPUT_BUS_AWPROT),
+    .TRAN_OUTPUT_BUS_AWQOS (OUTPUT_BUS_AWQOS),
+    .TRAN_OUTPUT_BUS_AWREGION (OUTPUT_BUS_AWREGION),
+    .TRAN_OUTPUT_BUS_AWUSER (OUTPUT_BUS_AWUSER),
+    .TRAN_OUTPUT_BUS_WVALID (OUTPUT_BUS_WVALID),
+    .TRAN_OUTPUT_BUS_WREADY (OUTPUT_BUS_WREADY),
+    .TRAN_OUTPUT_BUS_WDATA (OUTPUT_BUS_WDATA),
+    .TRAN_OUTPUT_BUS_WSTRB (OUTPUT_BUS_WSTRB),
+    .TRAN_OUTPUT_BUS_WLAST (OUTPUT_BUS_WLAST),
+    .TRAN_OUTPUT_BUS_WID (OUTPUT_BUS_WID),
+    .TRAN_OUTPUT_BUS_WUSER (OUTPUT_BUS_WUSER),
+    .TRAN_OUTPUT_BUS_ARVALID (OUTPUT_BUS_ARVALID),
+    .TRAN_OUTPUT_BUS_ARREADY (OUTPUT_BUS_ARREADY),
+    .TRAN_OUTPUT_BUS_ARADDR (OUTPUT_BUS_ARADDR),
+    .TRAN_OUTPUT_BUS_ARID (OUTPUT_BUS_ARID),
+    .TRAN_OUTPUT_BUS_ARLEN (OUTPUT_BUS_ARLEN),
+    .TRAN_OUTPUT_BUS_ARSIZE (OUTPUT_BUS_ARSIZE),
+    .TRAN_OUTPUT_BUS_ARBURST (OUTPUT_BUS_ARBURST),
+    .TRAN_OUTPUT_BUS_ARLOCK (OUTPUT_BUS_ARLOCK),
+    .TRAN_OUTPUT_BUS_ARCACHE (OUTPUT_BUS_ARCACHE),
+    .TRAN_OUTPUT_BUS_ARPROT (OUTPUT_BUS_ARPROT),
+    .TRAN_OUTPUT_BUS_ARQOS (OUTPUT_BUS_ARQOS),
+    .TRAN_OUTPUT_BUS_ARREGION (OUTPUT_BUS_ARREGION),
+    .TRAN_OUTPUT_BUS_ARUSER (OUTPUT_BUS_ARUSER),
+    .TRAN_OUTPUT_BUS_RVALID (OUTPUT_BUS_RVALID),
+    .TRAN_OUTPUT_BUS_RREADY (OUTPUT_BUS_RREADY),
+    .TRAN_OUTPUT_BUS_RDATA (OUTPUT_BUS_RDATA),
+    .TRAN_OUTPUT_BUS_RLAST (OUTPUT_BUS_RLAST),
+    .TRAN_OUTPUT_BUS_RID (OUTPUT_BUS_RID),
+    .TRAN_OUTPUT_BUS_RUSER (OUTPUT_BUS_RUSER),
+    .TRAN_OUTPUT_BUS_RRESP (OUTPUT_BUS_RRESP),
+    .TRAN_OUTPUT_BUS_BVALID (OUTPUT_BUS_BVALID),
+    .TRAN_OUTPUT_BUS_BREADY (OUTPUT_BUS_BREADY),
+    .TRAN_OUTPUT_BUS_BRESP (OUTPUT_BUS_BRESP),
+    .TRAN_OUTPUT_BUS_BID (OUTPUT_BUS_BID),
+    .TRAN_OUTPUT_BUS_BUSER (OUTPUT_BUS_BUSER),
+    .ready (AESL_axi_master_OUTPUT_BUS_ready),
+    .done  (AESL_axi_master_OUTPUT_BUS_done)
+);
+assign    AESL_axi_master_OUTPUT_BUS_ready    =   ready;
+assign    AESL_axi_master_OUTPUT_BUS_done    =   AESL_done_delay;
 
 AESL_axi_slave_control_r AESL_AXI_SLAVE_control_r(
     .clk   (AESL_clock),
@@ -849,6 +1244,15 @@ reg [31:0] size_Conv_Weight_backup;
 reg end_MM_Weight;
 reg [31:0] size_MM_Weight;
 reg [31:0] size_MM_Weight_backup;
+reg end_Bias;
+reg [31:0] size_Bias;
+reg [31:0] size_Bias_backup;
+reg end_Norm;
+reg [31:0] size_Norm;
+reg [31:0] size_Norm_backup;
+reg end_Output_r;
+reg [31:0] size_Output_r;
+reg [31:0] size_Output_r_backup;
 reg end_R;
 reg [31:0] size_R;
 reg [31:0] size_R_backup;
@@ -864,9 +1268,18 @@ reg [31:0] size_M_backup;
 reg end_K;
 reg [31:0] size_K;
 reg [31:0] size_K_backup;
+reg end_P;
+reg [31:0] size_P;
+reg [31:0] size_P_backup;
+reg end_S;
+reg [31:0] size_S;
+reg [31:0] size_S_backup;
 reg end_mode;
 reg [31:0] size_mode;
 reg [31:0] size_mode_backup;
+reg end_OUTPUT_BUS;
+reg [31:0] size_OUTPUT_BUS;
+reg [31:0] size_OUTPUT_BUS_backup;
 
 initial begin : initial_process
     integer proc_rand;
@@ -1013,6 +1426,33 @@ task write_binary;
         end
     end
 endtask;
+
+reg dump_tvout_finish_OUTPUT_BUS;
+
+initial begin : dump_tvout_runtime_sign_OUTPUT_BUS
+    integer fp;
+    dump_tvout_finish_OUTPUT_BUS = 0;
+    fp = $fopen(`AUTOTB_TVOUT_OUTPUT_BUS_out_wrapc, "wb");
+    if (fp == 0) begin
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_OUTPUT_BUS_out_wrapc);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    $fclose(fp);
+    wait (done_cnt == AUTOTB_TRANSACTION_NUM);
+    repeat(5) @ (posedge AESL_clock);
+    fp = $fopen(`AUTOTB_TVOUT_OUTPUT_BUS_out_wrapc, "ab");
+    if (fp == 0) begin
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_OUTPUT_BUS_out_wrapc);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    write_binary(fp,64'h5a5aa5a50f0ff0f0,64);
+    $fclose(fp);
+    repeat(5) @ (posedge AESL_clock);
+    dump_tvout_finish_OUTPUT_BUS = 1;
+end
+
 
 ////////////////////////////////////////////
 // progress and performance
@@ -1242,6 +1682,12 @@ endtask
 `ifndef POST_SYN
 
 `endif
+
+AESL_deadlock_detector deadlock_detector(
+    .dl_reset(AESL_reset),
+    .all_finish(all_finish),
+    .dl_clock(AESL_clock));
+
 ///////////////////////////////////////////////////////
 // dataflow status monitor
 ///////////////////////////////////////////////////////

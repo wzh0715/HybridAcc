@@ -9746,60 +9746,2658 @@ private:
 
 }
 # 6 "./tools.h" 2
+# 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\math.h" 1 3
+# 36 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\math.h" 3
+# 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 1 3
+# 40 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 3
+
+
+# 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\bits/cpp_type_traits.h" 1 3
+# 36 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\bits/cpp_type_traits.h" 3
+# 67 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\bits/cpp_type_traits.h" 3
+extern "C++" {
+
+namespace std
+{
+
+
+  struct __true_type { };
+  struct __false_type { };
+
+  template<bool>
+    struct __truth_type
+    { typedef __false_type __type; };
+
+  template<>
+    struct __truth_type<true>
+    { typedef __true_type __type; };
+
+
+
+  template<class _Sp, class _Tp>
+    struct __traitor
+    {
+      enum { __value = bool(_Sp::__value) || bool(_Tp::__value) };
+      typedef typename __truth_type<__value>::__type __type;
+    };
+
+
+  template<typename, typename>
+    struct __are_same
+    {
+      enum { __value = 0 };
+      typedef __false_type __type;
+    };
+
+  template<typename _Tp>
+    struct __are_same<_Tp, _Tp>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+
+  template<typename _Tp>
+    struct __is_void
+    {
+      enum { __value = 0 };
+      typedef __false_type __type;
+    };
+
+  template<>
+    struct __is_void<void>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+
+
+
+  template<typename _Tp>
+    struct __is_integer
+    {
+      enum { __value = 0 };
+      typedef __false_type __type;
+    };
+
+
+
+
+
+  template<>
+    struct __is_integer<bool>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<char>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<signed char>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<unsigned char>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+
+  template<>
+    struct __is_integer<wchar_t>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+
+
+  template<>
+    struct __is_integer<char16_t>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<char32_t>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+
+  template<>
+    struct __is_integer<short>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<unsigned short>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<int>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<unsigned int>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<long>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<unsigned long>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<long long>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_integer<unsigned long long>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+# 261 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\bits/cpp_type_traits.h" 3
+template<> struct __is_integer<__int128> { enum { __value = 1 }; typedef __true_type __type; }; template<> struct __is_integer<unsigned __int128> { enum { __value = 1 }; typedef __true_type __type; };
+# 278 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\bits/cpp_type_traits.h" 3
+  template<typename _Tp>
+    struct __is_floating
+    {
+      enum { __value = 0 };
+      typedef __false_type __type;
+    };
+
+
+  template<>
+    struct __is_floating<float>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_floating<double>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_floating<long double>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+
+
+
+  template<typename _Tp>
+    struct __is_pointer
+    {
+      enum { __value = 0 };
+      typedef __false_type __type;
+    };
+
+  template<typename _Tp>
+    struct __is_pointer<_Tp*>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+
+
+
+  template<typename _Tp>
+    struct __is_arithmetic
+    : public __traitor<__is_integer<_Tp>, __is_floating<_Tp> >
+    { };
+
+
+
+
+  template<typename _Tp>
+    struct __is_scalar
+    : public __traitor<__is_arithmetic<_Tp>, __is_pointer<_Tp> >
+    { };
+
+
+
+
+  template<typename _Tp>
+    struct __is_char
+    {
+      enum { __value = 0 };
+      typedef __false_type __type;
+    };
+
+  template<>
+    struct __is_char<char>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+
+  template<>
+    struct __is_char<wchar_t>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+
+  template<typename _Tp>
+    struct __is_byte
+    {
+      enum { __value = 0 };
+      typedef __false_type __type;
+    };
+
+  template<>
+    struct __is_byte<char>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_byte<signed char>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+
+  template<>
+    struct __is_byte<unsigned char>
+    {
+      enum { __value = 1 };
+      typedef __true_type __type;
+    };
+# 408 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\bits/cpp_type_traits.h" 3
+  template<typename _Tp>
+    struct __is_move_iterator
+    {
+      enum { __value = 0 };
+      typedef __false_type __type;
+    };
+
+
+
+  template<typename _Iterator>
+    inline _Iterator
+    __miter_base(_Iterator __it)
+    { return __it; }
+
+
+}
+}
+# 43 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 2 3
+# 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\ext/type_traits.h" 1 3
+# 33 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\ext/type_traits.h" 3
+
+
+
+
+extern "C++" {
+
+namespace __gnu_cxx
+{
+
+
+
+  template<bool, typename>
+    struct __enable_if
+    { };
+
+  template<typename _Tp>
+    struct __enable_if<true, _Tp>
+    { typedef _Tp __type; };
+
+
+
+  template<bool _Cond, typename _Iftrue, typename _Iffalse>
+    struct __conditional_type
+    { typedef _Iftrue __type; };
+
+  template<typename _Iftrue, typename _Iffalse>
+    struct __conditional_type<false, _Iftrue, _Iffalse>
+    { typedef _Iffalse __type; };
+
+
+
+  template<typename _Tp>
+    struct __add_unsigned
+    {
+    private:
+      typedef __enable_if<std::__is_integer<_Tp>::__value, _Tp> __if_type;
+
+    public:
+      typedef typename __if_type::__type __type;
+    };
+
+  template<>
+    struct __add_unsigned<char>
+    { typedef unsigned char __type; };
+
+  template<>
+    struct __add_unsigned<signed char>
+    { typedef unsigned char __type; };
+
+  template<>
+    struct __add_unsigned<short>
+    { typedef unsigned short __type; };
+
+  template<>
+    struct __add_unsigned<int>
+    { typedef unsigned int __type; };
+
+  template<>
+    struct __add_unsigned<long>
+    { typedef unsigned long __type; };
+
+  template<>
+    struct __add_unsigned<long long>
+    { typedef unsigned long long __type; };
+
+
+  template<>
+    struct __add_unsigned<bool>;
+
+  template<>
+    struct __add_unsigned<wchar_t>;
+
+
+
+  template<typename _Tp>
+    struct __remove_unsigned
+    {
+    private:
+      typedef __enable_if<std::__is_integer<_Tp>::__value, _Tp> __if_type;
+
+    public:
+      typedef typename __if_type::__type __type;
+    };
+
+  template<>
+    struct __remove_unsigned<char>
+    { typedef signed char __type; };
+
+  template<>
+    struct __remove_unsigned<unsigned char>
+    { typedef signed char __type; };
+
+  template<>
+    struct __remove_unsigned<unsigned short>
+    { typedef short __type; };
+
+  template<>
+    struct __remove_unsigned<unsigned int>
+    { typedef int __type; };
+
+  template<>
+    struct __remove_unsigned<unsigned long>
+    { typedef long __type; };
+
+  template<>
+    struct __remove_unsigned<unsigned long long>
+    { typedef long long __type; };
+
+
+  template<>
+    struct __remove_unsigned<bool>;
+
+  template<>
+    struct __remove_unsigned<wchar_t>;
+
+
+
+  template<typename _Type>
+    inline bool
+    __is_null_pointer(_Type* __ptr)
+    { return __ptr == 0; }
+
+  template<typename _Type>
+    inline bool
+    __is_null_pointer(_Type)
+    { return false; }
+
+
+  inline bool
+  __is_null_pointer(std::nullptr_t)
+  { return true; }
+
+
+
+  template<typename _Tp, bool = std::__is_integer<_Tp>::__value>
+    struct __promote
+    { typedef double __type; };
+
+
+
+
+  template<typename _Tp>
+    struct __promote<_Tp, false>
+    { };
+
+  template<>
+    struct __promote<long double>
+    { typedef long double __type; };
+
+  template<>
+    struct __promote<double>
+    { typedef double __type; };
+
+  template<>
+    struct __promote<float>
+    { typedef float __type; };
+
+  template<typename _Tp, typename _Up,
+           typename _Tp2 = typename __promote<_Tp>::__type,
+           typename _Up2 = typename __promote<_Up>::__type>
+    struct __promote_2
+    {
+      typedef __typeof__(_Tp2() + _Up2()) __type;
+    };
+
+  template<typename _Tp, typename _Up, typename _Vp,
+           typename _Tp2 = typename __promote<_Tp>::__type,
+           typename _Up2 = typename __promote<_Up>::__type,
+           typename _Vp2 = typename __promote<_Vp>::__type>
+    struct __promote_3
+    {
+      typedef __typeof__(_Tp2() + _Up2() + _Vp2()) __type;
+    };
+
+  template<typename _Tp, typename _Up, typename _Vp, typename _Wp,
+           typename _Tp2 = typename __promote<_Tp>::__type,
+           typename _Up2 = typename __promote<_Up>::__type,
+           typename _Vp2 = typename __promote<_Vp>::__type,
+           typename _Wp2 = typename __promote<_Wp>::__type>
+    struct __promote_4
+    {
+      typedef __typeof__(_Tp2() + _Up2() + _Vp2() + _Wp2()) __type;
+    };
+
+
+}
+}
+# 44 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 2 3
+
+# 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 1 3
+# 11 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+
+
+
+
+struct _exception;
+
+#pragma pack(push,_CRT_PACKING)
+# 77 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+extern "C++" {
+template <typename type1, typename type2> struct __mingw_types_compatible_p {
+  static const bool result = false;
+};
+
+template <typename type1> struct __mingw_types_compatible_p<type1, type1> {
+ static const bool result = true;
+};
+
+template <typename type1> struct __mingw_types_compatible_p<const type1, type1> {
+  static const bool result = true;
+};
+
+template <typename type1> struct __mingw_types_compatible_p<type1, const type1> {
+  static const bool result = true;
+};
+}
+# 111 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+extern "C" {
+
+
+
+
+
+
+
+  typedef union __mingw_dbl_type_t {
+    double x;
+    unsigned long long val;
+    __extension__ struct {
+      unsigned int low, high;
+    } lh;
+  } __mingw_dbl_type_t;
+
+  typedef union __mingw_flt_type_t {
+    float x;
+    unsigned int val;
+  } __mingw_flt_type_t;
+
+  typedef union __mingw_ldbl_type_t
+  {
+    long double x;
+    __extension__ struct {
+      unsigned int low, high;
+      int sign_exponent : 16;
+      int res1 : 16;
+      int res0 : 32;
+    } lh;
+  } __mingw_ldbl_type_t;
+
+  typedef union __mingw_fp_types_t
+  {
+    long double *ld;
+    double *d;
+    float *f;
+    __mingw_ldbl_type_t *ldt;
+    __mingw_dbl_type_t *dt;
+    __mingw_flt_type_t *ft;
+  } __mingw_fp_types_t;
+
+
+
+
+  extern double * __imp__HUGE;
+# 168 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  struct _exception {
+    int type;
+    const char *name;
+    double arg1;
+    double arg2;
+    double retval;
+  };
+
+  void __mingw_raise_matherr (int typ, const char *name, double a1, double a2,
+         double rslt);
+  void __mingw_setusermatherr (int (__attribute__((__cdecl__)) *)(struct _exception *));
+  __attribute__ ((__dllimport__)) void __setusermatherr(int (__attribute__((__cdecl__)) *)(struct _exception *));
+
+
+
+  double __attribute__((__cdecl__)) sin(double _X);
+  double __attribute__((__cdecl__)) cos(double _X);
+  double __attribute__((__cdecl__)) tan(double _X);
+  double __attribute__((__cdecl__)) sinh(double _X);
+  double __attribute__((__cdecl__)) cosh(double _X);
+  double __attribute__((__cdecl__)) tanh(double _X);
+  double __attribute__((__cdecl__)) asin(double _X);
+  double __attribute__((__cdecl__)) acos(double _X);
+  double __attribute__((__cdecl__)) atan(double _X);
+  double __attribute__((__cdecl__)) atan2(double _Y,double _X);
+  double __attribute__((__cdecl__)) exp(double _X);
+  double __attribute__((__cdecl__)) log(double _X);
+  double __attribute__((__cdecl__)) log10(double _X);
+  double __attribute__((__cdecl__)) pow(double _X,double _Y);
+  double __attribute__((__cdecl__)) sqrt(double _X);
+  double __attribute__((__cdecl__)) ceil(double _X);
+  double __attribute__((__cdecl__)) floor(double _X);
+
+
+  extern float __attribute__((__cdecl__)) fabsf (float x);
+  extern long double __attribute__((__cdecl__)) fabsl (long double);
+  extern double __attribute__((__cdecl__)) fabs (double _X);
+# 243 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  double __attribute__((__cdecl__)) ldexp(double _X,int _Y);
+  double __attribute__((__cdecl__)) frexp(double _X,int *_Y);
+  double __attribute__((__cdecl__)) modf(double _X,double *_Y);
+  double __attribute__((__cdecl__)) fmod(double _X,double _Y);
+
+  void __attribute__((__cdecl__)) sincos (double __x, double *p_sin, double *p_cos);
+  void __attribute__((__cdecl__)) sincosl (long double __x, long double *p_sin, long double *p_cos);
+  void __attribute__((__cdecl__)) sincosf (float __x, float *p_sin, float *p_cos);
+# 270 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  struct _complex {
+    double x;
+    double y;
+  };
+
+
+  double __attribute__((__cdecl__)) _cabs(struct _complex _ComplexA);
+  double __attribute__((__cdecl__)) _hypot(double _X,double _Y);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _j0(double _X);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _j1(double _X);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _jn(int _X,double _Y);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _y0(double _X);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _y1(double _X);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _yn(int _X,double _Y);
+
+
+  __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _matherr (struct _exception *);
+# 297 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _chgsign (double _X);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _copysign (double _Number,double _Sign);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _logb (double);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _nextafter (double, double);
+  __attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) _scalb (double, long);
+  __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _finite (double);
+  __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fpclass (double);
+  __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _isnan (double);
+
+
+
+
+
+
+__attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) j0 (double) ;
+__attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) j1 (double) ;
+__attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) jn (int, double) ;
+__attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) y0 (double) ;
+__attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) y1 (double) ;
+__attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) yn (int, double) ;
+
+__attribute__ ((__dllimport__)) double __attribute__((__cdecl__)) chgsign (double);
+# 327 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) finite (double);
+  __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) fpclass (double);
+# 372 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+typedef float float_t;
+typedef double double_t;
+# 407 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  extern int __attribute__((__cdecl__)) __fpclassifyl (long double);
+  extern int __attribute__((__cdecl__)) __fpclassifyf (float);
+  extern int __attribute__((__cdecl__)) __fpclassify (double);
+# 520 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  extern int __attribute__((__cdecl__)) __isnan (double);
+  extern int __attribute__((__cdecl__)) __isnanf (float);
+  extern int __attribute__((__cdecl__)) __isnanl (long double);
+# 607 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  extern int __attribute__((__cdecl__)) __signbit (double);
+  extern int __attribute__((__cdecl__)) __signbitf (float);
+  extern int __attribute__((__cdecl__)) __signbitl (long double);
+# 664 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  extern float __attribute__((__cdecl__)) sinf(float _X);
+  extern long double __attribute__((__cdecl__)) sinl(long double);
+
+  extern float __attribute__((__cdecl__)) cosf(float _X);
+  extern long double __attribute__((__cdecl__)) cosl(long double);
+
+  extern float __attribute__((__cdecl__)) tanf(float _X);
+  extern long double __attribute__((__cdecl__)) tanl(long double);
+  extern float __attribute__((__cdecl__)) asinf(float _X);
+  extern long double __attribute__((__cdecl__)) asinl(long double);
+
+  extern float __attribute__((__cdecl__)) acosf (float);
+  extern long double __attribute__((__cdecl__)) acosl (long double);
+
+  extern float __attribute__((__cdecl__)) atanf (float);
+  extern long double __attribute__((__cdecl__)) atanl (long double);
+
+  extern float __attribute__((__cdecl__)) atan2f (float, float);
+  extern long double __attribute__((__cdecl__)) atan2l (long double, long double);
+
+
+  extern float __attribute__((__cdecl__)) sinhf(float _X);
+
+
+
+  extern long double __attribute__((__cdecl__)) sinhl(long double);
+
+  extern float __attribute__((__cdecl__)) coshf(float _X);
+
+
+
+  extern long double __attribute__((__cdecl__)) coshl(long double);
+
+  extern float __attribute__((__cdecl__)) tanhf(float _X);
+
+
+
+  extern long double __attribute__((__cdecl__)) tanhl(long double);
+
+
+
+  extern double __attribute__((__cdecl__)) acosh (double);
+  extern float __attribute__((__cdecl__)) acoshf (float);
+  extern long double __attribute__((__cdecl__)) acoshl (long double);
+
+
+  extern double __attribute__((__cdecl__)) asinh (double);
+  extern float __attribute__((__cdecl__)) asinhf (float);
+  extern long double __attribute__((__cdecl__)) asinhl (long double);
+
+
+  extern double __attribute__((__cdecl__)) atanh (double);
+  extern float __attribute__((__cdecl__)) atanhf (float);
+  extern long double __attribute__((__cdecl__)) atanhl (long double);
+
+
+
+  extern float __attribute__((__cdecl__)) expf(float _X);
+
+
+
+  extern long double __attribute__((__cdecl__)) expl(long double);
+
+
+  extern double __attribute__((__cdecl__)) exp2(double);
+  extern float __attribute__((__cdecl__)) exp2f(float);
+  extern long double __attribute__((__cdecl__)) exp2l(long double);
+
+
+
+  extern double __attribute__((__cdecl__)) expm1(double);
+  extern float __attribute__((__cdecl__)) expm1f(float);
+  extern long double __attribute__((__cdecl__)) expm1l(long double);
+
+
+  extern float frexpf(float _X,int *_Y);
+
+
+
+  extern long double __attribute__((__cdecl__)) frexpl(long double,int *);
+
+
+
+
+  extern int __attribute__((__cdecl__)) ilogb (double);
+  extern int __attribute__((__cdecl__)) ilogbf (float);
+  extern int __attribute__((__cdecl__)) ilogbl (long double);
+
+
+  extern float __attribute__((__cdecl__)) ldexpf(float _X,int _Y);
+
+
+
+  extern long double __attribute__((__cdecl__)) ldexpl (long double, int);
+
+
+  extern float __attribute__((__cdecl__)) logf (float);
+  extern long double __attribute__((__cdecl__)) logl(long double);
+
+
+  extern float __attribute__((__cdecl__)) log10f (float);
+  extern long double __attribute__((__cdecl__)) log10l(long double);
+
+
+  extern double __attribute__((__cdecl__)) log1p(double);
+  extern float __attribute__((__cdecl__)) log1pf(float);
+  extern long double __attribute__((__cdecl__)) log1pl(long double);
+
+
+  extern double __attribute__((__cdecl__)) log2 (double);
+  extern float __attribute__((__cdecl__)) log2f (float);
+  extern long double __attribute__((__cdecl__)) log2l (long double);
+
+
+  extern double __attribute__((__cdecl__)) logb (double);
+  extern float __attribute__((__cdecl__)) logbf (float);
+  extern long double __attribute__((__cdecl__)) logbl (long double);
+# 863 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  extern float __attribute__((__cdecl__)) modff (float, float*);
+  extern long double __attribute__((__cdecl__)) modfl (long double, long double*);
+
+
+  extern double __attribute__((__cdecl__)) scalbn (double, int);
+  extern float __attribute__((__cdecl__)) scalbnf (float, int);
+  extern long double __attribute__((__cdecl__)) scalbnl (long double, int);
+
+  extern double __attribute__((__cdecl__)) scalbln (double, long);
+  extern float __attribute__((__cdecl__)) scalblnf (float, long);
+  extern long double __attribute__((__cdecl__)) scalblnl (long double, long);
+
+
+
+  extern double __attribute__((__cdecl__)) cbrt (double);
+  extern float __attribute__((__cdecl__)) cbrtf (float);
+  extern long double __attribute__((__cdecl__)) cbrtl (long double);
+
+
+  extern double __attribute__((__cdecl__)) hypot (double, double) ;
+  extern float __attribute__((__cdecl__)) hypotf (float x, float y);
+
+
+
+  extern long double __attribute__((__cdecl__)) hypotl (long double, long double);
+
+
+  extern float __attribute__((__cdecl__)) powf(float _X,float _Y);
+
+
+
+  extern long double __attribute__((__cdecl__)) powl (long double, long double);
+
+
+  extern float __attribute__((__cdecl__)) sqrtf (float);
+  extern long double sqrtl(long double);
+
+
+  extern double __attribute__((__cdecl__)) erf (double);
+  extern float __attribute__((__cdecl__)) erff (float);
+  extern long double __attribute__((__cdecl__)) erfl (long double);
+
+
+  extern double __attribute__((__cdecl__)) erfc (double);
+  extern float __attribute__((__cdecl__)) erfcf (float);
+  extern long double __attribute__((__cdecl__)) erfcl (long double);
+
+
+  extern double __attribute__((__cdecl__)) lgamma (double);
+  extern float __attribute__((__cdecl__)) lgammaf (float);
+  extern long double __attribute__((__cdecl__)) lgammal (long double);
+
+  extern int signgam;
+
+
+  extern double __attribute__((__cdecl__)) tgamma (double);
+  extern float __attribute__((__cdecl__)) tgammaf (float);
+  extern long double __attribute__((__cdecl__)) tgammal (long double);
+
+
+  extern float __attribute__((__cdecl__)) ceilf (float);
+  extern long double __attribute__((__cdecl__)) ceill (long double);
+
+
+  extern float __attribute__((__cdecl__)) floorf (float);
+  extern long double __attribute__((__cdecl__)) floorl (long double);
+
+
+  extern double __attribute__((__cdecl__)) nearbyint ( double);
+  extern float __attribute__((__cdecl__)) nearbyintf (float);
+  extern long double __attribute__((__cdecl__)) nearbyintl (long double);
+
+
+
+extern double __attribute__((__cdecl__)) rint (double);
+extern float __attribute__((__cdecl__)) rintf (float);
+extern long double __attribute__((__cdecl__)) rintl (long double);
+
+
+extern long __attribute__((__cdecl__)) lrint (double);
+extern long __attribute__((__cdecl__)) lrintf (float);
+extern long __attribute__((__cdecl__)) lrintl (long double);
+
+__extension__ long long __attribute__((__cdecl__)) llrint (double);
+__extension__ long long __attribute__((__cdecl__)) llrintf (float);
+__extension__ long long __attribute__((__cdecl__)) llrintl (long double);
+# 1030 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  extern double __attribute__((__cdecl__)) round (double);
+  extern float __attribute__((__cdecl__)) roundf (float);
+  extern long double __attribute__((__cdecl__)) roundl (long double);
+
+
+  extern long __attribute__((__cdecl__)) lround (double);
+  extern long __attribute__((__cdecl__)) lroundf (float);
+  extern long __attribute__((__cdecl__)) lroundl (long double);
+  __extension__ long long __attribute__((__cdecl__)) llround (double);
+  __extension__ long long __attribute__((__cdecl__)) llroundf (float);
+  __extension__ long long __attribute__((__cdecl__)) llroundl (long double);
+
+
+
+  extern double __attribute__((__cdecl__)) trunc (double);
+  extern float __attribute__((__cdecl__)) truncf (float);
+  extern long double __attribute__((__cdecl__)) truncl (long double);
+
+
+  extern float __attribute__((__cdecl__)) fmodf (float, float);
+  extern long double __attribute__((__cdecl__)) fmodl (long double, long double);
+
+
+  extern double __attribute__((__cdecl__)) remainder (double, double);
+  extern float __attribute__((__cdecl__)) remainderf (float, float);
+  extern long double __attribute__((__cdecl__)) remainderl (long double, long double);
+
+
+  extern double __attribute__((__cdecl__)) remquo(double, double, int *);
+  extern float __attribute__((__cdecl__)) remquof(float, float, int *);
+  extern long double __attribute__((__cdecl__)) remquol(long double, long double, int *);
+
+
+  extern double __attribute__((__cdecl__)) copysign (double, double);
+  extern float __attribute__((__cdecl__)) copysignf (float, float);
+  extern long double __attribute__((__cdecl__)) copysignl (long double, long double);
+# 1087 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  extern double __attribute__((__cdecl__)) nan(const char *tagp);
+  extern float __attribute__((__cdecl__)) nanf(const char *tagp);
+  extern long double __attribute__((__cdecl__)) nanl(const char *tagp);
+# 1098 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+  extern double __attribute__((__cdecl__)) nextafter (double, double);
+  extern float __attribute__((__cdecl__)) nextafterf (float, float);
+  extern long double __attribute__((__cdecl__)) nextafterl (long double, long double);
+
+
+  extern double __attribute__((__cdecl__)) nexttoward (double, long double);
+  extern float __attribute__((__cdecl__)) nexttowardf (float, long double);
+  extern long double __attribute__((__cdecl__)) nexttowardl (long double, long double);
+
+
+
+  extern double __attribute__((__cdecl__)) fdim (double x, double y);
+  extern float __attribute__((__cdecl__)) fdimf (float x, float y);
+  extern long double __attribute__((__cdecl__)) fdiml (long double x, long double y);
+
+
+
+
+
+
+
+  extern double __attribute__((__cdecl__)) fmax (double, double);
+  extern float __attribute__((__cdecl__)) fmaxf (float, float);
+  extern long double __attribute__((__cdecl__)) fmaxl (long double, long double);
+
+
+  extern double __attribute__((__cdecl__)) fmin (double, double);
+  extern float __attribute__((__cdecl__)) fminf (float, float);
+  extern long double __attribute__((__cdecl__)) fminl (long double, long double);
+
+
+
+  extern double __attribute__((__cdecl__)) fma (double, double, double);
+  extern float __attribute__((__cdecl__)) fmaf (float, float, float);
+  extern long double __attribute__((__cdecl__)) fmal (long double, long double, long double);
+# 1181 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+   __attribute__ ((__dllimport__)) float __attribute__((__cdecl__)) _copysignf (float _Number,float _Sign);
+   __attribute__ ((__dllimport__)) float __attribute__((__cdecl__)) _chgsignf (float _X);
+   __attribute__ ((__dllimport__)) float __attribute__((__cdecl__)) _logbf(float _X);
+   __attribute__ ((__dllimport__)) float __attribute__((__cdecl__)) _nextafterf(float _X,float _Y);
+   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _finitef(float _X);
+   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _isnanf(float _X);
+   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fpclassf(float _X);
+
+
+
+   extern long double __attribute__((__cdecl__)) _chgsignl (long double);
+# 1576 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\x86_64-w64-mingw32\\include\\math.h" 3
+}
+
+
+
+
+#pragma pack(pop)
+# 46 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 2 3
+# 77 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 3
+extern "C++"
+{
+namespace std
+{
+
+
+  using ::acos;
+
+
+  inline constexpr float
+  acos(float __x)
+  { return __builtin_acosf(__x); }
+
+  inline constexpr long double
+  acos(long double __x)
+  { return __builtin_acosl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    acos(_Tp __x)
+    { return __builtin_acos(__x); }
+
+  using ::asin;
+
+
+  inline constexpr float
+  asin(float __x)
+  { return __builtin_asinf(__x); }
+
+  inline constexpr long double
+  asin(long double __x)
+  { return __builtin_asinl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    asin(_Tp __x)
+    { return __builtin_asin(__x); }
+
+  using ::atan;
+
+
+  inline constexpr float
+  atan(float __x)
+  { return __builtin_atanf(__x); }
+
+  inline constexpr long double
+  atan(long double __x)
+  { return __builtin_atanl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    atan(_Tp __x)
+    { return __builtin_atan(__x); }
+
+  using ::atan2;
+
+
+  inline constexpr float
+  atan2(float __y, float __x)
+  { return __builtin_atan2f(__y, __x); }
+
+  inline constexpr long double
+  atan2(long double __y, long double __x)
+  { return __builtin_atan2l(__y, __x); }
+
+
+  template<typename _Tp, typename _Up>
+    inline constexpr
+    typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    atan2(_Tp __y, _Up __x)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return atan2(__type(__y), __type(__x));
+    }
+
+  using ::ceil;
+
+
+  inline constexpr float
+  ceil(float __x)
+  { return __builtin_ceilf(__x); }
+
+  inline constexpr long double
+  ceil(long double __x)
+  { return __builtin_ceill(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    ceil(_Tp __x)
+    { return __builtin_ceil(__x); }
+
+  using ::cos;
+
+
+  inline constexpr float
+  cos(float __x)
+  { return __builtin_cosf(__x); }
+
+  inline constexpr long double
+  cos(long double __x)
+  { return __builtin_cosl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    cos(_Tp __x)
+    { return __builtin_cos(__x); }
+
+  using ::cosh;
+
+
+  inline constexpr float
+  cosh(float __x)
+  { return __builtin_coshf(__x); }
+
+  inline constexpr long double
+  cosh(long double __x)
+  { return __builtin_coshl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    cosh(_Tp __x)
+    { return __builtin_cosh(__x); }
+
+  using ::exp;
+
+
+  inline constexpr float
+  exp(float __x)
+  { return __builtin_expf(__x); }
+
+  inline constexpr long double
+  exp(long double __x)
+  { return __builtin_expl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    exp(_Tp __x)
+    { return __builtin_exp(__x); }
+
+  using ::fabs;
+
+
+  inline constexpr float
+  fabs(float __x)
+  { return __builtin_fabsf(__x); }
+
+  inline constexpr long double
+  fabs(long double __x)
+  { return __builtin_fabsl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    fabs(_Tp __x)
+    { return __builtin_fabs(__x); }
+
+  using ::floor;
+
+
+  inline constexpr float
+  floor(float __x)
+  { return __builtin_floorf(__x); }
+
+  inline constexpr long double
+  floor(long double __x)
+  { return __builtin_floorl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    floor(_Tp __x)
+    { return __builtin_floor(__x); }
+
+  using ::fmod;
+
+
+  inline constexpr float
+  fmod(float __x, float __y)
+  { return __builtin_fmodf(__x, __y); }
+
+  inline constexpr long double
+  fmod(long double __x, long double __y)
+  { return __builtin_fmodl(__x, __y); }
+
+
+  template<typename _Tp, typename _Up>
+    inline constexpr
+    typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    fmod(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return fmod(__type(__x), __type(__y));
+    }
+
+  using ::frexp;
+
+
+  inline float
+  frexp(float __x, int* __exp)
+  { return __builtin_frexpf(__x, __exp); }
+
+  inline long double
+  frexp(long double __x, int* __exp)
+  { return __builtin_frexpl(__x, __exp); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    frexp(_Tp __x, int* __exp)
+    { return __builtin_frexp(__x, __exp); }
+
+  using ::ldexp;
+
+
+  inline constexpr float
+  ldexp(float __x, int __exp)
+  { return __builtin_ldexpf(__x, __exp); }
+
+  inline constexpr long double
+  ldexp(long double __x, int __exp)
+  { return __builtin_ldexpl(__x, __exp); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    ldexp(_Tp __x, int __exp)
+    { return __builtin_ldexp(__x, __exp); }
+
+  using ::log;
+
+
+  inline constexpr float
+  log(float __x)
+  { return __builtin_logf(__x); }
+
+  inline constexpr long double
+  log(long double __x)
+  { return __builtin_logl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    log(_Tp __x)
+    { return __builtin_log(__x); }
+
+  using ::log10;
+
+
+  inline constexpr float
+  log10(float __x)
+  { return __builtin_log10f(__x); }
+
+  inline constexpr long double
+  log10(long double __x)
+  { return __builtin_log10l(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    log10(_Tp __x)
+    { return __builtin_log10(__x); }
+
+  using ::modf;
+
+
+  inline float
+  modf(float __x, float* __iptr)
+  { return __builtin_modff(__x, __iptr); }
+
+  inline long double
+  modf(long double __x, long double* __iptr)
+  { return __builtin_modfl(__x, __iptr); }
+
+
+  using ::pow;
+
+
+  inline constexpr float
+  pow(float __x, float __y)
+  { return __builtin_powf(__x, __y); }
+
+  inline constexpr long double
+  pow(long double __x, long double __y)
+  { return __builtin_powl(__x, __y); }
+# 412 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 3
+  template<typename _Tp, typename _Up>
+    inline constexpr
+    typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    pow(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return pow(__type(__x), __type(__y));
+    }
+
+  using ::sin;
+
+
+  inline constexpr float
+  sin(float __x)
+  { return __builtin_sinf(__x); }
+
+  inline constexpr long double
+  sin(long double __x)
+  { return __builtin_sinl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    sin(_Tp __x)
+    { return __builtin_sin(__x); }
+
+  using ::sinh;
+
+
+  inline constexpr float
+  sinh(float __x)
+  { return __builtin_sinhf(__x); }
+
+  inline constexpr long double
+  sinh(long double __x)
+  { return __builtin_sinhl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    sinh(_Tp __x)
+    { return __builtin_sinh(__x); }
+
+  using ::sqrt;
+
+
+  inline constexpr float
+  sqrt(float __x)
+  { return __builtin_sqrtf(__x); }
+
+  inline constexpr long double
+  sqrt(long double __x)
+  { return __builtin_sqrtl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    sqrt(_Tp __x)
+    { return __builtin_sqrt(__x); }
+
+  using ::tan;
+
+
+  inline constexpr float
+  tan(float __x)
+  { return __builtin_tanf(__x); }
+
+  inline constexpr long double
+  tan(long double __x)
+  { return __builtin_tanl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    tan(_Tp __x)
+    { return __builtin_tan(__x); }
+
+  using ::tanh;
+
+
+  inline constexpr float
+  tanh(float __x)
+  { return __builtin_tanhf(__x); }
+
+  inline constexpr long double
+  tanh(long double __x)
+  { return __builtin_tanhl(__x); }
+
+
+  template<typename _Tp>
+    inline constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    double>::__type
+    tanh(_Tp __x)
+    { return __builtin_tanh(__x); }
+# 536 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 3
+  constexpr int
+  fpclassify(float __x)
+  { return __builtin_fpclassify(0x0100, (0x0100 | 0x0400), 0x0400,
+    (0x0400 | 0x4000), 0x4000, __x); }
+
+  constexpr int
+  fpclassify(double __x)
+  { return __builtin_fpclassify(0x0100, (0x0100 | 0x0400), 0x0400,
+    (0x0400 | 0x4000), 0x4000, __x); }
+
+  constexpr int
+  fpclassify(long double __x)
+  { return __builtin_fpclassify(0x0100, (0x0100 | 0x0400), 0x0400,
+    (0x0400 | 0x4000), 0x4000, __x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              int>::__type
+    fpclassify(_Tp __x)
+    { return __x != 0 ? 0x0400 : 0x4000; }
+
+
+
+  constexpr bool
+  isfinite(float __x)
+  { return __builtin_isfinite(__x); }
+
+  constexpr bool
+  isfinite(double __x)
+  { return __builtin_isfinite(__x); }
+
+  constexpr bool
+  isfinite(long double __x)
+  { return __builtin_isfinite(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              bool>::__type
+    isfinite(_Tp __x)
+    { return true; }
+
+
+
+  constexpr bool
+  isinf(float __x)
+  { return __builtin_isinf(__x); }
+
+
+
+
+
+  constexpr bool
+  isinf(double __x)
+  { return __builtin_isinf(__x); }
+
+
+  constexpr bool
+  isinf(long double __x)
+  { return __builtin_isinf(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              bool>::__type
+    isinf(_Tp __x)
+    { return false; }
+
+
+
+  constexpr bool
+  isnan(float __x)
+  { return __builtin_isnan(__x); }
+
+
+
+
+
+  constexpr bool
+  isnan(double __x)
+  { return __builtin_isnan(__x); }
+
+
+  constexpr bool
+  isnan(long double __x)
+  { return __builtin_isnan(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              bool>::__type
+    isnan(_Tp __x)
+    { return false; }
+
+
+
+  constexpr bool
+  isnormal(float __x)
+  { return __builtin_isnormal(__x); }
+
+  constexpr bool
+  isnormal(double __x)
+  { return __builtin_isnormal(__x); }
+
+  constexpr bool
+  isnormal(long double __x)
+  { return __builtin_isnormal(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              bool>::__type
+    isnormal(_Tp __x)
+    { return __x != 0 ? true : false; }
+
+
+
+
+  constexpr bool
+  signbit(float __x)
+  { return __builtin_signbit(__x); }
+
+  constexpr bool
+  signbit(double __x)
+  { return __builtin_signbit(__x); }
+
+  constexpr bool
+  signbit(long double __x)
+  { return __builtin_signbit(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              bool>::__type
+    signbit(_Tp __x)
+    { return __x < 0 ? true : false; }
+
+
+
+  constexpr bool
+  isgreater(float __x, float __y)
+  { return __builtin_isgreater(__x, __y); }
+
+  constexpr bool
+  isgreater(double __x, double __y)
+  { return __builtin_isgreater(__x, __y); }
+
+  constexpr bool
+  isgreater(long double __x, long double __y)
+  { return __builtin_isgreater(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename
+    __gnu_cxx::__enable_if<(__is_arithmetic<_Tp>::__value
+       && __is_arithmetic<_Up>::__value), bool>::__type
+    isgreater(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return __builtin_isgreater(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr bool
+  isgreaterequal(float __x, float __y)
+  { return __builtin_isgreaterequal(__x, __y); }
+
+  constexpr bool
+  isgreaterequal(double __x, double __y)
+  { return __builtin_isgreaterequal(__x, __y); }
+
+  constexpr bool
+  isgreaterequal(long double __x, long double __y)
+  { return __builtin_isgreaterequal(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename
+    __gnu_cxx::__enable_if<(__is_arithmetic<_Tp>::__value
+       && __is_arithmetic<_Up>::__value), bool>::__type
+    isgreaterequal(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return __builtin_isgreaterequal(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr bool
+  isless(float __x, float __y)
+  { return __builtin_isless(__x, __y); }
+
+  constexpr bool
+  isless(double __x, double __y)
+  { return __builtin_isless(__x, __y); }
+
+  constexpr bool
+  isless(long double __x, long double __y)
+  { return __builtin_isless(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename
+    __gnu_cxx::__enable_if<(__is_arithmetic<_Tp>::__value
+       && __is_arithmetic<_Up>::__value), bool>::__type
+    isless(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return __builtin_isless(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr bool
+  islessequal(float __x, float __y)
+  { return __builtin_islessequal(__x, __y); }
+
+  constexpr bool
+  islessequal(double __x, double __y)
+  { return __builtin_islessequal(__x, __y); }
+
+  constexpr bool
+  islessequal(long double __x, long double __y)
+  { return __builtin_islessequal(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename
+    __gnu_cxx::__enable_if<(__is_arithmetic<_Tp>::__value
+       && __is_arithmetic<_Up>::__value), bool>::__type
+    islessequal(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return __builtin_islessequal(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr bool
+  islessgreater(float __x, float __y)
+  { return __builtin_islessgreater(__x, __y); }
+
+  constexpr bool
+  islessgreater(double __x, double __y)
+  { return __builtin_islessgreater(__x, __y); }
+
+  constexpr bool
+  islessgreater(long double __x, long double __y)
+  { return __builtin_islessgreater(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename
+    __gnu_cxx::__enable_if<(__is_arithmetic<_Tp>::__value
+       && __is_arithmetic<_Up>::__value), bool>::__type
+    islessgreater(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return __builtin_islessgreater(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr bool
+  isunordered(float __x, float __y)
+  { return __builtin_isunordered(__x, __y); }
+
+  constexpr bool
+  isunordered(double __x, double __y)
+  { return __builtin_isunordered(__x, __y); }
+
+  constexpr bool
+  isunordered(long double __x, long double __y)
+  { return __builtin_isunordered(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename
+    __gnu_cxx::__enable_if<(__is_arithmetic<_Tp>::__value
+       && __is_arithmetic<_Up>::__value), bool>::__type
+    isunordered(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return __builtin_isunordered(__type(__x), __type(__y));
+    }
+# 1065 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 3
+  using ::double_t;
+  using ::float_t;
+
+
+  using ::acosh;
+  using ::acoshf;
+  using ::acoshl;
+
+  using ::asinh;
+  using ::asinhf;
+  using ::asinhl;
+
+  using ::atanh;
+  using ::atanhf;
+  using ::atanhl;
+
+  using ::cbrt;
+  using ::cbrtf;
+  using ::cbrtl;
+
+  using ::copysign;
+  using ::copysignf;
+  using ::copysignl;
+
+  using ::erf;
+  using ::erff;
+  using ::erfl;
+
+  using ::erfc;
+  using ::erfcf;
+  using ::erfcl;
+
+  using ::exp2;
+  using ::exp2f;
+  using ::exp2l;
+
+  using ::expm1;
+  using ::expm1f;
+  using ::expm1l;
+
+  using ::fdim;
+  using ::fdimf;
+  using ::fdiml;
+
+  using ::fma;
+  using ::fmaf;
+  using ::fmal;
+
+  using ::fmax;
+  using ::fmaxf;
+  using ::fmaxl;
+
+  using ::fmin;
+  using ::fminf;
+  using ::fminl;
+
+  using ::hypot;
+  using ::hypotf;
+  using ::hypotl;
+
+  using ::ilogb;
+  using ::ilogbf;
+  using ::ilogbl;
+
+  using ::lgamma;
+  using ::lgammaf;
+  using ::lgammal;
+
+
+  using ::llrint;
+  using ::llrintf;
+  using ::llrintl;
+
+  using ::llround;
+  using ::llroundf;
+  using ::llroundl;
+
+
+  using ::log1p;
+  using ::log1pf;
+  using ::log1pl;
+
+  using ::log2;
+  using ::log2f;
+  using ::log2l;
+
+  using ::logb;
+  using ::logbf;
+  using ::logbl;
+
+  using ::lrint;
+  using ::lrintf;
+  using ::lrintl;
+
+  using ::lround;
+  using ::lroundf;
+  using ::lroundl;
+
+  using ::nan;
+  using ::nanf;
+  using ::nanl;
+
+  using ::nearbyint;
+  using ::nearbyintf;
+  using ::nearbyintl;
+
+  using ::nextafter;
+  using ::nextafterf;
+  using ::nextafterl;
+
+  using ::nexttoward;
+  using ::nexttowardf;
+  using ::nexttowardl;
+
+  using ::remainder;
+  using ::remainderf;
+  using ::remainderl;
+
+  using ::remquo;
+  using ::remquof;
+  using ::remquol;
+
+  using ::rint;
+  using ::rintf;
+  using ::rintl;
+
+  using ::round;
+  using ::roundf;
+  using ::roundl;
+
+  using ::scalbln;
+  using ::scalblnf;
+  using ::scalblnl;
+
+  using ::scalbn;
+  using ::scalbnf;
+  using ::scalbnl;
+
+  using ::tgamma;
+  using ::tgammaf;
+  using ::tgammal;
+
+  using ::trunc;
+  using ::truncf;
+  using ::truncl;
+
+
+
+  constexpr float
+  acosh(float __x)
+  { return __builtin_acoshf(__x); }
+
+  constexpr long double
+  acosh(long double __x)
+  { return __builtin_acoshl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    acosh(_Tp __x)
+    { return __builtin_acosh(__x); }
+
+
+
+  constexpr float
+  asinh(float __x)
+  { return __builtin_asinhf(__x); }
+
+  constexpr long double
+  asinh(long double __x)
+  { return __builtin_asinhl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    asinh(_Tp __x)
+    { return __builtin_asinh(__x); }
+
+
+
+  constexpr float
+  atanh(float __x)
+  { return __builtin_atanhf(__x); }
+
+  constexpr long double
+  atanh(long double __x)
+  { return __builtin_atanhl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    atanh(_Tp __x)
+    { return __builtin_atanh(__x); }
+
+
+
+  constexpr float
+  cbrt(float __x)
+  { return __builtin_cbrtf(__x); }
+
+  constexpr long double
+  cbrt(long double __x)
+  { return __builtin_cbrtl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    cbrt(_Tp __x)
+    { return __builtin_cbrt(__x); }
+
+
+
+  constexpr float
+  copysign(float __x, float __y)
+  { return __builtin_copysignf(__x, __y); }
+
+  constexpr long double
+  copysign(long double __x, long double __y)
+  { return __builtin_copysignl(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    copysign(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return copysign(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr float
+  erf(float __x)
+  { return __builtin_erff(__x); }
+
+  constexpr long double
+  erf(long double __x)
+  { return __builtin_erfl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    erf(_Tp __x)
+    { return __builtin_erf(__x); }
+
+
+
+  constexpr float
+  erfc(float __x)
+  { return __builtin_erfcf(__x); }
+
+  constexpr long double
+  erfc(long double __x)
+  { return __builtin_erfcl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    erfc(_Tp __x)
+    { return __builtin_erfc(__x); }
+
+
+
+  constexpr float
+  exp2(float __x)
+  { return __builtin_exp2f(__x); }
+
+  constexpr long double
+  exp2(long double __x)
+  { return __builtin_exp2l(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    exp2(_Tp __x)
+    { return __builtin_exp2(__x); }
+
+
+
+  constexpr float
+  expm1(float __x)
+  { return __builtin_expm1f(__x); }
+
+  constexpr long double
+  expm1(long double __x)
+  { return __builtin_expm1l(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    expm1(_Tp __x)
+    { return __builtin_expm1(__x); }
+
+
+
+  constexpr float
+  fdim(float __x, float __y)
+  { return __builtin_fdimf(__x, __y); }
+
+  constexpr long double
+  fdim(long double __x, long double __y)
+  { return __builtin_fdiml(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    fdim(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return fdim(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr float
+  fma(float __x, float __y, float __z)
+  { return __builtin_fmaf(__x, __y, __z); }
+
+  constexpr long double
+  fma(long double __x, long double __y, long double __z)
+  { return __builtin_fmal(__x, __y, __z); }
+
+
+
+  template<typename _Tp, typename _Up, typename _Vp>
+    constexpr typename __gnu_cxx::__promote_3<_Tp, _Up, _Vp>::__type
+    fma(_Tp __x, _Up __y, _Vp __z)
+    {
+      typedef typename __gnu_cxx::__promote_3<_Tp, _Up, _Vp>::__type __type;
+      return fma(__type(__x), __type(__y), __type(__z));
+    }
+
+
+
+  constexpr float
+  fmax(float __x, float __y)
+  { return __builtin_fmaxf(__x, __y); }
+
+  constexpr long double
+  fmax(long double __x, long double __y)
+  { return __builtin_fmaxl(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    fmax(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return fmax(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr float
+  fmin(float __x, float __y)
+  { return __builtin_fminf(__x, __y); }
+
+  constexpr long double
+  fmin(long double __x, long double __y)
+  { return __builtin_fminl(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    fmin(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return fmin(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr float
+  hypot(float __x, float __y)
+  { return __builtin_hypotf(__x, __y); }
+
+  constexpr long double
+  hypot(long double __x, long double __y)
+  { return __builtin_hypotl(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    hypot(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return hypot(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr int
+  ilogb(float __x)
+  { return __builtin_ilogbf(__x); }
+
+  constexpr int
+  ilogb(long double __x)
+  { return __builtin_ilogbl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr
+    typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                    int>::__type
+    ilogb(_Tp __x)
+    { return __builtin_ilogb(__x); }
+
+
+
+  constexpr float
+  lgamma(float __x)
+  { return __builtin_lgammaf(__x); }
+
+  constexpr long double
+  lgamma(long double __x)
+  { return __builtin_lgammal(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    lgamma(_Tp __x)
+    { return __builtin_lgamma(__x); }
+
+
+
+  constexpr long long
+  llrint(float __x)
+  { return __builtin_llrintf(__x); }
+
+  constexpr long long
+  llrint(long double __x)
+  { return __builtin_llrintl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              long long>::__type
+    llrint(_Tp __x)
+    { return __builtin_llrint(__x); }
+
+
+
+  constexpr long long
+  llround(float __x)
+  { return __builtin_llroundf(__x); }
+
+  constexpr long long
+  llround(long double __x)
+  { return __builtin_llroundl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              long long>::__type
+    llround(_Tp __x)
+    { return __builtin_llround(__x); }
+
+
+
+  constexpr float
+  log1p(float __x)
+  { return __builtin_log1pf(__x); }
+
+  constexpr long double
+  log1p(long double __x)
+  { return __builtin_log1pl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    log1p(_Tp __x)
+    { return __builtin_log1p(__x); }
+
+
+
+
+  constexpr float
+  log2(float __x)
+  { return __builtin_log2f(__x); }
+
+  constexpr long double
+  log2(long double __x)
+  { return __builtin_log2l(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    log2(_Tp __x)
+    { return __builtin_log2(__x); }
+
+
+
+  constexpr float
+  logb(float __x)
+  { return __builtin_logbf(__x); }
+
+  constexpr long double
+  logb(long double __x)
+  { return __builtin_logbl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    logb(_Tp __x)
+    { return __builtin_logb(__x); }
+
+
+
+  constexpr long
+  lrint(float __x)
+  { return __builtin_lrintf(__x); }
+
+  constexpr long
+  lrint(long double __x)
+  { return __builtin_lrintl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              long>::__type
+    lrint(_Tp __x)
+    { return __builtin_lrint(__x); }
+
+
+
+  constexpr long
+  lround(float __x)
+  { return __builtin_lroundf(__x); }
+
+  constexpr long
+  lround(long double __x)
+  { return __builtin_lroundl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              long>::__type
+    lround(_Tp __x)
+    { return __builtin_lround(__x); }
+
+
+
+  constexpr float
+  nearbyint(float __x)
+  { return __builtin_nearbyintf(__x); }
+
+  constexpr long double
+  nearbyint(long double __x)
+  { return __builtin_nearbyintl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    nearbyint(_Tp __x)
+    { return __builtin_nearbyint(__x); }
+
+
+
+  constexpr float
+  nextafter(float __x, float __y)
+  { return __builtin_nextafterf(__x, __y); }
+
+  constexpr long double
+  nextafter(long double __x, long double __y)
+  { return __builtin_nextafterl(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    nextafter(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return nextafter(__type(__x), __type(__y));
+    }
+
+
+
+  constexpr float
+  nexttoward(float __x, long double __y)
+  { return __builtin_nexttowardf(__x, __y); }
+
+  constexpr long double
+  nexttoward(long double __x, long double __y)
+  { return __builtin_nexttowardl(__x, __y); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    nexttoward(_Tp __x, long double __y)
+    { return __builtin_nexttoward(__x, __y); }
+
+
+
+  constexpr float
+  remainder(float __x, float __y)
+  { return __builtin_remainderf(__x, __y); }
+
+  constexpr long double
+  remainder(long double __x, long double __y)
+  { return __builtin_remainderl(__x, __y); }
+
+
+
+  template<typename _Tp, typename _Up>
+    constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    remainder(_Tp __x, _Up __y)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return remainder(__type(__x), __type(__y));
+    }
+
+
+
+  inline float
+  remquo(float __x, float __y, int* __pquo)
+  { return __builtin_remquof(__x, __y, __pquo); }
+
+  inline long double
+  remquo(long double __x, long double __y, int* __pquo)
+  { return __builtin_remquol(__x, __y, __pquo); }
+
+
+
+  template<typename _Tp, typename _Up>
+    inline typename __gnu_cxx::__promote_2<_Tp, _Up>::__type
+    remquo(_Tp __x, _Up __y, int* __pquo)
+    {
+      typedef typename __gnu_cxx::__promote_2<_Tp, _Up>::__type __type;
+      return remquo(__type(__x), __type(__y), __pquo);
+    }
+
+
+
+  constexpr float
+  rint(float __x)
+  { return __builtin_rintf(__x); }
+
+  constexpr long double
+  rint(long double __x)
+  { return __builtin_rintl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    rint(_Tp __x)
+    { return __builtin_rint(__x); }
+
+
+
+  constexpr float
+  round(float __x)
+  { return __builtin_roundf(__x); }
+
+  constexpr long double
+  round(long double __x)
+  { return __builtin_roundl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    round(_Tp __x)
+    { return __builtin_round(__x); }
+
+
+
+  constexpr float
+  scalbln(float __x, long __ex)
+  { return __builtin_scalblnf(__x, __ex); }
+
+  constexpr long double
+  scalbln(long double __x, long __ex)
+  { return __builtin_scalblnl(__x, __ex); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    scalbln(_Tp __x, long __ex)
+    { return __builtin_scalbln(__x, __ex); }
+
+
+
+  constexpr float
+  scalbn(float __x, int __ex)
+  { return __builtin_scalbnf(__x, __ex); }
+
+  constexpr long double
+  scalbn(long double __x, int __ex)
+  { return __builtin_scalbnl(__x, __ex); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    scalbn(_Tp __x, int __ex)
+    { return __builtin_scalbn(__x, __ex); }
+
+
+
+  constexpr float
+  tgamma(float __x)
+  { return __builtin_tgammaf(__x); }
+
+  constexpr long double
+  tgamma(long double __x)
+  { return __builtin_tgammal(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    tgamma(_Tp __x)
+    { return __builtin_tgamma(__x); }
+
+
+
+  constexpr float
+  trunc(float __x)
+  { return __builtin_truncf(__x); }
+
+  constexpr long double
+  trunc(long double __x)
+  { return __builtin_truncl(__x); }
+
+
+
+  template<typename _Tp>
+    constexpr typename __gnu_cxx::__enable_if<__is_integer<_Tp>::__value,
+                                              double>::__type
+    trunc(_Tp __x)
+    { return __builtin_trunc(__x); }
+# 1889 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\cmath" 3
+}
+
+
+
+
+
+}
+# 37 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/mingw/8.3.0/win64.o/nt\\lib\\gcc\\x86_64-w64-mingw32\\8.3.0\\include\\c++\\math.h" 2 3
+
+using std::abs;
+using std::acos;
+using std::asin;
+using std::atan;
+using std::atan2;
+using std::cos;
+using std::sin;
+using std::tan;
+using std::cosh;
+using std::sinh;
+using std::tanh;
+using std::exp;
+using std::frexp;
+using std::ldexp;
+using std::log;
+using std::log10;
+using std::modf;
+using std::pow;
+using std::sqrt;
+using std::ceil;
+using std::fabs;
+using std::floor;
+using std::fmod;
+
+
+using std::fpclassify;
+using std::isfinite;
+using std::isinf;
+using std::isnan;
+using std::isnormal;
+using std::signbit;
+using std::isgreater;
+using std::isgreaterequal;
+using std::isless;
+using std::islessequal;
+using std::islessgreater;
+using std::isunordered;
+
+
+
+using std::acosh;
+using std::asinh;
+using std::atanh;
+using std::cbrt;
+using std::copysign;
+using std::erf;
+using std::erfc;
+using std::exp2;
+using std::expm1;
+using std::fdim;
+using std::fma;
+using std::fmax;
+using std::fmin;
+using std::hypot;
+using std::ilogb;
+using std::lgamma;
+using std::llrint;
+using std::llround;
+using std::log1p;
+using std::log2;
+using std::logb;
+using std::lrint;
+using std::lround;
+using std::nearbyint;
+using std::nextafter;
+using std::nexttoward;
+using std::remainder;
+using std::remquo;
+using std::rint;
+using std::round;
+using std::scalbln;
+using std::scalbn;
+using std::tgamma;
+using std::trunc;
+# 7 "./tools.h" 2
 
 # 1 "./config.h" 1
-# 8 "./tools.h" 2
+# 9 "./tools.h" 2
 
 using namespace hls;
 using namespace std;
 
-void ConvertInputToStream(ap_uint<16 * 8> *A, stream<ap_uint<16 * 8>> &conv_a, stream<ap_uint<16 * 8>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M);
+void ConvertBias_BN(ap_uint<(4 * 32)> *norm, float *bias, stream<ap_uint<(4 * 32)>> fifo_norm[128], stream<float> fifo_bias[128], unsigned M, bool mode);
 
-void SamePadding(stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode);
+void ConvertInputToStream(ap_uint<16 * 32> *A, stream<ap_uint<16 * 32>> &conv_a, stream<ap_uint<16 * 32>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M);
 
-void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode);
+void Padding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned P, bool mode);
 
-void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Weight, stream<ap_uint<16 * 8>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 8>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, bool mode);
+void Sliding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
 
-void ConvWeightToArray(stream<ap_uint<16 * 8>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 8>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
+void ConvertWeightToStream(ap_uint<16 * 32> *Conv_Weight, ap_uint<16 * 32> *MM_Weight, stream<ap_uint<16 * 32>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 32>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode);
 
-void MMWeightToArray(stream<ap_uint<16 * 8>> &in, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
+void ConvWeightToArray(stream<ap_uint<16 * 32>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 32>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
 
-void MuxWeightStream(stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> MM_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode);
+void MMWeightToArray(stream<ap_uint<16 * 32>> &in, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
 
-void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 * 8>>& mm_a, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode);
+void MuxWeightStream(stream<ap_uint<4 * 32>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> MM_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode);
 
-void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, stream<ap_uint<32>> fifo_C_out[4], unsigned C, unsigned num_a_sa, bool mode);
+void ConvertInputToArray(stream<ap_uint<16 * 32>> &conv3_sild, stream<ap_uint<16 * 32>>& mm_a, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode);
 
-void Compute(stream<ap_uint<4 * 8>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode);
+void PE(stream<ap_uint<4 * 32>> &fifo_A_in, stream<ap_uint<4 * 32>> &fifo_W_in, stream<float> fifo_C_out[4], unsigned C, unsigned num_a_sa, bool mode);
 
-void ConvertToOutStream(stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<ap_uint<32>> fifo_C_out[16], stream<ap_uint<32>> mm_out[64], unsigned numlines, unsigned R, unsigned M, bool mode);
+void Compute(stream<ap_uint<4 * 32>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode);
 
-void ConvToOutStream(stream<ap_uint<32>> fifo_CONV3_ACC[16], stream<ap_int<32>> CONV3_OUT[32], unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, bool mode);
+void ConvertToOutStream(stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<float> fifo_C_out[16], stream<float> mm_out[16], unsigned numlines, unsigned R, unsigned M, bool mode);
 
-void ResOutput(stream<ap_int<32>> CONV_OUT[32], stream<ap_uint<32>> MM_OUT[64], ap_uint<32> *output, unsigned R, unsigned C, unsigned M, bool mode);
+void ConvToOutStream(stream<float> fifo_CONV3_ACC[16], stream<float> CONV3_OUT[128], unsigned OUT_R, unsigned OUT_C, unsigned N, unsigned M, unsigned K, bool mode);
+
+void ConvBias(stream<float> CONV3_OUT[128], stream<float> fifo_bias[128], stream<float> CONV3_Bias[128], unsigned out_r, unsigned out_c, unsigned M, bool mode);
+
+void ConvBN(stream<float> CONV3_Trans[128], stream<float> CONV3_Norm[128], stream<ap_uint<(4 * 32)>> fifo_norm[128], unsigned out_r, unsigned out_c, unsigned M, bool mode);
+
+void ResOutput(stream<float> CONV_RES[128], stream<float> MM_RES[16], float *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
 # 2 "tools.cpp" 2
 
-void ConvertInputToStream(ap_uint<16 * 8> *A, stream<ap_uint<16 * 8>> &conv_a, stream<ap_uint<16 * 8>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M)
+void ConvertBias_BN(ap_uint<(4 * 32)> *norm, float *bias, stream<ap_uint<(4 * 32)>> fifo_norm[128], stream<float> fifo_bias[128], unsigned M, bool mode)
 {
-    ap_uint<16 * 8> temp;
+    if(mode == false)
+        return ;
+    VITIS_LOOP_7_1: for (unsigned i = 0; i < M; i++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
+ fifo_norm[i].write(norm[i]);
+        fifo_bias[i].write(bias[i]);
+    }
+}
+
+void ConvertInputToStream(ap_uint<16 * 32> *A, stream<ap_uint<16 * 32>> &conv_a, stream<ap_uint<16 * 32>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M)
+{
     if (mode == true)
     {
-        VITIS_LOOP_8_1: for (int g = 0; g < M / 16; g++)
+        VITIS_LOOP_19_1: for (int g = 0; g < M / 16; g++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = 32 / 16 min = 32 / 16
- VITIS_LOOP_11_2: for (int r = 0; r < R; r++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_22_2: for (int r = 0; r < R; r++)
             {
 #pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
- VITIS_LOOP_14_3: for (int c = 0; c < C; c++)
+ VITIS_LOOP_25_3: for (int c = 0; c < C; c++)
                 {
 #pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
- VITIS_LOOP_17_4: for (int n = 0; n < N / 16; n++)
+ VITIS_LOOP_28_4: for (int n = 0; n < N / 16; n++)
                     {
 #pragma HLS PIPELINE II = 1
-#pragma HLS LOOP_TRIPCOUNT max = 32 / 16 min = 32 / 16
- temp = A[r * C * N / 16 + c * N / 16 + n];
-                        conv_a.write(temp);
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ conv_a.write(A[r * C * N / 16 + c * N / 16 + n]);
                     }
                 }
             }
@@ -9807,42 +12405,41 @@ void ConvertInputToStream(ap_uint<16 * 8> *A, stream<ap_uint<16 * 8>> &conv_a, s
     }
     else
     {
-        VITIS_LOOP_30_5: for (unsigned r = 0; r < R / 16; r++)
+        VITIS_LOOP_40_5: for (unsigned r = 0; r < R / 16; r++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = 64 / 16 min = 64 / 16
- VITIS_LOOP_33_6: for (unsigned j = 0; j < M / 16; j++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_43_6: for (unsigned j = 0; j < M / 16; j++)
             {
-#pragma HLS LOOP_TRIPCOUNT max = 64 / 16 min = 64 / 16
- VITIS_LOOP_36_7: for (unsigned n = 0; n < N; n++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_46_7: for (unsigned n = 0; n < N; n++)
                 {
 #pragma HLS PIPELINE II = 1
-#pragma HLS LOOP_TRIPCOUNT max = 64 min = 64
- temp = A[r * N + n];
-                    mm_a.write(temp);
+#pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
+ mm_a.write(A[r * N + n]);
                 }
             }
         }
     }
 }
 
-void SamePadding(stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode)
+void Padding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned P, bool mode)
 {
     if (mode == false)
         return;
-    ap_uint<16 * 8> outData;
-    VITIS_LOOP_53_1: for (int g = 0; g < M / 16; g++)
+    ap_uint<16 * 32> outData;
+    VITIS_LOOP_62_1: for (int g = 0; g < M / 16; g++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = 32 / 16 min = 32 / 16
- VITIS_LOOP_56_2: for (unsigned int y = 0; y < (R + 2); y++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_65_2: for (unsigned y = 0; y < (R + 2 * P); y++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = (16 + 2) min = (16 + 2)
- VITIS_LOOP_59_3: for (unsigned int x = 0; x < (C + 2); x++)
+#pragma HLS LOOP_TRIPCOUNT max = (16 + 2 * 1) min = (16 + 2 * 1)
+ VITIS_LOOP_68_3: for (unsigned x = 0; x < (C + 2 * P); x++)
             {
-#pragma HLS LOOP_TRIPCOUNT max = (16 + 2) min = (16 + 2)
- VITIS_LOOP_62_4: for (unsigned int k = 0; k < N / 16; k++)
+#pragma HLS LOOP_TRIPCOUNT max = (16 + 2 * 1) min = (16 + 2 * 1)
+ VITIS_LOOP_71_4: for (unsigned k = 0; k < N / 16; k++)
                 {
-#pragma HLS LOOP_TRIPCOUNT max = 32 / 16 min = 32 / 16
- if (x < 1 || x >= (C + 1) || y < 1 || y >= R + 1)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ if (x < P || x >= (C + P) || y < P || y >= R + P)
                     {
                         outData = 0;
                     }
@@ -9857,49 +12454,46 @@ void SamePadding(stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsi
     }
 }
 
-void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode)
+void Sliding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
 {
     if (mode == false)
         return;
-    ap_int<16 * 8> row_buffer[4][1536];
+    ap_uint<16 * 32> row_buffer[10][((32 + 2 * 1) * 128 / 16)];
 
-    unsigned int cycles_write_block = K * K * N / 16 * C;
-    unsigned int cycles_read_block = (C + 2) * N / 16;
-    unsigned int max_cycles = (((cycles_write_block) > (cycles_read_block)) ? (cycles_write_block) : (cycles_read_block));
-    unsigned int baseIter = (C + 2) * K * N / 16 + R * (((cycles_write_block) > (cycles_read_block)) ? (cycles_write_block) : (cycles_read_block));
+    unsigned cycles_write_block = K * K * N / 16 * ((C + 2 * P - K) / S + 1);
+    unsigned cycles_read_block = (C + 2 * P) * N / 16 * S;
+    unsigned max_cycles = (((cycles_write_block) > (cycles_read_block)) ? (cycles_write_block) : (cycles_read_block));
+    unsigned baseIter = (C + 2 * P) * K * N / 16 + ((R + 2 * P - K) / S + 1) * (((cycles_write_block) > (cycles_read_block)) ? (cycles_write_block) : (cycles_read_block));
 
-    unsigned int inp = 0, ofm_y = 0, ofm_x = 0, k_y = 0, k_x = 0, wMat = 0, count_simd = 0;
-    unsigned int counter_internal_block = 0;
+    unsigned inp = 0, ofm_y = 0, ofm_x = 0, k_y = 0, k_x = 0, wMat = 0, count_simd = 0;
+    unsigned counter_internal_block = 0;
 
-    ap_uint<2> current_block_write = 0;
-    ap_uint<2> current_block_read = 0;
-    ap_uint<2> block_read_K;
+    ap_uint<4> current_block_write = 0;
+    ap_uint<4> current_block_read = 0;
+    ap_uint<4> block_read_K;
 
-    unsigned int current_line = 0;
-    unsigned int current_line_w = 0;
-    unsigned int current_line_simd = 0;
-    unsigned int read_block = 0;
-    unsigned int current_line_in_block;
-    unsigned int cnt = 0;
+    unsigned current_line = 0;
+    unsigned current_line_w = 0;
+    unsigned current_line_simd = 0;
+    unsigned read_block = 0;
+    unsigned current_line_in_block;
+    unsigned cnt = 0;
 
-    ap_int<16 * 8> inElem;
-    ap_int<16 * 8> data;
-    VITIS_LOOP_107_1: for (int g = 0; g < M / 16; g++)
+    VITIS_LOOP_114_1: for (int g = 0; g < M / 16; g++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = 32 / 16 min = 32 / 16
- VITIS_LOOP_110_2: for (unsigned rep = 0; rep < baseIter; rep++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_117_2: for (unsigned rep = 0; rep < baseIter; rep++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = (16 * 3 * 3 * 32 / 16 * 16 + (16 + 2) * 3 * 32 / 16) min = (16 * 3 * 3 * 32 / 16 * 16 + (16 + 2) * 3 * 32 / 16)
+#pragma HLS LOOP_TRIPCOUNT max = (16 * 3 * 3 * 16 / 16 * 16 + (16 + 2 * 1) * 3 * 16 / 16) min = (16 * 3 * 3 * 16 / 16 * 16 + (16 + 2 * 1) * 3 * 16 / 16)
 #pragma HLS PIPELINE II = 1
- if (inp < (C + 2) * K * N / 16)
+ if (inp < (C + 2 * P) * K * N / 16)
             {
-                inElem = in.read();
-                row_buffer[current_block_write][current_line_w * (N / 16) + current_line_simd] = inElem;
+                row_buffer[current_block_write][current_line_w * (N / 16) + current_line_simd] = in.read();
                 inp++;
                 if (++current_line_simd == N / 16)
                 {
                     current_line_simd = 0;
-                    if (++current_line_w == (C + 2))
+                    if (++current_line_w == (C + 2 * P))
                     {
                         current_line_w = 0;
                         read_block++;
@@ -9912,11 +12506,10 @@ void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &o
                 if (counter_internal_block < cycles_write_block)
                 {
                     block_read_K = current_block_read + k_y;
+                    block_read_K = block_read_K % (K + S);
                     current_line_in_block = ofm_x * (N / 16) + count_simd;
-
-                    data = row_buffer[block_read_K][current_line_in_block + cnt * (N / 16)];
-                    out.write(data);
-                    if (++cnt == C)
+                    out.write(row_buffer[block_read_K][current_line_in_block + cnt * S * (N / 16)]);
+                    if (++cnt == ((C + 2 * P - K) / S + 1))
                     {
                         cnt = 0;
                         if (++count_simd == N / 16)
@@ -9928,25 +12521,29 @@ void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &o
                                 if (++k_y == K)
                                 {
                                     k_y = 0;
-                                    current_block_read++;
+                                    current_block_read += S;
+                                    if (current_block_read >= K + S)
+                                        current_block_read -= (K + S);
                                 }
                             }
                         }
                     }
                 }
-                if ((counter_internal_block < cycles_read_block) && (read_block < (R + 2)))
+                if ((counter_internal_block < cycles_read_block) && (read_block < (R + 2 * P)))
                 {
-                    inElem = in.read();
-                    row_buffer[current_block_write][current_line_w * (N / 16) + current_line_simd] = inElem;
+                    row_buffer[current_block_write][current_line_w * (N / 16) + current_line_simd] = in.read();
 
                     if (++current_line_simd == N / 16)
                     {
                         current_line_simd = 0;
-                        if (++current_line_w == C + 2)
+                        if (++current_line_w == C + 2 * P)
                         {
                             current_line_w = 0;
                             read_block++;
+
                             current_block_write++;
+                            if (current_block_write >= K + S)
+                                current_block_write -= (K + S);
                         }
                     }
                 }
@@ -9966,13 +12563,13 @@ void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &o
     }
 }
 
-void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 * 8>> &mm_a, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode)
+void ConvertInputToArray(stream<ap_uint<16 * 32>> &conv3_sild, stream<ap_uint<16 * 32>> &mm_a, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode)
 {
-    ap_uint<4 * 8> temp_row;
-    VITIS_LOOP_192_1: for (unsigned long long rep = 0; rep < num_a_sa; rep++)
+    ap_uint<4 * 32> temp_row;
+    VITIS_LOOP_201_1: for (unsigned long rep = 0; rep < num_a_sa; rep++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = (32 / 16) * (32 / 16) *16 *16 *3 *3 min = (32 / 16) * (32 / 16) * 16 * 16 * 3 * 3
- ap_int<16 * 8> temp;
+#pragma HLS LOOP_TRIPCOUNT max = (16 / 16) * (16 / 16) *16 *16 *3 *3 min = (16 / 16) * (16 / 16) * 16 * 16 * 3 * 3
+ ap_int<16 * 32> temp;
         if (mode == true)
         {
             temp = conv3_sild.read();
@@ -9981,10 +12578,10 @@ void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 
         {
             temp = mm_a.read();
         }
-        VITIS_LOOP_204_2: for (unsigned int r = 0; r < (16 / 4); r++)
+        VITIS_LOOP_213_2: for (unsigned r = 0; r < (16 / 4); r++)
         {
-            temp_row = temp((r + 1) * 4 * 8 - 1, r * 4 * 8);
-            VITIS_LOOP_207_3: for (unsigned int c = 0; c < (16 / 4); c++)
+            temp_row = temp((r + 1) * 4 * 32 - 1, r * 4 * 32);
+            VITIS_LOOP_216_3: for (unsigned c = 0; c < (16 / 4); c++)
             {
                 out[r][c].write(temp_row);
             }
@@ -9992,23 +12589,22 @@ void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 
     }
 }
 
-void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Weight, stream<ap_uint<16 * 8>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 8>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, bool mode)
+void ConvertWeightToStream(ap_uint<16 * 32> *Conv_Weight, ap_uint<16 * 32> *MM_Weight, stream<ap_uint<16 * 32>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 32>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode)
 {
-#pragma HLS INLINE OFF
- if (mode == true)
+    if (mode == true)
     {
-        ap_uint<16 * 8> temp;
-        VITIS_LOOP_221_1: for (int m = 0; m < M / 16; m++)
+        ap_uint<16 * 32> temp;
+        VITIS_LOOP_229_1: for (int m = 0; m < M / 16; m++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = 32 / 16 min = 32 / 16
- VITIS_LOOP_224_2: for (int i = 0; i < (16 / 4); i++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_232_2: for (int i = 0; i < (16 / 4); i++)
             {
-                VITIS_LOOP_226_3: for (unsigned r = 0; r < R; r++)
+                VITIS_LOOP_234_3: for (unsigned r = 0; r < (R + 2 * P - K) / S + 1; r++)
                 {
 #pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
- VITIS_LOOP_229_4: for (int j = 0; j < K * K * N / 16 * 16 / (16 / 4); j++)
+ VITIS_LOOP_237_4: for (int j = 0; j < K * K * N / 16 * 16 / (16 / 4); j++)
                     {
-#pragma HLS LOOP_TRIPCOUNT max = 3 *3 *32 *16 / (16 / 4) / 16 min = 3 * 3 * 32 * 16 / (16 / 4) / 16
+#pragma HLS LOOP_TRIPCOUNT max = 3 *3 *16 *16 / (16 / 4) / 16 min = 3 * 3 * 16 * 16 / (16 / 4) / 16
 #pragma HLS PIPELINE II = 1
  temp = Conv_Weight[m * K * K * N / 16 * 16 + i * K * K * N / 16 * 16 / (16 / 4) + j];
                         fifo_conv_w[i].write(temp);
@@ -10019,16 +12615,16 @@ void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Wei
     }
     else
     {
-        ap_uint<16 * 8> temp;
-        VITIS_LOOP_243_5: for (unsigned rep = 0; rep < R / 16; rep++)
+        ap_uint<16 * 32> temp;
+        VITIS_LOOP_251_5: for (unsigned rep = 0; rep < R / 16; rep++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = 64 / 16 min = 64 / 16
- VITIS_LOOP_246_6: for (int m = 0; m < M / 16; m++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_254_6: for (int m = 0; m < M / 16; m++)
             {
-#pragma HLS LOOP_TRIPCOUNT max = 64 / 16 min = 64 / 16
- VITIS_LOOP_249_7: for (int n = 0; n < N; n++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_257_7: for (int n = 0; n < N; n++)
                 {
-#pragma HLS LOOP_TRIPCOUNT max = 64 min = 64
+#pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
 #pragma HLS PIPELINE II = 1
  temp = MM_Weight[m * N + n];
                     fifo_mm_w.write(temp);
@@ -10038,42 +12634,41 @@ void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Wei
     }
 }
 
-void ConvWeightToArray(stream<ap_uint<16 * 8>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 8>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode)
+void ConvWeightToArray(stream<ap_uint<16 * 32>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 32>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode)
 {
-#pragma HLS INLINE OFF
- if (mode == false)
+    if (mode == false)
         return;
-    ap_uint<16 * 8> w;
-    ap_uint<4 * 8> temp;
-    VITIS_LOOP_268_1: for (unsigned int g = 0; g < num_w_in; g++)
+    ap_uint<16 * 32> w;
+    ap_uint<4 * 32> temp;
+    VITIS_LOOP_275_1: for (unsigned g = 0; g < num_w_in; g++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = 16 *3 *3 *32 / 16 *32 / (16 / 4) min = 16 * 3 * 3 * 32 / 16 * 32 / (16 / 4)
- VITIS_LOOP_271_2: for (unsigned int c = 0; c < (16 / 4); c++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 *3 *3 *16 / 16 *16 / (16 / 4) min = 16 * 3 * 3 * 16 / 16 * 16 / (16 / 4)
+ VITIS_LOOP_278_2: for (unsigned c = 0; c < (16 / 4); c++)
         {
             w = fifo_W_in[c].read();
-            VITIS_LOOP_274_3: for (unsigned int r = 0; r < (16 / 4); r++)
+            VITIS_LOOP_281_3: for (unsigned r = 0; r < (16 / 4); r++)
             {
-                temp = w((r + 1) * 4 * 8 - 1, r * 4 * 8);
+                temp = w((r + 1) * 4 * 32 - 1, r * 4 * 32);
                 fifo_W_local_out[r][c].write(temp);
             }
         }
     }
 }
 
-void MMWeightToArray(stream<ap_uint<16 * 8>> &in, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode)
+void MMWeightToArray(stream<ap_uint<16 * 32>> &in, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode)
 {
     if (mode == true)
         return;
-    ap_uint<4 * 8> temp_row;
-    VITIS_LOOP_288_1: for (unsigned long long rep = 0; rep < num_w_in; rep++)
+    ap_uint<4 * 32> temp_row;
+    VITIS_LOOP_295_1: for (unsigned long long rep = 0; rep < num_w_in; rep++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = 64 * 64 * 64 / (16 * 16) min = 64 * 64 * 64 / (16 * 16)
+#pragma HLS LOOP_TRIPCOUNT max = 16 * 16 * 16 / (16 * 16) min = 16 * 16 * 16 / (16 * 16)
 #pragma HLS PIPELINE II = 1
- ap_uint<16 * 8> temp = in.read();
-        VITIS_LOOP_293_2: for (unsigned int c = 0; c < (16 / 4); c++)
+ ap_uint<16 * 32> temp = in.read();
+        VITIS_LOOP_300_2: for (unsigned c = 0; c < (16 / 4); c++)
         {
-            temp_row = temp((c + 1) * 4 * 8 - 1, c * (4 * 8));
-            VITIS_LOOP_296_3: for (unsigned int r = 0; r < (16 / 4); r++)
+            temp_row = temp((c + 1) * 4 * 32 - 1, c * (4 * 32));
+            VITIS_LOOP_303_3: for (unsigned r = 0; r < (16 / 4); r++)
             {
                 out[r][c].write(temp_row);
             }
@@ -10081,18 +12676,18 @@ void MMWeightToArray(stream<ap_uint<16 * 8>> &in, stream<ap_uint<4 * 8>> out[(16
     }
 }
 
-void MuxWeightStream(stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> MM_SA_W[(16 / 4)][(16 / 4)],
-                     stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode)
+void MuxWeightStream(stream<ap_uint<4 * 32>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> MM_SA_W[(16 / 4)][(16 / 4)],
+                     stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode)
 {
-    VITIS_LOOP_307_1: for (unsigned i = 0; i < num_w_sa; i++)
+    VITIS_LOOP_314_1: for (unsigned i = 0; i < num_w_sa; i++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = 16 *3 *3 *32 / 16 *32 / (16 / 4) min = 16 * 3 * 3 * 32 / 16 * 32 / (16 / 4)
+#pragma HLS LOOP_TRIPCOUNT max = 16 *3 *3 *16 / 16 *16 / (16 / 4) min = 16 * 3 * 3 * 16 / 16 * 16 / (16 / 4)
 #pragma HLS PIPELINE II = 1
- VITIS_LOOP_311_2: for (unsigned x = 0; x < (16 / 4); x++)
+ VITIS_LOOP_318_2: for (unsigned x = 0; x < (16 / 4); x++)
         {
-            VITIS_LOOP_313_3: for (unsigned y = 0; y < (16 / 4); y++)
+            VITIS_LOOP_320_3: for (unsigned y = 0; y < (16 / 4); y++)
             {
-                ap_uint<4 * 8> temp;
+                ap_uint<4 * 32> temp;
                 if (mode == false)
                     temp = MM_SA_W[x][y].read();
                 else
@@ -10103,50 +12698,50 @@ void MuxWeightStream(stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)], strea
     }
 }
 
-void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, stream<ap_uint<32>> fifo_C_out[4], unsigned num, unsigned num_a_sa, bool mode)
+void PE(stream<ap_uint<4 * 32>> &fifo_A_in, stream<ap_uint<4 * 32>> &fifo_W_in, stream<float> fifo_C_out[4], unsigned num, unsigned num_a_sa, bool mode)
 {
-    ap_int<4 * 8> A_reg[4];
+    ap_uint<4 * 32> A_reg[4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = A_reg
 
- ap_int<4 * 8> W_reg[4];
+ ap_uint<4 * 32> W_reg[4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = W_reg
 
- ap_int<8> data_A_reg[4][4];
+ float data_A_reg[4][4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = data_A_reg
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = data_A_reg
 
- ap_int<8> data_W_reg[4][4];
+ float data_W_reg[4][4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = data_W_reg
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = data_W_reg
 
- ap_int<32> data_C_reg[4][4];
+ float data_C_reg[4][4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = data_C_reg
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = data_C_reg
 
- ap_int<32> acc_tmp[4][4];
+ float acc_tmp[4][4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = acc_tmp
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = acc_tmp
 
- ap_int<32> res_C_reg[4];
+ float res_C_reg[4];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = res_C_reg
 
- int flag = 0;
-    int out = 0;
+ unsigned flag = 0;
+    unsigned out = 0;
 
-    VITIS_LOOP_356_1: for (unsigned i = 0; i < 4; i++)
+    VITIS_LOOP_363_1: for (unsigned i = 0; i < 4; i++)
     {
 #pragma HLS UNROLL
  A_reg[i] = 0;
     }
-    VITIS_LOOP_361_2: for (unsigned i = 0; i < 4; i++)
+    VITIS_LOOP_368_2: for (unsigned i = 0; i < 4; i++)
     {
 #pragma HLS UNROLL
  W_reg[i] = 0;
     }
-    VITIS_LOOP_366_3: for (unsigned j = 0; j < 4; j++)
+    VITIS_LOOP_373_3: for (unsigned j = 0; j < 4; j++)
     {
 #pragma HLS UNROLL
- VITIS_LOOP_369_4: for (unsigned i = 0; i < 4; i++)
+ VITIS_LOOP_376_4: for (unsigned i = 0; i < 4; i++)
         {
 #pragma HLS UNROLL
  data_A_reg[i][j] = 0;
@@ -10155,9 +12750,9 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
         }
     }
 
-    VITIS_LOOP_378_5: for (unsigned rep = 0; rep < num_a_sa + 4 + 4 - 2; rep++)
+    VITIS_LOOP_385_5: for (unsigned rep = 0; rep < num_a_sa + 4 + 4 - 2; rep++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = (32 / 16) * (32 / 16) *16 *16 *3 *3 + 4 + 4 - 2 min = (32 / 16) * (32 / 16) * 16 * 16 * 3 * 3 + 4 + 4 - 2
+#pragma HLS LOOP_TRIPCOUNT max = (16 / 16) * (16 / 16) *16 *16 *3 *3 + 4 + 4 - 2 min = (16 / 16) * (16 / 16) * 16 * 16 * 3 * 3 + 4 + 4 - 2
 #pragma HLS PIPELINE II = 1
 
 
@@ -10180,78 +12775,68 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
         }
 
 
-        VITIS_LOOP_403_6: for (unsigned i = 0; i < 4; i++)
+        VITIS_LOOP_410_6: for (unsigned i = 0; i < 4; i++)
         {
 #pragma HLS UNROLL
- ap_uint<8> temp_a;
+ uint32_t temp_a;
             if (mode == true)
             {
-                temp_a = A_reg[0](8 * (i + 1) - 1, 8 * i);
-                data_A_reg[i][0] = temp_a;
+                temp_a = A_reg[0](32 * (i + 1) - 1, 32 * i);
+                data_A_reg[i][0] = reinterpret_cast<float &>(temp_a);
             }
             else
             {
-                temp_a = A_reg[i](8 - 1, 0);
-                data_A_reg[i][0] = temp_a;
-                A_reg[i] = A_reg[i] >> (8);
+                temp_a = A_reg[i](32 - 1, 0);
+                data_A_reg[i][0] = reinterpret_cast<float &>(temp_a);
+                A_reg[i] = A_reg[i] >> (32);
             }
         }
 
 
         if (mode == false)
         {
-            VITIS_LOOP_423_7: for (unsigned k = 0; k < 4; k++)
+            VITIS_LOOP_430_7: for (unsigned k = 0; k < 4; k++)
             {
 #pragma HLS UNROLL
- ap_uint<8> temp_w;
-                temp_w = W_reg[k];
-                data_W_reg[0][k] = temp_w;
-                W_reg[k] = W_reg[k] >> (8);
+ uint32_t temp_w = W_reg[k];
+                data_W_reg[0][k] = reinterpret_cast<float &>(temp_w);
+                W_reg[k] = W_reg[k] >> (32);
             }
         }
         else
         {
-            VITIS_LOOP_434_8: for (unsigned i = 0; i < 4; i++)
+            VITIS_LOOP_440_8: for (unsigned i = 0; i < 4; i++)
             {
 #pragma HLS UNROLL
  if (flag < 4)
                 {
-                    ap_uint<8> temp_w;
-                    temp_w = W_reg[0](8 * (i + 1) - 1, 8 * i);
-                    data_W_reg[i][flag] = temp_w;
+                    uint32_t temp_w = W_reg[0](32 * (i + 1) - 1, 32 * i);
+                    data_W_reg[i][flag] = reinterpret_cast<float &>(temp_w);
                 }
             }
         }
 
         if (mode == false)
         {
-            VITIS_LOOP_448_9: for (unsigned m = 4 - 1; m > 0; m--)
+            VITIS_LOOP_453_9: for (unsigned m = 4 - 1; m > 0; m--)
             {
 #pragma HLS UNROLL
  A_reg[m] = A_reg[m - 1];
             }
-            VITIS_LOOP_453_10: for (unsigned m = 4 - 1; m > 0; m--)
+            VITIS_LOOP_458_10: for (unsigned m = 4 - 1; m > 0; m--)
             {
 #pragma HLS UNROLL
  W_reg[m] = W_reg[m - 1];
             }
         }
 
-        VITIS_LOOP_460_11: for (int j = 4 - 1; j >= 0; j--)
+        VITIS_LOOP_465_11: for (int j = 4 - 1; j >= 0; j--)
         {
 #pragma HLS UNROLL
- VITIS_LOOP_463_12: for (int i = 4 - 1; i >= 0; i--)
+ VITIS_LOOP_468_12: for (int i = 4 - 1; i >= 0; i--)
             {
 #pragma HLS UNROLL
- ap_int<8> data_A_tmp;
-                data_A_tmp = data_A_reg[i][j];
-
-                ap_int<8> data_W_tmp;
-                data_W_tmp = data_W_reg[i][j];
-
-                ap_int<32> data_C_tmp;
-
-                if (mode == true)
+ if (mode == true)
                 {
                     if (i == 4 - 1)
                     {
@@ -10273,23 +12858,20 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
                         acc_tmp[i][j] = data_C_reg[i][j];
                     }
                 }
-                ap_int<32> tmp = data_A_tmp * data_W_tmp;
-                data_C_reg[i][j] = acc_tmp[i][j] + tmp;
-
+                data_C_reg[i][j] = acc_tmp[i][j] + data_A_reg[i][j] * data_W_reg[i][j];
                 if (j < 4 - 1)
                 {
-                    data_A_reg[i][j + 1] = data_A_tmp;
+                    data_A_reg[i][j + 1] = data_A_reg[i][j];
                 }
                 if (mode == false)
                 {
                     if (i < 4 - 1)
                     {
-                        data_W_reg[i + 1][j] = data_W_tmp;
+                        data_W_reg[i + 1][j] = data_W_reg[i][j];
                     }
                     if ((flag == num - 1) || (i + j == out))
                     {
-                        ap_uint<32> out_tmp = data_C_reg[i][j];
-                        res_C_reg[j] = out_tmp;
+                        res_C_reg[j] = data_C_reg[i][j];
                     }
                 }
             }
@@ -10303,14 +12885,13 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
 
         if (mode == true)
         {
-            VITIS_LOOP_526_13: for (int i = 0; i < 4; i++)
+            VITIS_LOOP_520_13: for (int i = 0; i < 4; i++)
             {
 #pragma HLS UNROLL
  if (((rep >= i) && (rep < num_a_sa)) || ((rep >= num_a_sa) && (rep < num_a_sa + i)))
                 {
-                    ap_int<32> out_tmp = data_C_reg[0][i];
                     data_C_reg[4 - 1][i] = 0;
-                    fifo_C_out[i].write(out_tmp);
+                    fifo_C_out[i].write(data_C_reg[0][i]);
                 }
             }
         }
@@ -10318,7 +12899,7 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
         {
             if (rep >= num - 1 && out < 4 + 4 - 1)
             {
-                VITIS_LOOP_541_14: for (int i = 0; i < 4; i++)
+                VITIS_LOOP_534_14: for (int i = 0; i < 4; i++)
                 {
 #pragma HLS UNROLL
  if ((i <= out && out < 4) || (i >= (out - 4 + 1) && out >= 4))
@@ -10335,13 +12916,13 @@ void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, st
     }
 }
 
-void Compute(stream<ap_uint<4 * 8>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)],
-             stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode)
+void Compute(stream<ap_uint<4 * 32>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)],
+             stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode)
 {
-    VITIS_LOOP_561_1: for (unsigned int r = 0; r < (16 / 4); r++)
+    VITIS_LOOP_554_1: for (unsigned r = 0; r < (16 / 4); r++)
     {
 #pragma HLS UNROLL
- VITIS_LOOP_564_2: for (unsigned int c = 0; c < (16 / 4); c++)
+ VITIS_LOOP_557_2: for (unsigned c = 0; c < (16 / 4); c++)
         {
 #pragma HLS UNROLL
  PE(fifo_SA_A[r][c], fifo_SA_W[r][c], fifo_SA_O[r][c], num, num_a_sa, mode);
@@ -10349,51 +12930,48 @@ void Compute(stream<ap_uint<4 * 8>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uin
     }
 }
 
-void ConvertToOutStream(stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<ap_uint<32>> fifo_C_out[16], stream<ap_uint<32>> mm_out[64], unsigned numlines, unsigned R, unsigned M, bool mode)
+void ConvertToOutStream(stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<float> fifo_C_out[16], stream<float> mm_out[16], unsigned numlines, unsigned R, unsigned M, bool mode)
 {
     if (mode == true)
     {
-        ap_uint<32> psum;
-        ap_uint<32> tmp;
-
-        VITIS_LOOP_579_1: for (unsigned int h = 0; h < numlines; h++)
+        float psum;
+        VITIS_LOOP_570_1: for (unsigned h = 0; h < numlines; h++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = (32 / 16) * (32 / 16) *16 *16 *3 *3 min = (32 / 16) * (32 / 16) * 16 * 16 * 3 * 3
+#pragma HLS LOOP_TRIPCOUNT max = (16 / 16) * (16 / 16) *16 *16 *3 *3 min = (16 / 16) * (16 / 16) * 16 * 16 * 3 * 3
 #pragma HLS PIPELINE II = 1
- VITIS_LOOP_583_2: for (unsigned int c = 0; c < (16 / 4); c++)
+ VITIS_LOOP_574_2: for (unsigned c = 0; c < (16 / 4); c++)
             {
-                VITIS_LOOP_585_3: for (unsigned int m = 0; m < 4; m++)
+                VITIS_LOOP_576_3: for (unsigned m = 0; m < 4; m++)
                 {
-                    psum = 0;
-                    VITIS_LOOP_588_4: for (unsigned int r = 0; r < (16 / 4); r++)
+                    VITIS_LOOP_578_4: for (unsigned r = 0; r < (16 / 4); r++)
                     {
-                        tmp = fifo_SA_O[r][c][m].read();
-                        psum = psum + tmp;
+                        if (r == 0)
+                            psum = 0;
+                        psum += fifo_SA_O[r][c][m].read();
+                        if (r == (16 / 4) - 1)
+                            fifo_C_out[c * 4 + m].write(psum);
                     }
-                    fifo_C_out[c * 4 + m].write(psum);
                 }
             }
         }
     }
     else
     {
-        ap_uint<32> tmp;
-        VITIS_LOOP_601_5: for (unsigned l = 0; l < R / 16; l++)
+        VITIS_LOOP_592_5: for (unsigned l = 0; l < R / 16; l++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = 64 / 16 min = 64 / 16
- VITIS_LOOP_604_6: for (unsigned m = 0; m < M / 16; m++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_595_6: for (unsigned m = 0; m < M / 16; m++)
             {
-#pragma HLS LOOP_TRIPCOUNT max = 64 / 16 min = 64 / 16
- VITIS_LOOP_607_7: for (unsigned int r = 0; r < (16 / 4); r++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_598_7: for (unsigned r = 0; r < (16 / 4); r++)
                 {
-                    VITIS_LOOP_609_8: for (unsigned rep = 0; rep < 4; rep++)
+                    VITIS_LOOP_600_8: for (unsigned rep = 0; rep < 4; rep++)
                     {
-                        VITIS_LOOP_611_9: for (unsigned int c = 0; c < (16 / 4); c++)
+                        VITIS_LOOP_602_9: for (unsigned c = 0; c < (16 / 4); c++)
                         {
-                            VITIS_LOOP_613_10: for (unsigned int y = 0; y < 4; y++)
+                            VITIS_LOOP_604_10: for (unsigned y = 0; y < 4; y++)
                             {
-                                tmp = fifo_SA_O[r][c][y].read();
-                                mm_out[m * 16 + c * 4 + y].write(tmp);
+                                mm_out[m * 16 + c * 4 + y].write(fifo_SA_O[r][c][y].read());
                             }
                         }
                     }
@@ -10403,39 +12981,40 @@ void ConvertToOutStream(stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], st
     }
 }
 
-void ConvToOutStream(stream<ap_uint<32>> fifo_CONV3_ACC[16], stream<ap_int<32>> CONV3_OUT[32], unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, bool mode)
+void ConvToOutStream(stream<float> fifo_CONV3_ACC[16], stream<float> CONV3_OUT[128], unsigned OUT_R, unsigned OUT_C, unsigned N, unsigned M, unsigned K, bool mode)
 {
     if (mode == false)
         return;
-    ap_int<32> psum[16][16];
+    float psum[(32 + 2 * 1 - 3) / 1 + 1][16];
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = psum
+#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = psum
 
- VITIS_LOOP_633_1: for (int rep = 0; rep < M / 16; rep++)
+ VITIS_LOOP_624_1: for (int rep = 0; rep < M / 16; rep++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = 32 / 16 min = 32 / 16
- VITIS_LOOP_636_2: for (int k = 0; k < R; k++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_627_2: for (int r = 0; r < OUT_R; r++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
- VITIS_LOOP_639_3: for (int j = 0; j < N / 16 * K * K; j++)
+ VITIS_LOOP_630_3: for (int j = 0; j < N / 16 * K * K; j++)
             {
-#pragma HLS LOOP_TRIPCOUNT max = 32 / 16 *3 *3 min = 32 / 16 * 3 * 3
- VITIS_LOOP_642_4: for (int i = 0; i < C; i++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 *3 *3 min = 16 / 16 * 3 * 3
+ VITIS_LOOP_633_4: for (int c = 0; c < OUT_C; c++)
                 {
 #pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
- VITIS_LOOP_645_5: for (int s = 0; s < 16; s++)
+ VITIS_LOOP_636_5: for (int s = 0; s < 16; s++)
                     {
 #pragma HLS UNROLL
  if (j == 0)
                         {
-                            psum[i][s] = fifo_CONV3_ACC[s].read();
+                            psum[c][s] = fifo_CONV3_ACC[s].read();
                         }
                         else
                         {
-                            psum[i][s] = psum[i][s] + fifo_CONV3_ACC[s].read();
+                            psum[c][s] += fifo_CONV3_ACC[s].read();
                         }
                         if (j == N / 16 * K * K - 1)
                         {
-                            CONV3_OUT[rep * 16 + s].write(psum[i][s]);
+                            CONV3_OUT[rep * 16 + s].write((float)psum[c][s]);
                         }
                     }
                 }
@@ -10444,69 +13023,95 @@ void ConvToOutStream(stream<ap_uint<32>> fifo_CONV3_ACC[16], stream<ap_int<32>> 
     }
 }
 
-void MMToOutStream(stream<ap_uint<32>> in[(16 / 4)][(16 / 4)][4], stream<ap_uint<32>> out[64], unsigned R, unsigned M, bool mode)
+void ConvBias(stream<float> CONV3_OUT[128], stream<float> fifo_bias[128], stream<float> CONV3_Bias[128], unsigned out_r, unsigned out_c, unsigned M, bool mode)
 {
-    if (mode == true)
+    if (mode == false)
         return;
-    ap_uint<32> tmp;
-    VITIS_LOOP_672_1: for (unsigned l = 0; l < R / 16; l++)
+    float bias;
+    VITIS_LOOP_663_1: for (unsigned i = 0; i < M / 16; i++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = 64 / 16 min = 64 / 16
- VITIS_LOOP_675_2: for (unsigned m = 0; m < M / 16; m++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ VITIS_LOOP_666_2: for (int y = 0; y < 4; y++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = 64 / 16 min = 64 / 16
- VITIS_LOOP_678_3: for (unsigned int r = 0; r < (16 / 4); r++)
+            VITIS_LOOP_668_3: for (int s = 0; s < (16 / 4); s++)
             {
-                VITIS_LOOP_680_4: for (unsigned rep = 0; rep < 4; rep++)
+                VITIS_LOOP_670_4: for (unsigned j = 0; j < out_r * out_c; j++)
                 {
-                    VITIS_LOOP_682_5: for (unsigned int c = 0; c < (16 / 4); c++)
-                    {
-                        VITIS_LOOP_684_6: for (unsigned int y = 0; y < 4; y++)
-                        {
-                            tmp = in[r][c][y].read();
-                            out[m * 16 + c * 4 + y].write(tmp);
-                        }
-                    }
+#pragma HLS LOOP_TRIPCOUNT max = ((16 + 2 * 1 - 3) / 1 + 1) * ((16 + 2 * 1 - 3) / 1 + 1) min = ((16 + 2 * 1 - 3) / 1 + 1) * ((16 + 2 * 1 - 3) / 1 + 1)
+ if(j == 0) bias = fifo_bias[i * 16 + s * 4 + y].read();
+                    CONV3_Bias[i * 16 + s * 4 + y].write(CONV3_OUT[s * M / (16 / 4) + i * 4 + y].read() + bias);
                 }
             }
         }
     }
 }
 
-void ResOutput(stream<ap_int<32>> CONV_OUT[32], stream<ap_uint<32>> MM_OUT[64], ap_uint<32> *output, unsigned R, unsigned C, unsigned M, bool mode)
+void ConvBN(stream<float> CONV3_Trans[128], stream<float> CONV3_Norm[128], stream<ap_uint<(4 * 32)>> fifo_norm[128], unsigned out_r, unsigned out_c, unsigned M, bool mode)
+{
+    if(mode == false)
+        return ;
+    float mean, var, gamma, beta, temp, sqrt_var;
+    const float EPSILON = 1e-5;
+    uint32_t norm[4];
+    VITIS_LOOP_688_1: for (unsigned m = 0; m < M; m++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
+ VITIS_LOOP_691_2: for (unsigned i = 0; i < out_r * out_c; i++)
+        {
+#pragma HLS LOOP_TRIPCOUNT max = ((16 + 2 * 1 - 3) / 1 + 1) *((16 + 2 * 1 - 3) / 1 + 1) min = ((16 + 2 * 1 - 3) / 1 + 1) * ((16 + 2 * 1 - 3) / 1 + 1)
+ if (i == 0)
+            {
+                ap_uint<(4 * 32)> norm_temp = fifo_norm[m].read();
+                VITIS_LOOP_697_3: for (unsigned j = 0; j < 4; j++)
+                {
+                    norm[j] = norm_temp(32 * (j + 1) - 1, 32 * j);
+                }
+                mean = reinterpret_cast<float &>(norm[0]);
+                var = reinterpret_cast<float &>(norm[1]) + EPSILON;
+                gamma = reinterpret_cast<float &>(norm[2]);
+                beta = reinterpret_cast<float &>(norm[3]);
+                sqrt_var = sqrt(var);
+            }
+            temp = CONV3_Trans[m].read();
+            temp = gamma * (temp - mean) / sqrt_var + beta;
+            CONV3_Norm[m].write(temp);
+        }
+    }
+}
+
+void ResOutput(stream<float> CONV_RES[128], stream<float> MM_RES[16], float *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
 {
     if (mode == true)
     {
-        VITIS_LOOP_700_1: for (unsigned i = 0; i < M / 16; i++)
+        VITIS_LOOP_718_1: for (unsigned m = 0; m < M; m++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = 32 / 16 min = 32 / 16
- VITIS_LOOP_703_2: for (int y = 0; y < 4; y++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
+ VITIS_LOOP_721_2: for (unsigned r = 0; r < (R + 2 * P - K) / S + 1; r++)
             {
-                VITIS_LOOP_705_3: for (int s = 0; s < (16 / 4); s++)
+#pragma HLS LOOP_TRIPCOUNT max = ((16 + 2 * 1 - 3) / 1 + 1) min = ((16 + 2 * 1 - 3) / 1 + 1)
+ VITIS_LOOP_724_3: for (unsigned c = 0; c < (C + 2 * P - K) / S + 1; c++)
                 {
-#pragma HLS LOOP_TRIPCOUNT max = 32 min = 32
- VITIS_LOOP_708_4: for (unsigned r = 0; r < R; r++)
-                    {
-#pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
- VITIS_LOOP_711_5: for (unsigned c = 0; c < C; c++)
-                        {
-#pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
- output[r * C * M + c * M + (i * 16 / 4 + s) * 4 + y] = CONV_OUT[(s * M / 16 + i) * 4 + y].read();
-                        }
-                    }
+#pragma HLS LOOP_TRIPCOUNT max = ((16 + 2 * 1 - 3) / 1 + 1) min = ((16 + 2 * 1 - 3) / 1 + 1)
+ output[r * ((C + 2 * P - K) / S + 1) * M + c * M + m] = CONV_RES[m].read();
                 }
             }
         }
     }
     else
     {
-        VITIS_LOOP_723_6: for (int i = 0; i < R; i++)
+        VITIS_LOOP_734_4: for (int i = 0; i < R; i++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = 64 min = 64
- VITIS_LOOP_726_7: for (int j = 0; j < M; j++)
-            {
-#pragma HLS LOOP_TRIPCOUNT max = 64 min = 64
- output[i * M + j] = MM_OUT[j].read();
+#pragma HLS LOOP_TRIPCOUNT max = 16 min = 16
+ VITIS_LOOP_737_5: for (int j = 0; j < M / 16; j++)
+#pragma HLS LOOP_TRIPCOUNT max = 16 / 16 min = 16 / 16
+ {
+                VITIS_LOOP_740_6: for (int y = 0; y < 4; y++)
+                {
+                    VITIS_LOOP_742_7: for (int s = 0; s < (16 / 4); s++)
+                    {
+                        output[i * M + j * 16 + s * 4 + y] = MM_RES[j * 16 + s * 4 + y].read();
+                    }
+                }
             }
         }
     }

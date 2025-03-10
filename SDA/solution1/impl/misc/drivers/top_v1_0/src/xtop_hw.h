@@ -83,6 +83,11 @@
 // 0x2c : Data signal of MM_Weight
 //        bit 31~0 - MM_Weight[63:32] (Read/Write)
 // 0x30 : reserved
+// 0x34 : Data signal of Output_r
+//        bit 31~0 - Output_r[31:0] (Read/Write)
+// 0x38 : Data signal of Output_r
+//        bit 31~0 - Output_r[63:32] (Read/Write)
+// 0x3c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define XTOP_CONTROL_R_ADDR_CONV_MM_A_DATA   0x10
@@ -91,4 +96,6 @@
 #define XTOP_CONTROL_R_BITS_CONV_WEIGHT_DATA 64
 #define XTOP_CONTROL_R_ADDR_MM_WEIGHT_DATA   0x28
 #define XTOP_CONTROL_R_BITS_MM_WEIGHT_DATA   64
+#define XTOP_CONTROL_R_ADDR_OUTPUT_R_DATA    0x34
+#define XTOP_CONTROL_R_BITS_OUTPUT_R_DATA    64
 

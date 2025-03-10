@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'PE'" level="0">
-<item name = "Date">Tue Feb 25 14:23:49 2025
+<item name = "Date">Mon Mar 10 15:35:53 2025
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">SDA</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 3.108 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 6.622 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">9231, 9231, 92.310 us, 92.310 us, 9231, 9231, no</column>
+<column name="">2325, 2325, 23.250 us, 23.250 us, 2325, 2325, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_PE_Pipeline_VITIS_LOOP_378_5_fu_70">PE_Pipeline_VITIS_LOOP_378_5, 9229, 9229, 92.290 us, 92.290 us, 9229, 9229, no</column>
+<column name="grp_PE_Pipeline_VITIS_LOOP_385_5_fu_64">PE_Pipeline_VITIS_LOOP_385_5, 2323, 2323, 23.230 us, 23.230 us, 2323, 2323, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

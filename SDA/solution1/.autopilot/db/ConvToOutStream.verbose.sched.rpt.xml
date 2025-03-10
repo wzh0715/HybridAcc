@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'ConvToOutStream'" level="0">
-<item name = "Date">Tue Feb 25 14:23:51 2025
+<item name = "Date">Mon Mar 10 15:36:00 2025
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">SDA</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 6.650 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 6.980 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">1, 9221, 10.000 ns, 92.210 us, 1, 9221, no</column>
+<column name="">1, 2312, 10.000 ns, 23.120 us, 1, 2312, no</column>
 </table>
 </item>
 <item name = "Detail">

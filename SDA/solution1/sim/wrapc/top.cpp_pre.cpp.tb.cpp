@@ -5,14 +5,14 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // 
 // ==============================================================
-# 1 "D:/FPGA/SDA/top.cpp"
+# 1 "D:/Download/SDA/top.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "D:/FPGA/SDA/top.cpp"
-# 1 "D:/FPGA/SDA/top.h" 1
+# 1 "D:/Download/SDA/top.cpp"
+# 1 "D:/Download/SDA/top.h" 1
        
 
-# 1 "D:/FPGA/SDA/tools.h" 1
+# 1 "D:/Download/SDA/tools.h" 1
        
 
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/hls_stream.h" 1
@@ -53870,7 +53870,7 @@ public:
 };
 
 }
-# 4 "D:/FPGA/SDA/tools.h" 2
+# 4 "D:/Download/SDA/tools.h" 2
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
 # 10 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h"
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/etc/ap_common.h" 1
@@ -78161,7 +78161,7 @@ inline bool operator!=(
 }
 # 366 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_fixed.h" 2
 # 361 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 2
-# 5 "D:/FPGA/SDA/tools.h" 2
+# 5 "D:/Download/SDA/tools.h" 2
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_axi_sdata.h" 1
 # 15 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_axi_sdata.h"
 # 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
@@ -78340,53 +78340,59 @@ template <std::size_t WData, std::size_t WUser, std::size_t WId,
           std::size_t WDest>
 using qdma_axis = hls::axis<ap_uint<WData>, WUser, WId, WDest,
                             0b01111111 ^ 0b00100000, false>;
-# 6 "D:/FPGA/SDA/tools.h" 2
+# 6 "D:/Download/SDA/tools.h" 2
+# 1 "D:/Applications/Xilinx/Vitis_HLS/2023.2/tps/win64/msys64/mingw64/include/c++/6.2.0/math.h" 1 3
+# 7 "D:/Download/SDA/tools.h" 2
 
-# 1 "D:/FPGA/SDA/config.h" 1
+# 1 "D:/Download/SDA/config.h" 1
        
-# 8 "D:/FPGA/SDA/tools.h" 2
+# 9 "D:/Download/SDA/tools.h" 2
 
 using namespace hls;
 using namespace std;
 
-void ConvertInputToStream(ap_uint<16 * 8> *A, stream<ap_uint<16 * 8>> &conv_a, stream<ap_uint<16 * 8>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M);
+void ConvertBias_BN(ap_uint<(4 * 32)> *norm, float *bias, stream<ap_uint<(4 * 32)>> fifo_norm[128], stream<float> fifo_bias[128], unsigned M, bool mode);
 
-void SamePadding(stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode);
+void ConvertInputToStream(ap_uint<16 * 32> *A, stream<ap_uint<16 * 32>> &conv_a, stream<ap_uint<16 * 32>> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M);
 
-void Sliding(unsigned K, stream<ap_uint<16 * 8>> &in, stream<ap_uint<16 * 8>> &out, unsigned R, unsigned C, unsigned N, unsigned M, bool mode);
+void Padding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned P, bool mode);
 
-void ConvertWeightToStream(ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Weight, stream<ap_uint<16 * 8>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 8>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, bool mode);
+void Sliding(stream<ap_uint<16 * 32>> &in, stream<ap_uint<16 * 32>> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
 
-void ConvWeightToArray(stream<ap_uint<16 * 8>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 8>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
+void ConvertWeightToStream(ap_uint<16 * 32> *Conv_Weight, ap_uint<16 * 32> *MM_Weight, stream<ap_uint<16 * 32>> fifo_conv_w[(16 / 4)], stream<ap_uint<16 * 32>> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode);
 
-void MMWeightToArray(stream<ap_uint<16 * 8>> &in, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
+void ConvWeightToArray(stream<ap_uint<16 * 32>> fifo_W_in[(16 / 4)], stream<ap_uint<4 * 32>> fifo_W_local_out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
 
-void MuxWeightStream(stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> MM_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode);
+void MMWeightToArray(stream<ap_uint<16 * 32>> &in, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_w_in, bool mode);
 
-void ConvertInputToArray(stream<ap_uint<16 * 8>> &conv3_sild, stream<ap_uint<16 * 8>>& mm_a, stream<ap_uint<4 * 8>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode);
+void MuxWeightStream(stream<ap_uint<4 * 32>> Conv_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> MM_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], unsigned num_w_sa, bool mode);
 
-void PE(stream<ap_uint<4 * 8>> &fifo_A_in, stream<ap_uint<4 * 8>> &fifo_W_in, stream<ap_uint<32>> fifo_C_out[4], unsigned C, unsigned num_a_sa, bool mode);
+void ConvertInputToArray(stream<ap_uint<16 * 32>> &conv3_sild, stream<ap_uint<16 * 32>>& mm_a, stream<ap_uint<4 * 32>> out[(16 / 4)][(16 / 4)], unsigned num_a_sa, bool mode);
 
-void Compute(stream<ap_uint<4 * 8>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)], stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode);
+void PE(stream<ap_uint<4 * 32>> &fifo_A_in, stream<ap_uint<4 * 32>> &fifo_W_in, stream<float> fifo_C_out[4], unsigned C, unsigned num_a_sa, bool mode);
 
-void ConvertToOutStream(stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<ap_uint<32>> fifo_C_out[16], stream<ap_uint<32>> mm_out[64], unsigned numlines, unsigned R, unsigned M, bool mode);
+void Compute(stream<ap_uint<4 * 32>> fifo_SA_A[(16 / 4)][(16 / 4)], stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)], stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], unsigned num_a_sa, unsigned num, bool mode);
 
-void ConvToOutStream(stream<ap_uint<32>> fifo_CONV3_ACC[16], stream<ap_int<32>> CONV3_OUT[32], unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, bool mode);
+void ConvertToOutStream(stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4], stream<float> fifo_C_out[16], stream<float> mm_out[16], unsigned numlines, unsigned R, unsigned M, bool mode);
 
-void ResOutput(stream<ap_int<32>> CONV_OUT[32], stream<ap_uint<32>> MM_OUT[64], ap_uint<32> *output, unsigned R, unsigned C, unsigned M, bool mode);
-# 4 "D:/FPGA/SDA/top.h" 2
+void ConvToOutStream(stream<float> fifo_CONV3_ACC[16], stream<float> CONV3_OUT[128], unsigned OUT_R, unsigned OUT_C, unsigned N, unsigned M, unsigned K, bool mode);
 
-void top(ap_uint<16 * 8> *Conv_MM_A, ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Weight,
-    unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, bool mode);
-# 2 "D:/FPGA/SDA/top.cpp" 2
+void ConvBias(stream<float> CONV3_OUT[128], stream<float> fifo_bias[128], stream<float> CONV3_Bias[128], unsigned out_r, unsigned out_c, unsigned M, bool mode);
 
-void top(ap_uint<16 * 8> *Conv_MM_A, ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 8> *MM_Weight,
-   unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, bool mode)
+void ConvBN(stream<float> CONV3_Trans[128], stream<float> CONV3_Norm[128], stream<ap_uint<(4 * 32)>> fifo_norm[128], unsigned out_r, unsigned out_c, unsigned M, bool mode);
+
+void ResOutput(stream<float> CONV_RES[128], stream<float> MM_RES[16], float *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
+# 4 "D:/Download/SDA/top.h" 2
+
+void top(ap_uint<16 * 32> *Conv_MM_A, ap_uint<16 * 32> *Conv_Weight, ap_uint<16 * 32> *MM_Weight, float *Bias, ap_uint<(4 * 32)> *Norm, float *Output, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
+# 2 "D:/Download/SDA/top.cpp" 2
+
+void top(ap_uint<16 * 32> *Conv_MM_A, ap_uint<16 * 32> *Conv_Weight, ap_uint<16 * 32> *MM_Weight, float *Bias, ap_uint<(4 * 32)> *Norm, float *Output, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
 {
 #pragma HLS INTERFACE m_axi depth = 5000 bundle = A_BUS port = Conv_MM_A offset = slave
 #pragma HLS INTERFACE m_axi depth = 5000 bundle = CONV_BUS port = Conv_Weight offset = slave
 #pragma HLS INTERFACE m_axi depth = 5000 bundle = MM_BUS port = MM_Weight offset = slave
-
+#pragma HLS INTERFACE m_axi depth = 5000 bundle = OUTPUT_BUS port = Output offset = slave
 #pragma HLS INTERFACE s_axilite port = R bundle = control
 #pragma HLS INTERFACE s_axilite port = C bundle = control
 #pragma HLS INTERFACE s_axilite port = N bundle = control
@@ -78395,17 +78401,23 @@ void top(ap_uint<16 * 8> *Conv_MM_A, ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 
 #pragma HLS INTERFACE s_axilite port = mode bundle = control
 #pragma HLS INTERFACE s_axilite port = return bundle = control
 
-
+#pragma HLS DATAFLOW
  unsigned num_a_sa;
  unsigned num_w_in;
  unsigned num_w_sa;
+ unsigned num_out;
  unsigned num;
+ unsigned out_r;
+ unsigned out_c;
  if (mode == true)
  {
-  num_a_sa = (M / 16) * (N / 16) * R * C * K * K;
-  num_w_in = R * K * K * N / 16 * M / (16 / 4);
-  num_w_sa = R * K * K * N / 16 * M / (16 / 4);
-  num = C;
+  out_r = (R + 2 * P - K) / S + 1;
+  out_c = (C + 2 * P - K) / S + 1;
+  num_a_sa = (M / 16) * (N / 16) * out_r * out_c * K * K;
+  num_w_in = out_r * K * K * N / 16 * M / (16 / 4);
+  num_w_sa = out_r * K * K * N / 16 * M / (16 / 4);
+  num_out = out_r * out_c * M / 16;
+  num = out_c;
  }
  else
  {
@@ -78413,102 +78425,91 @@ void top(ap_uint<16 * 8> *Conv_MM_A, ap_uint<16 * 8> *Conv_Weight, ap_uint<16 * 
   num_w_in = R * M * N / (16 * 16);
   num_w_sa = R * M * N / (16 * 16);
   num = N;
+  num_out = R * M / 16;
  }
 
- stream<ap_uint<16 * 8>> conv_a;
+ stream<float> fifo_bias[128];
+#pragma HLS STREAM variable = fifo_bias depth = 1 dim = 1
+ stream<ap_uint<(4 * 32)>> fifo_norm[128];
+#pragma HLS STREAM variable = fifo_norm depth = 1 dim = 1
+ ConvertBias_BN(Norm, Bias, fifo_norm, fifo_bias, M, mode);
+
+ stream<ap_uint<16 * 32>> conv_a;
 #pragma HLS STREAM variable = conv_a depth = 128
- stream<ap_uint<16 * 8>> mm_a;
+ stream<ap_uint<16 * 32>> mm_a;
 #pragma HLS STREAM variable = mm_a depth = 128
  ConvertInputToStream(Conv_MM_A, conv_a, mm_a, mode, R, C, N, M);
 
- stream<ap_uint<16 * 8>> conv3_samepad;
-#pragma HLS STREAM variable = conv3_samepad depth = 32
- SamePadding(conv_a, conv3_samepad, R, C, N, M, mode);
+ stream<ap_uint<16 * 32>> conv3_samepad;
+#pragma HLS STREAM variable = conv3_samepad depth = 8
+ Padding(conv_a, conv3_samepad, R, C, N, M, P, mode);
 
- stream<ap_uint<16 * 8>> conv3_sild;
-#pragma HLS STREAM variable = conv3_sild depth = 32
- Sliding(3, conv3_samepad, conv3_sild, R, C, N, M, mode);
+ stream<ap_uint<16 * 32>> conv3_sild;
+#pragma HLS STREAM variable = conv3_sild depth = 4
+ Sliding(conv3_samepad, conv3_sild, R, C, N, M, K, P, S, mode);
 
- stream<ap_uint<4 * 8>> fifo_SA_A[(16 / 4)][(16 / 4)];
-#pragma HLS STREAM variable = fifo_SA_A depth = 32
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = fifo_SA_A
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_SA_A
+ stream<ap_uint<4 * 32>> fifo_SA_A[(16 / 4)][(16 / 4)];
+#pragma HLS STREAM variable = fifo_SA_A depth = 4 dim = 1
+#pragma HLS STREAM variable = fifo_SA_A depth = 4 dim = 2
  ConvertInputToArray(conv3_sild, mm_a, fifo_SA_A, num_a_sa, mode);
 
- stream<ap_uint<16 * 8>> fifo_conv_w[(16 / 4)];
-#pragma HLS STREAM depth = 128 variable = fifo_conv_w
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_conv_w
- stream<ap_uint<16 * 8>> fifo_mm_w;
+ stream<ap_uint<16 * 32>> fifo_conv_w[(16 / 4)];
+#pragma HLS STREAM depth = 8 variable = fifo_conv_w dim = 1
+ stream<ap_uint<16 * 32>> fifo_mm_w;
 #pragma HLS STREAM depth = 128 variable = fifo_mm_w
- ConvertWeightToStream(Conv_Weight, MM_Weight, fifo_conv_w, fifo_mm_w, R, N, K, M, mode);
+ ConvertWeightToStream(Conv_Weight, MM_Weight, fifo_conv_w, fifo_mm_w, R, N, K, M, P, S, mode);
 
- stream<ap_uint<4 * 8>> Conv_SA_W[(16 / 4)][(16 / 4)];
-#pragma HLS STREAM variable = Conv_SA_W depth = 32
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = Conv_SA_W
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = Conv_SA_W
+ stream<ap_uint<4 * 32>> Conv_SA_W[(16 / 4)][(16 / 4)];
+#pragma HLS STREAM variable = Conv_SA_W depth = 8 dim = 1
+#pragma HLS STREAM variable = Conv_SA_W depth = 8 dim = 2
  ConvWeightToArray(fifo_conv_w, Conv_SA_W, num_w_in, mode);
 
- stream<ap_uint<4 * 8>> MM_SA_W[(16 / 4)][(16 / 4)];
-#pragma HLS STREAM variable = MM_SA_W depth = 32
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = MM_SA_W
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = MM_SA_W
+ stream<ap_uint<4 * 32>> MM_SA_W[(16 / 4)][(16 / 4)];
+#pragma HLS STREAM variable = MM_SA_W depth = 4 dim = 1
+#pragma HLS STREAM variable = MM_SA_W depth = 4 dim = 2
  MMWeightToArray(fifo_mm_w, MM_SA_W, num_w_in, mode);
 
- stream<ap_uint<4 * 8>> fifo_SA_W[(16 / 4)][(16 / 4)];
-#pragma HLS STREAM variable = fifo_SA_W depth = 32
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = fifo_SA_W
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_SA_W
+ stream<ap_uint<4 * 32>> fifo_SA_W[(16 / 4)][(16 / 4)];
+#pragma HLS STREAM variable = fifo_SA_W depth = 8 dim = 1
+#pragma HLS STREAM variable = fifo_SA_W depth = 8 dim = 2
  MuxWeightStream(Conv_SA_W, MM_SA_W, fifo_SA_W, num_w_sa, mode);
 
- stream<ap_uint<32>> fifo_SA_O[(16 / 4)][(16 / 4)][4];
-#pragma HLS STREAM variable = fifo_SA_O depth = 32
-#pragma HLS BIND_STORAGE variable = fifo_SA_O type = fifo
-#pragma HLS ARRAY_PARTITION dim = 3 type = complete variable = fifo_SA_O
-#pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = fifo_SA_O
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_SA_O
+ stream<float> fifo_SA_O[(16 / 4)][(16 / 4)][4];
+#pragma HLS STREAM variable = fifo_SA_O depth = 16 dim = 1
+#pragma HLS STREAM variable = fifo_SA_O depth = 16 dim = 2
+#pragma HLS STREAM variable = fifo_SA_O depth = 16 dim = 3
  Compute(fifo_SA_A, fifo_SA_W, fifo_SA_O, num_a_sa, num, mode);
 
- stream<ap_uint<32>> fifo_CONV3_ACC[16];
-#pragma HLS STREAM variable = fifo_CONV3_ACC depth = 32
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = fifo_CONV3_ACC
-
- stream<ap_uint<32>> MM_OUT[64];
-#pragma HLS STREAM variable = MM_OUT depth = 32
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = MM_OUT
-
+ stream<float> fifo_CONV3_ACC[16];
+#pragma HLS STREAM variable = fifo_CONV3_ACC depth = 8 dim = 1
+ stream<float> MM_OUT[16];
+#pragma HLS STREAM variable = MM_OUT depth = 4 dim = 1
  ConvertToOutStream(fifo_SA_O, fifo_CONV3_ACC, MM_OUT, num_a_sa, R, N, mode);
 
- stream<ap_int<32>> CONV3_OUT[32];
-#pragma HLS STREAM variable = CONV3_OUT depth = 32
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = CONV3_OUT
- ConvToOutStream(fifo_CONV3_ACC, CONV3_OUT, R, C, N, M, K, mode);
+ stream<float> CONV3_OUT[128];
+#pragma HLS STREAM variable = MM_OUT depth = 4 dim = 1
+ ConvToOutStream(fifo_CONV3_ACC, CONV3_OUT, out_r, out_c, N, M, K, mode);
 
- for(int i = 0; i < 32; i ++)
- {
-  if(!CONV3_OUT[i].empty())
-  {
-   CONV3_OUT[i].read();
-  }
- }
- for(int i = 0; i < 64; i ++)
- {
-  if(!MM_OUT[i].empty())
-  {
-   MM_OUT[i].read();
-  }
- }
+ stream<float> CONV3_BIAS[128];
+#pragma HLS STREAM variable = CONV3_BIAS depth = 4 dim = 1
+ ConvBias(CONV3_OUT, fifo_bias, CONV3_BIAS, out_r, out_c, M, mode);
 
+ stream<float> CONV3_NORM[128];
+#pragma HLS STREAM variable = CONV3_NORM depth = 4 dim = 1
+ ConvBN(CONV3_BIAS, CONV3_NORM,fifo_norm, out_r, out_c, M, mode);
+
+ ResOutput(CONV3_NORM, MM_OUT, Output, R, C, M, K, P, S, mode);
 }
 #ifndef HLS_FASTSIM
 #ifdef __cplusplus
 extern "C"
 #endif
-void apatb_top_ir(ap_uint<128> *, ap_uint<128> *, ap_uint<128> *, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool);
+void apatb_top_ir(ap_uint<512> *, ap_uint<512> *, ap_uint<512> *, float *, ap_uint<128> *, float *, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, bool);
 #ifdef __cplusplus
 extern "C"
 #endif
-void top_hw_stub(ap_uint<128> *Conv_MM_A, ap_uint<128> *Conv_Weight, ap_uint<128> *MM_Weight, unsigned int R, unsigned int C, unsigned int N, unsigned int M, unsigned int K, bool mode){
-top(Conv_MM_A, Conv_Weight, MM_Weight, R, C, N, M, K, mode);
+void top_hw_stub(ap_uint<512> *Conv_MM_A, ap_uint<512> *Conv_Weight, ap_uint<512> *MM_Weight, float *Bias, ap_uint<128> *Norm, float *Output, unsigned int R, unsigned int C, unsigned int N, unsigned int M, unsigned int K, unsigned int P, unsigned int S, bool mode){
+top(Conv_MM_A, Conv_Weight, MM_Weight, Bias, Norm, Output, R, C, N, M, K, P, S, mode);
 return ;
 }
 #ifdef __cplusplus
@@ -78518,11 +78519,11 @@ void refine_signal_handler();
 #ifdef __cplusplus
 extern "C"
 #endif
-void apatb_top_sw(ap_uint<128> *Conv_MM_A, ap_uint<128> *Conv_Weight, ap_uint<128> *MM_Weight, unsigned int R, unsigned int C, unsigned int N, unsigned int M, unsigned int K, bool mode){
+void apatb_top_sw(ap_uint<512> *Conv_MM_A, ap_uint<512> *Conv_Weight, ap_uint<512> *MM_Weight, float *Bias, ap_uint<128> *Norm, float *Output, unsigned int R, unsigned int C, unsigned int N, unsigned int M, unsigned int K, unsigned int P, unsigned int S, bool mode){
 refine_signal_handler();
-apatb_top_ir(Conv_MM_A, Conv_Weight, MM_Weight, R, C, N, M, K, mode);
+apatb_top_ir(Conv_MM_A, Conv_Weight, MM_Weight, Bias, Norm, Output, R, C, N, M, K, P, S, mode);
 return ;
 }
 #endif
-# 121 "D:/FPGA/SDA/top.cpp"
+# 115 "D:/Download/SDA/top.cpp"
 
