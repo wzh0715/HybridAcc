@@ -7,10 +7,12 @@
 #define CONV_K 3
 #define CONV_P 1
 #define CONV_S 1
+#define CONV_OUT_R ((CONV_R + 2 * CONV_P - CONV_K) / CONV_S + 1)
+#define CONV_OUT_C ((CONV_C + 2 * CONV_P - CONV_K) / CONV_S + 1)
 
-#define MM_R 16
-#define MM_N 16
-#define MM_M 16
+#define MM_R 128
+#define MM_N 128
+#define MM_M 128
 
 #define CONV_TEST_R 16
 #define CONV_TEST_C 16
@@ -39,5 +41,10 @@
 #define NORM_BIT (4 * BIT)
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MAX_CYCLE (CONV_TEST_M / MAX_OUP * CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_OUT_C)
+
 #define MAX_BUF_LENGTH ((CONV_C + 2 * CONV_P) * CONV_N / MAX_INP)
-#define MAX_CONV3_BIAS_LENGTH 410 
+
+static float BIAS_BUF[CONV_M];
+static ap_uint<NORM_BIT> NORM_BUF[CONV_M];
+static ap_uint<MAX_INP * BIT> WEIGHT_BUF[MAX_A_COL][CONV_K * CONV_K * CONV_N / MAX_INP * CONV_M / MAX_A_COL];

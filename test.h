@@ -20,7 +20,7 @@ void ReorgConvWeight(float *conv3_weight, ap_uint<MAX_INP * BIT> *conv3_weight_r
                             tmp = tmp >> BIT;
                             tmp(MAX_INP * BIT - 1, (MAX_INP - 1) * BIT) = reinterpret_cast<uint32_t&>(conv3_weight[kr * CONV_TEST_K * CONV_TEST_N * CONV_TEST_M + kc * CONV_TEST_N * CONV_TEST_M + (n * MAX_INP + x) * CONV_TEST_M + m * MAX_OUP + y]);
                         }
-                        conv3_tmp[y][ m * CONV_TEST_K * CONV_TEST_K * (CONV_TEST_N / MAX_INP) + kr * CONV_TEST_K * (CONV_TEST_N / MAX_INP) + kc * (CONV_TEST_N / MAX_INP) + n] = tmp;
+                        conv3_tmp[y][m * CONV_TEST_K * CONV_TEST_K * (CONV_TEST_N / MAX_INP) + kr * CONV_TEST_K * (CONV_TEST_N / MAX_INP) + kc * (CONV_TEST_N / MAX_INP) + n] = tmp;
                     }
                 }
             }
@@ -28,11 +28,11 @@ void ReorgConvWeight(float *conv3_weight, ap_uint<MAX_INP * BIT> *conv3_weight_r
     }
     for (int m = 0; m < CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_M / MAX_OUP; m++)
     {
-        for (int y = 0; y < MAX_OUP / MAX_A_COL; y++)
+        for (int y = 0; y < SA_OUP; y++)
         {
             for (int s = 0; s < MAX_A_COL; s++)
             {
-                conv3_weight_re[s * (CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_M / MAX_A_COL) + m * (MAX_OUP / MAX_A_COL) + y] = conv3_tmp[s * (MAX_OUP / MAX_A_COL) + y][m];
+                conv3_weight_re[(m * SA_OUP + y) * MAX_A_COL + s] = conv3_tmp[s * SA_OUP + y][m];
             }
         }
     }
@@ -170,7 +170,7 @@ void GenConvOutput(float A[CONV_TEST_R + 2 * CONV_TEST_P][CONV_TEST_C + 2 * CONV
                 float variance = norm[1][m];
                 float gamma = norm[2][m];
                 float beta = norm[3][m];
-                float stddev = sqrt(variance + EPSILON);
+                float stddev = hls::sqrtf(variance + EPSILON);
                 float normalized = (acc - mean) / stddev;
                 float final_output = gamma * normalized + beta;
                 res[i][j][m] = final_output;
