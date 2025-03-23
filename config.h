@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ap_int.h>
+
 #define CONV_R 32
 #define CONV_C 32
 #define CONV_N 128
@@ -48,3 +50,7 @@
 static float BIAS_BUF[CONV_M];
 static ap_uint<NORM_BIT> NORM_BUF[CONV_M];
 static ap_uint<MAX_INP * BIT> WEIGHT_BUF[MAX_A_COL][CONV_K * CONV_K * CONV_N / MAX_INP * CONV_M / MAX_A_COL];
+
+#define MAX_SOFTMAX_LENGTH (MAX_INP * MM_M / MAX_OUP) 
+static float SOFTMAX_BUF_0[MAX_OUP][MAX_SOFTMAX_LENGTH];
+static float SOFTMAX_BUF_1[MAX_OUP][MAX_SOFTMAX_LENGTH];

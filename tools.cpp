@@ -629,7 +629,8 @@ void ConvToOutStream(stream<float> fifo_CONV3_ACC[MAX_OUP], stream<float> CONV3_
     float psum[CONV_OUT_C][MAX_OUP];
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = psum
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = psum
-
+    float bias[MAX_OUP];
+#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = bias
     for (int r = 0; r < OUT_R; r++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_R min = CONV_TEST_R
@@ -650,6 +651,11 @@ void ConvToOutStream(stream<float> fifo_CONV3_ACC[MAX_OUP], stream<float> CONV3_
                         {
                             temp += psum[c][s];
                         }
+                        else
+                        {
+                            bias[s] = BIAS_BUF[rep * MAX_OUP + s];
+                            temp += bias[s];
+                        }
                         psum[c][s] = temp;
                         if (j == N / MAX_INP * K * K - 1)
                         {
@@ -662,49 +668,414 @@ void ConvToOutStream(stream<float> fifo_CONV3_ACC[MAX_OUP], stream<float> CONV3_
     }
 }
 
-void ConvBiasBN(stream<float> CONV3_OUT[MAX_OUP], stream<float> CONV3_Bias[MAX_OUP], unsigned out_r, unsigned out_c, unsigned M, bool mode)
+void MuxOutStream(stream<float> CONV3_OUT[MAX_OUP], stream<float> MM_OUT[MAX_OUP], stream<float> SFU_IN[MAX_OUP], stream<float> SHORTCUT_IN[MAX_OUP], unsigned num_out, unsigned sfu_mode, bool mode)
 {
-    if (mode == false)
-        return;
+    float temp;
+    for (unsigned i = 0; i < num_out; i++)
+    {
+        for (unsigned j = 0; j < MAX_OUP; j++)
+        {
+            if (mode)
+            {
+                temp = CONV3_OUT[j].read();
+            }
+            else
+            {
+                temp = MM_OUT[j].read();
+            }
+            if (sfu_mode != 4)
+            {
+                SFU_IN[j].write(temp);
+            }
+            else
+            {
+                SHORTCUT_IN[j].write(temp);
+            }
+        }
+    }
+}
+
+void SFU(stream<float> SFU_IN[MAX_OUP], stream<float> SFU_OUT[MAX_OUP], unsigned R, unsigned C, unsigned K, unsigned S, unsigned P, unsigned M, unsigned num_out, unsigned sfu_mode, bool mode)
+{
+    if (sfu_mode == 0)
+    {
+        BatchNorm(SFU_IN, SFU_OUT, R, C, K, S, P, M, mode);
+    }
+    else if (sfu_mode == 1)
+    {
+        ReLu(SFU_IN, SFU_OUT, num_out);
+    }
+    else if (sfu_mode == 2)
+    {
+        Sigmoid(SFU_IN, SFU_OUT, num_out);
+    }
+    else if (sfu_mode == 3)
+    {
+        Softmax(SFU_IN, SFU_OUT, R, M, num_out);
+    }
+}
+
+void BatchNorm(stream<float> Norm_IN[MAX_OUP], stream<float> NORM_OUT[MAX_OUP], unsigned R, unsigned C, unsigned K, unsigned S, unsigned P, unsigned M, bool mode)
+{
     const float EPSILON = 1e-5;
-    float bias, mean, var, gamma, beta, temp, rsqrt_var;
+    float mean, var, gamma, beta, temp, sqrt_var;
     ap_uint<NORM_BIT> norm_temp;
     uint32_t norm[4];
-    for (unsigned r = 0; r < out_r; r++)
+    if (mode == true)
     {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_R min = CONV_TEST_R
-        for (unsigned m = 0; m < M / MAX_OUP; m++)
+        for (unsigned r = 0; r < (R + 2 * P - K) / S + 1; r++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M / MAX_OUP min = CONV_TEST_M / MAX_OUP
-            for (unsigned c = 0; c < out_c; c++)
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R min = CONV_TEST_OUT_R
+            for (unsigned m = 0; m < M / MAX_OUP; m++)
             {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M / MAX_OUP min = CONV_TEST_M / MAX_OUP
+                for (unsigned c = 0; c < (C + 2 * P - K) / S + 1; c++)
+                {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_C min = CONV_TEST_OUT_C
 #pragma HLS PIPELINE II = 1
-                for (unsigned i = 0; i < MAX_OUP; i++)
-                {
-                    bias = BIAS_BUF[m * MAX_OUP + i];
-                    norm_temp = NORM_BUF[m * MAX_OUP + i];
-                    for (unsigned k = 0; k < 4; k++)
+                    for (unsigned i = 0; i < MAX_OUP; i++)
                     {
-                        norm[k] = norm_temp(BIT - 1, 0);
-                        norm_temp >>= BIT;
-                    }
-                    mean = reinterpret_cast<float &>(norm[0]);
-                    var = reinterpret_cast<float &>(norm[1]) + EPSILON;
-                    gamma = reinterpret_cast<float &>(norm[2]);
-                    beta = reinterpret_cast<float &>(norm[3]);
-                    rsqrt_var = hls::rsqrtf(var);
+                        norm_temp = NORM_BUF[m * MAX_OUP + i];
+                        for (unsigned k = 0; k < 4; k++)
+                        {
+                            norm[k] = norm_temp(BIT - 1, 0);
+                            norm_temp >>= BIT;
+                        }
+                        mean = reinterpret_cast<float &>(norm[0]);
+                        var = reinterpret_cast<float &>(norm[1]) + EPSILON;
+                        gamma = reinterpret_cast<float &>(norm[2]);
+                        beta = reinterpret_cast<float &>(norm[3]);
+                        sqrt_var = hls::sqrtf(var);
 
-                    temp = CONV3_OUT[i].read() + bias;
-                    temp = gamma * (temp - mean) * rsqrt_var + beta;
-                    CONV3_Bias[i].write(temp);
+                        temp = Norm_IN[i].read();
+                        temp = gamma * (temp - mean) / sqrt_var + beta;
+                        NORM_OUT[i].write(temp);
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        for (unsigned r = 0; r < R / MAX_INP; r++)
+        {
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP min = MM_TEST_R / MAX_INP
+            for (unsigned m = 0; m < M / MAX_OUP; m++)
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M / MAX_OUP min = MM_TEST_M / MAX_OUP
+            {
+                for (unsigned j = 0; j < MAX_INP; j++)
+                {
+#pragma HLS PIPELINE II = 1
+                    for (unsigned i = 0; i < MAX_OUP; i++)
+                    {
+                        norm_temp = NORM_BUF[m * MAX_OUP + i];
+                        for (unsigned k = 0; k < 4; k++)
+                        {
+                            norm[k] = norm_temp(BIT - 1, 0);
+                            norm_temp >>= BIT;
+                        }
+                        mean = reinterpret_cast<float &>(norm[0]);
+                        var = reinterpret_cast<float &>(norm[1]) + EPSILON;
+                        gamma = reinterpret_cast<float &>(norm[2]);
+                        beta = reinterpret_cast<float &>(norm[3]);
+                        sqrt_var = hls::sqrtf(var);
+
+                        temp = Norm_IN[i].read();
+                        temp = gamma * (temp - mean) / sqrt_var + beta;
+                        NORM_OUT[i].write(temp);
+                    }
                 }
             }
         }
     }
 }
 
-void ResOutput(stream<float> CONV_RES[MAX_OUP], stream<float> MM_RES[MAX_OUP], ap_uint<MAX_OUP * BIT> *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
+void ReLu(stream<float> CONV3_OUT[MAX_OUP], stream<float> RELU_OUT[MAX_OUP], unsigned num_out)
+{
+    float out, temp, relu;
+    for (unsigned i = 0; i < num_out; i++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_OUP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP
+#pragma HLS PIPELINE II = 1
+        for (unsigned c = 0; c < MAX_OUP; c++)
+        {
+            temp = CONV3_OUT[c].read();
+            if (temp >= 0)
+            {
+                out = temp;
+            }
+            else
+            {
+                out = 0;
+            }
+            RELU_OUT[c].write(out);
+        }
+    }
+}
+
+void Sigmoid(stream<float> CONV3_OUT[MAX_OUP], stream<float> SIGMOID_OUT[MAX_OUP], unsigned num_out)
+{
+    float out, temp, relu;
+    for (unsigned i = 0; i < num_out; i++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_OUP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP
+#pragma HLS PIPELINE II = 1
+        for (unsigned c = 0; c < MAX_OUP; c++)
+        {
+            temp = CONV3_OUT[c].read();
+            if (temp > 5.0f)
+            {
+                out = 1.0f;
+            }
+            if (temp < -5.0f)
+            {
+                out = 0.0f;
+            }
+            out = 1.0f / (1.0f + hls::expf(-temp));
+            SIGMOID_OUT[c].write(out);
+        }
+    }
+}
+
+void Sliu(stream<float> NORM_OUT[MAX_OUP], stream<float> SILU_OUT[MAX_OUP], unsigned num_out, bool mode)
+{
+    float out, temp1, temp2, relu6;
+    for (unsigned i = 0; i < num_out; i++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_OUP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP
+#pragma HLS PIPELINE II = 1
+        for (unsigned c = 0; c < MAX_OUP; c++)
+        {
+            temp1 = NORM_OUT[c].read();
+            temp2 += temp1 + 3;
+            if (temp2 >= 6)
+            {
+                relu6 = 6;
+            }
+            else if (temp2 <= 0)
+            {
+                relu6 = 0;
+            }
+            else
+            {
+                relu6 = temp2;
+            }
+            out = temp1 * temp2 / 6;
+            SILU_OUT[c].write(out);
+        }
+    }
+}
+
+void Softmax(stream<float> MM_OUT[MAX_OUP], stream<float> SOFTMAX_OUT[MAX_OUP], unsigned R, unsigned M, unsigned num_out)
+{
+    float tmax_M_ping[MAX_INP];
+#pragma HLS ARRAY_PARTITION variable = tmax_M_ping complete dim = 1
+    float tmax_M_pong[MAX_INP];
+#pragma HLS ARRAY_PARTITION variable = tmax_M_pong complete dim = 1
+
+    bool arb = 0;
+    bool trans_en = 0;
+
+    for (unsigned i = 0; i < R / MAX_INP; i++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP  min = MM_TEST_R / MAX_INP
+        if (arb == 0)
+        {
+            SOFTMAX_WriteBUF(MM_OUT, SOFTMAX_BUF_0, tmax_M_ping, M);
+
+            SOFTMAX_WriteStream(SOFTMAX_OUT, SOFTMAX_BUF_1, tmax_M_pong, M, trans_en);
+        }
+        else
+        {
+            SOFTMAX_WriteBUF(MM_OUT, SOFTMAX_BUF_1, tmax_M_pong, M);
+
+            SOFTMAX_WriteStream(SOFTMAX_OUT, SOFTMAX_BUF_0, tmax_M_ping, M, trans_en);
+        }
+        trans_en = 1;
+        arb = !arb;
+    }
+    if (arb == 0)
+    {
+        SOFTMAX_WriteStream(SOFTMAX_OUT, SOFTMAX_BUF_1, tmax_M_pong, M, trans_en);
+    }
+    else
+    {
+        SOFTMAX_WriteStream(SOFTMAX_OUT, SOFTMAX_BUF_0, tmax_M_ping, M, trans_en);
+    }
+}
+
+void SOFTMAX_WriteBUF(stream<float> in[MAX_OUP], float Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], float tmax_M[MAX_INP], unsigned M)
+{
+#pragma HLS INLINE OFF
+    unsigned num = M / MAX_OUP * MAX_INP;
+    unsigned outdIdx = 0, w = 0, h = 0, index;
+    float temp;
+    float MAX_TempBuf[MAX_INP];
+#pragma HLS ARRAY_PARTITION variable = MAX_TempBuf complete dim = 1
+    float OUP_TempBuf[MAX_OUP];
+#pragma HLS ARRAY_PARTITION variable = OUP_TempBuf complete dim = 1
+    float OUP_out_TempBuf[MAX_OUP];
+#pragma HLS ARRAY_PARTITION variable = OUP_out_TempBuf complete dim = 1
+
+    for (unsigned j = 0; j < MAX_INP; j++)
+    {
+#pragma HLS UNROLL
+        MAX_TempBuf[j] = -1e5;
+    }
+
+    for (unsigned m = 0; m < num; m++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M * MAX_INP / MAX_OUP  min = MM_TEST_M * MAX_INP / MAX_OUP
+#pragma HLS PIPELINE II = 1
+#pragma HLS DEPENDENCE false inter variable = Softmax_buf
+        index = outdIdx * M / MAX_OUP + h;
+        for (unsigned i = 0; i < MAX_OUP; i++)
+        {
+#pragma HLS UNROLL
+            temp = in[i].read();
+            OUP_TempBuf[i] = temp;
+            Softmax_buf[i][index] = temp;
+        }
+        FIND_MAX_VALUE(OUP_TempBuf, MAX_TempBuf[outdIdx]);
+        if (outdIdx == MAX_INP - 1)
+        {
+            outdIdx = 0;
+            if (h == M / MAX_OUP - 1)
+            {
+                h = 0;
+            }
+            else
+            {
+                h++;
+            }
+        }
+        else
+        {
+            outdIdx++;
+        }
+    }
+    for (unsigned j = 0; j < MAX_INP; j++)
+    {
+#pragma HLS UNROLL
+        tmax_M[j] = MAX_TempBuf[j];
+    }
+}
+
+void FIND_MAX_VALUE(float OUP_TempBuf[MAX_OUP], float &MAX_Temp)
+{ // MAX_OUP = 16
+    float max_0[MAX_OUP / 2];
+#pragma HLS ARRAY_PARTITION variable = max_0 dim = 1 complete
+    float max_1[MAX_OUP / 4];
+#pragma HLS ARRAY_PARTITION variable = max_1 dim = 1 complete
+    float max_2[MAX_OUP / 8];
+#pragma HLS ARRAY_PARTITION variable = max_2 dim = 1 complete
+    float max;
+    for (unsigned i = 0; i < MAX_OUP / 2; i++)
+    {
+#pragma HLS UNROLL
+        max_0[i] = OUP_TempBuf[2 * i] > OUP_TempBuf[2 * i + 1] ? OUP_TempBuf[2 * i] : OUP_TempBuf[2 * i + 1];
+    }
+    for (unsigned i = 0; i < MAX_OUP / 4; i++)
+    {
+        max_1[i] = max_0[2 * i] > max_0[2 * i + 1] ? max_0[2 * i] : max_0[2 * i + 1];
+    }
+    for (unsigned i = 0; i < MAX_OUP / 8; i++)
+    {
+        max_2[i] = max_1[2 * i] > max_1[2 * i + 1] ? max_1[2 * i] : max_1[2 * i + 1];
+    }
+    max = max_2[0] > max_2[1] ? max_2[0] : max_2[1];
+    MAX_Temp = MAX_Temp > max ? MAX_Temp : max;
+}
+
+void SOFTMAX_WriteStream(stream<float> res_out[MAX_OUP], float Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], float tmax_M[MAX_INP], unsigned M, bool tran_en)
+{
+#pragma HLS INLINE OFF
+
+    if (!tran_en)
+        return;
+    float ONE_ROW_buf_ping[MAX_OUP][MM_M / MAX_OUP];
+#pragma HLS ARRAY_PARTITION variable = ONE_ROW_buf_ping dim = 1 complete
+    float ONE_ROW_buf_pong[MAX_OUP][MM_M / MAX_OUP];
+#pragma HLS ARRAY_PARTITION variable = ONE_ROW_buf_pong dim = 1 complete
+    float Sum_buf_ping, Sum_buf_pong;
+
+    bool arb = 0, intra_trans_en = 0;
+
+    for (unsigned i = 0; i < MAX_INP; i++)
+    {
+        if (arb == 0)
+        {
+            SOFTMAX_STAGE1(Softmax_buf, tmax_M[i], ONE_ROW_buf_ping, Sum_buf_ping, i, M);
+
+            SOFTMAX_STAGE2(ONE_ROW_buf_pong, Sum_buf_pong, res_out, M, intra_trans_en);
+        }
+        else
+        {
+            SOFTMAX_STAGE1(Softmax_buf, tmax_M[i], ONE_ROW_buf_pong, Sum_buf_pong, i, M);
+            SOFTMAX_STAGE2(ONE_ROW_buf_ping, Sum_buf_ping, res_out, M, intra_trans_en);
+        }
+        intra_trans_en = 1;
+        arb = !arb;
+    }
+    if (arb == 0)
+    {
+        SOFTMAX_STAGE2(ONE_ROW_buf_pong, Sum_buf_pong, res_out, M, intra_trans_en);
+    }
+    else
+    {
+        SOFTMAX_STAGE2(ONE_ROW_buf_ping, Sum_buf_ping, res_out, M, intra_trans_en);
+    }
+}
+
+void SOFTMAX_STAGE1(float Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], float tmax_M, float ONE_ROW_buf[MAX_OUP][MM_M / MAX_OUP], float Sum_buf, unsigned row, unsigned M)
+{
+#pragma HLS INLINE OFF
+#pragma HLS ARRAY_PARTITION variable = Softmax_buf dim = 1 complete
+#pragma HLS ARRAY_PARTITION variable = ONE_ROW_buf dim = 1 complete
+
+    float temp, max_temp, out, sum_temp, Sum_out_TempBuf = 0;
+    unsigned num = M / MAX_OUP;
+    unsigned ini_addr = row * num;
+
+    for (unsigned m = 0; m < num; m++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M / MAX_OUP  min = MM_TEST_M / MAX_OUP
+#pragma HLS PIPELINE II = 1
+        for (int j = 0; j < MAX_OUP; j++)
+        {
+            temp = Softmax_buf[j][ini_addr + m];
+            max_temp = tmax_M;
+            out = hls::expf(temp - max_temp);
+            Sum_out_TempBuf = Sum_out_TempBuf + out;
+            ONE_ROW_buf[j][m] = out;
+        }
+    }
+    Sum_buf = Sum_out_TempBuf;
+}
+
+void SOFTMAX_STAGE2(float ONE_ROW_buf[MAX_OUP][MM_M / MAX_OUP], float Sum_buf, stream<float> res_out[MAX_OUP], unsigned M, bool tran_en)
+{
+#pragma HLS INLINE OFF
+    if (!tran_en)
+        return;
+    float temp, out;
+    unsigned num = M / MAX_OUP;
+
+    for (unsigned m = 0; m < num; m++)
+    {
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M / MAX_OUP  min = MM_TEST_M / MAX_OUP
+#pragma HLS PIPELINE II = 1
+#pragma HLS DEPENDENCE false inter variable = ONE_ROW_buf
+        for (int j = 0; j < MAX_OUP; j++)
+        {
+            temp = ONE_ROW_buf[j][m];
+            out = temp / Sum_buf;
+            res_out[j].write(out);
+        }
+    }
+}
+
+void ResOutput(stream<float> SFU_OUT[MAX_OUP], stream<float> SHORTCUT_IN[MAX_OUP], ap_uint<MAX_OUP * BIT> *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, unsigned sfu_mode, bool mode)
 {
     ap_uint<MAX_OUP * BIT> out_temp;
     float temp;
@@ -722,7 +1093,14 @@ void ResOutput(stream<float> CONV_RES[MAX_OUP], stream<float> MM_RES[MAX_OUP], a
 #pragma HLS PIPELINE II = 1
                     for (unsigned i = 0; i < MAX_OUP; i++)
                     {
-                        temp = CONV_RES[i].read();
+                        if(sfu_mode)
+                        {
+                            temp = SFU_OUT[i].read();
+                        }
+                        else
+                        {
+                            temp = SHORTCUT_IN[i].read();
+                        }
                         out_temp >>= BIT;
                         out_temp(MAX_OUP * BIT - 1, (MAX_OUP - 1) * BIT) = reinterpret_cast<uint32_t &>(temp);
                     }
@@ -733,18 +1111,25 @@ void ResOutput(stream<float> CONV_RES[MAX_OUP], stream<float> MM_RES[MAX_OUP], a
     }
     else
     {
-        for (unsigned r = 0; r < R / MAX_INP; r++) // 1
+        for (unsigned r = 0; r < R / MAX_INP; r++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP min = MM_TEST_R / MAX_INP
-            for (unsigned m = 0; m < M / MAX_OUP; m++)  // 1
+            for (unsigned m = 0; m < M / MAX_OUP; m++)
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M / MAX_OUP min = MM_TEST_M / MAX_OUP
             {
-                for (unsigned j = 0; j < MAX_INP; j++)  // 16
+                for (unsigned j = 0; j < MAX_INP; j++)
                 {
 #pragma HLS PIPELINE II = 1
-                    for (unsigned i = 0; i < MAX_OUP; i++) // 16
+                    for (unsigned i = 0; i < MAX_OUP; i++)
                     {
-                        temp = MM_RES[i].read();
+                        if(sfu_mode)
+                        {
+                            temp = SFU_OUT[i].read();
+                        }
+                        else
+                        {
+                            temp = SHORTCUT_IN[i].read();
+                        }
                         out_temp >>= BIT;
                         out_temp(MAX_OUP * BIT - 1, (MAX_OUP - 1) * BIT) = reinterpret_cast<uint32_t &>(temp);
                     }

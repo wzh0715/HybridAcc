@@ -1,6 +1,6 @@
 #include "top.h"
 
-void top(ap_uint<MAX_INP * BIT> *Conv_MM_A, ap_uint<MAX_INP * BIT> *Conv_MM_Weight, float *Bias, ap_uint<NORM_BIT> *Norm, ap_uint<MAX_OUP * BIT> *Output, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
+void top(ap_uint<MAX_INP * BIT> *Conv_MM_A, ap_uint<MAX_INP * BIT> *Conv_MM_Weight, float *Bias, ap_uint<NORM_BIT> *Norm, ap_uint<MAX_OUP * BIT> *Output, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, unsigned sfu_mode, bool mode)
 {
 #pragma HLS INTERFACE mode = m_axi bundle = A_BUS depth = 256 port = Conv_MM_A
 #pragma HLS INTERFACE m_axi depth = 144 bundle = WEIGHT_BUS port = Conv_MM_Weight
@@ -8,11 +8,11 @@ void top(ap_uint<MAX_INP * BIT> *Conv_MM_A, ap_uint<MAX_INP * BIT> *Conv_MM_Weig
 #pragma HLS INTERFACE m_axi depth = 16 bundle = NORM_BUS port = Norm
 #pragma HLS INTERFACE m_axi depth = 256 bundle = OUTPUT_BUS port = Output
 
-// #pragma HLS INTERFACE mode=m_axi bundle=A_BUS depth=16 port=Conv_MM_A
-// #pragma HLS INTERFACE m_axi depth = 16 bundle = WEIGHT_BUS port = Conv_MM_Weight
-// #pragma HLS INTERFACE m_axi depth = 32  bundle = BIAS_BUS port = Bias
-// #pragma HLS INTERFACE m_axi depth = 32  bundle = NORM_BUS port = Norm
-// #pragma HLS INTERFACE m_axi depth = 16 bundle = OUTPUT_BUS port = Output
+	// #pragma HLS INTERFACE mode=m_axi bundle=A_BUS depth=16 port=Conv_MM_A
+	// #pragma HLS INTERFACE m_axi depth = 16 bundle = WEIGHT_BUS port = Conv_MM_Weight
+	// #pragma HLS INTERFACE m_axi depth = 32  bundle = BIAS_BUS port = Bias
+	// #pragma HLS INTERFACE m_axi depth = 32  bundle = NORM_BUS port = Norm
+	// #pragma HLS INTERFACE m_axi depth = 16 bundle = OUTPUT_BUS port = Output
 
 #pragma HLS INTERFACE s_axilite port = R bundle = control
 #pragma HLS INTERFACE s_axilite port = C bundle = control
@@ -21,12 +21,16 @@ void top(ap_uint<MAX_INP * BIT> *Conv_MM_A, ap_uint<MAX_INP * BIT> *Conv_MM_Weig
 #pragma HLS INTERFACE s_axilite port = K bundle = control
 #pragma HLS INTERFACE s_axilite port = S bundle = control
 #pragma HLS INTERFACE s_axilite port = P bundle = control
+#pragma HLS INTERFACE s_axilite port = sfu_mode bundle = control
 #pragma HLS INTERFACE s_axilite port = mode bundle = control
 #pragma HLS INTERFACE s_axilite port = return bundle = control
 
 #pragma HLS ARRAY_PARTITION variable = BIAS_BUF dim = 1 complete
 #pragma HLS ARRAY_PARTITION variable = NORM_BUF dim = 1 complete
 #pragma HLS ARRAY_PARTITION variable = WEIGHT_BUF dim = 1 complete
+#pragma HLS ARRAY_PARTITION variable = SOFTMAX_BUF_0 dim = 1 complete
+#pragma HLS ARRAY_PARTITION variable = SOFTMAX_BUF_1 dim = 1 complete
+
 
 #pragma HLS DATAFLOW
 	unsigned num_a_sa;
@@ -102,16 +106,22 @@ void top(ap_uint<MAX_INP * BIT> *Conv_MM_A, ap_uint<MAX_INP * BIT> *Conv_MM_Weig
 	stream<float> fifo_CONV3_ACC[MAX_OUP];
 #pragma HLS STREAM variable = fifo_CONV3_ACC depth = 4
 	stream<float> MM_OUT[MAX_OUP];
-#pragma HLS STREAM variable = MM_OUT depth = 64
+#pragma HLS STREAM variable = MM_OUT depth = 4
 	ConvertToOutStream(fifo_SA_O, fifo_CONV3_ACC, MM_OUT, num_a_sa, R, N, mode);
 
 	stream<float> CONV3_OUT[MAX_OUP];
 #pragma HLS STREAM variable = CONV3_OUT depth = 4
 	ConvToOutStream(fifo_CONV3_ACC, CONV3_OUT, out_r, out_c, N, M, K, mode);
 
-	stream<float> CONV3_BIAS[MAX_OUP];
-#pragma HLS STREAM variable = CONV3_BIAS depth = 64
-	ConvBiasBN(CONV3_OUT, CONV3_BIAS, out_r, out_c, M, mode);
+	stream<float> SFU_IN[MAX_OUP];
+#pragma HLS STREAM variable = SFU_IN depth = 4
+	stream<float> SHORTCUT_IN[MAX_OUP];
+#pragma HLS STREAM variable = SHORTCUT_IN depth = 64
+	MuxOutStream(CONV3_OUT, MM_OUT, SFU_IN, SHORTCUT_IN, num_out, sfu_mode, mode);
 
-	ResOutput(CONV3_BIAS, MM_OUT, Output, R, C, M, K, P, S, mode);
+	stream<float> SFU_OUT[MAX_OUP];
+#pragma HLS STREAM variable = SFU_OUT depth = 64
+	SFU(SFU_IN, SFU_OUT, R, C, K, S, P, M, num_out, sfu_mode, mode);
+
+	ResOutput(SFU_OUT, SHORTCUT_IN, Output, R, C, M, K, P, S, sfu_mode, mode);
 }

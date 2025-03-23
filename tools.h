@@ -40,6 +40,28 @@ void ConvertToOutStream(stream<float> fifo_SA_O[MAX_A_ROW][MAX_A_COL][SA_OUP], s
 
 void ConvToOutStream(stream<float> fifo_CONV3_ACC[MAX_OUP], stream<float> CONV3_OUT[MAX_OUP], unsigned OUT_R, unsigned OUT_C, unsigned N, unsigned M, unsigned K, bool mode);
 
-void ConvBiasBN(stream<float> CONV3_OUT[MAX_OUP], stream<float> CONV3_Bias[MAX_OUP], unsigned out_r, unsigned out_c, unsigned M, bool mode);
+void MuxOutStream(stream<float> CONV3_OUT[MAX_OUP], stream<float> MM_OUT[MAX_OUP], stream<float> SFU_IN[MAX_OUP], stream<float> SHORTCUT_IN[MAX_OUP], unsigned num_out, unsigned sfu_mode, bool mode);
 
-void ResOutput(stream<float> CONV_RES[MAX_OUP], stream<float> MM_RES[MAX_OUP], ap_uint<MAX_OUP * BIT> *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
+void SFU(stream<float> SFU_IN[MAX_OUP], stream<float> SFU_OUT[MAX_OUP], unsigned R, unsigned C, unsigned K, unsigned S, unsigned P, unsigned M, unsigned num_out, unsigned sfu_mode, bool mode);
+
+void BatchNorm(stream<float> Norm_IN[MAX_OUP], stream<float> NORM_OUT[MAX_OUP], unsigned R, unsigned C, unsigned K, unsigned S, unsigned P, unsigned M, bool mode);
+
+void ReLu(stream<float> CONV3_OUT[MAX_OUP], stream<float> RELU_OUT[MAX_OUP], unsigned num_out);
+
+void Sigmoid(stream<float> CONV3_OUT[MAX_OUP], stream<float> SIGMOID_OUT[MAX_OUP], unsigned num_out);
+
+void Softmax(stream<float> MM_OUT[MAX_OUP], stream<float> SOFTMAX_OUT[MAX_OUP], unsigned R, unsigned M, unsigned num_out);
+
+void SOFTMAX_WriteBUF(stream<float> in[MAX_OUP], float Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], float tmax_M[MAX_INP], unsigned M);
+
+void FIND_MAX_VALUE(float OUP_TempBuf[MAX_OUP], float &MAX_Temp);
+
+void SOFTMAX_WriteStream(stream<float> res_out[MAX_OUP], float Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], float tmax_M[MAX_INP], unsigned M, bool tran_en);
+
+void SOFTMAX_STAGE1(float Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], float tmax_M, float ONE_ROW_buf[MAX_OUP][MM_M / MAX_OUP], float Sum_buf, unsigned row, unsigned M);
+
+void SOFTMAX_STAGE2(float ONE_ROW_buf[MAX_OUP][MM_M / MAX_OUP], float Sum_buf, stream<float> res_out[MAX_OUP], unsigned M, bool tran_en);
+
+void Sliu(stream<float> NORM_OUT[MAX_OUP], stream<float> SILU_OUT[MAX_OUP], unsigned num_out, bool mode);
+
+void ResOutput(stream<float> SFU_OUT[MAX_OUP], stream<float> SHORTCUT_IN[MAX_OUP], ap_uint<MAX_OUP * BIT> *output, unsigned R, unsigned C, unsigned M, unsigned K, unsigned P, unsigned S, unsigned sfu_mode, bool mode);
