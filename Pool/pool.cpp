@@ -1,6 +1,6 @@
 #include "pool.h"
 
-void pool_top(float *input, float *output, unsigned r, unsigned c, unsigned n, unsigned k, unsigned s, unsigned p, unsigned type)
+void pool_top(DataType *input, DataType *output, unsigned r, unsigned c, unsigned n, unsigned k, unsigned s, unsigned p, unsigned type)
 {
     unsigned out_r = (r + 2 * p - k) / s + 1;
     unsigned out_c = (c + 2 * p - k) / s + 1;
@@ -11,14 +11,15 @@ void pool_top(float *input, float *output, unsigned r, unsigned c, unsigned n, u
     bool flag = true;
     bool trans = false;
 
-    float out_buf_0[Tr][Tc][Tn];
-    float out_buf_1[Tr][Tc][Tn];
+    DataType out_buf_0[Tr][Tc][Tn];
+    DataType out_buf_1[Tr][Tc][Tn];
 
-    float in_buf_0[S * Tr + K - S][S * Tc + K - S][Tn];
-    float in_buf_1[S * Tr + K - S][S * Tc + K - S][Tn];
+    DataType in_buf_0[S * Tr + K - S][S * Tc + K - S][Tn];
+    DataType in_buf_1[S * Tr + K - S][S * Tc + K - S][Tn];
 
     for (unsigned l = 0; l < loop_cnt; l++)
     {
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_R min = CONV_TEST_R
         if (l == 0)
         {
             loadIn(input, in_buf_0, r, c, n, k, s, p, row, col, nn);
@@ -77,7 +78,7 @@ void pool_top(float *input, float *output, unsigned r, unsigned c, unsigned n, u
     }
 }
 
-void loadIn(float *input, float in_buf[S * Tr + K - S][S * Tc + K - S][Tn], unsigned r, unsigned c, unsigned n, unsigned k, unsigned s, unsigned p, unsigned row, unsigned col, unsigned nn)
+void loadIn(DataType *input, DataType in_buf[S * Tr + K - S][S * Tc + K - S][Tn], unsigned r, unsigned c, unsigned n, unsigned k, unsigned s, unsigned p, unsigned row, unsigned col, unsigned nn)
 {
     unsigned short rloops = S * Tr + K - S;
     unsigned short cloops = S * Tc + K - S;
@@ -86,7 +87,7 @@ void loadIn(float *input, float in_buf[S * Tr + K - S][S * Tc + K - S][Tn], unsi
     int c_base = col * s - p;
     int n_base = nn;
 
-    float *base_addr;
+    DataType *base_addr;
     for (unsigned short l = 0; l < nloops; l++)
     {
         for (unsigned short i = 0; i < rloops; i++)
@@ -107,9 +108,9 @@ void loadIn(float *input, float in_buf[S * Tr + K - S][S * Tc + K - S][Tn], unsi
     }
 }
 
-void pool_compute(float in_buf[S * Tr + K - S][S * Tc + K - S][Tn], float out_buf[Tr][Tc][Tn], unsigned k, unsigned s, unsigned type)
+void pool_compute(DataType in_buf[S * Tr + K - S][S * Tc + K - S][Tn], DataType out_buf[Tr][Tc][Tn], unsigned k, unsigned s, unsigned type)
 {
-    float tmp;
+    DataType tmp;
     for (unsigned nn = 0; nn < Tn; nn ++)
     {
         for (unsigned i = 0; i < Tr; i ++)
@@ -133,12 +134,12 @@ void pool_compute(float in_buf[S * Tr + K - S][S * Tc + K - S][Tn], float out_bu
     }
 }
 
-void storeOut(float* output, float out_buf[Tr][Tc][Tn], unsigned out_r, unsigned out_c, unsigned n, unsigned row, unsigned col, unsigned nn, unsigned type, bool trans)
+void storeOut(DataType* output, DataType out_buf[Tr][Tc][Tn], unsigned out_r, unsigned out_c, unsigned n, unsigned row, unsigned col, unsigned nn, unsigned type, bool trans)
 {
     if(trans == false)
         return ;
     
-    float* out_base;
+    DataType* out_base;
     for(unsigned short i = 0; i < Tr; i ++)
     {
         for(unsigned short j = 0; j < Tc; j ++)
