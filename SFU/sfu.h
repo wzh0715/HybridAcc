@@ -10,15 +10,17 @@
 using namespace hls;
 using namespace std;
 
+void init(unsigned &num_in, unsigned r, unsigned c, unsigned m, bool mode);
+
 void sfu_top(DataOutput *input, DataOutput *output, ap_uint<NORM_BIT> *norm, unsigned r, unsigned c, unsigned m, unsigned sfu_mode, bool silu_mode, bool mode);
 
 void LoadNorm(ap_uint<NORM_BIT> *norm, ap_uint<NORM_BIT> NORM_BUF[CONV_M], unsigned M);
 
 void ConvertToStream(DataOutput *input, stream<DataType> SFU_IN[MAX_OUP], unsigned num);
 
-void SFU(stream<DataType> SFU_IN[MAX_OUP], stream<DataType> SFU_OUT[MAX_OUP], ap_uint<NORM_BIT> NORM_BUF, unsigned R, unsigned C, unsigned M, unsigned num, unsigned sfu_mode, bool mode);
+void SFU(stream<DataType> SFU_IN[MAX_OUP], stream<DataType> SFU_OUT[MAX_OUP], ap_uint<NORM_BIT> NORM_BUF[CONV_M], unsigned R, unsigned C, unsigned M, unsigned num, unsigned sfu_mode, bool mode);
 
-void BatchNorm(stream<DataType> Norm_IN[MAX_OUP], stream<DataType> NORM_OUT[MAX_OUP], ap_uint<NORM_BIT> NORM_BUF, unsigned R, unsigned C, unsigned M, bool mode);
+void BatchNorm(stream<DataType> Norm_IN[MAX_OUP], stream<DataType> NORM_OUT[MAX_OUP], ap_uint<NORM_BIT> NORM_BUF[CONV_M], unsigned R, unsigned C, unsigned M, bool mode);
 
 void ReLu(stream<DataType> CONV3_OUT[MAX_OUP], stream<DataType> RELU_OUT[MAX_OUP], unsigned num_out);
 

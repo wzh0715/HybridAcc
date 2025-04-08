@@ -25,14 +25,7 @@ void sfu_top(DataOutput *input, DataOutput *output, ap_uint<NORM_BIT> *norm, uns
 #pragma HLS DATAFLOW
 
     unsigned num_in;
-    if (mode == true)
-    {
-        num_in = r * c * m / MAX_OUP;
-    }
-    else
-    {
-        num_in = r * m / MAX_OUP;
-    }
+    init(num_in, r, c, m, mode);
     
     ap_uint<NORM_BIT> NORM_BUF[CONV_M];
 #pragma HLS ARRAY_PARTITION variable = NORM_BUF dim = 1 complete
@@ -47,10 +40,22 @@ void sfu_top(DataOutput *input, DataOutput *output, ap_uint<NORM_BIT> *norm, uns
     SFU(SFU_IN, SFU_OUT, NORM_BUF, r, c, m, num_in, sfu_mode, mode);
 
     stream<DataType> SILU_OUT[MAX_OUP];
-#pragma HLS STREAM variable = SILU_OUT depth = 8
+#pragma HLS STREAM variable = SILU_OUT depth = 64
     Sliu(SFU_OUT, SILU_OUT, num_in, silu_mode);
 
     ResOutPut(SILU_OUT, output, num_in);
+}
+
+void init(unsigned &num_in, unsigned r, unsigned c, unsigned m, bool mode)
+{
+    if(mode)
+    {
+        num_in = r * c * m / MAX_OUP;
+    }
+    else
+    {
+        num_in = r * m / MAX_OUP;
+    }
 }
 
 void LoadNorm(ap_uint<NORM_BIT> *norm, ap_uint<NORM_BIT> NORM_BUF[CONV_M], unsigned M)
@@ -80,12 +85,12 @@ void ConvertToStream(DataOutput *input, stream<DataType> SFU_IN[MAX_OUP], unsign
     }
 }
 
-void SFU(stream<DataType> SFU_IN[MAX_OUP], stream<DataType> SFU_OUT[MAX_OUP], ap_uint<NORM_BIT> NORM_BUF, unsigned R, unsigned C, unsigned M, unsigned num, unsigned sfu_mode, bool mode)
+void SFU(stream<DataType> SFU_IN[MAX_OUP], stream<DataType> SFU_OUT[MAX_OUP], ap_uint<NORM_BIT> NORM_BUF[CONV_M], unsigned R, unsigned C, unsigned M, unsigned num, unsigned sfu_mode, bool mode)
 {
     switch (sfu_mode)
     {
     case 0:
-        BatchNorm(SFU_IN, SFU_OUT, R, C, M, NORM_BUF, mode);
+        BatchNorm(SFU_IN, SFU_OUT, NORM_BUF, R, C, M, mode);
         break;
     case 1:
         ReLu(SFU_IN, SFU_OUT, num);
@@ -99,7 +104,7 @@ void SFU(stream<DataType> SFU_IN[MAX_OUP], stream<DataType> SFU_OUT[MAX_OUP], ap
     }
 }
 
-void BatchNorm(stream<DataType> Norm_IN[MAX_OUP], stream<DataType> NORM_OUT[MAX_OUP], ap_uint<NORM_BIT> NORM_BUF, unsigned R, unsigned C, unsigned M, bool mode)
+void BatchNorm(stream<DataType> Norm_IN[MAX_OUP], stream<DataType> NORM_OUT[MAX_OUP], ap_uint<NORM_BIT> NORM_BUF[CONV_M], unsigned R, unsigned C, unsigned M, bool mode)
 {
     const DataType EPSILON = 1e-5;
     DataType mean, var, gamma, beta, temp, sqrt_var;
@@ -123,10 +128,9 @@ void BatchNorm(stream<DataType> Norm_IN[MAX_OUP], stream<DataType> NORM_OUT[MAX_
                         norm_temp >>= BIT;
                     }
                     mean = norm[0];
-                    var = norm[1] + EPSILON;
+                    sqrt_var = hls::sqrt(norm[1] + EPSILON);
                     gamma = norm[2];
                     beta = norm[3];
-                    sqrt_var = hls::sqrt(var);
 
                     temp = Norm_IN[i].read();
                     temp = gamma * (temp - mean) / sqrt_var + beta;
@@ -146,20 +150,17 @@ void BatchNorm(stream<DataType> Norm_IN[MAX_OUP], stream<DataType> NORM_OUT[MAX_
 #pragma HLS PIPELINE II = 1
                 for (unsigned i = 0; i < MAX_OUP; i++)
                 {
-                    norm_temp = NORM_BUF[m * MAX_OUP + i];
+                    norm_temp(NORM_BIT - 1, 0) = NORM_BUF[m * MAX_OUP + i](NORM_BIT - 1, 0);
                     for (unsigned k = 0; k < 4; k++)
                     {
-                        norm[k] = norm_temp(BIT - 1, 0);
-                        norm_temp >>= BIT;
+                        norm[k](BIT - 1, 0) = norm_temp((k + 1) * BIT - 1, k * BIT);
                     }
                     mean = norm[0];
-                    var = norm[1] + EPSILON;
+                    sqrt_var = hls::sqrt(norm[1] + EPSILON);
                     gamma = norm[2];
                     beta = norm[3];
-                    sqrt_var = hls::sqrt(var);
-
-                    temp = Norm_IN[i].read();
-                    temp = gamma * (temp - mean) / sqrt_var + beta;
+                    
+                    temp = gamma * (Norm_IN[i].read() - mean) / sqrt_var + beta;
                     NORM_OUT[i].write(temp);
                 }
             }
@@ -261,7 +262,7 @@ void Softmax(stream<DataType> MM_OUT[MAX_OUP], stream<DataType> SOFTMAX_OUT[MAX_
     Loop_Softmax:
     for (unsigned i = 0; i < R / MAX_INP; i++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP min = MM_TEST_R / MAX_INP
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP min = MM_TEST_R / MAX_INP  //4
         if (arb == 0)
         {
             SOFTMAX_WriteBUF(MM_OUT, SOFTMAX_BUF_0, tmax_M_ping, M);
@@ -406,13 +407,13 @@ void SOFTMAX_STAGE1(DataType Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], DataType 
 
     for (unsigned m = 0; m < num; m++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M / MAX_OUP min = MM_TEST_M / MAX_OUP
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M / MAX_OUP min = MM_TEST_M / MAX_OUP  // 8
 #pragma HLS PIPELINE II = 1
         for (int j = 0; j < MAX_OUP; j++)
         {
             temp = Softmax_buf[j][ini_addr + m];
             max_temp = tmax_M;
-            out = hls::expf(temp - max_temp);
+            out = hls::exp(temp - max_temp);
             Sum_out_TempBuf = Sum_out_TempBuf + out;
             ONE_ROW_buf[j][m] = out;
         }
@@ -454,7 +455,7 @@ void ResOutPut(stream<DataType> Res[MAX_OUP], DataOutput *output, unsigned num)
         {
             temp = Res[i].read();
             out_temp >>= BIT;
-            out_temp(MAX_OUP * BIT - 1, (MAX_OUP - 1) * BIT) = reinterpret_cast<uint32_t &>(temp);
+            out_temp(MAX_OUP * BIT - 1, (MAX_OUP - 1) * BIT) = temp(BIT - 1, 0);
         }
         output[rep] = out_temp;
     }
