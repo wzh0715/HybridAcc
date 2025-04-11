@@ -1,4 +1,4 @@
-#include "top.h"
+#include "sa_top.h"
 
 void ReorgConvWeight(DataType *conv3_weight, DataInput *conv3_weight_re)
 {
@@ -60,7 +60,6 @@ void GenMM(DataType A[MM_TEST_R * MM_TEST_N], DataType W[MM_TEST_N * MM_TEST_M])
 
 void GenMMOutput(DataType A[MM_TEST_R * MM_TEST_N], DataType W[MM_TEST_N * MM_TEST_M], DataType O_golden[MM_TEST_R][MM_TEST_M])
 {
-
     for (int r = 0; r < MM_TEST_R; r++)
     {
         for (int m = 0; m < MM_TEST_M; m++)

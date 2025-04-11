@@ -1,16 +1,18 @@
-#include "top.h"
+#include "sa_top.h"
 
-void top(DataInput *Conv_MM_A, DataInput *Conv_MM_Weight, DataType *Bias, DataOutput *Output, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
+void top(DataInput *Conv_MM_A, DataInput *Conv_Weight, DataOutput *MM_Weight, DataType *Bias, DataOutput *Output, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
 {
-// #pragma HLS INTERFACE m_axi depth = 2048  max_widen_bitwidth = 512  bundle = A_BUS port = Conv_MM_A
-// #pragma HLS INTERFACE m_axi depth = 576 max_widen_bitwidth = 512 bundle = WEIGHT_BUS port = Conv_MM_Weight
-// #pragma HLS INTERFACE m_axi depth = 32  bundle = BIAS_BUS port = Bias
-// #pragma HLS INTERFACE m_axi depth = 2048 max_widen_bitwidth = 512 bundle = OUTPUT_BUS port = Output
-
-#pragma HLS INTERFACE mode=m_axi bundle=A_BUS depth=1024 port=Conv_MM_A
-#pragma HLS INTERFACE m_axi depth = 1024 bundle = WEIGHT_BUS port = Conv_MM_Weight
+#pragma HLS INTERFACE m_axi depth = 2048  bundle = A_BUS port = Conv_MM_A
+#pragma HLS INTERFACE m_axi depth = 576 bundle = CONV_WEIGHT_BUS port = Conv_Weight
+#pragma HLS INTERFACE m_axi depth = 1024 bundle = MM_WEIGHT_BUS port = MM_Weight
 #pragma HLS INTERFACE m_axi depth = 32  bundle = BIAS_BUS port = Bias
-#pragma HLS INTERFACE m_axi depth = 1024 bundle = OUTPUT_BUS port = Output
+#pragma HLS INTERFACE m_axi depth = 2048  bundle = OUTPUT_BUS port = Output
+
+// #pragma HLS INTERFACE mode=m_axi bundle=A_BUS depth=512 port=Conv_MM_A
+// #pragma HLS INTERFACE m_axi depth = 576 bundle = CONV_WEIGHT_BUS port = Conv_Weight
+// #pragma HLS INTERFACE m_axi depth = 1024 bundle = MM_WEIGHT_BUS port = MM_Weight
+// #pragma HLS INTERFACE m_axi depth = 32  bundle = BIAS_BUS port = Bias
+// #pragma HLS INTERFACE m_axi depth = 1024 bundle = OUTPUT_BUS port = Output
 
 #pragma HLS INTERFACE s_axilite port = R bundle = control
 #pragma HLS INTERFACE s_axilite port = C bundle = control
@@ -53,7 +55,7 @@ void top(DataInput *Conv_MM_A, DataInput *Conv_MM_Weight, DataType *Bias, DataOu
 #pragma HLS STREAM depth = 64 variable = fifo_conv_w
 	stream<DataOutput> fifo_mm_w;
 #pragma HLS STREAM depth = 64 variable = fifo_mm_w
-	ConvertWeightToStream(Conv_MM_Weight, fifo_conv_w, fifo_mm_w, R, N, K, M, P, S, mode);
+	ConvertWeightToStream(Conv_Weight, MM_Weight, fifo_conv_w, fifo_mm_w, R, N, K, M, P, S, mode);
 
 	stream<ap_uint<SA_INP * BIT>> Conv_SA_W[MAX_A_ROW][MAX_A_COL];
 #pragma HLS STREAM variable = Conv_SA_W depth = 4

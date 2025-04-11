@@ -1,6 +1,6 @@
 #include "sfu.h"
 
-void GenMM(DataType A[MM_TEST_R * MM_TEST_M], DataType norm[4][MM_TEST_M])
+void GenMM(DataType A[MM_TEST_R * MM_TEST_M], DataType ShortCut[MM_TEST_R][MM_TEST_M], DataType norm[4][MM_TEST_M])
 {
     srand(static_cast<unsigned>(time(nullptr)));
 
@@ -9,6 +9,13 @@ void GenMM(DataType A[MM_TEST_R * MM_TEST_M], DataType norm[4][MM_TEST_M])
         for (int n = 0; n < MM_TEST_M; n++)
         {
             A[r * MM_TEST_M + n] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
+        }
+    }
+    for (int r = 0; r < MM_TEST_R; r++)
+    {
+        for (int n = 0; n < MM_TEST_M; n++)
+        {
+            ShortCut[r][n] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
         }
     }
     for (int i = 0; i < 4; i++)
@@ -24,7 +31,7 @@ void GenMM(DataType A[MM_TEST_R * MM_TEST_M], DataType norm[4][MM_TEST_M])
     }
 }
 
-void GenConv(DataType A[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], DataType norm[4][CONV_TEST_M])
+void GenConv(DataType A[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], DataType ShortCut[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], DataType norm[4][CONV_TEST_M])
 {
     srand(static_cast<unsigned>(time(nullptr)));
 
@@ -35,6 +42,16 @@ void GenConv(DataType A[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], DataType norm[4]
             for (int n = 0; n < CONV_TEST_M; n++)
             {
                 A[r][c][n] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
+            }
+        }
+    }
+    for (int r = 0; r < CONV_TEST_R; r++)
+    {
+        for (int c = 0; c < CONV_TEST_C; c++)
+        {
+            for (int n = 0; n < CONV_TEST_M; n++)
+            {
+                ShortCut[r][c][n] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
             }
         }
     }
@@ -92,11 +109,11 @@ void mm_norm(DataType A[MM_TEST_R * MM_TEST_M], DataType res[MM_TEST_R][MM_TEST_
 
 void mm_softmax(DataType A[MM_TEST_R * MM_TEST_M], DataType res[MM_TEST_R][MM_TEST_M])
 {
-    DataType max = 1e-5;
-    DataType total = 0;
     DataType row[MM_TEST_M];
     for (unsigned i = 0; i < MM_TEST_R; i++)
     {
+        DataType max = -128;
+        DataType total = 0;
         for (unsigned j = 0; j < MM_TEST_M; j++)
         {
             max = max > A[i * MM_TEST_M + j] ? max : A[i * MM_TEST_M + j];
@@ -110,56 +127,71 @@ void mm_softmax(DataType A[MM_TEST_R * MM_TEST_M], DataType res[MM_TEST_R][MM_TE
         {
             res[i][j] = row[j] / total;
         }
-        total = 0;
     }
 }
 
-void mm_silu(DataType A[MM_TEST_R * MM_TEST_M], DataType res[MM_TEST_R][MM_TEST_M])
+void mm_silu(DataType A[MM_TEST_R][MM_TEST_M], DataType ShortCut[MM_TEST_R][MM_TEST_M], DataType res[MM_TEST_R][MM_TEST_M], bool shortcut_mode)
 {
-    DataType relu6;
+    DataType temp, relu6;
     for (unsigned i = 0; i < MM_TEST_R; i++)
     {
         for (unsigned j = 0; j < MM_TEST_M; j++)
         {
-            if (A[i * MM_TEST_M + j] >= 3)
+            if(shortcut_mode)
+            {
+                temp = A[i][j] + ShortCut[i][j];
+            }
+            else
+            {
+                temp = A[i][j];
+            }   
+            if (temp >= 3)
             {
                 relu6 = 6;
             }
-            else if (A[i * MM_TEST_M + j] <= -3)
+            else if (temp <= -3)
             {
                 relu6 = 0;
             }
             else
             {
-                relu6 = A[i * MM_TEST_M + j] + 3;
+                relu6 = temp + 3;
             }
-            res[i][j] = A[i * MM_TEST_M + j] * relu6 / 6;
+            res[i][j] = temp * relu6 / 6;
         }
     }
 }
 
-void conv_silu(DataType A[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], DataType res[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M])
+void conv_silu(DataType A[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], DataType ShortCut[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], DataType res[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], bool shortcut_mode)
 {
-    DataType relu6;
+    DataType temp, relu6;
     for (unsigned i = 0; i < CONV_TEST_R; i++)
     {
         for (unsigned j = 0; j < CONV_TEST_C; j++)
         {
             for (unsigned k = 0; k < CONV_TEST_M; k++)
             {
-                if (A[i][j][k] >= 3)
+                if(shortcut_mode)
+                {
+                    temp = A[i][j][k] + ShortCut[i][j][k];
+                }
+                else
+                {
+                    temp = A[i][j][k];
+                }
+                if (temp >= 3)
                 {
                     relu6 = 6;
                 }
-                else if (A[i][j][k] <= -3)
+                else if (temp <= -3)
                 {
                     relu6 = 0;
                 }
                 else
                 {
-                    relu6 = A[i][j][k] + 3;
+                    relu6 = temp + 3;
                 }
-                res[i][j][k] = A[i][j][k] * relu6 / 6;
+                res[i][j][k] = temp * relu6 / 6;
             }
         }
     }

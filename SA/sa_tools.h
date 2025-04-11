@@ -1,14 +1,6 @@
 #pragma once
 
-#include <hls_stream.h>
-#include <ap_int.h>
-#include <ap_axi_sdata.h>
-#include <hls_math.h>
-
-#include "config.h"
-
-using namespace hls;
-using namespace std;
+#include "sa_config.h"
 
 void init(unsigned& num_a_sa, unsigned& num_w_in, unsigned& num_w_sa, unsigned& num_out, unsigned& num, unsigned& out_r, unsigned& out_c, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
 
@@ -28,11 +20,11 @@ void loadWeight(DataInput *Conv_MM_Weight, DataInput WEIGHT_BUF[MAX_A_COL][MAX_W
 
 void ConvWeightToStream(stream<DataInput> fifo_conv_w[MAX_A_COL], DataInput WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF], unsigned out_r, unsigned num);
 
-void loadMMWeight(DataInput *Conv_MM_Weight, DataInput WEIGHT_BUF[MAX_WEIGHT_BUF], unsigned num);
+void loadMMWeight(DataOutput *Conv_MM_Weight, DataInput WEIGHT_BUF[MAX_WEIGHT_BUF], unsigned num);
 
 void MMWeightToStream(stream<DataOutput> &fifo_mm_w, DataInput WEIGHT_BUF[MAX_WEIGHT_BUF], unsigned num);
 
-void ConvertWeightToStream(DataInput *Conv_MM_Weight, stream<DataInput> fifo_conv_w[MAX_A_COL], stream<DataOutput> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode);
+void ConvertWeightToStream(DataInput *Conv_Weight, DataOutput *MM_Weight, stream<DataInput> fifo_conv_w[MAX_A_COL], stream<DataOutput> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode);
 
 void ConvWeightToArray(stream<DataInput> fifo_W_in[MAX_A_COL], stream<ap_uint<SA_INP * BIT>> fifo_W_local_out[MAX_A_ROW][MAX_A_COL], unsigned num_w_in, bool mode);
 

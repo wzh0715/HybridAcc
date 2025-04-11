@@ -1,8 +1,14 @@
 #pragma once
 
 #include <ap_int.h>
+#include <hls_stream.h>
+#include <ap_axi_sdata.h>
+#include <hls_math.h>
 
-#define MAX_INP 16
+using namespace hls;
+using namespace std;
+
+#define MAX_INP 32
 #define MAX_OUP 16
 #define SA_INP 4
 #define SA_OUP 4
@@ -46,8 +52,8 @@ typedef ap_uint<MAX_OUP * BIT> DataOutput;
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MAX_TEST_CYCLE (CONV_TEST_M / MAX_OUP * CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_OUT_C)
 
-#define MAX_BUF_LENGTH 1792 // 14 * 2048 / 16
-#define MAX_WEIGHT_BUF 36864 // 512 * 512 * 9 / 16 / 4
-#define MAX_INPUT_BUF_LENGTH 2048
+#define MAX_BUF_LENGTH 896 // 14 * 2048 / 32
+#define MAX_WEIGHT_BUF 18432 // 512 * 512 * 9 / 32 / 4
+#define MAX_INPUT_BUF_LENGTH 1024
 
 static DataType BIAS_BUF[CONV_M];

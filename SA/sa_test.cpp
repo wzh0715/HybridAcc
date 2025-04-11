@@ -1,4 +1,4 @@
-#include "test.h"
+#include "sa_test.h"
 
 void MMTest()
 {
@@ -39,7 +39,8 @@ void MMTest()
     }
 
     DataOutput O[MM_TEST_R * MM_TEST_M / MAX_OUP];
-    top(A_pack, W_pack, bias, O, MM_TEST_R, 0, MM_TEST_N, MM_TEST_M, 0, 0, 0, false);
+    DataInput conv_weight[1];
+    top(A_pack, conv_weight, W_pack, bias, O, MM_TEST_R, 0, MM_TEST_N, MM_TEST_M, 0, 0, 0, false);
 
     DataType O_golden[MM_TEST_R][MM_TEST_M];
     GenMMOutput(A, W, O_golden);
@@ -56,7 +57,7 @@ void MMTest()
                 temp.range(BIT - 1, 0) = out_temp.range((k + 1) * BIT - 1, k * BIT);
                 if (temp != O_golden[i][j * MAX_OUP + k])
                 {
-                    std::cout << "[r][m]: " << i << " " << j * MAX_OUP + k << " " << "\t" << "out : " << temp << "\t\t" << "ref : " << O_golden[i][j] << std::endl;
+                    std::cout << "[r][m]: " << i << " " << j * MAX_OUP + k << " " << "\t" << "out : " << temp << "\t\t" << "ref : " << O_golden[i][j * MAX_OUP + k] << std::endl;
                 }
             }
         }
@@ -107,7 +108,8 @@ void ConvTest()
     ReorgConvWeight(conv_weight, conv3_weight_re);
 
     DataOutput conv3_res[CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP];
-    top(conv_A, conv3_weight_re, bias, conv3_res, CONV_TEST_R, CONV_TEST_C, CONV_TEST_N, CONV_TEST_M, CONV_TEST_K, CONV_TEST_P, CONV_TEST_S, true);
+    DataOutput mm_weight[1];
+    top(conv_A, conv3_weight_re, mm_weight, bias, conv3_res, CONV_TEST_R, CONV_TEST_C, CONV_TEST_N, CONV_TEST_M, CONV_TEST_K, CONV_TEST_P, CONV_TEST_S, true);
 
     DataType conv_padding[CONV_TEST_R + 2 * CONV_TEST_P][CONV_TEST_C + 2 * CONV_TEST_P][CONV_TEST_N];
     Padding(conv3_A, conv_padding, CONV_TEST_P);
@@ -131,7 +133,7 @@ void ConvTest()
                     temp.range(BIT - 1, 0) = out_temp.range((k + 1) * BIT - 1, k * BIT);
                     if (hls::abs(temp - conv_gloden[i][j][m * MAX_OUP + k]) > EPSILON)
                     {
-                        std::cout << "[r][c][m]: " << i << " " << j << " " << m * MAX_OUP + k << "\t" << "out : " << temp << "\t\t" << "ref : " << conv_gloden[i][j][k] << std::endl;
+                        std::cout << "[r][c][m]: " << i << " " << j << " " << m * MAX_OUP + k << "\t" << "out : " << temp << "\t\t" << "ref : " << conv_gloden[i][j][m * MAX_OUP + k] << std::endl;
                     }
                 }
             }
@@ -141,7 +143,7 @@ void ConvTest()
 
 int main()
 {
-    // ConvTest();
-    MMTest();
+    ConvTest();
+    // MMTest();
     return 0;
 }
