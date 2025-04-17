@@ -2,33 +2,34 @@
 
 #include "acc_top.h"
 
-void reorgConvWeight(DataType conv3_weight[CONV_TEST_K][CONV_TEST_K][CONV_TEST_N][CONV_TEST_M], DataInput *conv3_weight_re)
+template<int N, int M, int K>
+void reorgConvWeight(DataType conv3_weight[K * K * N * M], DataPack *conv3_weight_re)
 {
-    DataInput tmp;
-    DataInput conv3_tmp[MAX_OUP][CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_M / MAX_OUP];
+    DataPack tmp;
+    DataPack conv3_tmp[MAX_OUP][K * K * N / MAX_INP * M / MAX_OUP];
 
-    for (int m = 0; m < CONV_TEST_M / MAX_OUP; m++)
+    for (int m = 0; m < M / MAX_OUP; m++)
     {
         for (int y = 0; y < MAX_OUP; y++)
         {
-            for (int kr = 0; kr < CONV_TEST_K; kr++)
+            for (int kr = 0; kr < K; kr++)
             {
-                for (int kc = 0; kc < CONV_TEST_K; kc++)
+                for (int kc = 0; kc < K; kc++)
                 {
-                    for (int n = 0; n < CONV_TEST_N / MAX_INP; n++)
+                    for (int n = 0; n < N / MAX_INP; n++)
                     {
                         for (int x = 0; x < MAX_INP; x++)
                         {
                             tmp = tmp >> BIT;
-                            tmp(MAX_INP * BIT - 1, (MAX_INP - 1) * BIT) = conv3_weight[kr][kc][n * MAX_INP + x][m * MAX_OUP + y](BIT - 1, 0);
+                            tmp(MAX_INP * BIT - 1, (MAX_INP - 1) * BIT) = conv3_weight[kr * K * N * M + kc * N * M + (n * MAX_INP + x) * M  + m * MAX_OUP + y](BIT - 1, 0);
                         }
-                        conv3_tmp[y][m * CONV_TEST_K * CONV_TEST_K * (CONV_TEST_N / MAX_INP) + kr * CONV_TEST_K * (CONV_TEST_N / MAX_INP) + kc * (CONV_TEST_N / MAX_INP) + n] = tmp;
+                        conv3_tmp[y][m * K * K * (N / MAX_INP) + kr * K * (N / MAX_INP) + kc * (N / MAX_INP) + n] = tmp;
                     }
                 }
             }
         }
     }
-    for (int m = 0; m < CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_M / MAX_OUP; m++)
+    for (int m = 0; m < K * K * N / MAX_INP * M / MAX_OUP; m++)
     {
         for (int y = 0; y < SA_OUP; y++)
         {
@@ -40,504 +41,386 @@ void reorgConvWeight(DataType conv3_weight[CONV_TEST_K][CONV_TEST_K][CONV_TEST_N
     }
 }
 
-void sa_gen_mm(DataType A[MM_TEST_R * MM_TEST_N], DataType W[MM_TEST_N * MM_TEST_M])
+template<int M>
+void norm_gen(DataType norm[2 * M])
 {
     srand(static_cast<unsigned>(time(nullptr)));
 
-    for (int r = 0; r < MM_TEST_R; r++)
+    for (int i = 0; i < 2 * M; i++)
     {
-        for (int n = 0; n < MM_TEST_N; n++)
-        {
-            A[r * MM_TEST_N + n] = DataType(2.0f * ((float)rand() / RAND_MAX - 0.5f));
-        }
-    }
-    for (int n = 0; n < MM_TEST_N; n++)
-    {
-        for (int m = 0; m < MM_TEST_M; m++)
-        {
-            W[n * MM_TEST_M + m] = DataType(2.0f * ((float)rand() / RAND_MAX - 0.5f));
-        }
+        norm[i] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
     }
 }
 
-void sa_gen_mm_output(DataType A[MM_TEST_R * MM_TEST_N], DataType W[MM_TEST_N * MM_TEST_M], DataType O_golden[MM_TEST_R][MM_TEST_M])
+template<int R, int C, int M>
+void conv_relu(DataType A[R * C * M], DataType ShortCut[R * C * M], DataType res[R * C * M])
 {
-    for (int r = 0; r < MM_TEST_R; r++)
+    DataType temp;
+    for (unsigned i = 0; i < R; i++)
     {
-        for (int m = 0; m < MM_TEST_M; m++)
+        for (unsigned j = 0; j < C; j++)
         {
-            O_golden[r][m] = 0;
-            for (int n = 0; n < MM_TEST_N; n++)
+            for (unsigned k = 0; k < M; k++)
             {
-                O_golden[r][m] = O_golden[r][m] + A[r * MM_TEST_N + n] * W[n * MM_TEST_M + m];
-            }
-        }
-    }
-}
-
-void sa_gen_conv(DataType conv3_A[CONV_TEST_R][CONV_TEST_C][CONV_TEST_N], DataType conv3_weight[CONV_TEST_K][CONV_TEST_K][CONV_TEST_N][CONV_TEST_M], DataType bias[CONV_TEST_M])
-{
-    srand(static_cast<unsigned>(time(nullptr)));
-
-    for (int r = 0; r < CONV_TEST_R; r++)
-    {
-        for (int c = 0; c < CONV_TEST_C; c++)
-        {
-            for (int n = 0; n < CONV_TEST_N; n++)
-            {
-                conv3_A[r][c][n] = DataType(10.0f * ((float)rand() / RAND_MAX - 0.5f));
-            }
-        }
-    }
-    for (int kr = 0; kr < CONV_TEST_K; kr++)
-    {
-        for (int kc = 0; kc < CONV_TEST_K; kc++)
-        {
-            for (int n = 0; n < CONV_TEST_N; n++)
-            {
-                for (int m = 0; m < CONV_TEST_M; m++)
+                temp = A[i * C * M + j * M + k] + ShortCut[i * C * M  + j * M + k];
+                if (temp >= 0)
                 {
-                    conv3_weight[kr][kc][n][m] = DataType(10.0f * ((float)rand() / RAND_MAX - 0.5f));
+                    res[i * C * M + j * M + k] = temp;
+                }
+                else
+                {
+                    res[i * C * M + j * M + k] = 0;
                 }
             }
         }
     }
-    for (int m = 0; m < CONV_TEST_M; m++)
+}
+
+template<int R, int C, int M>
+void conv_relu(DataType A[R * C * M], DataType res[R * C * M])
+{
+    DataType temp;
+    for (unsigned i = 0; i < R; i++)
+    {
+        for (unsigned j = 0; j < C; j++)
+        {
+            for (unsigned k = 0; k < M; k++)
+            {
+                temp = A[i * C * M + j * M + k];
+                if (temp >= 0)
+                {
+                    res[i * C * M + j * M + k] = temp;
+                }
+                else
+                {
+                    res[i * C * M + j * M + k] = 0;
+                }
+            }
+        }
+    }
+}
+
+
+template<int R, int C, int M>
+void conv_norm(DataType A[R * C * M], DataType res[R * C * M], DataType norm[2 * M])
+{
+    for (int m = 0; m < M; m++)
+    {
+        for (int i = 0; i < R; i++)
+        {
+            for (int j = 0; j < C; j++)
+            {
+                DataType gamma = norm[2 * m];
+                DataType beta = norm[2 * m + 1];
+                res[i * C * M + j * M + m] = gamma * A[i * C * M + j * M + m] + beta;
+            }
+        }
+    }
+}
+
+template<int R, int C, int N, int M, int K>
+void sa_gen_conv(DataType conv3_A[R * C * N], DataType conv3_weight[K * K * N * M])
+{
+    srand(static_cast<unsigned>(time(nullptr)));
+
+    for (int r = 0; r < R; r++)
+    {
+        for (int c = 0; c < C; c++)
+        {
+            for (int n = 0; n < N; n++)
+            {
+                conv3_A[r * C * N  + c * N + n] = DataType(10.0f * ((float)rand() / RAND_MAX - 0.5f));
+            }
+        }
+    }
+    for (int kr = 0; kr < K; kr++)
+    {
+        for (int kc = 0; kc < K; kc++)
+        {
+            for (int n = 0; n < N; n++)
+            {
+                for (int m = 0; m < M; m++)
+                {
+                    conv3_weight[kr * K * N * M + kc * N * M + n * M + m] = DataType(10.0f * ((float)rand() / RAND_MAX - 0.5f));
+                }
+            }
+        }
+    }
+}
+
+template<int N, int M, int K>
+void sa_gen_conv(DataType conv3_weight[K * K * N * M])
+{
+    srand(static_cast<unsigned>(time(nullptr)));
+    for (int kr = 0; kr < K; kr++)
+    {
+        for (int kc = 0; kc < K; kc++)
+        {
+            for (int n = 0; n < N; n++)
+            {
+                for (int m = 0; m < M; m++)
+                {
+                    conv3_weight[kr * K * N * M + kc * N * M + n * M + m] = DataType(10.0f * ((float)rand() / RAND_MAX - 0.5f));
+                }
+            }
+        }
+    }
+}
+
+
+template<int K, int M>
+void peg_gen(DataType conv_weight[K * K * M], DataType bias[M])
+{
+    srand(static_cast<unsigned>(time(nullptr)));
+
+    for (int kr = 0; kr < K; kr++)
+    {
+        for (int kc = 0; kc < K; kc++)
+        {
+            for (int m = 0; m < M; m++)
+            {
+                conv_weight[kr * K * M + kc * M + m] = DataType(10.0f * ((float)rand() / RAND_MAX - 0.5f));
+            }
+        }
+    }
+    for (int m = 0; m < M; m++)
     {
         bias[m] = DataType(10.0f * ((float)rand() / RAND_MAX - 0.5f));
     }
 }
 
-void sa_padding(DataType A[CONV_TEST_R][CONV_TEST_C][CONV_TEST_N], DataType res[CONV_TEST_R + 2 * CONV_TEST_P][CONV_TEST_C + 2 * CONV_TEST_P ][CONV_TEST_N], unsigned padding)
+
+template<int r, int c, int n, int p>
+void padding(DataType A[r * c * n], DataType res[r + 2 * p][c + 2 * p][n])
 {
-    int pad_h = CONV_TEST_R + 2 * padding;
-    int pad_w = CONV_TEST_C + 2 * padding;
+    int pad_h = r + 2 * p;
+    int pad_w = c + 2 * p;
 
     for (int i = 0; i < pad_h; i++)
     {
         for (int j = 0; j < pad_w; j++)
         {
-            for (int k = 0; k < CONV_TEST_N; k++)
+            for (int k = 0; k < n; k++)
             {
                 res[i][j][k] = 0;
             }
         }
     }
-    for (int i = 0; i < CONV_TEST_R; i++)
+    for (int i = 0; i < r; i++)
     {
-        for (int j = 0; j < CONV_TEST_C; j++)
+        for (int j = 0; j < c; j++)
         {
-            for (int k = 0; k < CONV_TEST_N; k++)
+            for (int k = 0; k < n; k++)
             {
-                res[i + padding][j + padding][k] = A[i][j][k];
+                res[i + p][j + p][k] = A[i * c * n  + j * n + k];
             }
         }
     }
 }
 
-void sa_gen_conv_output(DataType A[CONV_TEST_R + 2 * CONV_TEST_P][CONV_TEST_C + 2 * CONV_TEST_P][CONV_TEST_N],
-                   DataType W[CONV_TEST_K][CONV_TEST_K][CONV_TEST_N][CONV_TEST_M],
-                   DataType res[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M])
+template<int R, int C, int N, int M, int K, int S, int P>
+void conv1_output(DataType A[R * C * N], DataType W[K * K * N * M], DataType res[R * C * M])
 {
-    const DataType EPSILON = 1e-5;
-    for (int m = 0; m < CONV_TEST_M; m++)
+    DataType conv_padding[R + 2 * P][C + 2 * P][N];
+    padding<R, C, N, P>(A, conv_padding);
+    for (int m = 0; m < M; m++)
     {
-        for (int i = 0; i < CONV_TEST_OUT_R; i++)
+        for (int i = 0; i < R; i++)
         {
-            for (int j = 0; j < CONV_TEST_OUT_C; j++)
+            for (int j = 0; j < C; j++)
             {
                 DataType acc = 0;
-                for (int n = 0; n < CONV_TEST_N; n++)
+                for (int n = 0; n < N; n++)
                 {
-                    for (int kr = 0; kr < CONV_TEST_K; kr++)
+                    for (int kr = 0; kr < K; kr++)
                     {
-                        for (int kc = 0; kc < CONV_TEST_K; kc++)
+                        for (int kc = 0; kc < K; kc++)
                         {
-                            acc += A[i * CONV_TEST_S + kr][j * CONV_TEST_S + kc][n] * W[kr][kc][n][m];
+                            acc += conv_padding[i * S + kr][j * S + kc][n] * W[kr * K * N * M + kc * N * M + n * M + m];
                         }
                     }
                 }
-                res[i][j][m] = acc;
+                res[i * C * M + j * M + m] = acc;
             }
         }
     }
 }
 
-
-void sfu_gen_mm(DataType ShortCut[MM_TEST_R][MM_TEST_M], DataType norm[2][MM_TEST_M])
+template<int R, int C, int M, int K, int S, int P>
+void dp_conv(DataType in[R * C * M], DataType weight[K * K * M], DataType bias[M], DataType peg_norm[2 * M], DataType res[R * C * M])
 {
-    const DataType EPSILON = 1e-5;
-    srand(static_cast<unsigned>(time(nullptr)));
-
-    for (int r = 0; r < MM_TEST_R; r++)
+    DataType conv_padding[R + 2 * P][C + 2 * P][M];
+    DataType conv_res[R * C * M];
+    DataType norm_res[R * C * M];
+    padding<R, C, M, P>(in, conv_padding);
+    for (int i = 0; i < R; i++)
     {
-        for (int n = 0; n < MM_TEST_M; n++)
+        for (int j = 0; j < C; j++)
         {
-            ShortCut[r][n] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
-        }
-    }
-    for (int i = 0; i < 2; i++)
-    {
-        for (int m = 0; m < MM_TEST_M; m++)
-        {
-            norm[i][m] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
-        }
-    }
-}
-
-void sfu_gen_conv(DataType ShortCut[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], DataType norm[2][CONV_TEST_M])
-{
-    srand(static_cast<unsigned>(time(nullptr)));
-
-    for (int r = 0; r < CONV_TEST_OUT_R; r++)
-    {
-        for (int c = 0; c < CONV_TEST_OUT_C; c++)
-        {
-            for (int n = 0; n < CONV_TEST_M; n++)
+            for (int n = 0; n < M; n++)
             {
-                ShortCut[r][c][n] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
+                DataType acc = 0;
+                for (int kr = 0; kr < K; kr++)
+                {
+                    for (int kc = 0; kc < K; kc++)
+                    {
+                        acc += conv_padding[i * S + kr][j * S + kc][n] * weight[kr * K * M + kc * M + n];
+                    }
+                }
+                conv_res[i * C * M + j * M + n] = acc + bias[n];
             }
         }
     }
-    for (int i = 0; i < 2; i++)
+    conv_norm<R, C, M>(conv_res, norm_res, peg_norm);
+    conv_relu<R, C, M>(norm_res, res);
+}
+
+template<int R, int C, int N, int M, int K, int S, int P>
+void conv2_output(DataType A[R * C * N], DataType W[K * K * N * M], DataType conv2_norm[2 * M], DataType res[R * C * M])
+{
+    DataType conv1_res[R * C * M];
+    DataType norm_res[R * C * M];
+    conv1_output<R, C, N, M, K, S, P>(A, W, conv1_res);
+    conv_norm<R, C, M>(conv1_res, norm_res, conv2_norm);
+    conv_relu<R, C, M>(norm_res, res);
+}
+
+template<int R, int C, int N, int M, int K, int S, int P>
+void conv3_output(DataType A[R * C * N], DataType W[K * K * N * M], DataType conv3_norm[2 * M], DataType shortcut[R * C * M], DataType res[R * C * M])
+{
+    DataType conv1_res[R * C * M];
+    DataType norm_res[R * C * M];
+    conv1_output<R, C, N, M, K, S, P>(A, W, conv1_res);
+    conv_norm<R, C, M>(conv1_res, norm_res, conv3_norm);
+    conv_relu<R, C, M>(norm_res, shortcut, res);
+}
+
+template<int R, int M>
+void mm_norm(DataType A[R * M], DataType res[R * M], DataType norm[2 * M])
+{
+    for (int r = 0; r < R; r++)
     {
-        for (int m = 0; m < CONV_TEST_M; m++)
+        for (int m = 0; m < M; m++)
         {
-            norm[i][m] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
+            DataType temp = A[r * M + m];
+            DataType gamma = norm[2 * m];
+            DataType beta = norm[2 * m + 1];
+            res[r * M + m] = gamma * temp + beta;
         }
     }
 }
 
-void conv_norm(DataType A[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], DataType res[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], DataType norm[4][CONV_TEST_M])
+template<int R, int M>
+void mm_softmax(DataType A[R * M], DataType res[R * M])
 {
-    const DataType EPSILON = 1e-5;
-    for (int m = 0; m < CONV_TEST_M; m++)
-    {
-        for (int i = 0; i < CONV_TEST_OUT_R; i++)
-        {
-            for (int j = 0; j < CONV_TEST_OUT_C; j++)
-            {
-                DataType temp = A[i][j][m];
-                DataType gamma = norm[0][m];
-                DataType beta = norm[1][m];
-                res[i][j][m] = gamma * temp + beta;
-            }
-        }
-    }
-}
-
-void mm_norm(DataType A[MM_TEST_R][MM_TEST_M], DataType res[MM_TEST_R][MM_TEST_M], DataType norm[4][MM_TEST_M])
-{
-    const DataType EPSILON = 1e-5;
-    for (int r = 0; r < MM_TEST_R; r++)
-    {
-        for (int m = 0; m < MM_TEST_M; m++)
-        {
-            DataType temp = A[r][m];
-            DataType gamma = norm[0][m];
-            DataType beta = norm[1][m];
-            res[r][m] = gamma * temp + beta;
-        }
-    }
-}
-
-void mm_softmax(DataType A[MM_TEST_R][MM_TEST_M], DataType res[MM_TEST_R][MM_TEST_M])
-{
-    DataType row[MM_TEST_M];
-    for (unsigned i = 0; i < MM_TEST_R; i++)
+    DataType row[M];
+    for (unsigned i = 0; i < R; i++)
     {
         DataType max = -128;
         DataType total = 0;
-        for (unsigned j = 0; j < MM_TEST_M; j++)
+        DataType temp;
+        for (unsigned j = 0; j < M; j++)
         {
-            max = max > A[i][j] ? max : A[i][j];
+            max = max > A[i * M + j] ? max : A[i * M + j];
         }
-        for (unsigned j = 0; j < MM_TEST_M; j++)
+        for (unsigned j = 0; j < M; j++)
         {
-            row[j] = hls::exp(A[i][j] - max);
+            temp = (A[i * M + j] - max) >> 3; // Sqrt(dk) = 8
+            row[j] = hls::exp(temp);
             total += row[j];
         }
-        for (unsigned j = 0; j < MM_TEST_M; j++)
+        for (unsigned j = 0; j < M; j++)
         {
-            res[i][j] = row[j] / total;
+            res[i * M + j] = row[j] / total;
         }
     }
 }
 
-void mm_silu(DataType A[MM_TEST_R][MM_TEST_M], DataType ShortCut[MM_TEST_R][MM_TEST_M], DataType res[MM_TEST_R][MM_TEST_M], bool shortcut_mode)
+template<int R, int M>
+void mm_relu(DataType A[R * M], DataType res[R * M])
 {
-    DataType temp, relu6;
-    DataType scale = 1 / 6;
-    for (unsigned i = 0; i < MM_TEST_R; i++)
+    DataType temp;
+    for (unsigned i = 0; i < R; i++)
     {
-        for (unsigned j = 0; j < MM_TEST_M; j++)
+        for (unsigned j = 0; j < M; j++)
         {
-            if(shortcut_mode)
+            if(A[i * M + j] >= 0)
             {
-                temp = A[i][j] + ShortCut[i][j];
+                temp = A[i * M + j];
             }
             else
             {
-                temp = A[i][j];
-            }   
-            if (temp >= 3)
-            {
-                relu6 = 6;
+                temp = 0;
             }
-            else if (temp <= -3)
-            {
-                relu6 = 0;
-            }
-            else
-            {
-                relu6 = temp + 3;
-            }
-            res[i][j] = temp * relu6 * scale;
+            res[i * M + j] = temp;
         }
     }
 }
 
-void conv_silu(DataType A[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], DataType ShortCut[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], DataType res[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], bool shortcut_mode)
+template<int R, int N, int M>
+void mm_stage1_output(DataType A[R * N], DataType W[N * M], DataType res[R * M])
 {
-    DataType temp, relu6;
-    DataType scale = 1 / 6;
-    for (unsigned i = 0; i < CONV_TEST_OUT_R; i++)
+    DataType mm_res[R * M];
+    for (int r = 0; r < R; r++)
     {
-        for (unsigned j = 0; j < CONV_TEST_OUT_C; j++)
+        for (int m = 0; m < M; m++)
         {
-            for (unsigned k = 0; k < CONV_TEST_M; k++)
+            mm_res[r * M +  m] = 0;
+            for (int n = 0; n < N; n++)
             {
-                if(shortcut_mode)
-                {
-                    temp = A[i][j][k] + ShortCut[i][j][k];
-                }
-                else
-                {
-                    temp = A[i][j][k];
-                }
-                if (temp >= 3)
-                {
-                    relu6 = 6;
-                }
-                else if (temp <= -3)
-                {
-                    relu6 = 0;
-                }
-                else
-                {
-                    relu6 = temp + 3;
-                }
-                res[i][j][k] = temp * relu6 * scale;
+                mm_res[r * M +  m] += A[r * N + n] * W[n * M + m];
             }
         }
     }
+    mm_softmax<R, M>(mm_res, res);
 }
 
-void conv_relu(DataType A[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], DataType res[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M])
+template<int R, int N, int M>
+void mm_stage2_output(DataType A[R * N], DataType W[N * M], DataType norm[2 * M], DataType res[R * M])
 {
-    for (unsigned i = 0; i < CONV_TEST_OUT_R; i++)
+    DataType mm_res[R * M];
+    DataType norm_res[R * M];
+    for (int r = 0; r < R; r++)
     {
-        for (unsigned j = 0; j < CONV_TEST_OUT_C; j++)
+        for (int m = 0; m < M; m++)
         {
-            for (unsigned k = 0; k < CONV_TEST_M; k++)
+            mm_res[r * M +  m] = 0;
+            for (int n = 0; n < N; n++)
             {
-                if (A[i][j][k] >= 0)
-                {
-                    res[i][j][k] = A[i][j][k];
-                }
-                else
-                {
-                    res[i][j][k] = 0;
-                }
+                mm_res[r * M +  m] += A[r * N + n] * W[n * M + m];
             }
         }
     }
+    mm_norm<R, M>(mm_res, norm_res, norm);
+    mm_relu<R, M>(norm_res, res);
 }
 
-void conv_sigmoid(DataType A[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], DataType res[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M])
+template<int cnt, int trans_cnt>
+void convert_param(Param param[cnt], DataTrans param_in[trans_cnt])
 {
-    for (unsigned i = 0; i < CONV_TEST_OUT_R; i++)
+    for (int i = 0; i < trans_cnt; i++)
     {
-        for (unsigned j = 0; j < CONV_TEST_OUT_C; j++)
+        DataTrans packed = 0; 
+        for (int j = 0; j < 4; j++) 
         {
-            for (unsigned k = 0; k < CONV_TEST_M; k++)
+            int param_id = i * 4 + j;
+            if (param_id >= cnt)
             {
-                if (A[i][j][k] > 5)
-                {
-                    res[i][j][k] = 1;
-                }
-                if (A[i][j][k] < -5)
-                {
-                    res[i][j][k] = 0.0;
-                }
-                res[i][j][k] = 1 / (1 + hls::exp(-A[i][j][k]));
+                break;
             }
+            ap_uint<128> temp = 0;
+            temp(15, 0) = param[param_id].r(15, 0);
+            temp(31, 16) = param[param_id].c(15, 0);
+            temp(47, 32) = param[param_id].n(15, 0);
+            temp(63, 48) = param[param_id].m(15, 0);
+            temp(67, 64) = param[param_id].k(3, 0);
+            temp(71, 68) = param[param_id].p(3, 0);
+            temp(75, 72) = param[param_id].s(3, 0);
+            temp(79, 76) = param[param_id].mode(3, 0);
+            temp(83, 80) = param[param_id].sfu_mode(3, 0);
+            temp[84] = param[param_id].shortcut_mode;
+            packed((j + 1) * 128 - 1, j * 128) = temp(127, 0);
         }
-    }
-}
-
-void pool_generate(DataType in[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], DataType weight[CONV_TEST_K][CONV_TEST_K][CONV_TEST_M], DataType bias[CONV_TEST_M])
-{
-    srand(static_cast<unsigned>(time(nullptr)));
-
-    for (int r = 0; r < CONV_TEST_R; r++)
-    {
-        for (int c = 0; c < CONV_TEST_C; c++)
-        {
-            for (int n = 0; n < CONV_TEST_M; n++)
-            {
-                in[r][c][n] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
-            }
-        }
-    }
-    for (int kx = 0; kx < CONV_TEST_K; kx++)
-    {
-        for (int ky = 0; ky < CONV_TEST_K; ky++)
-        {
-            for (int n = 0; n < CONV_TEST_M; n++)
-            {
-                weight[ky][ky][n] = DataType(20.0f * ((float)rand() / RAND_MAX - 0.5f));
-            }
-        }
-    }
-    for (int m = 0; m < CONV_TEST_M; m++)
-    {
-        bias[m] = DataType(10.0f * ((float)rand() / RAND_MAX - 0.5f));
-    }
-}
-void pool_padding(DataType in[CONV_TEST_R][CONV_TEST_C][CONV_TEST_M], DataType res[CONV_TEST_R + 2 * CONV_TEST_P][CONV_TEST_C + 2 * CONV_TEST_P][CONV_TEST_M])
-{
-    int pad_h = CONV_TEST_R + 2 * CONV_TEST_P;
-    int pad_w = CONV_TEST_C + 2 * CONV_TEST_P;
-
-    for (int i = 0; i < pad_h; i++)
-    {
-        for (int j = 0; j < pad_w; j++)
-        {
-            for (int k = 0; k < CONV_TEST_M; k++)
-            {
-                res[i][j][k] = 0;
-            }
-        }
-    }
-    for (int i = 0; i < CONV_TEST_R; i++)
-    {
-        for (int j = 0; j < CONV_TEST_C; j++)
-        {
-            for (int k = 0; k < CONV_TEST_M; k++)
-            {
-                res[i + CONV_TEST_P][j + CONV_TEST_P][k] = in[i][j][k];
-            }
-        }
-    }
-}
-
-
-void max_pool(DataType in[CONV_TEST_R + 2 * CONV_TEST_P][CONV_TEST_C + 2 * CONV_TEST_P][CONV_TEST_M], DataType res[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], unsigned k, unsigned s, unsigned p)
-{
-    for (int i = 0; i < CONV_TEST_OUT_R; i++)
-    {
-        for (int j = 0; j < CONV_TEST_OUT_C; j++)
-        {
-            for (int n = 0; n < CONV_TEST_M; n++)
-            {
-                DataType max = in[i * s][j * s][n];
-                for (int kr = 0; kr < k; kr++)
-                {
-                    for (int kc = 0; kc < k; kc++)
-                    {
-                        max = in[i * s + kr][j * s + kc][n] > max ? in[i * s + kr][j * s + kc][n] : max;
-                    }
-                }
-                res[i][j][n] = max;
-            }
-        }
-    }
-}
-
-void avg_pool(DataType in[CONV_TEST_R + 2 * CONV_TEST_P][CONV_TEST_C + 2 * CONV_TEST_P][CONV_TEST_M], DataType res[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], unsigned k, unsigned s, unsigned p)
-{
-    for (int i = 0; i < CONV_TEST_OUT_R; i++)
-    {
-        for (int j = 0; j < CONV_TEST_OUT_C; j++)
-        {
-            for (int n = 0; n < CONV_TEST_M; n++)
-            {
-                DataType acc = 0;
-                for (int kr = 0; kr < k; kr++)
-                {
-                    for (int kc = 0; kc < k; kc++)
-                    {
-                        acc += in[i * s + kr][j * s + kc][n];
-                    }
-                }
-                res[i][j][n] = acc / (k * k);
-            }
-        }
-    }
-}
-
-void selectadaptive_pool(DataType in[CONV_TEST_R + 2 * CONV_TEST_P][CONV_TEST_C + 2 * CONV_TEST_P][CONV_TEST_M], DataType res[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], unsigned k, unsigned s, unsigned p)
-{
-    for (int i = 0; i < CONV_TEST_OUT_R; i++)
-    {
-        for (int j = 0; j < CONV_TEST_OUT_C; j++)
-        {
-            for (int n = 0; n < CONV_TEST_M; n++)
-            {
-                DataType acc = 0;
-                for (int kr = 0; kr < k; kr++)
-                {
-                    for (int kc = 0; kc < k; kc++)
-                    {
-                        acc += in[i * s + kr][j * s + kc][n];
-                    }
-                }
-                res[i][j][n] = acc / (k * k);
-            }
-        }
-    } 
-}
-
-void dp_conv(DataType in[CONV_TEST_R + 2 * CONV_TEST_P][CONV_TEST_C + 2 * CONV_TEST_P][CONV_TEST_M], DataType weight[CONV_TEST_K][CONV_TEST_K][CONV_TEST_M], DataType bias[CONV_TEST_M], DataType res[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M], unsigned k, unsigned s, unsigned p)
-{
-    for (int i = 0; i < CONV_TEST_OUT_R; i++)
-    {
-        for (int j = 0; j < CONV_TEST_OUT_C; j++)
-        {
-            for (int n = 0; n < CONV_TEST_M; n++)
-            {
-                DataType acc = 0;
-                for (int kr = 0; kr < k; kr++)
-                {
-                    for (int kc = 0; kc < k; kc++)
-                    {
-                        acc += in[i * s + kr][j * s + kc][n] * weight[kr][kc][n];
-                    }
-                }
-                res[i][j][n] = acc + bias[n];
-            }
-        }
-    }
-}
-
-template<int cnt>
-void convert_param(DataParam param[cnt], DataInputParam param_in[cnt])
-{
-    for (int i = 0; i < cnt; i++)
-    {
-        param_in[i](31, 0) = param[i].r;
-        param_in[i](63, 32) = param[i].c;
-        param_in[i](95, 64) = param[i].n;
-        param_in[i](127, 96) = param[i].m;
-        param_in[i](159, 128) = param[i].k;
-        param_in[i](191, 160) = param[i].p;
-        param_in[i](223, 192) = param[i].s;
-        param_in[i](255, 224) = param[i].sa_mode;
-        param_in[i](287, 256) = param[i].pool_type;
-        param_in[i](319, 288) = param[i].sfu_mode;
-        param_in[i](320, 320) = param[i].shortcut_mode;
-        param_in[i](321, 321) = param[i].silu_mode;
-        param_in[i](322, 322) = param[i].bias_mode;
+        param_in[i] = packed;
     }
 }

@@ -1,17 +1,19 @@
 #pragma once
 
 #include "sa_top.h"
-
 #include "sfu.h"
-
 #include "pool.h"
 
-void acc_top(DataInput *sa_in, DataInput *sa_conv_w, DataOutput *sa_mm_w, DataType *bias, DataInput *pool_in, DataInput *pool_w, DataInput *output, DataOutput *shortcut, DataNorm *norm, DataInputParam *param_in, unsigned cnt);
+void acc_top(DataTrans *input, DataTrans *sa_w, DataTrans *bias, DataPack *pool_w, DataTrans *output, DataTrans *shortcut, DataTrans *norm, DataTrans *param_in, unsigned cnt, unsigned num_in);
 
-void initParam(DataInputParam *param_in, DataParam &param , unsigned rep);
+void loadParam(DataTrans *param_in, Param *Param_BUF, unsigned cnt);
+ 
+void loadInputToBuf(DataTrans *input, DataPack *INPUT_BUF, unsigned num);
 
-void loadInputToBuf(DataInput *sa_in, DataInput *pool_in, DataInput *RES_BUF, unsigned num, unsigned sa_mode);
+void loadBiasToBuf(DataTrans *bias, DataType *BIAS_BUF, unsigned M);
 
-void load_buf1_to_buf0(DataOutput *OUTPUT_BUF, DataInput *INPUT_BUF, unsigned num);
+void loadNorm(DataTrans *norm, DataNorm *NORM_BUF, unsigned M);
 
-void storeOut(DataInput *INPUT_BUF, DataInput *output, unsigned num);
+void load_buf1_to_buf0(DataPack *OUTPUT_BUF, DataPack *INPUT_BUF, unsigned num);
+
+void accStoreOutPut(DataPack *INPUT_BUF, DataTrans *output, unsigned num);

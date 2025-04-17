@@ -1,30 +1,27 @@
 #include "sa_top.h"
 
-void sa_top(DataInput *sa_conv_w, DataOutput *sa_mm_w, DataInput *INPUT_BUF, DataOutput *OUTPUT_BUF, DataType *BIAS_BUF, unsigned r, unsigned c, unsigned n, unsigned m, unsigned k, unsigned p, unsigned s, bool bias_mode, bool mode)
+void sa_top(DataTrans *sa_w, DataPack *INPUT_BUF, DataPack *OUTPUT_BUF, unsigned r, unsigned c, unsigned n, unsigned m, unsigned k, unsigned p, unsigned s, bool mode)
 {
 #pragma HLS DATAFLOW
-
     unsigned num_a_sa, num_w_in, num_w_sa, num_out, num, out_r, out_c;
-
-    init(num_a_sa, num_w_in, num_w_sa, num_out, num, out_r, out_c, r, c, n, m, k, p, s, mode);
-
+    sa_init(num_a_sa, num_w_in, num_w_sa, num_out, num, out_r, out_c, r, c, n, m, k, p, s, mode);
     /** 从 INPUT BUF 读入输入*/
-    stream<DataInput> conv_a;
+    stream<DataPack> conv_a;
 #pragma HLS STREAM variable = conv_a depth = 4
-    stream<DataInput> mm_a;
+    stream<DataPack> mm_a;
 #pragma HLS STREAM variable = mm_a depth = 4
     ConvertInputToStream(INPUT_BUF, conv_a, mm_a, mode, r, c, n, m);
     /** 从 Axi 接口读入权重 */
-    stream<DataInput> fifo_conv_w[MAX_A_COL];
+    stream<DataPack> fifo_conv_w[MAX_A_COL];
 #pragma HLS STREAM variable = fifo_conv_w depth = 4
-    stream<DataOutput> mm_w;
+    stream<DataPack> mm_w;
 #pragma HLS STREAM variable = mm_w depth = 4
-    ConvertWeightToStream(sa_conv_w, sa_mm_w, fifo_conv_w, mm_w, r, n, k, m, p, s, mode);
+    ConvertWeightToStream(sa_w, fifo_conv_w, mm_w, r, n, k, m, p, s, mode);
     /** 卷积填充和滑动操作*/
-    stream<DataInput> conv3_samepad;
+    stream<DataPack> conv3_samepad;
 #pragma HLS STREAM variable = conv3_samepad depth = 4
     Padding(conv_a, conv3_samepad, r, c, n, p, mode);
-    stream<DataInput> conv3_sild;
+    stream<DataPack> conv3_sild;
 #pragma HLS STREAM variable = conv3_sild depth = 4
     Sliding(conv3_samepad, conv3_sild, r, c, n, m, k, p, s, mode);
     /** 输入和权重转为符合PE阵列的流 */
@@ -49,15 +46,15 @@ void sa_top(DataInput *sa_conv_w, DataOutput *sa_mm_w, DataInput *INPUT_BUF, Dat
 #pragma HLS STREAM variable = fifo_CONV3_ACC depth = 4
     stream<DataType> MM_OUT[MAX_OUP];
 #pragma HLS STREAM variable = MM_OUT depth = 4
-    ConvertToOutStream(fifo_SA_O, fifo_CONV3_ACC, MM_OUT, num_a_sa, r, n, mode);
+    ConvertToOutStream(fifo_SA_O, fifo_CONV3_ACC, MM_OUT, num_a_sa, r, m, mode);
     stream<DataType> CONV3_OUT[MAX_OUP];
 #pragma HLS STREAM variable = CONV3_OUT depth = 4
-    ConvToOutStream(fifo_CONV3_ACC, CONV3_OUT, BIAS_BUF, out_r, out_c, n, m, k, bias_mode, mode);
+    ConvToOutStream(fifo_CONV3_ACC, CONV3_OUT, out_r, out_c, n, m, k, mode);
     /** 结果输出到 OUTPUT BUF */
     storeOutput(CONV3_OUT, MM_OUT, OUTPUT_BUF, out_r, out_c, m, mode);
 }
 
-void init(unsigned &num_a_sa, unsigned &num_w_in, unsigned &num_w_sa, unsigned &num_out, unsigned &num, unsigned &out_r, unsigned &out_c, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
+void sa_init(unsigned &num_a_sa, unsigned &num_w_in, unsigned &num_w_sa, unsigned &num_out, unsigned &num, unsigned &out_r, unsigned &out_c, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
 {
     if (mode)
     {
@@ -81,27 +78,16 @@ void init(unsigned &num_a_sa, unsigned &num_w_in, unsigned &num_w_sa, unsigned &
     }
 }
 
-void loadBias(DataType *bias, DataType *BIAS_BUF, unsigned M, bool bias_mode)
-{
-    if (bias_mode == false)
-        return;
-    for (unsigned i = 0; i < M; i++)
-    {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_M min = CONV_TEST_M
-        BIAS_BUF[i] = bias[i];
-    }
-}
-
-void ConvertInputToStream(DataInput *RES_BUF, stream<DataInput> &conv_a, stream<DataInput> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M)
+void ConvertInputToStream(DataPack *RES_BUF, stream<DataPack> &conv_a, stream<DataPack> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M)
 {
     if (mode == true)
     {
-        for (unsigned rep = 0; rep < R * C * N / MAX_INP; rep++)
+        unsigned loop_cnt = R * C * N / MAX_INP;
+        for (unsigned rep = 0; rep < loop_cnt; rep++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_R *CONV_TEST_C *CONV_TEST_N / MAX_INP min = CONV_TEST_R * CONV_TEST_C * CONV_TEST_N / MAX_INP
 #pragma HLS PIPELINE II = 1
-            DataInput temp = RES_BUF[rep];
-            conv_a.write(temp);
+            conv_a.write(RES_BUF[rep]);
         }
     }
     else
@@ -116,7 +102,7 @@ void ConvertInputToStream(DataInput *RES_BUF, stream<DataInput> &conv_a, stream<
                 {
 #pragma HLS PIPELINE II = 1
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_N min = MM_TEST_N
-                    DataInput temp = RES_BUF[r * N + n];
+                    DataPack temp = RES_BUF[r * N + n];
                     mm_a.write(temp);
                 }
             }
@@ -124,11 +110,11 @@ void ConvertInputToStream(DataInput *RES_BUF, stream<DataInput> &conv_a, stream<
     }
 }
 
-void Padding(stream<DataInput> &in, stream<DataInput> &out, unsigned R, unsigned C, unsigned N, unsigned P, bool mode)
+void Padding(stream<DataPack> &in, stream<DataPack> &out, unsigned R, unsigned C, unsigned N, unsigned P, bool mode)
 {
     if (mode == false)
         return;
-    DataInput temp;
+    DataPack temp;
     for (unsigned y = 0; y < (R + 2 * P); y++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_R + 2 * CONV_TEST_P) min = (CONV_TEST_R + 2 * CONV_TEST_P)
@@ -152,11 +138,11 @@ void Padding(stream<DataInput> &in, stream<DataInput> &out, unsigned R, unsigned
     }
 }
 
-void Sliding(stream<DataInput> &in, stream<DataInput> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
+void Sliding(stream<DataPack> &in, stream<DataPack> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode)
 {
     if (mode == false)
         return;
-    DataInput row_buffer[9][MAX_BUF_LENGTH];
+    DataPack row_buffer[9][MAX_BUF_LENGTH];
     unsigned cycles_write_block = (M / MAX_OUP) * K * K * N / MAX_INP * ((C + 2 * P - K) / S + 1);
     unsigned cycles_read_block = (C + 2 * P) * N / MAX_INP * S;
     unsigned max_cycles = MAX(cycles_write_block, cycles_read_block);
@@ -253,10 +239,10 @@ void Sliding(stream<DataInput> &in, stream<DataInput> &out, unsigned R, unsigned
     }
 }
 
-void ConvertInputToArray(stream<DataInput> &conv3_sild, stream<DataInput> &mm_a, stream<ap_uint<SA_INP * BIT>> out[MAX_A_ROW][MAX_A_COL], unsigned num_a_sa, bool mode)
+void ConvertInputToArray(stream<DataPack> &conv3_sild, stream<DataPack> &mm_a, stream<ap_uint<SA_INP * BIT>> out[MAX_A_ROW][MAX_A_COL], unsigned num_a_sa, bool mode)
 {
     ap_uint<SA_INP * BIT> temp_row;
-    DataInput temp;
+    DataPack temp;
     for (unsigned long rep = 0; rep < num_a_sa; rep++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_M / MAX_OUP) * (CONV_TEST_N / MAX_INP) *CONV_TEST_R *CONV_TEST_C *CONV_TEST_K *CONV_TEST_K min = (CONV_TEST_M / MAX_OUP) * (CONV_TEST_N / MAX_INP) * CONV_TEST_R * CONV_TEST_C * CONV_TEST_K * CONV_TEST_K
@@ -280,14 +266,33 @@ void ConvertInputToArray(stream<DataInput> &conv3_sild, stream<DataInput> &mm_a,
     }
 }
 
-void loadWeight(DataInput *Conv_MM_Weight, DataInput WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF], unsigned num)
+void loadConvWeight(DataTrans *conv_w, DataPack WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF], unsigned num)
 {
     unsigned col = 0, depth = 0;
+    DataTrans temp;
     for (unsigned i = 0; i < num; i++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_K *CONV_TEST_K *CONV_TEST_N / MAX_INP *CONV_TEST_M min = CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_M
-#pragma HLS PIPELINE II = 1
-        WEIGHT_BUF[col][depth] = Conv_MM_Weight[i];
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_K *CONV_TEST_K *CONV_TEST_N / MAX_TRANS *CONV_TEST_M min = CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_TRANS * CONV_TEST_M
+#pragma HLS PIPELINE II = 2
+        temp = conv_w[i];
+        WEIGHT_BUF[col][depth](255, 0) = temp(255, 0);
+        if (col == MAX_A_COL - 1)
+        {
+            col = 0;
+            if (depth == MAX_WEIGHT_BUF - 1)
+            {
+                depth = 0;
+            }
+            else
+            {
+                depth++;
+            }
+        }
+        else
+        {
+            col++;
+        }
+        WEIGHT_BUF[col][depth](255, 0) = temp(511, 256);
         if (col == MAX_A_COL - 1)
         {
             col = 0;
@@ -307,85 +312,66 @@ void loadWeight(DataInput *Conv_MM_Weight, DataInput WEIGHT_BUF[MAX_A_COL][MAX_W
     }
 }
 
-void loadMMWeight(DataOutput *Conv_MM_Weight, DataInput WEIGHT_BUF[MAX_WEIGHT_BUF], unsigned num)
+void loadMMWeight(DataTrans *mm_w, DataPack WEIGHT_BUF[MAX_WEIGHT_BUF], unsigned num)
 {
-    bool trans = 0;
-    DataInput temp;
+    DataTrans temp;
     for (unsigned i = 0; i < num; i++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M *MM_TEST_N / MAX_OUP min = MM_TEST_M * MM_TEST_N / MAX_OUP
-#pragma HLS PIPELINE II = 1
-        if (trans)
-        {
-            temp(511, 256) = Conv_MM_Weight[i](255, 0);
-            WEIGHT_BUF[i / 2] = temp;
-        }
-        else
-        {
-            temp(255, 0) = Conv_MM_Weight[i](255, 0);
-        }
-        trans = !trans;
-    }
-}
-
-void MMWeightToStream(stream<DataOutput> &fifo_mm_w, DataInput WEIGHT_BUF[MAX_WEIGHT_BUF], unsigned num)
-{
-    DataInput temp;
-    for (unsigned i = 0; i < num; i++)
-    {
-#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M *MM_TEST_N / MAX_OUP min = MM_TEST_M * MM_TEST_N / MAX_OUP
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M *MM_TEST_N / MAX_OUP min = MM_TEST_M *MM_TEST_N / MAX_OUP
 #pragma HLS PIPELINE II = 2
-        temp = WEIGHT_BUF[i];
-        fifo_mm_w.write(temp(255, 0));
-        fifo_mm_w.write(temp(511, 256));
+        temp = mm_w[i];
+        WEIGHT_BUF[i << 1](255, 0) = temp(255, 0);
+        WEIGHT_BUF[(i << 1) + 1](255, 0) = temp(511, 256);
     }
 }
 
-void ConvWeightToStream(stream<DataInput> fifo_conv_w[MAX_A_COL], DataInput WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF], unsigned out_r, unsigned num)
+void ConvertWeightToStream(DataTrans *sa_w, stream<DataPack> fifo_conv_w[MAX_A_COL], stream<DataPack> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode)
 {
-    DataInput temp;
-    for (unsigned r = 0; r < out_r; r++)
+    DataPack WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF];
+#pragma HLS ARRAY_PARTITION variable = WEIGHT_BUF dim = 1 complete
+#pragma HLS bind_storage variable = WEIGHT_BUF type = RAM_2P impl = uram
+    DataPack temp;
+    if (mode == true)
     {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R min = CONV_TEST_OUT_R
-        for (int j = 0; j < num; j++)
+        loadConvWeight(sa_w, WEIGHT_BUF, K * K * N / MAX_TRANS * M);
+        for (unsigned r = 0; r < (R + 2 * P - K) / S + 1; r++)
         {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_K *CONV_TEST_K *CONV_TEST_N / MAX_INP *CONV_TEST_M / MAX_A_COL min = CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_M / MAX_A_COL
-#pragma HLS PIPELINE II = 1
-            for (int i = 0; i < MAX_A_COL; i++)
+    #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R min = CONV_TEST_OUT_R
+            for (int j = 0; j < K * K * N / MAX_INP * M / MAX_A_COL; j++)
             {
-                temp = WEIGHT_BUF[i][j];
-                fifo_conv_w[i].write(temp);
+    #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_K *CONV_TEST_K *CONV_TEST_N / MAX_INP *CONV_TEST_M / MAX_A_COL min = CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_M / MAX_A_COL
+    #pragma HLS PIPELINE II = 1
+                for (int i = 0; i < MAX_A_COL; i++)
+                {
+                    temp = WEIGHT_BUF[i][j];
+                    fifo_conv_w[i].write(temp);
+                }
+            }
+        }
+    }
+    else
+    {
+        loadMMWeight(sa_w, WEIGHT_BUF[0], M * N / MAX_TRANS);
+        for (unsigned rep = 0; rep < R / MAX_INP; rep++)
+        {
+#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP min = MM_TEST_R / MAX_INP
+            for (unsigned i = 0; i < M * N / MAX_OUP; i++)
+            {
+        #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M *MM_TEST_N / MAX_OUP min = MM_TEST_M * MM_TEST_N / MAX_OUP
+        #pragma HLS PIPELINE II = 1
+                temp = WEIGHT_BUF[0][i];
+                fifo_mm_w.write(temp);
             }
         }
     }
 }
 
-void ConvertWeightToStream(DataInput *Conv_Weight, DataOutput *MM_Weight, stream<DataInput> fifo_conv_w[MAX_A_COL], stream<DataOutput> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode)
-{
-    DataInput WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF];
-#pragma HLS ARRAY_PARTITION variable = WEIGHT_BUF dim = 1 complete
-#pragma HLS bind_storage variable = WEIGHT_BUF type = RAM_2P impl = uram
-    if (mode == true)
-    {
-        loadWeight(Conv_Weight, WEIGHT_BUF, K * K * N / MAX_INP * M);
-        ConvWeightToStream(fifo_conv_w, WEIGHT_BUF, (R + 2 * P - K) / S + 1, K * K * N / MAX_INP * M / MAX_A_COL);
-    }
-    else
-    {
-        loadMMWeight(MM_Weight, WEIGHT_BUF[0], M * N / MAX_OUP);
-        for (unsigned rep = 0; rep < R / MAX_INP; rep++)
-        {
-#pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R / MAX_INP min = MM_TEST_R / MAX_INP
-            MMWeightToStream(fifo_mm_w, WEIGHT_BUF[0], M * N / MAX_OUP / 2);
-        }
-    }
-}
 
-void ConvWeightToArray(stream<DataInput> fifo_W_in[MAX_A_COL], stream<ap_uint<SA_INP * BIT>> fifo_W_out[MAX_A_ROW][MAX_A_COL], unsigned num_w_in, bool mode)
+void ConvWeightToArray(stream<DataPack> fifo_W_in[MAX_A_COL], stream<ap_uint<SA_INP * BIT>> fifo_W_out[MAX_A_ROW][MAX_A_COL], unsigned num_w_in, bool mode)
 {
     if (mode == false)
         return;
-    DataInput w;
+    DataPack w;
     ap_uint<SA_INP * BIT> temp;
     for (unsigned rep = 0; rep < num_w_in; rep++)
     {
@@ -396,7 +382,7 @@ void ConvWeightToArray(stream<DataInput> fifo_W_in[MAX_A_COL], stream<ap_uint<SA
             w = fifo_W_in[c].read();
             for (unsigned r = 0; r < MAX_A_ROW; r++)
             {
-                temp.range(SA_INP * BIT - 1, 0) = w.range(SA_INP * BIT - 1, 0);
+                temp(SA_INP * BIT - 1, 0) = w(SA_INP * BIT - 1, 0);
                 fifo_W_out[r][c].write(temp);
                 w >>= SA_INP * BIT;
             }
@@ -404,7 +390,7 @@ void ConvWeightToArray(stream<DataInput> fifo_W_in[MAX_A_COL], stream<ap_uint<SA
     }
 }
 
-void MMWeightToArray(stream<DataOutput> &in, stream<ap_uint<SA_OUP * BIT>> out[MAX_A_ROW][MAX_A_COL], unsigned num_w_in, bool mode)
+void MMWeightToArray(stream<DataPack> &in, stream<ap_uint<SA_OUP * BIT>> out[MAX_A_ROW][MAX_A_COL], unsigned num_w_in, bool mode)
 {
     if (mode == true)
         return;
@@ -414,10 +400,10 @@ void MMWeightToArray(stream<DataOutput> &in, stream<ap_uint<SA_OUP * BIT>> out[M
     {
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_R * MM_TEST_M * MM_TEST_N / (MAX_INP * MAX_OUP) min = MM_TEST_R * MM_TEST_M * MM_TEST_N / (MAX_INP * MAX_OUP)
 #pragma HLS PIPELINE II = 1
-        DataOutput temp = in.read();
+        DataPack temp = in.read();
         for (unsigned c = 0; c < MAX_A_COL; c++)
         {
-            temp_row[c] = temp((c + 1) * SA_OUP * BIT - 1, c * SA_OUP * BIT);
+            temp_row[c](SA_OUP * BIT - 1, 0) = temp((c + 1) * SA_OUP * BIT - 1, c * SA_OUP * BIT);
             for (unsigned r = 0; r < MAX_A_ROW; r++)
             {
                 out[r][c].write(temp_row[c]);
@@ -578,6 +564,7 @@ void PE(stream<ap_uint<SA_INP * BIT>> &fifo_A_in, stream<ap_uint<SA_INP * BIT>> 
             for (int i = SA_INP - 1; i >= 0; i--)
             {
 #pragma HLS UNROLL
+                DataType mul_tmp = data_A_reg[i][j] * data_W_reg[i][j];
                 if (mode == true)
                 {
                     if (i == SA_INP - 1)
@@ -600,7 +587,7 @@ void PE(stream<ap_uint<SA_INP * BIT>> &fifo_A_in, stream<ap_uint<SA_INP * BIT>> 
                         acc_tmp[i][j] = data_C_reg[i][j];
                     }
                 }
-                data_C_reg[i][j] = acc_tmp[i][j] + data_A_reg[i][j] * data_W_reg[i][j];
+                data_C_reg[i][j] = acc_tmp[i][j] + mul_tmp;
                 if (j < SA_OUP - 1)
                 {
                     data_A_reg[i][j + 1] = data_A_reg[i][j];
@@ -687,10 +674,14 @@ void ConvertToOutStream(stream<DataType> fifo_SA_O[MAX_A_ROW][MAX_A_COL][SA_OUP]
                     for (unsigned r = 0; r < MAX_A_ROW; r++)
                     {
                         if (r == 0)
+                        {
                             psum = 0;
+                        }
                         psum += fifo_SA_O[r][c][m].read();
                         if (r == MAX_A_ROW - 1)
+                        {
                             conv_out[c * SA_OUP + m].write(psum);
+                        }
                     }
                 }
             }
@@ -710,7 +701,8 @@ void ConvertToOutStream(stream<DataType> fifo_SA_O[MAX_A_ROW][MAX_A_COL][SA_OUP]
                     {
                         for (unsigned y = 0; y < SA_OUP; y++)
                         {
-                            mm_out[c * SA_OUP + y].write(fifo_SA_O[r][c][y].read());
+                            DataType temp = fifo_SA_O[r][c][y].read();
+                            mm_out[c * SA_OUP + y].write(temp);
                         }
                     }
                 }
@@ -719,14 +711,12 @@ void ConvertToOutStream(stream<DataType> fifo_SA_O[MAX_A_ROW][MAX_A_COL][SA_OUP]
     }
 }
 
-void ConvToOutStream(stream<DataType> fifo_CONV3_ACC[MAX_OUP], stream<DataType> CONV3_OUT[MAX_OUP], DataType *BIAS_BUF, unsigned OUT_R, unsigned OUT_C, unsigned N, unsigned M, unsigned K, bool bias_mode, bool mode)
+void ConvToOutStream(stream<DataType> fifo_CONV3_ACC[MAX_OUP], stream<DataType> CONV3_OUT[MAX_OUP], unsigned OUT_R, unsigned OUT_C, unsigned N, unsigned M, unsigned K, bool mode)
 {
     if (mode == false)
         return;
     DataType psum[14][MAX_OUP];
 #pragma HLS ARRAY_PARTITION dim = 2 type = complete variable = psum
-    DataType bias[MAX_OUP];
-#pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = bias
 Loop_R:
     for (unsigned r = 0; r < OUT_R; r++)
     {
@@ -755,15 +745,7 @@ Loop_R:
                         }
                         else
                         {
-                            if(bias_mode)
-                            {
-                                bias[s] = BIAS_BUF[rep * MAX_OUP + s];
-                                psum[c][s] = temp + bias[s];
-                            }
-                            else
-                            {
-                                psum[c][s] = temp;
-                            }
+                            psum[c][s] = temp;
                         }
                         if (j == N / MAX_INP * K * K - 1)
                         {
@@ -776,9 +758,9 @@ Loop_R:
     }
 }
 
-void storeOutput(stream<DataType> CONV_OUT[MAX_OUP], stream<DataType> MM_OUT[MAX_OUP], DataOutput *OUTPUT_BUF, unsigned out_r, unsigned out_c, unsigned m, bool mode)
+void storeOutput(stream<DataType> CONV_OUT[MAX_OUP], stream<DataType> MM_OUT[MAX_OUP], DataPack *OUTPUT_BUF, unsigned out_r, unsigned out_c, unsigned m, bool mode)
 {
-    DataOutput out_temp;
+    DataPack out_temp;
     DataType temp[MAX_OUP];
 #pragma HLS ARRAY_PARTITION dim = 1 type = complete variable = temp
     if (mode == true)
@@ -816,6 +798,7 @@ void storeOutput(stream<DataType> CONV_OUT[MAX_OUP], stream<DataType> MM_OUT[MAX
 #pragma HLS PIPELINE II = 1
                     for (unsigned i = 0; i < MAX_OUP; i++)
                     {
+#pragma HLS UNROLL
                         temp[i] = MM_OUT[i].read();
                         out_temp((i + 1) * BIT - 1, i * BIT) = temp[i](BIT - 1, 0);
                     }
