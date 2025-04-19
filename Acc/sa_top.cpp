@@ -269,24 +269,16 @@ void ConvertInputToArray(stream<DataPack> &conv3_sild, stream<DataPack> &mm_a, s
 void loadConvWeight(DataTrans *conv_w, DataPack WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF], unsigned num)
 {
     unsigned col = 0, depth = 0;
-    DataTrans temp;
     for (unsigned i = 0; i < num; i++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_K *CONV_TEST_K *CONV_TEST_N / MAX_TRANS *CONV_TEST_M min = CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_TRANS * CONV_TEST_M
 #pragma HLS PIPELINE II = 2
-        temp = conv_w[i];
+        DataTrans temp = conv_w[i];
         WEIGHT_BUF[col][depth](255, 0) = temp(255, 0);
         if (col == MAX_A_COL - 1)
         {
             col = 0;
-            if (depth == MAX_WEIGHT_BUF - 1)
-            {
-                depth = 0;
-            }
-            else
-            {
-                depth++;
-            }
+            depth++;
         }
         else
         {
@@ -296,14 +288,7 @@ void loadConvWeight(DataTrans *conv_w, DataPack WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT
         if (col == MAX_A_COL - 1)
         {
             col = 0;
-            if (depth == MAX_WEIGHT_BUF - 1)
-            {
-                depth = 0;
-            }
-            else
-            {
-                depth++;
-            }
+            depth++;
         }
         else
         {
@@ -314,12 +299,11 @@ void loadConvWeight(DataTrans *conv_w, DataPack WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT
 
 void loadMMWeight(DataTrans *mm_w, DataPack WEIGHT_BUF[MAX_WEIGHT_BUF], unsigned num)
 {
-    DataTrans temp;
     for (unsigned i = 0; i < num; i++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M *MM_TEST_N / MAX_OUP min = MM_TEST_M *MM_TEST_N / MAX_OUP
 #pragma HLS PIPELINE II = 2
-        temp = mm_w[i];
+        DataTrans temp = mm_w[i];
         WEIGHT_BUF[i << 1](255, 0) = temp(255, 0);
         WEIGHT_BUF[(i << 1) + 1](255, 0) = temp(511, 256);
     }
@@ -330,7 +314,6 @@ void ConvertWeightToStream(DataTrans *sa_w, stream<DataPack> fifo_conv_w[MAX_A_C
     DataPack WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF];
 #pragma HLS ARRAY_PARTITION variable = WEIGHT_BUF dim = 1 complete
 #pragma HLS bind_storage variable = WEIGHT_BUF type = RAM_2P impl = uram
-    DataPack temp;
     if (mode == true)
     {
         loadConvWeight(sa_w, WEIGHT_BUF, K * K * N / MAX_TRANS * M);
@@ -343,7 +326,7 @@ void ConvertWeightToStream(DataTrans *sa_w, stream<DataPack> fifo_conv_w[MAX_A_C
     #pragma HLS PIPELINE II = 1
                 for (int i = 0; i < MAX_A_COL; i++)
                 {
-                    temp = WEIGHT_BUF[i][j];
+                    DataPack temp = WEIGHT_BUF[i][j];
                     fifo_conv_w[i].write(temp);
                 }
             }
@@ -359,7 +342,7 @@ void ConvertWeightToStream(DataTrans *sa_w, stream<DataPack> fifo_conv_w[MAX_A_C
             {
         #pragma HLS LOOP_TRIPCOUNT max = MM_TEST_M *MM_TEST_N / MAX_OUP min = MM_TEST_M * MM_TEST_N / MAX_OUP
         #pragma HLS PIPELINE II = 1
-                temp = WEIGHT_BUF[0][i];
+                DataPack temp = WEIGHT_BUF[0][i];
                 fifo_mm_w.write(temp);
             }
         }
@@ -371,17 +354,16 @@ void ConvWeightToArray(stream<DataPack> fifo_W_in[MAX_A_COL], stream<ap_uint<SA_
 {
     if (mode == false)
         return;
-    DataPack w;
-    ap_uint<SA_INP * BIT> temp;
     for (unsigned rep = 0; rep < num_w_in; rep++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_K *CONV_TEST_K *CONV_TEST_N / MAX_INP *CONV_TEST_M / MAX_A_COL min = CONV_TEST_OUT_R * CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_M / MAX_A_COL
         for (unsigned c = 0; c < MAX_A_COL; c++)
         {
 #pragma HLS PIPELINE II = 1
-            w = fifo_W_in[c].read();
+            DataPack w = fifo_W_in[c].read();
             for (unsigned r = 0; r < MAX_A_ROW; r++)
             {
+                ap_uint<SA_INP * BIT> temp;
                 temp(SA_INP * BIT - 1, 0) = w(SA_INP * BIT - 1, 0);
                 fifo_W_out[r][c].write(temp);
                 w >>= SA_INP * BIT;

@@ -4,7 +4,7 @@
 #include "sfu.h"
 #include "pool.h"
 
-void acc_top(DataTrans *input, DataTrans *sa_w, DataTrans *bias, DataPack *pool_w, DataTrans *output, DataTrans *shortcut, DataTrans *norm, DataTrans *param_in, unsigned cnt, unsigned num_in);
+void acc_top(DataTrans *input, DataTrans *weight, DataTrans *bias, DataTrans *shortcut, DataTrans *norm, DataTrans *output, DataTrans *param_in, unsigned cnt, unsigned num_in);
 
 void loadParam(DataTrans *param_in, Param *Param_BUF, unsigned cnt);
  

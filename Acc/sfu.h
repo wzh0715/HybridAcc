@@ -10,7 +10,7 @@ void ConvertInputToStream(DataPack* RES_BUF, stream<DataType> sfu_in[MAX_OUP], u
 
 void ConvertShortCutToStream(DataTrans *shortcut, stream<DataType> shortcut_in[MAX_OUP], bool shortcut_mode, unsigned num);
 
-void SFU(stream<DataType> sfu_in[MAX_OUP], DataNorm *NORM_BUF, stream<DataType> sfu_out[MAX_OUP], unsigned R, unsigned C, unsigned M, unsigned num, unsigned sfu_mode, unsigned sa_mode);
+void SFU(stream<DataType> sfu_in[MAX_OUP], DataNorm *NORM_BUF, stream<DataType> sfu_out[MAX_OUP], unsigned R, unsigned C, unsigned M, unsigned sfu_mode, unsigned sa_mode);
 
 void batchNorm(stream<DataType> norm_in[MAX_OUP], DataNorm *NORM_BUF, stream<DataType> norm_out[MAX_OUP], unsigned R, unsigned C, unsigned M, unsigned sa_mode);
 

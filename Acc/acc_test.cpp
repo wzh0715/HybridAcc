@@ -1,232 +1,226 @@
 #include "acc_test.h"
+#include <chrono>
+using namespace std::chrono;
 
-
-// void sa_conv_test()
-// {
-//     DataType sa_in[CONV_TEST_R * CONV_TEST_C * CONV_TEST_N];
-//     DataType sa_conv_w[CONV_TEST_K][CONV_TEST_K][CONV_TEST_N][CONV_TEST_M];
-//     DataType bias[CONV_TEST_M];
-//     sa_gen_conv<CONV_TEST_R, CONV_TEST_C, CONV_TEST_N, CONV_TEST_M, CONV_TEST_K>(sa_in, sa_conv_w);
-
-//     DataType shortcut[CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M];
-//     DataType norm[2 * CONV_TEST_M];
-//     sfu_gen_conv<CONV_TEST_OUT_R, CONV_TEST_OUT_C, CONV_TEST_M>(shortcut, norm);
-
-//     /** 卷积正确结果 */
-//     DataType conv_gloden[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M];
-//     sa_gen_conv_output<CONV_TEST_R, CONV_TEST_C, CONV_TEST_N, CONV_TEST_M, CONV_TEST_K, CONV_TEST_S, CONV_TEST_P>(sa_in, sa_conv_w, conv_gloden);
-//     /** 重构卷积权重 */
-//     DataPack sa_conv_w_pack[CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / 16 * CONV_TEST_M];
-//     reorgConvWeight(sa_conv_w, sa_conv_w_pack);
-
-//     DataTrans pool_in[1];
-//     DataPack pool_w[1];
-//     DataParam param_in[1];
-//     DataTrans output[CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / 32];
-//     DataType norm_sfu[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M];
-//     DataType res_gloden[CONV_TEST_OUT_R][CONV_TEST_OUT_C][CONV_TEST_M];
-
-//     // CONV + NORM + shortcut + silu
-// #if defined(CONV_NORM_SHORTCUT_DEBUG)
-//     Param param[1]{CONV_TEST_R, CONV_TEST_C, CONV_TEST_N, CONV_TEST_M, CONV_TEST_K, CONV_TEST_P, CONV_TEST_S, 1, 0, true};
-//     conv_norm(conv_gloden, norm_sfu, norm);
-//     conv_relu(norm_sfu, shortcut, res_gloden, true);
-// #endif
-//     // CONV 
-// #if defined(CONV_DEBUG)
-//     Param param[1]{CONV_TEST_R, CONV_TEST_C, CONV_TEST_N, CONV_TEST_M, CONV_TEST_K, CONV_TEST_P, CONV_TEST_S, 1, 4, false};
-//     memcpy(res_gloden, conv_gloden, sizeof(DataType) * CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M);
-// #endif
-//     // CONV + NORM + SILU
-// #if defined(CONV_NORM_DEBUG)  
-//     Param param[1]{CONV_TEST_R, CONV_TEST_C, CONV_TEST_N, CONV_TEST_M, CONV_TEST_K, CONV_TEST_P, CONV_TEST_S, 1, 0, false};
-//     conv_norm(conv_gloden, norm_sfu, norm);
-//     conv_relu(norm_sfu, shortcut, res_gloden, false);
-// #endif
-//     /** 计算内核 */
-// #if defined(CONV_NORM_SHORTCUT_DEBUG) || defined(CONV_DEBUG) || defined(CONV_NORM_DEBUG)
-//     convert_param<1>(param, param_in);
-//     acc_top((DataTrans *)sa_in, (DataTrans *)sa_conv_w_pack, bias, pool_w, output, (DataPack *)shortcut, (DataNorm *)norm, param_in, 1, CONV_TEST_R * CONV_TEST_C * CONV_TEST_N / MAX_TRANS);
-// #endif
-//     /** 比较结果 */
-//     if (memcmp(output, res_gloden, sizeof(DataTrans) * CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_TRANS) != 0)
-//     {
-//         std::cout << "Output mismatch!" << std::endl;
-//     }
-//     else
-//     {
-//         std::cout << "Output match!" << std::endl;
-//     }
-//     for (int i = 0; i < CONV_TEST_OUT_R; i++)
-//     {
-//         for (int j = 0; j < CONV_TEST_OUT_C; j++)
-//         {
-//             for (int m = 0; m < CONV_TEST_M / MAX_TRANS; m++)
-//             {
-//                 DataTrans out_temp = output[i * CONV_TEST_OUT_C * CONV_TEST_M / MAX_TRANS + j * CONV_TEST_M / MAX_TRANS + m];
-//                 DataType temp;
-//                 for (int k = 0; k < MAX_TRANS; k++)
-//                 {
-//                     temp(BIT - 1, 0) = out_temp((k + 1) * BIT - 1, k * BIT);
-//                     // if(temp != res_gloden[i][j][m * MAX_TRANS + k])
-//                     // {
-//                         std::cout << "[r][c][m]: " << i << " " << j << " " << m * MAX_TRANS + k << "\t" << "out: " << temp << "\t"  << "ref : " << res_gloden[i][j][m * MAX_TRANS + k] << std::endl;
-//                     // }
-//                 }
-//             }
-//         }
-//     }
-// }
 void resconv()
 {
+    double total_time = 0.0;
     /** CONV */
-    DataType input[14 * 14 * 1024];
-    DataType conv1_w[1 * 1 * 1024 * 256];
+    static DataType input[14 * 14 * 1024];
+    static DataType conv1_w[1 * 1 * 1024 * 256];
     sa_gen_conv<14, 14, 1024, 256, 1>(input, conv1_w);
-    DataType conv1_gloden[14 * 14 * 256];
-    conv1_output<14, 14, 1024, 256, 1, 1, 0>(input, conv1_w, conv1_gloden);
+    static DataType conv1_gloden[14 * 14 * 256];
+    auto start = high_resolution_clock::now();
+    conv1_output<14, 14, 1024, 256, 1, 1, 0>(input, conv1_w, conv1_gloden);  // 20  5,120 
+    auto end = high_resolution_clock::now();
+    total_time += duration<double>(end - start).count();
     /** DP_CONV + BIAS + NORM + RELU */
-    DataType peg_w[3 * 3 * 256];
-    DataType peg_bias[256];
+    static DataType peg_w[3 * 3 * 256];
+    static DataType peg_bias[256];
     peg_gen<3, 256>(peg_w, peg_bias);
-    DataType peg_norm[2 * 256];
+    static DataType peg_norm[2 * 256];
     norm_gen<256>(peg_norm);
-    DataType peg_gloden[14 * 14 * 256];
-    dp_conv<14, 14, 256, 3, 1, 1>(conv1_gloden, peg_w, peg_bias, peg_norm, peg_gloden);
+    static DataType peg_gloden[14 * 14 * 256];
+    start = high_resolution_clock::now();
+    dp_conv<14, 14, 256, 3, 1, 1>(conv1_gloden, peg_w, peg_bias, peg_norm, peg_gloden); // 14 448
+    end = high_resolution_clock::now();
+    total_time += duration<double>(end - start).count();
     /** CONV + NORM + RELU */
-    // DataType conv2_w[3 * 3 * 256 * 256];
-    // sa_gen_conv<256, 256, 3>(conv2_w);
-    // DataType conv2_norm[2 * 256];
-    // norm_gen<256>(conv2_norm);
-    // DataType conv2_gloden[14 * 14 * 256];
-    // conv2_output<14, 14, 256, 256, 3, 1, 1>(peg_gloden, conv2_w, conv2_norm, conv2_gloden);
-
-    Param param[2]{{14, 14, 1024, 256, 1, 0, 1, 1, 4, false}, {14, 14, 256, 256, 3, 1, 1, 2, 0, false}};
+    static DataType conv2_w[3 * 3 * 256 * 256];
+    sa_gen_conv<256, 256, 3>(conv2_w);
+    static DataType conv2_norm[2 * 256];
+    norm_gen<256>(conv2_norm);
+    static DataType conv2_gloden[14 * 14 * 256];
+    start = high_resolution_clock::now();
+    conv2_output<14, 14, 256, 256, 3, 1, 1>(peg_gloden, conv2_w, conv2_norm, conv2_gloden); // 45  11,520
+    end = high_resolution_clock::now();
+    total_time += duration<double>(end - start).count();
+    /** CONV + NORM SHORTCUT + RELU */
+    static DataType shortcut[14 * 14 * 1024];
+    memcpy(shortcut, input, sizeof(input));
+    static DataType conv3_w[1 * 1 * 256 * 1024];
+    sa_gen_conv<256, 1024, 1>(conv3_w);
+    static DataType conv3_norm[2 * 1024];
+    norm_gen<1024>(conv3_norm);
+    static DataType conv3_gloden[14 * 14 * 1024];
+    start = high_resolution_clock::now();
+    conv3_output<14, 14, 256, 1024, 1, 1, 0>(conv2_gloden, conv3_w, conv3_norm, shortcut, conv3_gloden); // 20 5,120
+    end = high_resolution_clock::now();
+    total_time += duration<double>(end - start).count();
+    std::cout << "Total execution time: " << total_time << " seconds" << std::endl;
+    std::cout << "res_conv output reference end" << std::endl;
+    /** 参数构建 */
+    Param param[4]{{14, 14, 1024, 256, 1, 0, 1, 1, 4, false}, {14, 14, 256, 256, 3, 1, 1, 2, 0, false},
+                   {14, 14, 256, 256, 3, 1, 1, 1, 0, false}, {14, 14, 256, 1024, 1, 0, 1, 1, 0, true}};
     DataTrans param_in[1];
-    convert_param<2, 1>(param, param_in);
-    DataPack conv1_w_pack[1 * 1 * 1024 / 16 * 256];
+    convert_param<4, 1>(param, param_in);
+    /**权重构建 */
+    static DataPack conv1_w_pack[1 * 1 * 1024 * 256 / 16];
     reorgConvWeight<1024, 256, 1>(conv1_w, conv1_w_pack);
-    DataTrans shortcut[1];
-    DataTrans output[14 * 14 * 256 / MAX_TRANS];
-    acc_top((DataTrans *)input, (DataTrans *)conv1_w_pack, (DataTrans *)peg_bias, (DataPack *)peg_w, (DataTrans *)output, (DataTrans *)shortcut, (DataTrans *)peg_norm, (DataTrans *)param_in, 2, 14 * 14 * 1024 / MAX_TRANS);
+    static DataPack conv2_w_pack[3 * 3 * 256 * 256 / 16];
+    reorgConvWeight<256, 256, 3>(conv2_w, conv2_w_pack);
+    static DataPack conv3_w_pack[1 * 1 * 256 * 1024 / 16];
+    reorgConvWeight<256, 1024, 1>(conv3_w, conv3_w_pack);
+    unsigned weight_num = (sizeof(conv1_w_pack) + sizeof(peg_w) + sizeof(conv2_w_pack) + sizeof(conv3_w_pack)) / sizeof(DataTrans); // 34888
+    static DataTrans weight[34888];
+    unsigned weight_offset = 0;
+    memcpy((void*)weight, (void*)conv1_w_pack, sizeof(conv1_w_pack));
+    weight_offset += sizeof(conv1_w_pack) / sizeof(DataTrans);
+    memcpy((void*)(weight + weight_offset), (void*)peg_w, sizeof(peg_w));
+    weight_offset += sizeof(peg_w) / sizeof(DataTrans);
+    memcpy((void*)(weight + weight_offset), (void*)conv2_w_pack, sizeof(conv2_w_pack));
+    weight_offset += sizeof(conv2_w_pack) / sizeof(DataTrans);
+    memcpy((void*)(weight + weight_offset), (void*)conv3_w_pack, sizeof(conv3_w_pack));
+    /** 偏置构建 */
+    DataTrans bias[256 / MAX_TRANS];
+    memcpy((void*)bias, (void*)peg_bias, sizeof(peg_bias));
+    /** 归一化参数构建 */
+    unsigned norm_num = (sizeof(peg_norm) + sizeof(conv2_norm) + sizeof(conv3_norm)) / sizeof(DataTrans);
+    static DataTrans norm[96]; // 2 * 256 + 2 * 256 + 2 * 1024
+    unsigned norm_offset = 0;
+    memcpy((void*)norm, (void*)peg_norm, sizeof(peg_norm));
+    norm_offset += sizeof(peg_norm) / sizeof(DataTrans);
+    memcpy((void*)(norm + norm_offset), (void*)conv2_norm, sizeof(conv2_norm));
+    norm_offset += sizeof(conv2_norm) / sizeof(DataTrans);
+    memcpy((void*)(norm + norm_offset), (void*)conv3_norm, sizeof(conv3_norm));
+    /**计算结果 */
+    static DataTrans output[14 * 14 * 1024 / MAX_TRANS];
+    acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, output, param_in, 4, sizeof(input) / sizeof(DataTrans));
+    std::cout << "res_conv output result end" << std::endl;
     /** 比较结果 */
-    if (memcmp(output, peg_gloden, sizeof(DataTrans) * 14 * 14 * 256 / MAX_TRANS) != 0)
-    {
-        std::cout << "Output mismatch!" << std::endl;
-    }
-    else
-    {
-        std::cout << "Output match!" << std::endl;
-    }
-    for (int i = 0; i < 14; i++)
-    {
-        for (int j = 0; j < 14; j++)
-        {
-            for (int m = 0; m < 256 / MAX_TRANS; m++)
-            {
-                DataTrans out_temp = output[i * 14 * 256 / MAX_TRANS + j * 256 / MAX_TRANS + m];
-                DataType temp;
-                for (int k = 0; k < MAX_TRANS; k++)
-                {
-                    temp(BIT - 1, 0) = out_temp((k + 1) * BIT - 1, k * BIT);
-                    std::cout << "[r][c][m]: " << i << " " << j << " " << m * MAX_TRANS + k << "\t" << "out: " << temp << "\t"  << "ref : " << peg_gloden[i * 14 * 256 + j * 256 + m * MAX_TRANS + k] << std::endl;
-                }
-            }
-        }
-    }
-
-
-    // /** CONV + NORM SHORTCUT + RELU */
-    // DataType shortcut[14 * 14 * 1024];
-    // memcpy(shortcut, input, sizeof(DataType) * 14 * 14 * 1024);
-    // DataType conv3_w[1 * 1 * 256 * 1024];
-    // sa_gen_conv<256, 1024, 1>(conv3_w);
-    // DataType conv3_norm[2 * 1024];
-    // norm_gen<1024>(conv3_norm);
-    // DataType conv3_gloden[14 * 14 * 1024];
-    // conv3_output<14, 14, 256, 1024, 1, 1, 0>(conv2_gloden, conv3_w, conv3_norm, shortcut, conv3_gloden);
+    compare<14, 14, 1024>(output, conv3_gloden);
+    std::cout << "res_conv output compare end" << std::endl;
 }
 
 void resattn()
 {
     /** CONV */
-    DataType input[14 * 14 * 1024];
-    DataType conv1_w[1 * 1 * 1024 * 256];
+    static DataType input[14 * 14 * 1024];
+    static DataType conv1_w[1 * 1 * 1024 * 256];
     sa_gen_conv<14, 14, 1024, 256, 1>(input, conv1_w);
-    DataType conv1_gloden[14 * 14 * 256];
+    static DataType conv1_gloden[14 * 14 * 256];
     conv1_output<14, 14, 1024, 256, 1, 1, 0>(input, conv1_w, conv1_gloden);
     /** DP_CONV + BIAS + NORM + RELU */
-    DataType peg_w[3 * 3 * 256];
-    DataType peg_bias[256];
+    static DataType peg_w[3 * 3 * 256];
+    static DataType peg_bias[256];
     peg_gen<3, 256>(peg_w, peg_bias);
-    DataType peg_norm[2 * 256];
+    static DataType peg_norm[2 * 256];
     norm_gen<256>(peg_norm);
-    DataType peg_gloden[14 * 14 * 256];
+    static DataType peg_gloden[14 * 14 * 256];
     dp_conv<14, 14, 256, 3, 1, 1>(conv1_gloden, peg_w, peg_bias, peg_norm, peg_gloden);
     /** Attention */
-    DataType conv2_w[1 * 1 * 256 * 768];
+    static DataType conv2_w[1 * 1 * 256 * 768];
     sa_gen_conv<256, 768, 1>(conv2_w);
-    DataType conv2_gloden[14 * 14 * 768];
+    static DataType conv2_gloden[14 * 14 * 768];
     conv1_output<14, 14, 256, 768, 1, 1, 0>(peg_gloden, conv2_w, conv2_gloden);
-    DataType attn_gloden[14 * 14 * 256];
+    static DataType attn_gloden[14 * 14 * 256];
+    static DataType attn_norm[2 * 256];
+    norm_gen<256>(attn_norm);
+    DataType q[224 * 64], kT[64 * 224], v[224 * 64], qk[224 * 224], res_head[224 * 64];
     for(int i = 0; i < 4; i ++)
     {
-        DataType q[224 * 64], k[224 * 64], v[224 * 64], kT[64 * 224];;
-        for(int j = 0; j < 196; j ++)
-        {
-            memcpy(q + j * 64, conv2_gloden + j * 768 + i * 3 * 64 , sizeof(DataType) * 64);
-        }
-        for(int j = 196; j < 224; j ++)
-        {
-            memset(q + j * 64, 0, sizeof(DataType) * 64);
-        }
-        for(int j = 0; j < 196; j ++)
-        {
-            memcpy(k + j * 64, conv2_gloden + j * 768 + i * 3 * 64 + 64, sizeof(DataType) * 64);
-        }
-        for(int j = 196; j < 224; j ++)
-        {
-            memset(k + j * 64, 0, sizeof(DataType) * 64);
-        }
-        for(int j = 0; j < 196; j ++)
-        {
-            memcpy(v + j * 64, conv2_gloden + j * 768 + i * 3 * 64 + 64 * 2, sizeof(DataType) * 64);
-        }
-        for(int j = 196; j < 224; j ++)
-        {
-            memset(v + j * 64, 0, sizeof(DataType) * 64);
-        }
-        for (int row = 0; row < 224; row++)
-        {
-            for (int col = 0; col < 64; col++)
-            {
-                kT[col * 224 + row] = k[row * 64 + col];
-            }
-        }
-        DataType qk[224 * 224];
+        qkv(conv2_gloden, q, kT, v, i);
         mm_stage1_output<224, 64, 224>(q, kT, qk);
-        DataType head_norm[2 * 64];
-        norm_gen<64>(head_norm);
-        DataType res_head[224 * 64];
-        mm_stage2_output<224, 224, 64>(qk, v, head_norm, res_head);
+        mm_stage2_output<224, 224, 64>(qk, v, attn_norm + 2 * 64 * i, res_head);
         for(int j = 0; j < 196; j ++)
         {
             memcpy(attn_gloden + j * 256 + i * 64, res_head + j * 64, sizeof(DataType) * 64);
         }
     }
-    DataType shortcut[14 * 14 * 1024];
+    static DataType shortcut[14 * 14 * 1024];
     memcpy(shortcut, input, sizeof(DataType) * 14 * 14 * 1024);
-    DataType conv3_w[1 * 1 * 256 * 1024];
+    static DataType conv3_w[1 * 1 * 256 * 1024];
     sa_gen_conv<256, 1024, 1>(conv3_w);
-    DataType conv3_norm[2 * 1024];
+    static DataType conv3_norm[2 * 1024];
     norm_gen<1024>(conv3_norm);
-    DataType conv3_gloden[14 * 14 * 1024];
+    static DataType conv3_gloden[14 * 14 * 1024];
     conv3_output<14, 14, 256, 1024, 1, 1, 0>(attn_gloden, conv3_w, conv3_norm, shortcut, conv3_gloden);
+    std::cout << "res_attn output reference end" << std::endl;
+    /** 参数构建 */
+    Param param[3]{{14, 14, 1024, 256, 1, 0, 1, 1, 4, false}, {14, 14, 256, 256, 3, 1, 1, 2, 0, false},
+                   {14, 14, 256, 768, 1, 0, 1, 1, 4, false}};
+    static DataTrans param_in[1];
+    convert_param<3, 1>(param, param_in);
+    /**权重构建 */
+    static DataPack conv1_w_pack[1 * 1 * 1024 * 256 / 16]; // 8192
+    reorgConvWeight<1024, 256, 1>(conv1_w, conv1_w_pack);
+    static DataPack conv2_w_pack[1 * 1 * 256 * 768 / 16];  // 6144
+    reorgConvWeight<256, 768, 1>(conv2_w, conv2_w_pack);
+    unsigned weight_num = (sizeof(conv1_w_pack) + sizeof(peg_w) + sizeof(conv2_w_pack) ) / sizeof(DataTrans);
+    static DataTrans weight[34888]; // 8192 + 72 + 6144 = 14408
+    unsigned weight_offset = 0;
+    memcpy((void*)weight, (void*)conv1_w_pack, sizeof(conv1_w_pack));
+    weight_offset += sizeof(conv1_w_pack) / sizeof(DataTrans);
+    memcpy((void*)(weight + weight_offset), (void*)peg_w, sizeof(peg_w));
+    weight_offset += sizeof(peg_w) / sizeof(DataTrans);
+    memcpy((void*)(weight + weight_offset), (void*)conv2_w_pack, sizeof(conv2_w_pack));
+    /** 偏置构建 */
+    static DataTrans bias[8];
+    memcpy((void*)bias, (void*)peg_bias, sizeof(peg_bias));
+    /** 归一化参数构建 */
+    static DataTrans norm[96];
+    memcpy((void*)norm, (void*)peg_norm, sizeof(peg_norm));
+    /**计算结果 */
+    static DataTrans conv_out[14 * 14 * 1024 / MAX_TRANS];
+    acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, conv_out, param_in, 3, sizeof(input) / sizeof(DataTrans));
+    std::cout << "res_attn conv_out end" << std::endl;
+    /** Attention 部分 */
+    static DataPack q_pack[224 * 64 / 16], k_pack[224 * 64 / 16], v_pack[224 * 64 / 16], qk_pack[224 * 224 / 16];
+    static DataType attn_output[14 * 14 * 1024], temp[14 * 14 * 1024];
+    static Param attn_param[1];
+    static DataTrans attn_param_in[1];
+    for(int i = 0; i < 4; i ++)
+    {
+        qkv((DataType *)conv_out, q, kT, v, i);
+        /** MM + SOFTMAX */
+        attn_param[0]= {224, 0, 64, 224, 0, 0, 0, 0, 1, false};
+        convert_param<1, 1>(attn_param, attn_param_in);
+        reorgMMInput<224, 64>(q, q_pack);
+        memcpy((void*)input, (void*)q_pack, sizeof(q_pack));
+        reorgMMWeight<64, 224>(kT, k_pack);
+        memcpy((void*)weight, (void*)k_pack, sizeof(k_pack));
+        acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, (DataTrans *)temp, attn_param_in, 1, sizeof(q_pack) / sizeof(DataTrans));
+        memcpy((void*)qk, (void*)temp, sizeof(qk));
+        /** MM + NORM + RELU */
+        attn_param[0] = {224, 0, 224, 64, 0, 0, 0, 0, 0, false};
+        convert_param<1, 1>(attn_param, attn_param_in);
+        reorgMMInput<224, 224>(qk, qk_pack);
+        memcpy((void*)input, (void*)qk_pack, sizeof(qk_pack));
+        reorgMMWeight<224, 64>(v, v_pack);
+        memcpy((void*)weight, (void*)v_pack, sizeof(v_pack));
+        memcpy((void*)norm, (void*)(attn_norm + 2 * 64 * i), sizeof(DataType) * 2 * 64);
+        acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, (DataTrans *)temp, attn_param_in, 1, sizeof(qk_pack) / sizeof(DataTrans));
+        /** 存储到结果中 */
+        for(int j = 0; j < 196; j ++)
+        {
+            memcpy(attn_output + j * 256 + i * 64, temp + j * 64, sizeof(DataType) * 64);
+        }
+        std::cout << "attn head " << i + 1  << " end" << std::endl;
+    }
+    std::cout << "res_attn attntion end" << std::endl;
+    /** 参数构建 */
+    static Param param_res[1]{{14, 14, 256, 1024, 1, 0, 1, 1, 0, true}};
+    static DataTrans param_res_in[1];
+    convert_param<1, 1>(param_res, param_res_in);
+    /** 输入构建 */
+    memcpy((void*)input, (void*)attn_output, sizeof(attn_output));
+    /**权重构建 */
+    static DataPack conv3_w_pack[1 * 1 * 256 * 1024 / 16];
+    reorgConvWeight<256, 1024, 1>(conv3_w, conv3_w_pack);
+    memcpy((void*)weight, (void*)conv3_w_pack, sizeof(conv3_w_pack));
+    /** 归一化参数构建 */
+    memcpy((void*)norm, (void*)conv3_norm, sizeof(conv3_norm));
+    /**计算结果 */
+    static DataTrans res_out[14 * 14 * 1024 / MAX_TRANS];
+    acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, res_out, param_res_in, 1, sizeof(attn_output) / sizeof(DataTrans));
+    std::cout << "res_attn result end" << std::endl;
+    /** 比较结果 */
+    compare<14, 14, 1024>(res_out, conv3_gloden);
 }
 
 int main()
 {
-    resconv();
-    // resattn();
+    // resconv();
+    resattn();
     return 0;
 }

@@ -1,19 +1,23 @@
 #include "acc_top.h"
 
-void acc_top(DataTrans *input, DataTrans *sa_w, DataTrans *bias, DataPack *pool_w, DataTrans *output, DataTrans *shortcut, DataTrans *norm, DataTrans *param_in, unsigned cnt, unsigned num_in)
+void acc_top(DataTrans *input, DataTrans *weight, DataTrans *bias, DataTrans *shortcut, DataTrans *norm, DataTrans *output, DataTrans *param_in, unsigned cnt, unsigned num_in)
 {
-#pragma HLS INTERFACE m_axi bundle = bus1 port = input depth = 2048 max_write_burst_length = 1 num_write_outstanding = 1
-#pragma HLS INTERFACE m_axi bundle = bus1 port = sa_w depth = 576 max_write_burst_length = 1 num_write_outstanding = 1
-#pragma HLS INTERFACE m_axi bundle = bus2 port = bias depth = 32 max_write_burst_length = 1 num_write_outstanding = 1
-#pragma HLS INTERFACE m_axi bundle = bus1 port = pool_w depth = 36 max_write_burst_length = 1 num_write_outstanding = 1
-#pragma HLS INTERFACE m_axi bundle = bus4 port = output depth = 3136 max_read_burst_length = 1 num_read_outstanding = 1
-#pragma HLS INTERFACE m_axi bundle = bus2 port = shortcut depth = 3136 max_write_burst_length = 1 num_write_outstanding = 1
-#pragma HLS INTERFACE m_axi bundle = bus2 port = norm depth = 2048 max_write_burst_length = 1 num_write_outstanding = 1
-#pragma HLS INTERFACE m_axi bundle = bus3 port = param_in depth = 4 max_write_burst_length = 1 num_write_outstanding = 1
+#pragma HLS INTERFACE m_axi bundle = bus1 port = input    depth = 6272  max_write_burst_length = 1 num_write_outstanding = 1 // 14 * 14 * 1024 / 32
+#pragma HLS INTERFACE m_axi bundle = bus1 port = weight   depth = 34888 max_write_burst_length = 1 num_write_outstanding = 1 // 
+#pragma HLS INTERFACE m_axi bundle = bus2 port = bias     depth = 8     max_write_burst_length = 1 num_write_outstanding = 1 // 256 / 32
+#pragma HLS INTERFACE m_axi bundle = bus2 port = shortcut depth = 6272  max_write_burst_length = 1 num_write_outstanding = 1 // 14 * 14 * 1024 / 32
+#pragma HLS INTERFACE m_axi bundle = bus2 port = norm     depth = 96    max_write_burst_length = 1 num_write_outstanding = 1
+#pragma HLS INTERFACE m_axi bundle = bus4 port = output   depth = 6272  max_read_burst_length = 1  num_read_outstanding = 1  // 14 * 14 * 1024 / 32
+#pragma HLS INTERFACE m_axi bundle = bus3 port = param_in depth = 1     max_write_burst_length = 1 num_write_outstanding = 1
 
 #pragma HLS INTERFACE s_axilite bundle = control port = cnt
 #pragma HLS INTERFACE s_axilite bundle = control port = num_in
 #pragma HLS INTERFACE s_axilite bundle = control port = return
+
+    DataTrans *weight_addr = weight;
+    DataTrans *bias_addr = bias;
+    DataTrans *shortcut_addr = shortcut;
+    DataTrans *norm_addr = norm;
 
     DataPack INPUT_BUF[14 * 14 * 1024 / MAX_INP];
     DataPack OUTPUT_BUF[14 * 14 * 1024 / MAX_OUP];
@@ -37,7 +41,7 @@ void acc_top(DataTrans *input, DataTrans *sa_w, DataTrans *bias, DataPack *pool_
             loadInputToBuf(input, INPUT_BUF, num_in);
         }
         param = Param_BUF[rep];
-        std::cout << "param.r: " << param.r << " param.c: " << param.c << " param.n: " << param.n << " param.m: " << param.m << " param.k: " << param.k << " param.p: " << param.p << " param.s: " << param.s << " param.mode: " << param.mode << " param.sfu_mode: " << param.sfu_mode << " param.shortcut_mode: " << param.shortcut_mode << std::endl;
+//       std::cout << "param.r: " << param.r << " param.c: " << param.c << " param.n: " << param.n << " param.m: " << param.m << " param.k: " << param.k << " param.p: " << param.p << " param.s: " << param.s << " param.mode: " << param.mode << " param.sfu_mode: " << param.sfu_mode << " param.shortcut_mode: " << param.shortcut_mode << std::endl;
         if (param.mode == 1)
         {
             num_out = param.r * param.c * param.m / MAX_INP;
@@ -52,20 +56,35 @@ void acc_top(DataTrans *input, DataTrans *sa_w, DataTrans *bias, DataPack *pool_
         }
         if (param.mode != 2)
         {
-            sa_top(sa_w, INPUT_BUF, OUTPUT_BUF, param.r, param.c, param.n, param.m, param.k, param.p, param.s, param.mode);
+            sa_top(weight_addr, INPUT_BUF, OUTPUT_BUF, param.r, param.c, param.n, param.m, param.k, param.p, param.s, param.mode);
+            if(param.mode == 1)
+            {
+                weight_addr += param.k * param.k * param.n * param.m / MAX_TRANS;
+            }
+            else
+            {
+                weight_addr += param.n * param.m / MAX_TRANS;
+            }
         }
         else
         {
-            loadBiasToBuf(bias, BIAS_BUF, param.m);
-            pool_top(pool_w, INPUT_BUF, OUTPUT_BUF, BIAS_BUF, param.r, param.c, param.m, param.k, param.p, param.s);
+            loadBiasToBuf(bias_addr, BIAS_BUF, param.m);
+            pool_top(weight_addr, INPUT_BUF, OUTPUT_BUF, BIAS_BUF, param.r, param.c, param.m, param.k, param.p, param.s);
+            bias_addr += param.m / MAX_TRANS;
+            weight_addr += param.k * param.k * param.m / MAX_TRANS;
         }
         if (param.sfu_mode != 4)
         {
             if (param.sfu_mode == 0)
             {
-                loadNorm(norm, NORM_BUF, param.m);
+                loadNorm(norm_addr, NORM_BUF, param.m);
+                norm_addr += param.m / 16;
             }
-            sfu_top(OUTPUT_BUF, INPUT_BUF, NORM_BUF, shortcut, param.r, param.c, param.m, param.sfu_mode, param.shortcut_mode, param.mode);
+            sfu_top(OUTPUT_BUF, INPUT_BUF, NORM_BUF, shortcut_addr, param.r, param.c, param.m, param.sfu_mode, param.shortcut_mode, param.mode);
+            if(param.shortcut_mode)
+            {
+                shortcut_addr += param.r * param.c * param.m / MAX_TRANS;
+            }
         }
         else
         {

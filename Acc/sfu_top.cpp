@@ -16,13 +16,14 @@ void sfu_top(DataPack *OUTPUT_BUF, DataPack *INPUT_BUF, DataNorm *NORM_BUF, Data
 
     stream<DataType> sfu_out[MAX_OUP];
 #pragma HLS STREAM variable = sfu_out depth = 4
-    SFU(sfu_in, NORM_BUF, sfu_out, r, c, m, num_in, sfu_mode, sa_mode);
+    SFU(sfu_in, NORM_BUF, sfu_out, r, c, m, sfu_mode, sa_mode);
 
     stream<DataType> relu_out[MAX_OUP];
 #pragma HLS STREAM variable = relu_out depth = 32
     reLu(sfu_out, shortcut_in, relu_out, num_in, shortcut_mode, sfu_mode);
 
     storeOutPut(relu_out, INPUT_BUF, num_in);
+
 }
 
 void init(unsigned &num_in, unsigned r, unsigned c, unsigned m, unsigned sa_mode)
@@ -79,7 +80,7 @@ void ConvertShortCutToStream(DataTrans *shortcut, stream<DataType> shortcut_in[M
     }
 }
 
-void SFU(stream<DataType> sfu_in[MAX_OUP], DataNorm *NORM_BUF, stream<DataType> sfu_out[MAX_OUP], unsigned R, unsigned C, unsigned M, unsigned num, unsigned sfu_mode, unsigned sa_mode)
+void SFU(stream<DataType> sfu_in[MAX_OUP], DataNorm *NORM_BUF, stream<DataType> sfu_out[MAX_OUP], unsigned R, unsigned C, unsigned M, unsigned sfu_mode, unsigned sa_mode)
 {
     if(sfu_mode == 0)
     {
@@ -168,10 +169,8 @@ void softmax(stream<DataType> mm_out[MAX_OUP], stream<DataType> softmax_out[MAX_
 
     DataType SOFTMAX_BUF_0[MAX_OUP][MAX_SOFTMAX_LENGTH];
 #pragma HLS ARRAY_PARTITION variable = SOFTMAX_BUF_0 dim = 1 complete
-#pragma HLS bind_storage variable = SOFTMAX_BUF_0 type = RAM_2P impl = bram
     DataType SOFTMAX_BUF_1[MAX_OUP][MAX_SOFTMAX_LENGTH];
 #pragma HLS ARRAY_PARTITION variable = SOFTMAX_BUF_1 dim = 1 complete
-#pragma HLS bind_storage variable = SOFTMAX_BUF_1 type = RAM_2P impl = bram
 
     bool flag = true;
     bool trans = false;
@@ -188,6 +187,7 @@ Loop_Softmax:
         {
             SOFTMAX_WriteBUF(mm_out, SOFTMAX_BUF_1, tmax_M_pong, M);
             SOFTMAX_WriteStream(softmax_out, SOFTMAX_BUF_0, tmax_M_ping, M, trans);
+
         }
         trans = true;
         flag = !flag;
@@ -195,6 +195,7 @@ Loop_Softmax:
     if (flag)
     {
         SOFTMAX_WriteStream(softmax_out, SOFTMAX_BUF_1, tmax_M_pong, M, trans);
+
     }
     else
     {
@@ -204,8 +205,7 @@ Loop_Softmax:
 
 void SOFTMAX_WriteBUF(stream<DataType> in[MAX_OUP], DataType Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], DataType tmax_M[MAX_INP], unsigned M)
 {
-#pragma HLS INLINE OFF
-    unsigned num = M >> PACK_LOG2_BIT;
+    unsigned num = M / MAX_OUP;
     unsigned outdIdx = 0, w = 0, h = 0, index;
     DataType MAX_TempBuf[MAX_INP];
 #pragma HLS ARRAY_PARTITION variable = MAX_TempBuf complete dim = 1
@@ -216,7 +216,7 @@ void SOFTMAX_WriteBUF(stream<DataType> in[MAX_OUP], DataType Softmax_buf[MAX_OUP
     for (unsigned i = 0; i < MAX_INP; i++)
     {
 #pragma HLS UNROLL
-        MAX_TempBuf[i] = -128;
+        MAX_TempBuf[i] = -127;
     }
     for (unsigned r = 0; r < MAX_INP; r++)
     {
@@ -252,17 +252,19 @@ void FIND_MAX_VALUE(DataType OUP_TempBuf[MAX_OUP], DataType &MAX_Temp)
     DataType max_2[2];
 #pragma HLS ARRAY_PARTITION variable = max_2 dim = 1 complete
     DataType max;
-    for (unsigned i = 0; i < MAX_OUP / 2; i++)
+    for (unsigned i = 0; i < 8; i++)
     {
 #pragma HLS UNROLL
         max_0[i] = OUP_TempBuf[2 * i] > OUP_TempBuf[2 * i + 1] ? OUP_TempBuf[2 * i] : OUP_TempBuf[2 * i + 1];
     }
-    for (unsigned i = 0; i < MAX_OUP / 4; i++)
+    for (unsigned i = 0; i < 4; i++)
     {
+#pragma HLS UNROLL
         max_1[i] = max_0[2 * i] > max_0[2 * i + 1] ? max_0[2 * i] : max_0[2 * i + 1];
     }
-    for (unsigned i = 0; i < MAX_OUP / 8; i++)
+    for (unsigned i = 0; i < 2; i++)
     {
+#pragma HLS UNROLL
         max_2[i] = max_1[2 * i] > max_1[2 * i + 1] ? max_1[2 * i] : max_1[2 * i + 1];
     }
     max = max_2[0] > max_2[1] ? max_2[0] : max_2[1];
@@ -271,8 +273,6 @@ void FIND_MAX_VALUE(DataType OUP_TempBuf[MAX_OUP], DataType &MAX_Temp)
 
 void SOFTMAX_WriteStream(stream<DataType> res_out[MAX_OUP], DataType Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], DataType tmax_M[MAX_INP], unsigned M, bool tran_en)
 {
-#pragma HLS INLINE OFF
-
     if (!tran_en)
         return;
     DataType ONE_ROW_buf_ping[MAX_OUP][MM_M / MAX_OUP];

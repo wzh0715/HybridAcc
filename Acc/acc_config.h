@@ -10,13 +10,17 @@ using namespace std;
 
 #define MAX_INP 16
 #define MAX_OUP 16
+// #define MAX_INP 32
+// #define MAX_OUP 16
 #define MAX_TRANS 32    
 #define BIT 16
 #define NORM_BIT (2 * BIT)
 #define LOG2_BIT 4
 #define PACK_LOG2_BIT 4
+#define TRANS_LOG2_BIT 5
 
 typedef ap_fixed<16, 8> DataType;
+// typedef ap_int<8> DataType;
 typedef ap_uint<32 *  BIT> DataTrans;
 typedef ap_uint<16 * BIT> DataPack;
 typedef ap_uint<2 * BIT> DataNorm;
@@ -45,7 +49,7 @@ struct Param
 #define MAX_BUF_LENGTH (14 * 1024 / MAX_INP)
 #define MAX_WEIGHT_BUF (256 * 256 * 9 / MAX_INP / 4)
 /** SFU CONFIG */
-#define MM_M 64
+#define MM_M 224
 #define MAX_SOFTMAX_LENGTH (MAX_INP * MM_M / MAX_OUP) 
 /** POOL CONFIG */
 #define POOL_K 3
