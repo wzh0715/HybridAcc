@@ -4,7 +4,7 @@
 
 void init(unsigned &num_in, unsigned r, unsigned c, unsigned m, unsigned sa_mode);
 
-void sfu_top(DataPack *OUTPUT_BUF, DataPack *INPUT_BUF, DataNorm *NORM_BUF, DataTrans *shortcut, unsigned r, unsigned c, unsigned m, unsigned sfu_mode, bool shortcut_mode, unsigned sa_mode);
+void sfu_top(DataPack *OUTPUT_BUF, DataPack *INPUT_BUF, DataNorm *NORM_BUF, DataTrans *shortcut, DataTrans *output, unsigned r, unsigned c, unsigned m, unsigned sfu_mode, bool shortcut_mode, unsigned sa_mode, bool out_flag);
 
 void ConvertInputToStream(DataPack* RES_BUF, stream<DataType> sfu_in[MAX_OUP], unsigned num);
 
@@ -28,4 +28,4 @@ void SOFTMAX_STAGE1(DataType Softmax_buf[MAX_OUP][MAX_SOFTMAX_LENGTH], DataType 
 
 void SOFTMAX_STAGE2(DataType ONE_ROW_buf[MAX_OUP][MM_M / MAX_OUP], DataType Sum_buf, stream<DataType> res_out[MAX_OUP], unsigned M, bool tran_en);
 
-void storeOutPut(stream<DataType> Res[MAX_OUP], DataPack *RES_BUF_0, unsigned num);
+void storeOutPut(stream<DataType> res[MAX_OUP], DataPack *INPUT_BUF, DataTrans *output, unsigned num, bool out_flag);

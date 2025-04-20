@@ -1,12 +1,14 @@
 #pragma once
 
 #include "acc_top.h"
+#include <chrono>
+using namespace std::chrono;
 
 template <int N, int M, int K>
-void reorgConvWeight(DataType conv3_weight[K * K * N * M], DataPack *conv3_weight_re)
+void reorgConvWeight(DataType conv3_weight[K * K * N * M], DataTrans *conv3_weight_re)
 {
-    DataPack tmp;
-    DataPack conv3_tmp[MAX_OUP][K * K * N / MAX_INP * M / MAX_OUP];
+    DataTrans tmp;
+    DataTrans conv3_tmp[MAX_OUP][K * K * N / MAX_INP * M / MAX_OUP];
 
     for (int m = 0; m < M / MAX_OUP; m++)
     {
@@ -293,17 +295,17 @@ void conv3_output(DataType A[R * C * N], DataType W[K * K * N * M], DataType con
 }
 
 template <int R, int N>
-void reorgMMInput(DataType mm_in[R * N], DataPack mm_pack[R * N / MAX_INP])
+void reorgMMInput(DataType mm_in[R * N], DataTrans mm_pack[R * N / MAX_TRANS])
 {
-    for (int r = 0; r < R / MAX_INP; r++)
+    for (int r = 0; r < R / MAX_TRANS; r++)
     {
         for (unsigned i = 0; i < N; i++)
         {
-            DataPack temp;
-            for (int x = 0; x < MAX_INP; x++)
+            DataTrans temp;
+            for (int x = 0; x < MAX_TRANS; x++)
             {
                 temp = (temp >> BIT);
-                temp(MAX_INP * BIT - 1, (MAX_INP - 1) * BIT) = mm_in[(r * MAX_INP + x) * N + i](BIT - 1, 0);
+                temp(MAX_TRANS * BIT - 1, (MAX_TRANS - 1) * BIT) = mm_in[(r * MAX_TRANS + x) * N + i](BIT - 1, 0);
             }
             mm_pack[r * N + i] = temp;
         }

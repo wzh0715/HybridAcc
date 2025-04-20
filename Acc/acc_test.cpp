@@ -1,6 +1,4 @@
-#include "acc_test.h"
-#include <chrono>
-using namespace std::chrono;
+#include "../include/acc_test.h"
 
 void resconv()
 {
@@ -55,11 +53,11 @@ void resconv()
     DataTrans param_in[1];
     convert_param<4, 1>(param, param_in);
     /**权重构建 */
-    static DataPack conv1_w_pack[1 * 1 * 1024 * 256 / 16];
+    static DataTrans conv1_w_pack[1 * 1 * 1024 * 256 / 32];
     reorgConvWeight<1024, 256, 1>(conv1_w, conv1_w_pack);
-    static DataPack conv2_w_pack[3 * 3 * 256 * 256 / 16];
+    static DataTrans conv2_w_pack[3 * 3 * 256 * 256 / 32];
     reorgConvWeight<256, 256, 3>(conv2_w, conv2_w_pack);
-    static DataPack conv3_w_pack[1 * 1 * 256 * 1024 / 16];
+    static DataTrans conv3_w_pack[1 * 1 * 256 * 1024 / 32];
     reorgConvWeight<256, 1024, 1>(conv3_w, conv3_w_pack);
     unsigned weight_num = (sizeof(conv1_w_pack) + sizeof(peg_w) + sizeof(conv2_w_pack) + sizeof(conv3_w_pack)) / sizeof(DataTrans); // 34888
     static DataTrans weight[34888];
@@ -85,7 +83,7 @@ void resconv()
     memcpy((void*)(norm + norm_offset), (void*)conv3_norm, sizeof(conv3_norm));
     /**计算结果 */
     static DataTrans output[14 * 14 * 1024 / MAX_TRANS];
-    acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, output, param_in, 4, sizeof(input) / sizeof(DataTrans));
+    acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, output, param_in, 4);
     std::cout << "res_conv output result end" << std::endl;
     /** 比较结果 */
     compare<14, 14, 1024>(output, conv3_gloden);
@@ -142,9 +140,9 @@ void resattn()
     static DataTrans param_in[1];
     convert_param<3, 1>(param, param_in);
     /**权重构建 */
-    static DataPack conv1_w_pack[1 * 1 * 1024 * 256 / 16]; // 8192
+    static DataTrans conv1_w_pack[1 * 1 * 1024 * 256 / 32]; // 8192
     reorgConvWeight<1024, 256, 1>(conv1_w, conv1_w_pack);
-    static DataPack conv2_w_pack[1 * 1 * 256 * 768 / 16];  // 6144
+    static DataTrans conv2_w_pack[1 * 1 * 256 * 768 / 32];  // 6144
     reorgConvWeight<256, 768, 1>(conv2_w, conv2_w_pack);
     unsigned weight_num = (sizeof(conv1_w_pack) + sizeof(peg_w) + sizeof(conv2_w_pack) ) / sizeof(DataTrans);
     static DataTrans weight[34888]; // 8192 + 72 + 6144 = 14408
@@ -162,10 +160,11 @@ void resattn()
     memcpy((void*)norm, (void*)peg_norm, sizeof(peg_norm));
     /**计算结果 */
     static DataTrans conv_out[14 * 14 * 1024 / MAX_TRANS];
-    acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, conv_out, param_in, 3, sizeof(input) / sizeof(DataTrans));
+    acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, conv_out, param_in, 3);
     std::cout << "res_attn conv_out end" << std::endl;
     /** Attention 部分 */
-    static DataPack q_pack[224 * 64 / 16], k_pack[224 * 64 / 16], v_pack[224 * 64 / 16], qk_pack[224 * 224 / 16];
+    static DataTrans q_pack[224 * 64 / 32], qk_pack[224 * 224 / 32];
+    static DataPack k_pack[224 * 64 / 16], v_pack[224 * 64 / 16];
     static DataType attn_output[14 * 14 * 1024], temp[14 * 14 * 1024];
     static Param attn_param[1];
     static DataTrans attn_param_in[1];
@@ -179,7 +178,7 @@ void resattn()
         memcpy((void*)input, (void*)q_pack, sizeof(q_pack));
         reorgMMWeight<64, 224>(kT, k_pack);
         memcpy((void*)weight, (void*)k_pack, sizeof(k_pack));
-        acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, (DataTrans *)temp, attn_param_in, 1, sizeof(q_pack) / sizeof(DataTrans));
+        acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, (DataTrans *)temp, attn_param_in, 1);
         memcpy((void*)qk, (void*)temp, sizeof(qk));
         /** MM + NORM + RELU */
         attn_param[0] = {224, 0, 224, 64, 0, 0, 0, 0, 0, false};
@@ -189,7 +188,7 @@ void resattn()
         reorgMMWeight<224, 64>(v, v_pack);
         memcpy((void*)weight, (void*)v_pack, sizeof(v_pack));
         memcpy((void*)norm, (void*)(attn_norm + 2 * 64 * i), sizeof(DataType) * 2 * 64);
-        acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, (DataTrans *)temp, attn_param_in, 1, sizeof(qk_pack) / sizeof(DataTrans));
+        acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, (DataTrans *)temp, attn_param_in, 1);
         /** 存储到结果中 */
         for(int j = 0; j < 196; j ++)
         {
@@ -205,14 +204,14 @@ void resattn()
     /** 输入构建 */
     memcpy((void*)input, (void*)attn_output, sizeof(attn_output));
     /**权重构建 */
-    static DataPack conv3_w_pack[1 * 1 * 256 * 1024 / 16];
+    static DataTrans conv3_w_pack[1 * 1 * 256 * 1024 / 32];
     reorgConvWeight<256, 1024, 1>(conv3_w, conv3_w_pack);
     memcpy((void*)weight, (void*)conv3_w_pack, sizeof(conv3_w_pack));
     /** 归一化参数构建 */
     memcpy((void*)norm, (void*)conv3_norm, sizeof(conv3_norm));
     /**计算结果 */
     static DataTrans res_out[14 * 14 * 1024 / MAX_TRANS];
-    acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, res_out, param_res_in, 1, sizeof(attn_output) / sizeof(DataTrans));
+    acc_top((DataTrans *)input, weight, bias, (DataTrans *)shortcut, norm, res_out, param_res_in, 1);
     std::cout << "res_attn result end" << std::endl;
     /** 比较结果 */
     compare<14, 14, 1024>(res_out, conv3_gloden);
@@ -220,7 +219,7 @@ void resattn()
 
 int main()
 {
-    // resconv();
-    resattn();
+    resconv();
+    // resattn();
     return 0;
 }

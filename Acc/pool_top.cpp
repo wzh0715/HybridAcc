@@ -1,12 +1,10 @@
-#include "pool.h"
+#include "../include/pool.h"
 
 void pool_top(DataTrans *weight, DataPack *INPUT_BUF, DataPack *OUTPUT_BUF, DataType *BIAS_BUF, unsigned r, unsigned c, unsigned n, unsigned k, unsigned s, unsigned p)
 {
-    unsigned out_r = (r + 2 * p - k) / s + 1;
-    unsigned out_c = (c + 2 * p - k) / s + 1;
     unsigned row = 0, col = 0, nn = 0;
     unsigned pre_row, pre_col, pre_nn, sto_row, sto_col, sto_nn;
-    unsigned loop_cnt = out_r / Tr * out_c / Tc * n / MAX_TRANS;
+    unsigned loop_cnt = r / Tr * c / Tc * n / MAX_TRANS;
 
     bool flag = true;
     bool trans1 = false;
@@ -14,16 +12,20 @@ void pool_top(DataTrans *weight, DataPack *INPUT_BUF, DataPack *OUTPUT_BUF, Data
 
     DataType out_buf_0[Tr][Tc][MAX_TRANS];
 #pragma HLS ARRAY_PARTITION variable = out_buf_0 dim = 3 complete
+#pragma HLS BIND_STORAGE variable = out_buf_0 type = ram_2p impl = bram
     DataType out_buf_1[Tr][Tc][MAX_TRANS];
 #pragma HLS ARRAY_PARTITION variable = out_buf_1 dim = 3 complete
+#pragma HLS BIND_STORAGE variable = out_buf_1 type = ram_2p impl = bram
 
     DataTrans in_buf_0[POOL_S * Tr + POOL_K - POOL_S][POOL_S * Tc + POOL_K - POOL_S];
+#pragma HLS BIND_STORAGE variable = in_buf_0 type = ram_2p impl = bram
     DataTrans in_buf_1[POOL_S * Tr + POOL_K - POOL_S][POOL_S * Tc + POOL_K - POOL_S];
+#pragma HLS BIND_STORAGE variable = in_buf_1 type = ram_2p impl = bram
 
-    DataType w_buf_0[MAX_TRANS][POOL_K][POOL_K];
-#pragma HLS ARRAY_PARTITION variable = w_buf_0 dim = 1 complete
-    DataType w_buf_1[MAX_TRANS][POOL_K][POOL_K];
-#pragma HLS ARRAY_PARTITION variable = w_buf_1 dim = 1 complete
+    DataType w_buf_0[POOL_K][POOL_K][MAX_TRANS];
+#pragma HLS ARRAY_PARTITION variable = w_buf_0 dim = 3 complete
+    DataType w_buf_1[POOL_K][POOL_K][MAX_TRANS];
+#pragma HLS ARRAY_PARTITION variable = w_buf_1 dim = 3 complete
 
     DataType bias_buf_0[MAX_TRANS];
 #pragma HLS ARRAY_PARTITION variable = bias_buf_0 dim = 1 complete
@@ -40,7 +42,7 @@ void pool_top(DataTrans *weight, DataPack *INPUT_BUF, DataPack *OUTPUT_BUF, Data
             loadWeight(weight, w_buf_0, k, n, nn);
             loadBias(BIAS_BUF, bias_buf_0, nn);
             compute(in_buf_1, w_buf_1, out_buf_1, k, s, trans1);
-            storeOut(out_buf_0, OUTPUT_BUF, out_c, n, sto_row, sto_col, sto_nn, trans2);
+            storeOut(out_buf_0, OUTPUT_BUF, c, n, sto_row, sto_col, sto_nn, trans2);
         }
         else
         {
@@ -49,7 +51,7 @@ void pool_top(DataTrans *weight, DataPack *INPUT_BUF, DataPack *OUTPUT_BUF, Data
             loadWeight(weight, w_buf_1, k, n, nn);
             loadBias(BIAS_BUF, bias_buf_1, nn);
             compute(in_buf_0, w_buf_0, out_buf_0, k, s, trans1);
-            storeOut(out_buf_1, OUTPUT_BUF, out_c, n, sto_row, sto_col, sto_nn, trans2);
+            storeOut(out_buf_1, OUTPUT_BUF, c, n, sto_row, sto_col, sto_nn, trans2);
         }
         flag = !flag;
         trans2 = trans1;
@@ -63,7 +65,7 @@ void pool_top(DataTrans *weight, DataPack *INPUT_BUF, DataPack *OUTPUT_BUF, Data
         if (nn == n - MAX_TRANS)
         {
             nn = 0;
-            if (col == out_c - Tc)
+            if (col == c - Tc)
             {
                 col = 0;
                 row += Tr;
@@ -82,17 +84,15 @@ void pool_top(DataTrans *weight, DataPack *INPUT_BUF, DataPack *OUTPUT_BUF, Data
     {
         fillZeros(out_buf_1, bias_buf_1);
         compute(in_buf_1, w_buf_1, out_buf_1, k, s, trans1);
-        storeOut(out_buf_0, OUTPUT_BUF, out_c, n, sto_row, sto_col, sto_nn, trans2);
-        if (sto_nn + MAX_TRANS < n)
-            storeOut(out_buf_1, OUTPUT_BUF, out_c, n, sto_row, sto_col, sto_nn + MAX_TRANS, trans2);
+        storeOut(out_buf_0, OUTPUT_BUF, c, n, sto_row, sto_col, sto_nn, trans2);
+        storeOut(out_buf_1, OUTPUT_BUF, c, n, sto_row, sto_col, sto_nn + MAX_TRANS, trans2);
     }
     else
     {
         fillZeros(out_buf_0, bias_buf_0);
         compute(in_buf_0, w_buf_0, out_buf_0, k, s, trans1);
-        storeOut(out_buf_1, OUTPUT_BUF, out_c, n, sto_row, sto_col, sto_nn, trans2);
-        if (sto_nn + MAX_TRANS < n)
-            storeOut(out_buf_0, OUTPUT_BUF, out_c, n, sto_row, sto_col, sto_nn + MAX_TRANS, trans2);
+        storeOut(out_buf_1, OUTPUT_BUF, c, n, sto_row, sto_col, sto_nn, trans2);
+        storeOut(out_buf_0, OUTPUT_BUF, c, n, sto_row, sto_col, sto_nn + MAX_TRANS, trans2);
     }
 }
 
@@ -129,7 +129,7 @@ void loadIn(DataPack *RES_BUF, DataTrans in_buf[POOL_S * Tr + POOL_K - POOL_S][P
     }
 }
 
-void loadWeight(DataTrans *weight, DataType w_buf[MAX_TRANS][POOL_K][POOL_K], unsigned k, unsigned n, unsigned nn)
+void loadWeight(DataTrans *weight, DataType w_buf[POOL_K][POOL_K][MAX_TRANS], unsigned k, unsigned n, unsigned nn)
 {
     for (unsigned i = 0; i < k; i++)
     {
@@ -140,7 +140,7 @@ void loadWeight(DataTrans *weight, DataType w_buf[MAX_TRANS][POOL_K][POOL_K], un
             DataTrans temp = *(weight + i * k * (n >> TRANS_LOG2_BIT) + j * (n >> TRANS_LOG2_BIT) + (nn >> TRANS_LOG2_BIT));
             for (unsigned l = 0; l < MAX_TRANS; l++)
             {
-                w_buf[l][i][j](BIT - 1, 0) = temp((l + 1) * BIT - 1, l * BIT);
+                w_buf[i][j][l](BIT - 1, 0) = temp((l + 1) * BIT - 1, l * BIT);
             }
         }
     }
@@ -155,12 +155,10 @@ void loadBias(DataType *BIAS_BUF, DataType bias_buf[MAX_TRANS], unsigned nn)
     }
 }
 
-void compute(DataTrans in_buf[POOL_S * Tr + POOL_K - POOL_S][POOL_S * Tc + POOL_K - POOL_S], DataType w_buf[MAX_TRANS][POOL_K][POOL_K], DataType out_buf[Tr][Tc][MAX_TRANS], unsigned k, unsigned s, bool trans)
+void compute(DataTrans in_buf[POOL_S * Tr + POOL_K - POOL_S][POOL_S * Tc + POOL_K - POOL_S], DataType w_buf[POOL_K][POOL_K][MAX_TRANS], DataType out_buf[Tr][Tc][MAX_TRANS], unsigned k, unsigned s, bool trans)
 {
     if (!trans)
         return;
-    // if (pool_type == 2)
-    // {
         for (unsigned kx = 0; kx < k; kx++)
         {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_K min = CONV_TEST_K
@@ -177,61 +175,12 @@ void compute(DataTrans in_buf[POOL_S * Tr + POOL_K - POOL_S][POOL_S * Tc + POOL_
 #pragma HLS UNROLL
                             DataType in;
                             in(BIT - 1, 0) = in_buf[i * s + kx][j * s + ky]((nn + 1) * BIT - 1, nn * BIT);
-                            out_buf[i][j][nn] += in * w_buf[nn][kx][ky];
+                            out_buf[i][j][nn] += in * w_buf[kx][ky][nn];
                         }
                     }
                 }
             }
         }
-//     }
-//     else
-//     {
-//         DataType tmp;
-//         for (unsigned kx = 0; kx < k; kx++)
-//         {
-// #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_K min = CONV_TEST_K
-//             for (unsigned ky = 0; ky < k; ky++)
-//             {
-// #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_K min = CONV_TEST_K
-//                 for (unsigned i = 0; i < Tr; i++)
-//                 {
-//                     for (unsigned j = 0; j < Tc; j++)
-//                     {
-// #pragma HLS PIPELINE II = 1
-//                         for (unsigned nn = 0; nn < MAX_INP; nn++)
-//                         {
-// #pragma HLS UNROLL
-//                             tmp(BIT - 1, 0) = in_buf[i * s + kx][j * s + ky]((nn + 1) * BIT - 1, nn * BIT);
-//                             if (pool_type == 0)
-//                             {
-//                                 out_buf[i][j][nn] = MAX(tmp, out_buf[i][j][nn]);
-//                             }
-//                             else if (pool_type == 1)
-//                             {
-//                                 out_buf[i][j][nn] += tmp;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//         if (pool_type == 1)
-//         {
-//             DataType divisor = k * k;
-//             for (unsigned i = 0; i < Tr; i++)
-//             {
-//                 for (unsigned j = 0; j < Tc; j++)
-//                 {
-// #pragma HLS PIPELINE II = 1
-//                     for (unsigned nn = 0; nn < MAX_INP; nn++)
-//                     {
-// #pragma HLS UNROLL
-//                         out_buf[i][j][nn] /= divisor;
-//                     }
-//                 }
-//             }
-//         }
-//     }
 }
 
 void fillZeros(DataType out_buf[Tr][Tc][MAX_TRANS], DataType bias_buf[MAX_TRANS])
@@ -244,18 +193,7 @@ void fillZeros(DataType out_buf[Tr][Tc][MAX_TRANS], DataType bias_buf[MAX_TRANS]
             for (unsigned tn = 0; tn < MAX_TRANS; tn++)
             {
 #pragma HLS UNROLL
-                // if (pool_type == 2)
-                // {
-                    out_buf[tr][tc][tn] = bias_buf[tn];
-                // }
-                // else if (pool_type == 1)
-                // {
-                //     out_buf[tr][tc][tn] = 0;
-                // }
-                // else if (pool_type == 0)
-                // {
-                //     out_buf[tr][tc][tn] = -128;
-                // }
+                out_buf[tr][tc][tn] = bias_buf[tn];
             }
         }
     }

@@ -2,29 +2,33 @@
 
 #include "acc_config.h"
 
-void sa_top(DataTrans *sa_w, DataPack *INPUT_BUF, DataPack *OUTPUT_BUF, unsigned r, unsigned c, unsigned n, unsigned m, unsigned k, unsigned p, unsigned s, bool mode);
+void sa_top(DataTrans *sa_w, DataTrans *INPUT_BUF, DataTrans *input, DataPack *OUTPUT_BUF, unsigned r, unsigned c, unsigned n, unsigned m, unsigned k, unsigned p, unsigned s, bool mode, bool in_flag);
 
 void sa_init(unsigned& num_a_sa, unsigned& num_w_in, unsigned& num_w_sa, unsigned& num_out, unsigned& num, unsigned& out_r, unsigned& out_c, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
 
-void ConvertInputToStream(DataPack *RES_BUF, stream<DataPack> &conv_a, stream<DataPack> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M);
+void loadMMInput(DataTrans *A, DataTrans *INPUT_BUF, unsigned num);
 
-void Padding(stream<DataPack> &in, stream<DataPack> &out, unsigned R, unsigned C, unsigned N, unsigned P, bool mode);
+void WriteMMInputToStream(stream<DataTrans> &mm_a, DataTrans *INPUT_BUF, unsigned m, unsigned num, bool trans);
 
-void Sliding(stream<DataPack> &in, stream<DataPack> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
+void ConvertInputToStream(DataTrans *RES_BUF, DataTrans *input, stream<DataTrans> &conv_a, stream<DataTrans> &mm_a, bool mode, unsigned R, unsigned C, unsigned N, unsigned M, bool in_flag);
 
-void loadConvWeight(DataTrans *conv_w, DataPack WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF], unsigned num);
+void Padding(stream<DataTrans> &in, stream<DataTrans> &out, unsigned R, unsigned C, unsigned N, unsigned P, bool mode);
 
-void loadMMWeight(DataTrans *mm_w, DataPack WEIGHT_BUF[MAX_WEIGHT_BUF], unsigned num);
+void Sliding(stream<DataTrans> &in, stream<DataTrans> &out, unsigned R, unsigned C, unsigned N, unsigned M, unsigned K, unsigned P, unsigned S, bool mode);
 
-void ConvertWeightToStream(DataTrans *sa_w, stream<DataPack> fifo_conv_w[MAX_A_COL], stream<DataPack> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode);
+void ConvertInputToArray(stream<DataTrans> &conv3_sild, stream<DataTrans> &mm_a, stream<ap_uint<SA_INP * BIT>> out[MAX_A_ROW][MAX_A_COL], unsigned num_a_sa, bool mode);
 
-void ConvWeightToArray(stream<DataPack> fifo_W_in[MAX_A_COL], stream<ap_uint<SA_INP * BIT>> fifo_W_local_out[MAX_A_ROW][MAX_A_COL], unsigned num_w_in, bool mode);
+void loadConvWeight(DataTrans *conv_w, DataTrans WEIGHT_BUF[MAX_A_COL][MAX_WEIGHT_BUF], unsigned num);
+
+void loadMMWeight(DataTrans *mm_w, DataTrans WEIGHT_BUF[MAX_WEIGHT_BUF], unsigned num);
+
+void ConvertWeightToStream(DataTrans *sa_w, stream<DataTrans> fifo_conv_w[MAX_A_COL], stream<DataPack> &fifo_mm_w, unsigned R, unsigned N, unsigned K, unsigned M, unsigned P, unsigned S, bool mode);
+
+void ConvWeightToArray(stream<DataTrans> fifo_W_in[MAX_A_COL], stream<ap_uint<SA_INP * BIT>> fifo_W_local_out[MAX_A_ROW][MAX_A_COL], unsigned num_w_in, bool mode);
 
 void MMWeightToArray(stream<DataPack> &in, stream<ap_uint<SA_OUP * BIT>> out[MAX_A_ROW][MAX_A_COL], unsigned num_w_in, bool mode);
 
 void MuxWeightStream(stream<ap_uint<SA_INP * BIT>> Conv_SA_W[MAX_A_ROW][MAX_A_COL], stream<ap_uint<SA_OUP * BIT>> MM_SA_W[MAX_A_ROW][MAX_A_COL], stream<ap_uint<SA_OUP * BIT>> fifo_SA_W[MAX_A_ROW][MAX_A_COL], unsigned num_w_sa, bool mode);
-
-void ConvertInputToArray(stream<DataPack> &conv3_sild, stream<DataPack> &mm_a, stream<ap_uint<SA_INP * BIT>> out[MAX_A_ROW][MAX_A_COL], unsigned num_a_sa, bool mode);
 
 void PE(stream<ap_uint<SA_INP * BIT>> &fifo_A_in, stream<ap_uint<SA_INP * BIT>> &fifo_W_in, stream<DataType> fifo_C_out[SA_OUP], unsigned C, unsigned num_a_sa, bool mode);
 

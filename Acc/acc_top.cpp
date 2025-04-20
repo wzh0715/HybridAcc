@@ -1,25 +1,22 @@
-#include "acc_top.h"
+#include "../include/acc_top.h"
 
-void acc_top(DataTrans *input, DataTrans *weight, DataTrans *bias, DataTrans *shortcut, DataTrans *norm, DataTrans *output, DataTrans *param_in, unsigned cnt, unsigned num_in)
+void acc_top(DataTrans *input, DataTrans *weight, DataTrans *bias, DataTrans *shortcut, DataTrans *norm, DataTrans *output, DataTrans *param_in, unsigned cnt)
 {
-#pragma HLS INTERFACE m_axi bundle = bus1 port = input    depth = 6272  max_write_burst_length = 1 num_write_outstanding = 1 // 14 * 14 * 1024 / 32
-#pragma HLS INTERFACE m_axi bundle = bus1 port = weight   depth = 34888 max_write_burst_length = 1 num_write_outstanding = 1 // 
-#pragma HLS INTERFACE m_axi bundle = bus2 port = bias     depth = 8     max_write_burst_length = 1 num_write_outstanding = 1 // 256 / 32
-#pragma HLS INTERFACE m_axi bundle = bus2 port = shortcut depth = 6272  max_write_burst_length = 1 num_write_outstanding = 1 // 14 * 14 * 1024 / 32
-#pragma HLS INTERFACE m_axi bundle = bus2 port = norm     depth = 96    max_write_burst_length = 1 num_write_outstanding = 1
-#pragma HLS INTERFACE m_axi bundle = bus4 port = output   depth = 6272  max_read_burst_length = 1  num_read_outstanding = 1  // 14 * 14 * 1024 / 32
-#pragma HLS INTERFACE m_axi bundle = bus3 port = param_in depth = 1     max_write_burst_length = 1 num_write_outstanding = 1
+#pragma HLS INTERFACE m_axi bundle = bus0 port = input    depth = 6272   // 14 * 14 * 1024 / 32
+#pragma HLS INTERFACE m_axi bundle = bus1 port = weight   depth = 34888  // 
+#pragma HLS INTERFACE m_axi bundle = bus2 port = bias     depth = 8      // 256 / 32
+#pragma HLS INTERFACE m_axi bundle = bus2 port = shortcut depth = 6272   // 14 * 14 * 1024 / 32
+#pragma HLS INTERFACE m_axi bundle = bus2 port = norm     depth = 96   
+#pragma HLS INTERFACE m_axi bundle = bus2 port = output   depth = 6272    // 14 * 14 * 1024 / 32
+#pragma HLS INTERFACE m_axi bundle = bus2 port = param_in depth = 1     
 
 #pragma HLS INTERFACE s_axilite bundle = control port = cnt
-#pragma HLS INTERFACE s_axilite bundle = control port = num_in
 #pragma HLS INTERFACE s_axilite bundle = control port = return
 
     DataTrans *weight_addr = weight;
-    DataTrans *bias_addr = bias;
-    DataTrans *shortcut_addr = shortcut;
     DataTrans *norm_addr = norm;
 
-    DataPack INPUT_BUF[14 * 14 * 1024 / MAX_INP];
+    DataPack INPUT_BUF[14 * 14 * 1024 / MAX_OUP];
     DataPack OUTPUT_BUF[14 * 14 * 1024 / MAX_OUP];
 
     DataNorm NORM_BUF[1024];
@@ -30,6 +27,9 @@ void acc_top(DataTrans *input, DataTrans *weight, DataTrans *bias, DataTrans *sh
 
     Param Param_BUF[10];
 
+    bool out_flag = false;
+    bool in_flag = true;
+
     for (unsigned rep = 0; rep < cnt; rep++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = 1 min = 1
@@ -38,25 +38,25 @@ void acc_top(DataTrans *input, DataTrans *weight, DataTrans *bias, DataTrans *sh
         if (rep == 0)
         {
             loadParam(param_in, Param_BUF, cnt);
-            loadInputToBuf(input, INPUT_BUF, num_in);
         }
         param = Param_BUF[rep];
-//       std::cout << "param.r: " << param.r << " param.c: " << param.c << " param.n: " << param.n << " param.m: " << param.m << " param.k: " << param.k << " param.p: " << param.p << " param.s: " << param.s << " param.mode: " << param.mode << " param.sfu_mode: " << param.sfu_mode << " param.shortcut_mode: " << param.shortcut_mode << std::endl;
+        // std::cout << "param.r: " << param.r << " param.c: " << param.c << " param.n: " << param.n << " param.m: " << param.m << " param.k: " << param.k << " param.p: " << param.p << " param.s: " << param.s << " param.mode: " << param.mode << " param.sfu_mode: " << param.sfu_mode << " param.shortcut_mode: " << param.shortcut_mode << std::endl;
+        if(rep == cnt  - 1) out_flag = true;
         if (param.mode == 1)
         {
-            num_out = param.r * param.c * param.m / MAX_INP;
+            num_out = param.r * param.c * param.m / MAX_OUP;
         }
         else if (param.mode == 0)
         {
-            num_out = param.r * param.m / MAX_INP;
+            num_out = param.r * param.m / MAX_OUP;
         }
         else if (param.mode == 2)
         {
-            num_out = param.r * param.c * param.m / MAX_INP;
+            num_out = param.r * param.c * param.m / MAX_OUP;
         }
         if (param.mode != 2)
         {
-            sa_top(weight_addr, INPUT_BUF, OUTPUT_BUF, param.r, param.c, param.n, param.m, param.k, param.p, param.s, param.mode);
+            sa_top(weight_addr, (DataTrans *)INPUT_BUF, input, OUTPUT_BUF, param.r, param.c, param.n, param.m, param.k, param.p, param.s, param.mode, in_flag);
             if(param.mode == 1)
             {
                 weight_addr += param.k * param.k * param.n * param.m / MAX_TRANS;
@@ -65,12 +65,12 @@ void acc_top(DataTrans *input, DataTrans *weight, DataTrans *bias, DataTrans *sh
             {
                 weight_addr += param.n * param.m / MAX_TRANS;
             }
+            in_flag = false;
         }
         else
         {
-            loadBiasToBuf(bias_addr, BIAS_BUF, param.m);
+            loadBiasToBuf(bias, BIAS_BUF, param.m);
             pool_top(weight_addr, INPUT_BUF, OUTPUT_BUF, BIAS_BUF, param.r, param.c, param.m, param.k, param.p, param.s);
-            bias_addr += param.m / MAX_TRANS;
             weight_addr += param.k * param.k * param.m / MAX_TRANS;
         }
         if (param.sfu_mode != 4)
@@ -78,21 +78,17 @@ void acc_top(DataTrans *input, DataTrans *weight, DataTrans *bias, DataTrans *sh
             if (param.sfu_mode == 0)
             {
                 loadNorm(norm_addr, NORM_BUF, param.m);
-                norm_addr += param.m / 16;
+                norm_addr += param.m >> 4;
             }
-            sfu_top(OUTPUT_BUF, INPUT_BUF, NORM_BUF, shortcut_addr, param.r, param.c, param.m, param.sfu_mode, param.shortcut_mode, param.mode);
-            if(param.shortcut_mode)
-            {
-                shortcut_addr += param.r * param.c * param.m / MAX_TRANS;
-            }
+            sfu_top(OUTPUT_BUF, INPUT_BUF, NORM_BUF, shortcut, output, param.r, param.c, param.m, param.sfu_mode, param.shortcut_mode, param.mode, out_flag);
+        }
+        else if(out_flag)
+        {
+            accStoreOutPut(OUTPUT_BUF, output, num_out);
         }
         else
         {
             load_buf1_to_buf0(OUTPUT_BUF, INPUT_BUF, num_out);
-        }
-        if (rep == cnt - 1)
-        {
-            accStoreOutPut(INPUT_BUF, output, num_out);
         }
     }
 }
@@ -168,31 +164,18 @@ void loadBiasToBuf(DataTrans *bias, DataType *BIAS_BUF, unsigned M)
     }
 }
 
-void loadInputToBuf(DataTrans *input, DataPack *INPUT_BUF, unsigned num)
-{
-    DataTrans temp;
-    for (unsigned i = 0; i < num; i++)
-    {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_INP / 2 min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_INP / 2
-#pragma HLS PIPELINE II = 1
-        temp = input[i];
-        INPUT_BUF[i << 1](255, 0) = temp(255, 0);
-        INPUT_BUF[(i << 1) + 1](255, 0) = temp(511, 256);
-    }
-}
-
 void load_buf1_to_buf0(DataPack *OUTPUT_BUF, DataPack *INPUT_BUF, unsigned num)
 {
     for (unsigned i = 0; i < num; i++)
     {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_INP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_INP
+#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_OUP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP
 #pragma HLS PIPELINE II = 1
         DataPack temp = OUTPUT_BUF[i];
         INPUT_BUF[i] = temp;
     }
 }
 
-void accStoreOutPut(DataPack *INPUT_BUF, DataTrans *output, unsigned num)
+void accStoreOutPut(DataPack *OUTPUT_BUF, DataTrans *output, unsigned num)
 {
     DataTrans temp;
     unsigned loop_cnt = num >> 1;
@@ -200,8 +183,8 @@ void accStoreOutPut(DataPack *INPUT_BUF, DataTrans *output, unsigned num)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_INP / 2 min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_INP / 2
 #pragma HLS PIPELINE II = 1
-        temp(255, 0) = INPUT_BUF[i << 1];
-        temp(511, 256) = INPUT_BUF[(i << 1) + 1];
+        temp(255, 0) = OUTPUT_BUF[i << 1];
+        temp(511, 256) = OUTPUT_BUF[(i << 1) + 1];
         output[i] = temp;
     }
 }

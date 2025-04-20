@@ -1,29 +1,28 @@
-#include "sfu.h"
+#include "../include/sfu.h"
 
-void sfu_top(DataPack *OUTPUT_BUF, DataPack *INPUT_BUF, DataNorm *NORM_BUF, DataTrans *shortcut, unsigned r, unsigned c, unsigned m, unsigned sfu_mode, bool shortcut_mode, unsigned sa_mode)
+void sfu_top(DataPack *OUTPUT_BUF, DataPack *INPUT_BUF, DataNorm *NORM_BUF, DataTrans *shortcut, DataTrans *output, unsigned r, unsigned c, unsigned m, unsigned sfu_mode, bool shortcut_mode, unsigned sa_mode, bool out_flag)
 {
 #pragma HLS DATAFLOW
     unsigned num_in;
     init(num_in, r, c, m, sa_mode);
 
     stream<DataType> sfu_in[MAX_OUP];
-#pragma HLS STREAM variable = sfu_in depth = 32
+#pragma HLS STREAM variable = sfu_in depth = 64
     ConvertInputToStream(OUTPUT_BUF, sfu_in, num_in);
 
     stream<DataType> shortcut_in[MAX_OUP];
-#pragma HLS STREAM variable = shortcut_in depth = 32
-    ConvertShortCutToStream(shortcut, shortcut_in, shortcut_mode, num_in);
+#pragma HLS STREAM variable = shortcut_in depth = 64
+    ConvertShortCutToStream(shortcut, shortcut_in, shortcut_mode, num_in >> 1);
 
     stream<DataType> sfu_out[MAX_OUP];
 #pragma HLS STREAM variable = sfu_out depth = 4
     SFU(sfu_in, NORM_BUF, sfu_out, r, c, m, sfu_mode, sa_mode);
 
     stream<DataType> relu_out[MAX_OUP];
-#pragma HLS STREAM variable = relu_out depth = 32
+#pragma HLS STREAM variable = relu_out depth = 64
     reLu(sfu_out, shortcut_in, relu_out, num_in, shortcut_mode, sfu_mode);
 
-    storeOutPut(relu_out, INPUT_BUF, num_in);
-
+    storeOutPut(relu_out, INPUT_BUF, output, num_in >> 1, out_flag);
 }
 
 void init(unsigned &num_in, unsigned r, unsigned c, unsigned m, unsigned sa_mode)
@@ -40,15 +39,14 @@ void init(unsigned &num_in, unsigned r, unsigned c, unsigned m, unsigned sa_mode
 
 void ConvertInputToStream(DataPack* RES_BUF, stream<DataType> sfu_in[MAX_OUP], unsigned num)
 {
-    DataPack in;
-    DataType in_temp;
     for (unsigned rep = 0; rep < num; rep++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_OUP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP
 #pragma HLS PIPELINE II = 1
-        in = RES_BUF[rep];
+        DataPack in = RES_BUF[rep];
         for (unsigned i = 0; i < MAX_OUP; i++)
         {
+            DataType in_temp;
             in_temp(BIT - 1, 0) = in(((i + 1) << LOG2_BIT) - 1, i << LOG2_BIT);
             sfu_in[i].write(in_temp);
         }
@@ -59,20 +57,19 @@ void ConvertShortCutToStream(DataTrans *shortcut, stream<DataType> shortcut_in[M
 {
     if (!shortcut_mode)
         return;
-    DataTrans temp;
-    DataPack add;
-    DataType add_temp;
-    unsigned loop_cnt = num / 2;
-    for (unsigned rep = 0; rep < loop_cnt; rep++)
+    for (unsigned rep = 0; rep < num; rep++)
     {
 #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_OUP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP
 #pragma HLS PIPELINE II = 2
-        temp = shortcut[rep];
+        DataTrans temp = shortcut[rep];
         for(unsigned i = 0; i < 2; i++)
         {
+            DataPack add;
             add(255, 0) = temp((i + 1) * 256 - 1, i * 256);
             for (unsigned j = 0; j < MAX_OUP; j++)
             {
+#pragma HLS UNROLL
+                DataType add_temp;
                 add_temp(BIT - 1, 0) = add(((j + 1) << LOG2_BIT) - 1, j << LOG2_BIT);
                 shortcut_in[j].write(add_temp);
             }
@@ -372,18 +369,51 @@ void SOFTMAX_STAGE2(DataType ONE_ROW_buf[MAX_OUP][MM_M / MAX_OUP], DataType Sum_
     }
 }
 
-void storeOutPut(stream<DataType> res[MAX_OUP], DataPack *INPUT_BUF, unsigned num)
+void storeOutPut(stream<DataType> res[MAX_OUP], DataPack *INPUT_BUF, DataTrans *output, unsigned num, bool out_flag)
 {
-    DataPack out;
-    for (unsigned rep = 0; rep < num; rep++)
+    if(out_flag)
     {
-#pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_OUP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP
-#pragma HLS PIPELINE II = 1
-        for (unsigned i = 0; i < MAX_OUP; i++)
+        for (unsigned rep = 0; rep < num; rep++)
         {
-#pragma HLS UNROLL
-            out(((i + 1) << LOG2_BIT) - 1, i << LOG2_BIT) = res[i].read()(BIT - 1, 0);
+    #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_OUP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP
+    #pragma HLS PIPELINE II = 2
+            DataPack in1, in2;
+            DataTrans out;
+            for (unsigned i = 0; i < MAX_OUP; i++)
+            {
+    #pragma HLS UNROLL
+                in1(((i + 1) << LOG2_BIT) - 1, i << LOG2_BIT) = res[i].read()(BIT - 1, 0);
+            }
+            for (unsigned i = 0; i < MAX_OUP; i++)
+            {
+    #pragma HLS UNROLL
+                in2(((i + 1) << LOG2_BIT) - 1, i << LOG2_BIT) = res[i].read()(BIT - 1, 0);
+            }
+            out(255, 0) = in1(255, 0);
+            out(511, 256) = in2(255, 0);
+            output[rep] =  out;
+        }        
+    }
+    else
+    {
+        for (unsigned rep = 0; rep < num; rep++)
+        {
+    #pragma HLS LOOP_TRIPCOUNT max = CONV_TEST_OUT_R *CONV_TEST_OUT_C *CONV_TEST_M / MAX_OUP min = CONV_TEST_OUT_R * CONV_TEST_OUT_C * CONV_TEST_M / MAX_OUP
+    #pragma HLS PIPELINE II = 2
+            DataPack in1, in2;
+            DataTrans out;
+            for (unsigned i = 0; i < MAX_OUP; i++)
+            {
+    #pragma HLS UNROLL
+                in1(((i + 1) << LOG2_BIT) - 1, i << LOG2_BIT) = res[i].read()(BIT - 1, 0);
+            }
+            for (unsigned i = 0; i < MAX_OUP; i++)
+            {
+    #pragma HLS UNROLL
+                in2(((i + 1) << LOG2_BIT) - 1, i << LOG2_BIT) = res[i].read()(BIT - 1, 0);
+            }
+            INPUT_BUF[rep << 1] = in1;
+            INPUT_BUF[(rep << 1) + 1] = in2;
         }
-        INPUT_BUF[rep] = out;
     }
 }

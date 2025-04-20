@@ -8,10 +8,9 @@
 using namespace hls;
 using namespace std;
 
-#define MAX_INP 16
+#define MAX_INP 32
+// #define MAX_INP 16
 #define MAX_OUP 16
-// #define MAX_INP 32
-// #define MAX_OUP 16
 #define MAX_TRANS 32    
 #define BIT 16
 #define NORM_BIT (2 * BIT)
@@ -47,7 +46,7 @@ struct Param
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MAX_TEST_CYCLE (CONV_TEST_M / MAX_OUP * CONV_TEST_K * CONV_TEST_K * CONV_TEST_N / MAX_INP * CONV_TEST_OUT_C)
 #define MAX_BUF_LENGTH (14 * 1024 / MAX_INP)
-#define MAX_WEIGHT_BUF (256 * 256 * 9 / MAX_INP / 4)
+#define MAX_WEIGHT_BUF (256 * 256 * 9 / MAX_TRANS / 4)
 /** SFU CONFIG */
 #define MM_M 224
 #define MAX_SOFTMAX_LENGTH (MAX_INP * MM_M / MAX_OUP) 
@@ -61,8 +60,8 @@ struct Param
 #define CONV_TEST_C 14
 // #define CONV_TEST_R 1
 // #define CONV_TEST_C 4
-#define CONV_TEST_N 64
-#define CONV_TEST_M 64
+#define CONV_TEST_N 256
+#define CONV_TEST_M 256
 #define CONV_TEST_K 3
 #define CONV_TEST_P 1
 #define CONV_TEST_S 1
