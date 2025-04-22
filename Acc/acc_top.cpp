@@ -17,7 +17,9 @@ void acc_top(DataTrans *input, DataTrans *weight, DataTrans *bias, DataTrans *sh
     DataTrans *norm_addr = norm;
 
     DataPack INPUT_BUF[14 * 14 * 1024 / MAX_OUP];
+#pragma HLS bind_storage variable = INPUT_BUF type = RAM_2P impl = uram
     DataPack OUTPUT_BUF[14 * 14 * 1024 / MAX_OUP];
+#pragma HLS bind_storage variable = OUTPUT_BUF type = RAM_2P impl = uram
 
     DataNorm NORM_BUF[1024];
 #pragma HLS ARRAY_PARTITION variable = NORM_BUF dim = 1 cyclic factor = 32

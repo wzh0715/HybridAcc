@@ -524,16 +524,11 @@ void PE(stream<ap_uint<SA_INP * BIT>> &fifo_A_in, stream<ap_uint<SA_INP * BIT>> 
     {
 #pragma HLS LOOP_TRIPCOUNT max = (CONV_TEST_M / MAX_OUP) * (CONV_TEST_N / MAX_INP) *CONV_TEST_R *CONV_TEST_C *CONV_TEST_K *CONV_TEST_K + SA_OUP + SA_INP - 2 min = (CONV_TEST_M / MAX_OUP) * (CONV_TEST_N / MAX_INP) * CONV_TEST_R * CONV_TEST_C * CONV_TEST_K * CONV_TEST_K + SA_OUP + SA_INP - 2
 #pragma HLS PIPELINE II = 1
-
         /** Read A & W */
         if (rep < num_a_sa)
         {
             A_reg[0] = fifo_A_in.read();
-            if (mode == false)
-            {
-                W_reg[0] = fifo_W_in.read();
-            }
-            else if (flag < SA_OUP)
+            if (!(mode == true && flag >= SA_OUP))
             {
                 W_reg[0] = fifo_W_in.read();
             }
@@ -543,7 +538,6 @@ void PE(stream<ap_uint<SA_INP * BIT>> &fifo_A_in, stream<ap_uint<SA_INP * BIT>> 
             A_reg[0] = 0;
             W_reg[0] = 0;
         }
-
         /** A fetcher */
         for (unsigned i = 0; i < SA_INP; i++)
         {
@@ -559,7 +553,6 @@ void PE(stream<ap_uint<SA_INP * BIT>> &fifo_A_in, stream<ap_uint<SA_INP * BIT>> 
                 A_reg[i] >>= BIT;
             }
         }
-
         /** W fetcher */
         if (mode == false)
         {
@@ -582,7 +575,6 @@ void PE(stream<ap_uint<SA_INP * BIT>> &fifo_A_in, stream<ap_uint<SA_INP * BIT>> 
                 }
             }
         }
-
         if (mode == false)
         {
             for (unsigned m = SA_INP - 1; m > 0; m--)
@@ -602,7 +594,6 @@ void PE(stream<ap_uint<SA_INP * BIT>> &fifo_A_in, stream<ap_uint<SA_INP * BIT>> 
             for (int i = SA_INP - 1; i >= 0; i--)
             {
 #pragma HLS UNROLL
-                DataType mul_tmp = data_A_reg[i][j] * data_W_reg[i][j];
                 if (mode == true)
                 {
                     if (i == SA_INP - 1)
@@ -625,7 +616,7 @@ void PE(stream<ap_uint<SA_INP * BIT>> &fifo_A_in, stream<ap_uint<SA_INP * BIT>> 
                         acc_tmp[i][j] = data_C_reg[i][j];
                     }
                 }
-                data_C_reg[i][j] = acc_tmp[i][j] + mul_tmp;
+                data_C_reg[i][j] = acc_tmp[i][j] + data_A_reg[i][j] * data_W_reg[i][j];
                 if (j < SA_OUP - 1)
                 {
                     data_A_reg[i][j + 1] = data_A_reg[i][j];
